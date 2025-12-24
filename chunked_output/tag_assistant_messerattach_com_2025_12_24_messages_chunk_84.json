@@ -1,0 +1,1475 @@
+{
+  "chunk_number": 84,
+  "total_messages": 5,
+  "messages": [
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 5,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": false,
+            "update": false,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Set",
+        "eventName": "gtag.set",
+        "originatingEntity": {
+          "entityType": 1,
+          "indexInOriginContainer": 9,
+          "nameInOriginContainer": "Complianz.io - The Privacy Suite for WordPress",
+          "originContainerId": "GTM-MNRP4PF",
+          "originCId": "134846891"
+        },
+        "tagInfo": [],
+        "groupId": "252411780595663",
+        "eventId": 12,
+        "priorityId": 3,
+        "gtagCommandModel": {
+          "inPageCommand": false,
+          "commandType": "set",
+          "commandData": {
+            "url_passthrough": true
+          },
+          "parentContainerId": "GTM-MNRP4PF"
+        },
+        "message": {
+          "url_passthrough": true,
+          "gtm.uniqueEventId": 12,
+          "gtm.priorityId": 3
+        },
+        "messageString": "{url_passthrough: true, gtm.uniqueEventId: 12, gtm.priorityId: 3}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 12, priorityId: 3},\n  event: \"gtm.init_consent\",\n  ads_data_redaction: false,\n  url_passthrough: true\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "undefined",
+            "params": [],
+            "internalParams": [],
+            "resolvedValue": "undefined",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 12,
+            "priorityId": 3
+          },
+          "event": "gtm.init_consent",
+          "ads_data_redaction": false,
+          "url_passthrough": true
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 4,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": false,
+            "update": false,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Set",
+        "eventName": "gtag.set",
+        "originatingEntity": {
+          "entityType": 1,
+          "indexInOriginContainer": 9,
+          "nameInOriginContainer": "Complianz.io - The Privacy Suite for WordPress",
+          "originContainerId": "GTM-MNRP4PF",
+          "originCId": "134846891"
+        },
+        "tagInfo": [],
+        "groupId": "252411780595663",
+        "eventId": 12,
+        "priorityId": 2,
+        "gtagCommandModel": {
+          "inPageCommand": false,
+          "commandType": "set",
+          "commandData": {
+            "ads_data_redaction": false
+          },
+          "parentContainerId": "GTM-MNRP4PF"
+        },
+        "message": {
+          "ads_data_redaction": false,
+          "gtm.uniqueEventId": 12,
+          "gtm.priorityId": 2
+        },
+        "messageString": "{ads_data_redaction: false, gtm.uniqueEventId: 12, gtm.priorityId: 2}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 12, priorityId: 2},\n  event: \"gtm.init_consent\",\n  ads_data_redaction: false\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "undefined",
+            "params": [],
+            "internalParams": [],
+            "resolvedValue": "undefined",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 12,
+            "priorityId": 2
+          },
+          "event": "gtm.init_consent",
+          "ads_data_redaction": false
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 3,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": false,
+            "update": false,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Set",
+        "eventName": "gtag.set",
+        "originatingEntity": {
+          "entityType": 1,
+          "indexInOriginContainer": 9,
+          "nameInOriginContainer": "Complianz.io - The Privacy Suite for WordPress",
+          "originContainerId": "GTM-MNRP4PF",
+          "originCId": "134846891"
+        },
+        "tagInfo": [],
+        "groupId": "252411780595663",
+        "eventId": 12,
+        "priorityId": 1,
+        "gtagCommandModel": {
+          "inPageCommand": false,
+          "commandType": "set",
+          "commandData": {
+            "developer_id.dYWVlZG": true
+          },
+          "parentContainerId": "GTM-MNRP4PF"
+        },
+        "message": {
+          "developer_id.dYWVlZG": true,
+          "gtm.uniqueEventId": 12,
+          "gtm.priorityId": 1
+        },
+        "messageString": "{developer_id.dYWVlZG: true, gtm.uniqueEventId: 12, gtm.priorityId: 1}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 12, priorityId: 1},\n  event: \"gtm.init_consent\"\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "undefined",
+            "params": [],
+            "internalParams": [],
+            "resolvedValue": "undefined",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 12,
+            "priorityId": 1
+          },
+          "event": "gtm.init_consent"
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 2,
+        "eventNameKey": "gtm.init_consent",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": false,
+            "update": false,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Consent Initialization",
+        "eventName": "gtm.init_consent",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "252411780595663",
+        "eventId": 12,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.init_consent"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.init_consent"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "gtm.init_consent",
+          "gtm.uniqueEventId": 12
+        },
+        "messageString": "{event: \"gtm.init_consent\", gtm.uniqueEventId: 12}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true},\n  gtm: {uniqueEventId: 12},\n  event: \"gtm.init_consent\"\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "gtm.init_consent",
+            "resolvedValue": "\"gtm.init_consent\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true
+          },
+          "gtm": {
+            "uniqueEventId": 12
+          },
+          "event": "gtm.init_consent"
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 1,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": false,
+            "update": false,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Set",
+        "eventName": "gtag.set",
+        "tagInfo": [],
+        "groupId": "252411780595663",
+        "eventId": 1,
+        "gtagCommandModel": {
+          "inPageCommand": true,
+          "commandType": "set",
+          "commandData": {
+            "developer_id.dYzg1YT": true
+          }
+        },
+        "message": {
+          "developer_id.dYzg1YT": true,
+          "gtm.uniqueEventId": 1
+        },
+        "messageString": "{developer_id.dYzg1YT: true, gtm.uniqueEventId: 1}",
+        "abstractModelString": "{developer_id: {dYzg1YT: true}, gtm: {uniqueEventId: 1}}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "undefined",
+            "params": [],
+            "internalParams": [],
+            "resolvedValue": "undefined",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true
+          },
+          "gtm": {
+            "uniqueEventId": 1
+          }
+        }
+      }
+    }
+  ]
+}

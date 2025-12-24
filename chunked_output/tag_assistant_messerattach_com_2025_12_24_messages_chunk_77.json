@@ -1,0 +1,6258 @@
+{
+  "chunk_number": 77,
+  "total_messages": 12,
+  "messages": [
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 89,
+        "eventNameKey": "gtm.load",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Window Loaded",
+        "eventName": "gtm.load",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 207,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.load"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.load"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "gtm.load",
+          "gtm.uniqueEventId": 207
+        },
+        "messageString": "{event: \"gtm.load\", gtm.uniqueEventId: 207}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 207, priorityId: 3, start: 1766544309728},\n  event: \"gtm.load\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "gtm.load",
+            "resolvedValue": "\"gtm.load\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 207,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "gtm.load",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 88,
+        "eventNameKey": "gtm.dom",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "DOM Ready",
+        "eventName": "gtm.dom",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 195,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.dom"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.dom"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "gtm.dom",
+          "gtm.uniqueEventId": 195
+        },
+        "messageString": "{event: \"gtm.dom\", gtm.uniqueEventId: 195}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 195, priorityId: 3, start: 1766544309728},\n  event: \"gtm.dom\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "gtm.dom",
+            "resolvedValue": "\"gtm.dom\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 195,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "gtm.dom",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 87,
+        "eventNameKey": "cmplz_event_functional",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "cmplz_event_functional",
+        "eventName": "cmplz_event_functional",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 183,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_functional"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_functional"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "cmplz_event_functional",
+          "gtm.uniqueEventId": 183
+        },
+        "messageString": "{event: \"cmplz_event_functional\", gtm.uniqueEventId: 183}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 183, priorityId: 3, start: 1766544309728},\n  event: \"cmplz_event_functional\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "cmplz_event_functional",
+            "resolvedValue": "\"cmplz_event_functional\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 183,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "cmplz_event_functional",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 86,
+        "eventNameKey": "cmplz_event_preferences",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "cmplz_event_preferences",
+        "eventName": "cmplz_event_preferences",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 171,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_preferences"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_preferences"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "cmplz_event_preferences",
+          "gtm.uniqueEventId": 171
+        },
+        "messageString": "{event: \"cmplz_event_preferences\", gtm.uniqueEventId: 171}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 171, priorityId: 3, start: 1766544309728},\n  event: \"cmplz_event_preferences\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "cmplz_event_preferences",
+            "resolvedValue": "\"cmplz_event_preferences\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 171,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "cmplz_event_preferences",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 85,
+        "eventNameKey": "cmplz_event_marketing",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "cmplz_event_marketing",
+        "eventName": "cmplz_event_marketing",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 159,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_marketing"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_marketing"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "cmplz_event_marketing",
+          "gtm.uniqueEventId": 159
+        },
+        "messageString": "{event: \"cmplz_event_marketing\", gtm.uniqueEventId: 159}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 159, priorityId: 3, start: 1766544309728},\n  event: \"cmplz_event_marketing\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "cmplz_event_marketing",
+            "resolvedValue": "\"cmplz_event_marketing\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 159,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "cmplz_event_marketing",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 84,
+        "eventNameKey": "cmplz_event_statistics",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "cmplz_event_statistics",
+        "eventName": "cmplz_event_statistics",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 147,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_statistics"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "cmplz_event_statistics"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "cmplz_event_statistics",
+          "gtm.uniqueEventId": 147
+        },
+        "messageString": "{event: \"cmplz_event_statistics\", gtm.uniqueEventId: 147}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 147, priorityId: 3, start: 1766544309728},\n  event: \"cmplz_event_statistics\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "cmplz_event_statistics",
+            "resolvedValue": "\"cmplz_event_statistics\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 147,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "cmplz_event_statistics",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 83,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          },
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          }
+        },
+        "title": "Container Loaded",
+        "eventName": "gtm.js",
+        "tagInfo": [],
+        "groupId": "5501339822297255",
+        "message": {
+          "gtm.start": 1766544309728,
+          "event": "gtm.js",
+          "gtm.uniqueEventId": 136
+        },
+        "messageString": "{gtm.start: 1766544309728, event: \"gtm.js\", gtm.uniqueEventId: 136}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 136, priorityId: 3, start: 1766544309728},\n  event: \"gtm.js\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "gtm.js",
+            "resolvedValue": "\"gtm.js\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 136,
+            "priorityId": 3,
+            "start": 1766544309728
+          },
+          "event": "gtm.js",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 82,
+        "eventNameKey": "view_item",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "view_item",
+        "eventName": "view_item",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 124,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "view_item"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "view_item"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "view_item",
+          "ecomm_pagetype": "product",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "user_data": [],
+          "gtm.uniqueEventId": 124
+        },
+        "messageString": "{\n  event: \"view_item\",\n  ecomm_pagetype: \"product\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-\" +\n                  \"648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  user_data: [],\n  gtm.uniqueEventId: 124\n}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 124, priorityId: 3, start: 1766544309695},\n  event: \"view_item\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: {\n    currency: \"USD\",\n    value: \"4245.00\",\n    items: [\n      {\n        item_name: \"75&quot; Manure Fork Grapple\",\n        item_brand: \"\",\n        item_id: \"1119\",\n        item_sku: \"MFG75\",\n        price: \"4245.00\",\n        imageUrl: \"https://messerattach.com/wp-content/uploads/2019/1\" +\n                  \"1/img-0097-2-scaled-500x500-648992afc8eaf-min.webp\",\n        item_category: \"Attachments\"\n      }\n    ]\n  },\n  ecomm_pagetype: \"product\",\n  user_data: []\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "view_item",
+            "resolvedValue": "\"view_item\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 124,
+            "priorityId": 3,
+            "start": 1766544309695
+          },
+          "event": "view_item",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": {
+            "currency": "USD",
+            "value": "4245.00",
+            "items": [
+              {
+                "item_name": "75&quot; Manure Fork Grapple",
+                "item_brand": "",
+                "item_id": "1119",
+                "item_sku": "MFG75",
+                "price": "4245.00",
+                "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/img-0097-2-scaled-500x500-648992afc8eaf-min.webp",
+                "item_category": "Attachments"
+              }
+            ]
+          },
+          "ecomm_pagetype": "product",
+          "user_data": []
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 81,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          },
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          }
+        },
+        "title": "Message",
+        "tagInfo": [],
+        "groupId": "5501339822297255",
+        "message": {
+          "ecommerce": null
+        },
+        "messageString": "{ecommerce: null}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 102, priorityId: 3, start: 1766544309695},\n  event: \"user_init\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\",\n  ecommerce: null\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "undefined",
+            "params": [],
+            "internalParams": [],
+            "resolvedValue": "undefined",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 102,
+            "priorityId": 3,
+            "start": 1766544309695
+          },
+          "event": "user_init",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "ecommerce": null
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 80,
+        "eventNameKey": "user_init",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "user_init",
+        "eventName": "user_init",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 102,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "user_init"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "user_init"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "event": "user_init",
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+          "gtm.uniqueEventId": 102
+        },
+        "messageString": "{event: \"user_init\", user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\", gtm.uniqueEventId: 102}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 102, priorityId: 3, start: 1766544309695},\n  event: \"user_init\",\n  ads_data_redaction: false,\n  url_passthrough: true,\n  user_id: \"guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc\"\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "user_init",
+            "resolvedValue": "\"user_init\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 102,
+            "priorityId": 3,
+            "start": 1766544309695
+          },
+          "event": "user_init",
+          "ads_data_redaction": false,
+          "url_passthrough": true,
+          "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc"
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 79,
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          },
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          }
+        },
+        "title": "Container Loaded",
+        "eventName": "gtm.js",
+        "tagInfo": [],
+        "groupId": "5501339822297255",
+        "message": {
+          "gtm.start": 1766544309695,
+          "event": "gtm.js",
+          "gtm.uniqueEventId": 91
+        },
+        "messageString": "{gtm.start: 1766544309695, event: \"gtm.js\", gtm.uniqueEventId: 91}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 91, priorityId: 3, start: 1766544309695},\n  event: \"gtm.js\",\n  ads_data_redaction: false,\n  url_passthrough: true\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "gtm.js",
+            "resolvedValue": "\"gtm.js\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 91,
+            "priorityId": 3,
+            "start": 1766544309695
+          },
+          "event": "gtm.js",
+          "ads_data_redaction": false,
+          "url_passthrough": true
+        }
+      }
+    },
+    {
+      "_container_id": "GT-NS9Z5FWG",
+      "_container_canonical_id": "193719787",
+      "message": {
+        "index": 78,
+        "eventNameKey": "gtm.js",
+        "navType": "MESSAGE",
+        "consentData": {
+          "consentList": [
+            {
+              "type": "ad_storage",
+              "status": "granted"
+            },
+            {
+              "type": "ad_personalization",
+              "status": "granted"
+            },
+            {
+              "type": "ad_user_data",
+              "status": "granted"
+            },
+            {
+              "type": "analytics_storage",
+              "status": "granted"
+            },
+            {
+              "type": "functionality_storage",
+              "status": "granted"
+            },
+            {
+              "type": "security_storage",
+              "status": "granted"
+            },
+            {
+              "type": "personalization_storage",
+              "status": "granted"
+            }
+          ],
+          "consentStatus": {
+            "default": true,
+            "update": true,
+            "tcf": false,
+            "wasSetLate": true,
+            "usedContainerConsent": false
+          },
+          "fullConsentList": {
+            "ad_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_personalization": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "ad_user_data": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "analytics_storage": {
+              "consentEntry": {
+                "implicit": true,
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "functionality_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "security_storage": {
+              "consentEntry": {
+                "default": true,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            },
+            "personalization_storage": {
+              "consentEntry": {
+                "default": false,
+                "update": true,
+                "quiet": false
+              },
+              "isConsentGranted": true
+            }
+          }
+        },
+        "title": "Container Loaded",
+        "eventName": "gtm.js",
+        "tagInfo": [
+          {
+            "index": 8,
+            "name": "_Product-Owned Activity Tag 39",
+            "displayName": "File Download",
+            "publicId": "ccd_em_download",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "12",
+                  "12"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "39",
+                  "39"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 10,
+            "name": "_Product-Owned Activity Tag 37",
+            "displayName": "Outbound Clicks",
+            "publicId": "ccd_em_outbound_click",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "10",
+                  "10"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "37",
+                  "37"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 11,
+            "name": "_Product-Owned Activity Tag 36",
+            "displayName": "History Change",
+            "publicId": "ccd_em_page_view",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "9",
+                  "9"
+                ]
+              },
+              {
+                "key": "vtp_historyEvents",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "36",
+                  "36"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 12,
+            "name": "_Product-Owned Activity Tag 35",
+            "displayName": "Scrolls",
+            "publicId": "ccd_em_scroll",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "8",
+                  "8"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "35",
+                  "35"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 14,
+            "name": "_Product-Owned Activity Tag 34",
+            "displayName": "Site Search",
+            "publicId": "ccd_em_site_search",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "key": "vtp_searchQueryParams",
+                "name": "",
+                "value": [
+                  "\"q,s,search,query,keyword\"",
+                  "\"q,s,search,query,keyword\""
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "34",
+                  "34"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          },
+          {
+            "index": 15,
+            "name": "_Product-Owned Activity Tag 33",
+            "displayName": "Video Engagement",
+            "publicId": "ccd_em_video",
+            "type": "Enhanced Measurement",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "priority",
+                "name": "",
+                "value": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "key": "vtp_includeParams",
+                "name": "",
+                "value": [
+                  "true",
+                  "true"
+                ]
+              },
+              {
+                "key": "vtp_instanceDestinationId",
+                "name": "",
+                "value": [
+                  "\"G-YCL5FGZNCV\"",
+                  "\"G-YCL5FGZNCV\""
+                ]
+              },
+              {
+                "key": "tag_id",
+                "name": "",
+                "value": [
+                  "33",
+                  "33"
+                ]
+              }
+            ],
+            "nominatedTags": [],
+            "setupTags": [],
+            "teardownTags": [],
+            "consentData": {
+              "consentList": []
+            },
+            "isHidden": false
+          }
+        ],
+        "groupId": "5501339822297255",
+        "eventId": 14,
+        "ruleInfo": [
+          {
+            "name": "All Pages",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.js"
+                ],
+                "arg1": [
+                  "gtm.js",
+                  "gtm.js"
+                ],
+                "pass": true,
+                "isIgnored": false
+              }
+            ],
+            "pass": true,
+            "firingTags": [
+              30,
+              31,
+              32,
+              33
+            ],
+            "blockingTags": []
+          },
+          {
+            "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+            "predicates": [
+              {
+                "function": "eq",
+                "arg0": [
+                  {
+                    "type": "macro",
+                    "name": "_event"
+                  },
+                  "gtm.js"
+                ],
+                "arg1": [
+                  "gtm.init",
+                  "gtm.init"
+                ],
+                "pass": false,
+                "isIgnored": false
+              }
+            ],
+            "pass": false,
+            "firingTags": [
+              0,
+              2,
+              34,
+              26,
+              22,
+              20,
+              18,
+              16,
+              1,
+              13,
+              35,
+              27,
+              23,
+              21,
+              19,
+              17,
+              15,
+              14,
+              12,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              36,
+              28,
+              24,
+              37,
+              29,
+              25
+            ],
+            "blockingTags": []
+          }
+        ],
+        "message": {
+          "gtm.start": 1766544309435,
+          "event": "gtm.js",
+          "gtm.uniqueEventId": 14
+        },
+        "messageString": "{gtm.start: 1766544309435, event: \"gtm.js\", gtm.uniqueEventId: 14}",
+        "abstractModelString": "{\n  developer_id: {dYzg1YT: true, dYWVlZG: true},\n  gtm: {uniqueEventId: 14, priorityId: 3, start: 1766544309435},\n  event: \"gtm.js\",\n  ads_data_redaction: false,\n  url_passthrough: true\n}",
+        "macroInfo": [
+          {
+            "name": "_event",
+            "variablePublicId": "e",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [],
+            "rawResolvedValue": "gtm.js",
+            "resolvedValue": "\"gtm.js\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_foreign_tld_macro_43_foreignTldMacroResult",
+            "variablePublicId": "ftld",
+            "variableType": "Unknown Variable Type",
+            "returnType": "string",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "\"\"",
+                  "\"\""
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"ftld\"",
+                  "\"ftld\""
+                ]
+              }
+            ],
+            "rawResolvedValue": "",
+            "resolvedValue": "\"\"",
+            "debugMetadata": {},
+            "isHidden": false
+          },
+          {
+            "name": "_is_china_vip_region_macro_43_isChinaVipRegionMacroResult",
+            "variablePublicId": "icvr",
+            "variableType": "Unknown Variable Type",
+            "returnType": "number",
+            "params": [],
+            "internalParams": [
+              {
+                "key": "vtp_value",
+                "name": "",
+                "value": [
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "key": "original_vendor_template_id",
+                "name": "",
+                "value": [
+                  "\"icvr\"",
+                  "\"icvr\""
+                ]
+              }
+            ],
+            "rawResolvedValue": 0,
+            "resolvedValue": "0",
+            "debugMetadata": {},
+            "isHidden": false
+          }
+        ],
+        "abstractModel": {
+          "developer_id": {
+            "dYzg1YT": true,
+            "dYWVlZG": true
+          },
+          "gtm": {
+            "uniqueEventId": 14,
+            "priorityId": 3,
+            "start": 1766544309435
+          },
+          "event": "gtm.js",
+          "ads_data_redaction": false,
+          "url_passthrough": true
+        }
+      }
+    }
+  ]
+}

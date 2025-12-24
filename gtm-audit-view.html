@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GTM Audit Map - Messer Attach</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+      :root {
+        --ink: #1d2b2f;
+        --muted: #5a6b6f;
+        --paper: #f7f3eb;
+        --panel: #fffaf1;
+        --accent: #e07a3f;
+        --accent-2: #1f8a70;
+        --danger: #b23a48;
+        --warn: #d9a441;
+        --ok: #1f8a70;
+        --line: #d8cbb8;
+        --shadow: rgba(10, 20, 20, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Newsreader", "Palatino Linotype", "Book Antiqua", serif;
+        background-color: var(--paper);
+        background-image:
+          radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.18), transparent 40%),
+          radial-gradient(circle at 88% 6%, rgba(31, 138, 112, 0.16), transparent 38%),
+          linear-gradient(to right, rgba(29, 43, 47, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(29, 43, 47, 0.04) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      }
+
+      header,
+      section,
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px;
+      }
+
+      .hero {
+        padding-top: 48px;
+        padding-bottom: 28px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--panel);
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        margin: 0 0 12px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 3vw, 3.4rem);
+      }
+
+      h2 {
+        font-size: clamp(1.4rem, 2.2vw, 2rem);
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .stat {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 10px 30px var(--shadow);
+      }
+
+      .stat .label {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .stat .value {
+        font-size: 28px;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+      .stat.critical .value {
+        color: var(--danger);
+      }
+
+      .stat.high .value {
+        color: var(--warn);
+      }
+
+      .stat.medium .value {
+        color: var(--accent);
+      }
+
+      .stat.low .value {
+        color: var(--accent-2);
+      }
+
+      .limitations {
+        margin-top: 18px;
+        padding: 12px 16px;
+        border-left: 3px solid var(--warn);
+        background: rgba(217, 164, 65, 0.08);
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        align-items: center;
+      }
+
+      .search {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: var(--panel);
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        padding: 12px 14px;
+      }
+
+      .search input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-size: 15px;
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        color: var(--ink);
+        outline: none;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .filter-button {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--muted);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .filter-button.active {
+        color: var(--ink);
+        border-color: var(--accent);
+        box-shadow: 0 8px 18px rgba(224, 122, 63, 0.2);
+        transform: translateY(-1px);
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(280px, 1.1fr) minmax(260px, 0.9fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 12px 30px var(--shadow);
+      }
+
+      .finding-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .finding-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        background: #fffdf6;
+        cursor: pointer;
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .finding-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+        box-shadow: 0 12px 28px rgba(29, 43, 47, 0.12);
+      }
+
+      .finding-card.active {
+        border-color: var(--accent-2);
+        box-shadow: 0 12px 30px rgba(31, 138, 112, 0.2);
+      }
+
+      .finding-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .severity-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(29, 43, 47, 0.06);
+        color: var(--muted);
+      }
+
+      .severity-pill.critical {
+        background: rgba(178, 58, 72, 0.15);
+        color: var(--danger);
+      }
+
+      .severity-pill.high {
+        background: rgba(217, 164, 65, 0.2);
+        color: var(--warn);
+      }
+
+      .severity-pill.medium {
+        background: rgba(224, 122, 63, 0.2);
+        color: var(--accent);
+      }
+
+      .severity-pill.low {
+        background: rgba(31, 138, 112, 0.18);
+        color: var(--accent-2);
+      }
+
+      .source-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .source-tag {
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        border: 1px dashed var(--line);
+        color: var(--muted);
+      }
+
+      .finding-body {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .finding-body strong {
+        color: var(--ink);
+      }
+      .diagram-wrap {
+        position: sticky;
+        top: 20px;
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .node rect {
+        fill: #fffaf0;
+        stroke: var(--line);
+        stroke-width: 1.2;
+        rx: 12px;
+      }
+
+      .node text {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 12px;
+        fill: var(--ink);
+      }
+
+      .node.active rect {
+        stroke: var(--accent-2);
+        stroke-width: 2;
+        fill: rgba(31, 138, 112, 0.12);
+      }
+
+      .flow-line {
+        stroke: rgba(29, 43, 47, 0.35);
+        stroke-width: 1.5;
+        marker-end: url(#arrow);
+      }
+
+      .diagram-note {
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(31, 138, 112, 0.08);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .matrix {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+      }
+
+      th {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .status.present {
+        background: rgba(31, 138, 112, 0.15);
+        color: var(--ok);
+      }
+
+      .status.partial {
+        background: rgba(217, 164, 65, 0.2);
+        color: var(--warn);
+      }
+
+      .status.missing {
+        background: rgba(178, 58, 72, 0.18);
+        color: var(--danger);
+      }
+      .recommendation {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        background: #fffdf6;
+      }
+
+      .recommendation h3 {
+        margin-bottom: 6px;
+        font-size: 18px;
+      }
+
+      .rec-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .rec-meta span {
+        background: rgba(29, 43, 47, 0.06);
+        padding: 4px 8px;
+        border-radius: 999px;
+      }
+
+      .steps {
+        margin: 10px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .copy-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      .copy-btn {
+        border: none;
+        background: var(--accent-2);
+        color: white;
+        padding: 8px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .copy-status {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .reveal {
+        animation: rise 0.7s ease both;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .diagram-wrap {
+          position: static;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <span class="badge">GTM Audit Map</span>
+      <h1>What is happening and what to fix first</h1>
+      <p>
+        This view turns your GTM exports, logs, and dataLayer samples into a
+        readable map. Click a finding to see the flow impact and apply filters
+        to focus on the highest priority fixes.
+      </p>
+      <div class="summary-grid">
+        <div class="stat critical">
+          <div class="label">Critical</div>
+          <div class="value" id="stat-critical">0</div>
+        </div>
+        <div class="stat high">
+          <div class="label">High</div>
+          <div class="value" id="stat-high">0</div>
+        </div>
+        <div class="stat medium">
+          <div class="label">Medium</div>
+          <div class="value" id="stat-medium">0</div>
+        </div>
+        <div class="stat low">
+          <div class="label">Low</div>
+          <div class="value" id="stat-low">0</div>
+        </div>
+      </div>
+      <div class="limitations">
+        Limitations: wGTM Tag Assistant recording and purchase dataLayer sample
+        were not provided, so purchase validation and client-side debug checks
+        are inferred from exports and logs.
+      </div>
+    </header>
+
+    <section class="controls panel reveal">
+      <div class="search">
+        <strong>Search</strong>
+        <input id="search-input" type="search" placeholder="Find by tag, issue, or platform">
+      </div>
+      <div>
+        <div class="filter-group" id="severity-filters"></div>
+      </div>
+      <div>
+        <div class="filter-group" id="source-filters"></div>
+      </div>
+    </section>
+    <section class="layout">
+      <div class="panel reveal">
+        <h2>Findings</h2>
+        <div class="finding-list" id="finding-list"></div>
+        <div class="copy-row">
+          <button class="copy-btn" id="copy-summary">Copy filtered summary</button>
+          <span class="copy-status" id="copy-status">Copy a quick brief of the filtered findings.</span>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <h2>Flow Diagram</h2>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 720 360" role="img" aria-label="Tracking flow diagram">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L6,3 z" fill="rgba(29, 43, 47, 0.5)"></path>
+              </marker>
+            </defs>
+            <line class="flow-line" x1="90" y1="80" x2="220" y2="80"></line>
+            <line class="flow-line" x1="310" y1="80" x2="420" y2="80"></line>
+            <line class="flow-line" x1="510" y1="80" x2="620" y2="80"></line>
+            <line class="flow-line" x1="470" y1="120" x2="470" y2="220"></line>
+            <line class="flow-line" x1="470" y1="220" x2="280" y2="300"></line>
+            <line class="flow-line" x1="470" y1="220" x2="470" y2="300"></line>
+            <line class="flow-line" x1="470" y1="220" x2="660" y2="300"></line>
+            <g class="node" data-node="datalayer" transform="translate(20 50)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">DataLayer</text>
+            </g>
+            <g class="node" data-node="wgtm" transform="translate(160 50)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">wGTM</text>
+            </g>
+            <g class="node" data-node="data-tag" transform="translate(300 50)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">Data Tag</text>
+            </g>
+            <g class="node" data-node="endpoint" transform="translate(440 50)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">Endpoint</text>
+            </g>
+            <g class="node" data-node="sgtm" transform="translate(580 50)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">sGTM</text>
+            </g>
+            <g class="node" data-node="consent" transform="translate(380 160)">
+              <rect width="180" height="60"></rect>
+              <text x="90" y="35" text-anchor="middle">Consent Signals</text>
+            </g>
+            <g class="node" data-node="ga4" transform="translate(160 270)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">GA4</text>
+            </g>
+            <g class="node" data-node="google-ads" transform="translate(400 270)">
+              <rect width="140" height="60"></rect>
+              <text x="70" y="35" text-anchor="middle">Google Ads</text>
+            </g>
+            <g class="node" data-node="meta" transform="translate(580 270)">
+              <rect width="120" height="60"></rect>
+              <text x="60" y="35" text-anchor="middle">Meta CAPI</text>
+            </g>
+          </svg>
+          <div class="diagram-note" id="diagram-note">
+            Select a finding to highlight impacted nodes and see a short flow explanation.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel reveal">
+      <h2>Event Coverage Matrix</h2>
+      <p>Shows which ecommerce events are wired to the Data Tag, sGTM GA4, Meta CAPI, and MS UET.</p>
+      <div class="matrix" id="coverage-table"></div>
+    </section>
+
+    <section class="panel reveal">
+      <h2>Recommendations</h2>
+      <div id="recommendations"></div>
+    </section>
+
+    <footer>
+      <p>Use this page as a checklist. Start with Critical items to restore GA4 ecommerce and User-ID visibility.</p>
+    </footer>
+
+    <script>
+      const severities = ["Critical", "High", "Medium", "Low"];
+      const sources = [
+        "wGTM JSON",
+        "sGTM JSON",
+        "Tag Assistant",
+        "Stape Logs",
+        "DataLayer"
+      ];
+
+      const findings = [
+        {
+          id: "endpoint-mismatch",
+          title: "Endpoint mismatch blocks sGTM visibility",
+          severity: "Critical",
+          summary: "Data Tag sends to https://messerattach.com/metrics/data while preview and logs are on sgtm.messerattach.com.",
+          impact: "sGTM Tag Assistant shows no events and GA4 ecommerce appears empty.",
+          evidence: "wGTM Data Tag gtm_server_domain + Stape logs with no /data hits.",
+          suggestion: "Align gtm_server_domain with sGTM domain or verify the proxy route and confirm /data requests.",
+          sources: ["wGTM JSON", "Stape Logs", "Tag Assistant"],
+          nodes: ["data-tag", "endpoint", "sgtm"]
+        },
+        {
+          id: "data-tag-scope",
+          title: "Data Tag fires only on purchase",
+          severity: "Critical",
+          summary: "The Data Tag trigger is set to ce_purchase only, so view_item, add_to_cart, and begin_checkout never reach sGTM.",
+          impact: "GA4 ecommerce events are missing or partial.",
+          evidence: "wGTM tag trigger wiring shows Data Tag on ce_purchase only.",
+          suggestion: "Fire Data Tag on all ecommerce events with a regex trigger.",
+          sources: ["wGTM JSON"],
+          nodes: ["wgtm", "data-tag"]
+        },
+        {
+          id: "ga4-gap",
+          title: "sGTM GA4 tags exist only for purchase and add_to_cart",
+          severity: "High",
+          summary: "No GA4 tag for view_item, view_cart, or begin_checkout in sGTM.",
+          impact: "Even if events arrive, GA4 does not receive most ecommerce interactions.",
+          evidence: "sGTM export shows only GA4 Advanced and GA4 ADV add_to_cart.",
+          suggestion: "Add GA4 tags for the missing events or use a single regex-driven GA4 tag.",
+          sources: ["sGTM JSON"],
+          nodes: ["sgtm", "ga4"]
+        },
+        {
+          id: "user-id",
+          title: "User-ID mapped to user_data.user_id and hashed",
+          severity: "High",
+          summary: "dataLayer uses root user_id while wGTM reads user_data.user_id and hashes it, then GA4 uses it as a user property.",
+          impact: "GA4 user_id is not set and User-ID reporting is empty.",
+          evidence: "dataLayer sample shows user_id root + wGTM mapping to user_data.user_id.",
+          suggestion: "Map root user_id, keep it unhashed for GA4 user_id, and send hashed IDs separately for ads.",
+          sources: ["wGTM JSON", "sGTM JSON", "DataLayer"],
+          nodes: ["datalayer", "wgtm", "sgtm", "ga4"]
+        },
+        {
+          id: "pii-leak",
+          title: "Raw PII can leak via add_data_layer",
+          severity: "Critical",
+          summary: "add_data_layer is true and dataLayer samples show partial email and phone values.",
+          impact: "Risk of sending unhashed PII and compliance issues.",
+          evidence: "DataLayer samples show incremental email and phone values.",
+          suggestion: "Disable add_data_layer or whitelist fields; keep PII only in hashed user_data mappings.",
+          sources: ["wGTM JSON", "DataLayer"],
+          nodes: ["datalayer", "data-tag"]
+        },
+        {
+          id: "consent-gaps",
+          title: "Consent gating is inconsistent across tags",
+          severity: "High",
+          summary: "Many tags are marked NOT_SET or NOT_NEEDED, including Data Tag and sGTM tags.",
+          impact: "Signals may fire before consent is granted.",
+          evidence: "Consent settings in wGTM and sGTM exports.",
+          suggestion: "Standardize consent requirements and pass ad_user_data and ad_personalization.",
+          sources: ["wGTM JSON", "sGTM JSON"],
+          nodes: ["consent", "wgtm", "sgtm"]
+        },
+        {
+          id: "event-id",
+          title: "Event ID mismatch across client and server",
+          severity: "Medium",
+          summary: "Meta CAPI uses gtm.uniqueEventId in sGTM while wGTM sets event_id via a different variable.",
+          impact: "Deduplication can fail for Meta CAPI and other platforms.",
+          evidence: "event_id mapping in wGTM Data Tag and sGTM Meta CAPI tags.",
+          suggestion: "Use a single event_id field in eventData and map it consistently.",
+          sources: ["wGTM JSON", "sGTM JSON"],
+          nodes: ["data-tag", "sgtm", "meta"]
+        },
+        {
+          id: "ms-ads",
+          title: "MS UET ecommerce tags are PAGE_LOAD events",
+          severity: "Medium",
+          summary: "Add to cart, checkout, and purchase tags are configured as page_load instead of custom events.",
+          impact: "Microsoft Ads may receive incorrect event types or duplicates.",
+          evidence: "wGTM MS UET tag parameters show PAGE_LOAD.",
+          suggestion: "Switch to userDefined events and align with msclkid capture strategy.",
+          sources: ["wGTM JSON"],
+          nodes: ["wgtm", "google-ads"]
+        },
+        {
+          id: "event-mapping",
+          title: "Event name mapping misses gtm.js and gtm.load",
+          severity: "Low",
+          summary: "Lookup table maps gtm.dom and gtm.historyChange to page_view, but not gtm.js or gtm.load.",
+          impact: "Page_view coverage may be inconsistent across visits.",
+          evidence: "Event Name Override lookup table in wGTM.",
+          suggestion: "Add gtm.js and gtm.load or only fire Data Tag on explicit page_view events.",
+          sources: ["wGTM JSON"],
+          nodes: ["wgtm", "data-tag"]
+        }
+      ];
+
+      const recommendations = [
+        {
+          title: "Align server endpoint and validate /data traffic",
+          impact: "Critical",
+          effort: "Low",
+          steps: [
+            "Confirm the intended sGTM domain for data collection.",
+            "Set gtm_server_domain to the sGTM domain and keep /data.",
+            "Validate /data hits in Stape logs and sGTM Tag Assistant."
+          ],
+          related: ["endpoint-mismatch"]
+        },
+        {
+          title: "Fire Data Tag on all ecommerce events",
+          impact: "Critical",
+          effort: "Low",
+          steps: [
+            "Create a regex trigger for view_item, add_to_cart, view_cart, begin_checkout, add_payment_info, purchase.",
+            "Attach the trigger to the Data Tag.",
+            "Verify events appear in sGTM debug and GA4 DebugView."
+          ],
+          related: ["data-tag-scope"]
+        },
+        {
+          title: "Expand GA4 coverage in sGTM",
+          impact: "High",
+          effort: "Medium",
+          steps: [
+            "Add GA4 Advanced tags for view_item, view_cart, begin_checkout, add_payment_info.",
+            "Or use a single GA4 tag with a regex trigger on {{_event}}.",
+            "Keep items, value, currency, transaction_id mappings consistent."
+          ],
+          related: ["ga4-gap"]
+        },
+        {
+          title: "Fix User-ID mapping end to end",
+          impact: "High",
+          effort: "Medium",
+          steps: [
+            "Create a DLV for root user_id and pass it un-hashed to sGTM.",
+            "Map eventData.user_id into GA4 user_id parameter.",
+            "Use hashed user_id separately for ad platforms if needed."
+          ],
+          related: ["user-id"]
+        },
+        {
+          title: "Remove raw PII leakage via add_data_layer",
+          impact: "High",
+          effort: "Medium",
+          steps: [
+            "Disable add_data_layer or replace with a whitelist of fields.",
+            "Keep PII only in the user_data table with hashing.",
+            "Avoid pushing incremental email or phone values on keypress."
+          ],
+          related: ["pii-leak"]
+        },
+        {
+          title: "Standardize event_id for deduplication",
+          impact: "Medium",
+          effort: "Low",
+          steps: [
+            "Send event_id in Data Tag custom_data.",
+            "Read event_id in sGTM with an EDV and map into Meta CAPI.",
+            "Use the same event_id in any client pixel if kept."
+          ],
+          related: ["event-id"]
+        },
+        {
+          title: "Normalize Consent Mode v2 signals",
+          impact: "Medium",
+          effort: "Medium",
+          steps: [
+            "Ensure CMP provides ad_user_data and ad_personalization.",
+            "Set tag-level consent requirements in wGTM and sGTM.",
+            "Verify cookieless behavior when consent is denied."
+          ],
+          related: ["consent-gaps"]
+        },
+        {
+          title: "Correct MS UET ecommerce tagging",
+          impact: "Medium",
+          effort: "Medium",
+          steps: [
+            "Use userDefined events for add_to_cart, checkout, purchase.",
+            "Capture msclkid and pass it via Data Tag custom_data.",
+            "Pause redundant client-side purchase tags if server-side exists."
+          ],
+          related: ["ms-ads"]
+        }
+      ];
+
+      const eventCoverage = [
+        { event: "view_item", dataTag: "missing", ga4: "missing", meta: "present", ms: "present" },
+        { event: "view_cart", dataTag: "missing", ga4: "missing", meta: "missing", ms: "missing" },
+        { event: "add_to_cart", dataTag: "missing", ga4: "present", meta: "present", ms: "partial" },
+        { event: "begin_checkout", dataTag: "missing", ga4: "missing", meta: "present", ms: "partial" },
+        { event: "purchase", dataTag: "present", ga4: "present", meta: "present", ms: "partial" }
+      ];
+
+      const state = {
+        search: "",
+        severities: new Set(severities),
+        sources: new Set(sources),
+        activeFindingId: null
+      };
+
+      const listEl = document.getElementById("finding-list");
+      const coverageEl = document.getElementById("coverage-table");
+      const recEl = document.getElementById("recommendations");
+      const diagramNote = document.getElementById("diagram-note");
+
+      function renderFilters() {
+        const severityContainer = document.getElementById("severity-filters");
+        severities.forEach((severity) => {
+          const button = document.createElement("button");
+          button.className = "filter-button active";
+          button.textContent = severity;
+          button.dataset.value = severity;
+          button.addEventListener("click", () => {
+            if (state.severities.has(severity)) {
+              state.severities.delete(severity);
+              button.classList.remove("active");
+            } else {
+              state.severities.add(severity);
+              button.classList.add("active");
+            }
+            renderAll();
+          });
+          severityContainer.appendChild(button);
+        });
+
+        const sourceContainer = document.getElementById("source-filters");
+        sources.forEach((source) => {
+          const button = document.createElement("button");
+          button.className = "filter-button active";
+          button.textContent = source;
+          button.dataset.value = source;
+          button.addEventListener("click", () => {
+            if (state.sources.has(source)) {
+              state.sources.delete(source);
+              button.classList.remove("active");
+            } else {
+              state.sources.add(source);
+              button.classList.add("active");
+            }
+            renderAll();
+          });
+          sourceContainer.appendChild(button);
+        });
+      }
+
+      function updateStats(filtered) {
+        const counts = { Critical: 0, High: 0, Medium: 0, Low: 0 };
+        filtered.forEach((item) => {
+          counts[item.severity] += 1;
+        });
+        document.getElementById("stat-critical").textContent = counts.Critical;
+        document.getElementById("stat-high").textContent = counts.High;
+        document.getElementById("stat-medium").textContent = counts.Medium;
+        document.getElementById("stat-low").textContent = counts.Low;
+      }
+
+      function renderFindings(filtered) {
+        listEl.innerHTML = "";
+        filtered.forEach((finding, index) => {
+          const card = document.createElement("article");
+          card.className = "finding-card reveal";
+          card.style.animationDelay = `${index * 0.05}s`;
+          if (state.activeFindingId === finding.id) {
+            card.classList.add("active");
+          }
+          card.tabIndex = 0;
+          card.dataset.id = finding.id;
+          card.innerHTML = `
+            <div class="finding-header">
+              <span class="severity-pill ${finding.severity.toLowerCase()}">${finding.severity}</span>
+              <strong>${finding.title}</strong>
+            </div>
+            <div class="finding-body">
+              <div><strong>Summary:</strong> ${finding.summary}</div>
+              <div><strong>Impact:</strong> ${finding.impact}</div>
+              <div><strong>Evidence:</strong> ${finding.evidence}</div>
+              <div><strong>Suggestion:</strong> ${finding.suggestion}</div>
+            </div>
+            <div class="source-tags">
+              ${finding.sources.map((source) => `<span class="source-tag">${source}</span>`).join("")}
+            </div>
+          `;
+          card.addEventListener("click", () => setActiveFinding(finding));
+          card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+              setActiveFinding(finding);
+            }
+          });
+          listEl.appendChild(card);
+        });
+        if (!filtered.length) {
+          listEl.innerHTML = "<p>No findings match the current filters.</p>";
+          diagramNote.textContent = "No findings to highlight. Adjust filters to see the flow impact.";
+        }
+      }
+
+      function renderCoverage() {
+        const table = document.createElement("table");
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Data Tag</th>
+              <th>sGTM GA4</th>
+              <th>Meta CAPI</th>
+              <th>MS UET</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${eventCoverage.map((row) => `
+              <tr>
+                <td>${row.event}</td>
+                <td><span class="status ${row.dataTag}">${row.dataTag}</span></td>
+                <td><span class="status ${row.ga4}">${row.ga4}</span></td>
+                <td><span class="status ${row.meta}">${row.meta}</span></td>
+                <td><span class="status ${row.ms}">${row.ms}</span></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        `;
+        coverageEl.innerHTML = "";
+        coverageEl.appendChild(table);
+      }
+
+      function renderRecommendations() {
+        recEl.innerHTML = "";
+        recommendations.forEach((rec, index) => {
+          const card = document.createElement("div");
+          card.className = "recommendation reveal";
+          card.style.animationDelay = `${index * 0.06}s`;
+          card.innerHTML = `
+            <h3>${rec.title}</h3>
+            <div class="rec-meta">
+              <span>Impact: ${rec.impact}</span>
+              <span>Effort: ${rec.effort}</span>
+            </div>
+            <ol class="steps">
+              ${rec.steps.map((step) => `<li>${step}</li>`).join("")}
+            </ol>
+          `;
+          recEl.appendChild(card);
+        });
+      }
+
+      function setActiveFinding(finding) {
+        state.activeFindingId = finding.id;
+        document.querySelectorAll(".finding-card").forEach((card) => {
+          card.classList.toggle("active", card.dataset.id === finding.id);
+        });
+        document.querySelectorAll("[data-node]").forEach((node) => {
+          node.classList.toggle("active", finding.nodes.includes(node.dataset.node));
+        });
+        diagramNote.textContent = `${finding.title}: ${finding.suggestion}`;
+      }
+
+      function getFilteredFindings() {
+        const search = state.search.toLowerCase();
+        return findings.filter((finding) => {
+          const matchesSeverity = state.severities.has(finding.severity);
+          const matchesSource = finding.sources.some((source) => state.sources.has(source));
+          const matchesSearch =
+            finding.title.toLowerCase().includes(search) ||
+            finding.summary.toLowerCase().includes(search) ||
+            finding.impact.toLowerCase().includes(search) ||
+            finding.suggestion.toLowerCase().includes(search);
+          return matchesSeverity && matchesSource && matchesSearch;
+        });
+      }
+
+      function renderAll() {
+        const filtered = getFilteredFindings();
+        updateStats(filtered);
+        renderFindings(filtered);
+        renderCoverage();
+        renderRecommendations();
+        if (filtered.length && !state.activeFindingId) {
+          setActiveFinding(filtered[0]);
+        } else if (filtered.length) {
+          const current = filtered.find((item) => item.id === state.activeFindingId) || filtered[0];
+          setActiveFinding(current);
+        }
+      }
+
+      function handleCopySummary() {
+        const filtered = getFilteredFindings();
+        const summary = filtered.map((item) => {
+          return `[${item.severity}] ${item.title} - ${item.suggestion}`;
+        }).join("\n");
+        const status = document.getElementById("copy-status");
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(summary).then(() => {
+            status.textContent = "Summary copied to clipboard.";
+          }).catch(() => {
+            status.textContent = "Copy failed. Select text manually.";
+          });
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = summary;
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand("copy");
+            status.textContent = "Summary copied to clipboard.";
+          } catch (err) {
+            status.textContent = "Copy failed. Select text manually.";
+          }
+          document.body.removeChild(textarea);
+        }
+      }
+
+      document.getElementById("search-input").addEventListener("input", (event) => {
+        state.search = event.target.value;
+        renderAll();
+      });
+      document.getElementById("copy-summary").addEventListener("click", handleCopySummary);
+
+      renderFilters();
+      renderAll();
+    </script>
+  </body>
+</html>
