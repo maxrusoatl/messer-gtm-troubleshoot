@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messer GTM Action Plan</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+      :root {
+        --ink: #1d2b2f;
+        --muted: #5a6b6f;
+        --paper: #f7f3eb;
+        --panel: #fffaf1;
+        --accent: #e07a3f;
+        --accent-2: #1f8a70;
+        --danger: #b23a48;
+        --warn: #d9a441;
+        --line: #d8cbb8;
+        --shadow: rgba(10, 20, 20, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Newsreader", "Palatino Linotype", "Book Antiqua", serif;
+        background-color: var(--paper);
+        background-image:
+          radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.18), transparent 40%),
+          radial-gradient(circle at 88% 6%, rgba(31, 138, 112, 0.16), transparent 38%),
+          linear-gradient(to right, rgba(29, 43, 47, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(29, 43, 47, 0.04) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      }
+
+      header,
+      section,
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px;
+      }
+
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px;
+        background: rgba(247, 243, 235, 0.92);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 6px 18px rgba(29, 43, 47, 0.08);
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav .brand {
+        font-size: 14px;
+        color: var(--ink);
+        letter-spacing: 0.18em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a.active {
+        color: var(--accent);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        margin: 0 0 12px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 3vw, 3.4rem);
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 12px 30px var(--shadow);
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        background: #fffdf6;
+        color: var(--muted);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .chip.active {
+        color: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 0 8px 18px rgba(224, 122, 63, 0.2);
+      }
+
+      .progress-bar {
+        position: relative;
+        height: 12px;
+        background: rgba(29, 43, 47, 0.1);
+        border-radius: 999px;
+        overflow: hidden;
+        width: 220px;
+      }
+
+      .progress-bar span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: var(--accent-2);
+        border-radius: 999px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 14px;
+      }
+
+      .action-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        background: #fffdf6;
+      }
+
+      .action-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .tag.critical {
+        background: rgba(178, 58, 72, 0.15);
+        color: var(--danger);
+      }
+
+      .tag.high {
+        background: rgba(217, 164, 65, 0.2);
+        color: var(--warn);
+      }
+
+      .tag.medium {
+        background: rgba(224, 122, 63, 0.2);
+        color: var(--accent);
+      }
+
+      .tag.low {
+        background: rgba(31, 138, 112, 0.18);
+        color: var(--accent-2);
+      }
+
+      .steps {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .steps label {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        margin-bottom: 8px;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .button {
+        border: none;
+        background: var(--accent-2);
+        color: white;
+        padding: 8px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .button.secondary {
+        background: var(--panel);
+        color: var(--muted);
+        border: 1px solid var(--line);
+      }
+
+      @media (max-width: 900px) {
+        .top-nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .progress-bar {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a class="brand" href="index.html">Messer GTM Audit</a>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="gtm-audit-view.html">Audit Map</a>
+        <a href="flow.html">Data Flow</a>
+        <a href="action-plan.html" class="active">Action Plan</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <h1>Action plan and progress tracker</h1>
+      <p>
+        Turn the audit into a concrete checklist. Filter by severity, mark steps
+        complete, and copy a progress summary for your team.
+      </p>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <div class="toolbar" id="severity-filters"></div>
+        <div class="progress-bar" aria-label="Progress">
+          <span id="progress-fill" style="width: 0%"></span>
+        </div>
+        <span id="progress-text">0% complete</span>
+      </div>
+      <div class="toolbar" style="margin-top: 12px;">
+        <button class="button" id="copy-progress">Copy progress summary</button>
+        <button class="button secondary" id="reset-progress">Reset progress</button>
+        <span id="copy-status" style="color: var(--muted); font-size: 12px;"></span>
+      </div>
+    </section>
+
+    <section class="actions" id="action-list"></section>
+
+    <footer>
+      <p>Start with Critical items, then handle High impact optimizations.</p>
+    </footer>
+
+    <script>
+      const actions = [
+        {
+          id: "endpoint",
+          title: "Align server endpoint",
+          severity: "Critical",
+          effort: "Low",
+          steps: [
+            "Confirm intended sGTM domain for /data requests.",
+            "Update gtm_server_domain and keep /data path.",
+            "Verify /data hits in logs and Tag Assistant."
+          ]
+        },
+        {
+          id: "data-tag-scope",
+          title: "Fire Data Tag on all ecommerce events",
+          severity: "Critical",
+          effort: "Low",
+          steps: [
+            "Create trigger for view_item, add_to_cart, view_cart, begin_checkout.",
+            "Attach trigger to Data Tag.",
+            "Validate events in sGTM preview."
+          ]
+        },
+        {
+          id: "ga4-coverage",
+          title: "Expand GA4 tags in sGTM",
+          severity: "High",
+          effort: "Medium",
+          steps: [
+            "Add GA4 tags for view_item, view_cart, begin_checkout.",
+            "Map items, value, currency, transaction_id.",
+            "Confirm events in GA4 DebugView."
+          ]
+        },
+        {
+          id: "user-id",
+          title: "Fix User-ID mapping",
+          severity: "High",
+          effort: "Medium",
+          steps: [
+            "Map root user_id from dataLayer.",
+            "Send user_id un-hashed to GA4 user_id parameter.",
+            "Keep hashed user_id for ads only."
+          ]
+        },
+        {
+          id: "pii",
+          title: "Remove raw PII leakage",
+          severity: "High",
+          effort: "Medium",
+          steps: [
+            "Disable add_data_layer or restrict to whitelist.",
+            "Keep PII only in hashed user_data table.",
+            "Avoid pushing incremental values on keypress."
+          ]
+        },
+        {
+          id: "event-id",
+          title: "Standardize event_id",
+          severity: "Medium",
+          effort: "Low",
+          steps: [
+            "Send event_id in Data Tag custom_data.",
+            "Map event_id in sGTM for Meta and ads.",
+            "Match event_id with client-side pixels."
+          ]
+        },
+        {
+          id: "consent",
+          title: "Normalize Consent Mode v2",
+          severity: "Medium",
+          effort: "Medium",
+          steps: [
+            "Ensure ad_user_data and ad_personalization are passed.",
+            "Set tag-level consent requirements.",
+            "Validate cookieless behavior when denied."
+          ]
+        },
+        {
+          id: "ms-ads",
+          title: "Correct MS UET event types",
+          severity: "Medium",
+          effort: "Medium",
+          steps: [
+            "Switch add_to_cart, checkout, purchase to userDefined.",
+            "Capture msclkid and pass via Data Tag.",
+            "Pause duplicate client purchase tags if server-side exists."
+          ]
+        }
+      ];
+
+      const storageKey = "gtm-action-plan";
+      const completion = JSON.parse(localStorage.getItem(storageKey) || "{}");
+      const severitySet = new Set(["Critical", "High", "Medium", "Low"]);
+
+      const list = document.getElementById("action-list");
+      const filters = document.getElementById("severity-filters");
+      const progressFill = document.getElementById("progress-fill");
+      const progressText = document.getElementById("progress-text");
+      const copyStatus = document.getElementById("copy-status");
+
+      function saveCompletion() {
+        localStorage.setItem(storageKey, JSON.stringify(completion));
+      }
+
+      function renderFilters() {
+        ["Critical", "High", "Medium", "Low"].forEach((severity) => {
+          const button = document.createElement("button");
+          button.className = "chip active";
+          button.textContent = severity;
+          button.dataset.value = severity;
+          button.addEventListener("click", () => {
+            if (severitySet.has(severity)) {
+              severitySet.delete(severity);
+              button.classList.remove("active");
+            } else {
+              severitySet.add(severity);
+              button.classList.add("active");
+            }
+            renderActions();
+          });
+          filters.appendChild(button);
+        });
+      }
+
+      function renderActions() {
+        list.innerHTML = "";
+        const filtered = actions.filter((action) => severitySet.has(action.severity));
+        filtered.forEach((action) => {
+          const card = document.createElement("article");
+          card.className = "action-card";
+          card.innerHTML = `
+            <div class="action-header">
+              <div>
+                <h3>${action.title}</h3>
+                <p>Effort: ${action.effort}</p>
+              </div>
+              <span class="tag ${action.severity.toLowerCase()}">${action.severity}</span>
+            </div>
+            <div class="steps">
+              ${action.steps.map((step, index) => {
+                const key = `${action.id}:${index}`;
+                const checked = completion[key] ? "checked" : "";
+                return `
+                  <label>
+                    <input type="checkbox" data-key="${key}" ${checked}>
+                    <span>${step}</span>
+                  </label>
+                `;
+              }).join("")}
+            </div>
+          `;
+          list.appendChild(card);
+        });
+        list.querySelectorAll("input[type='checkbox']").forEach((input) => {
+          input.addEventListener("change", () => {
+            completion[input.dataset.key] = input.checked;
+            saveCompletion();
+            updateProgress();
+          });
+        });
+        updateProgress();
+      }
+
+      function updateProgress() {
+        const allKeys = actions.flatMap((action) => action.steps.map((_, i) => `${action.id}:${i}`));
+        const completed = allKeys.filter((key) => completion[key]).length;
+        const percent = allKeys.length ? Math.round((completed / allKeys.length) * 100) : 0;
+        progressFill.style.width = `${percent}%`;
+        progressText.textContent = `${percent}% complete`;
+      }
+
+      function copySummary() {
+        const summary = actions.map((action) => {
+          const done = action.steps.filter((_, i) => completion[`${action.id}:${i}`]).length;
+          return `${action.title} (${done}/${action.steps.length})`;
+        }).join("\n");
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(summary).then(() => {
+            copyStatus.textContent = "Progress summary copied.";
+          }).catch(() => {
+            copyStatus.textContent = "Copy failed. Select text manually.";
+          });
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = summary;
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand("copy");
+            copyStatus.textContent = "Progress summary copied.";
+          } catch (err) {
+            copyStatus.textContent = "Copy failed. Select text manually.";
+          }
+          document.body.removeChild(textarea);
+        }
+      }
+
+      function resetProgress() {
+        Object.keys(completion).forEach((key) => delete completion[key]);
+        saveCompletion();
+        renderActions();
+      }
+
+      document.getElementById("copy-progress").addEventListener("click", copySummary);
+      document.getElementById("reset-progress").addEventListener("click", resetProgress);
+
+      renderFilters();
+      renderActions();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messer GTM Audit Overview</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+      :root {
+        --ink: #1d2b2f;
+        --muted: #5a6b6f;
+        --paper: #f7f3eb;
+        --panel: #fffaf1;
+        --accent: #e07a3f;
+        --accent-2: #1f8a70;
+        --danger: #b23a48;
+        --warn: #d9a441;
+        --line: #d8cbb8;
+        --shadow: rgba(10, 20, 20, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Newsreader", "Palatino Linotype", "Book Antiqua", serif;
+        background-color: var(--paper);
+        background-image:
+          radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.18), transparent 40%),
+          radial-gradient(circle at 88% 6%, rgba(31, 138, 112, 0.16), transparent 38%),
+          linear-gradient(to right, rgba(29, 43, 47, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(29, 43, 47, 0.04) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      }
+
+      header,
+      section,
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px;
+      }
+
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px;
+        background: rgba(247, 243, 235, 0.92);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 6px 18px rgba(29, 43, 47, 0.08);
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav .brand {
+        font-size: 14px;
+        color: var(--ink);
+        letter-spacing: 0.18em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a.active {
+        color: var(--accent);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        margin: 0 0 12px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 3vw, 3.4rem);
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--ink);
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: 0 8px 18px rgba(29, 43, 47, 0.1);
+      }
+
+      .cta.primary {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 12px 30px var(--shadow);
+      }
+
+      .panel ul {
+        margin: 10px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(29, 43, 47, 0.08);
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .focus {
+        display: grid;
+        gap: 16px;
+      }
+
+      .focus-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .focus-button {
+        border: 1px solid var(--line);
+        background: #fffdf6;
+        color: var(--muted);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .focus-button.active {
+        color: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 0 8px 18px rgba(224, 122, 63, 0.2);
+      }
+
+      .focus-detail {
+        padding: 14px;
+        border: 1px dashed var(--line);
+        border-radius: 14px;
+        background: rgba(31, 138, 112, 0.08);
+      }
+
+      .path-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .path-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+
+      @media (max-width: 900px) {
+        .top-nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a class="brand" href="index.html">Messer GTM Audit</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Overview</a>
+        <a href="gtm-audit-view.html">Audit Map</a>
+        <a href="flow.html">Data Flow</a>
+        <a href="action-plan.html">Action Plan</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <span class="pill">Server-side GTM Brief</span>
+      <h1>See the system clearly before touching a tag</h1>
+      <p>
+        This site turns your GTM exports, dataLayer samples, and server logs
+        into a clear view of what is flowing, what is blocked, and what to fix
+        first. Use the audit map, flow diagram, and action plan to align every
+        platform with clean server-side data.
+      </p>
+      <div class="cta-row">
+        <a class="cta primary" href="gtm-audit-view.html">Open Audit Map</a>
+        <a class="cta" href="flow.html">Trace Data Flow</a>
+        <a class="cta" href="action-plan.html">Open Action Plan</a>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="panel">
+        <h3>Signal Health</h3>
+        <ul>
+          <li>Endpoint mismatch prevents /data events from reaching sGTM.</li>
+          <li>Data Tag fires only on purchase, missing key ecommerce events.</li>
+          <li>User-ID mapping is hashed and stored in the wrong path.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Compliance Risk</h3>
+        <ul>
+          <li>Raw PII can be sent via add_data_layer without hashing.</li>
+          <li>Consent signals are uneven across wGTM and sGTM tags.</li>
+          <li>Event IDs differ between client and server flows.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Fast Wins</h3>
+        <ul>
+          <li>Align gtm_server_domain to the actual sGTM endpoint.</li>
+          <li>Trigger Data Tag on all ecommerce events.</li>
+          <li>Add GA4 tags for view_item, view_cart, begin_checkout.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel focus">
+      <h2>Focus lens</h2>
+      <p>Pick a lens to see the top issues and what they affect.</p>
+      <div class="focus-buttons" id="focus-buttons"></div>
+      <div class="focus-detail" id="focus-detail">
+        <h3 id="focus-title"></h3>
+        <ul id="focus-list"></ul>
+      </div>
+    </section>
+
+    <section class="grid">
+      <a class="panel path-card" href="gtm-audit-view.html">
+        <span class="pill">Audit Map</span>
+        <h3>Interactive findings with sources</h3>
+        <p>Filter by severity, highlight affected nodes, and copy summaries.</p>
+      </a>
+      <a class="panel path-card" href="flow.html">
+        <span class="pill">Data Flow</span>
+        <h3>Trace events through the stack</h3>
+        <p>Click each node to see what it should receive and emit.</p>
+      </a>
+      <a class="panel path-card" href="action-plan.html">
+        <span class="pill">Action Plan</span>
+        <h3>Convert issues into a checklist</h3>
+        <p>Track fixes, filter by severity, and export your progress.</p>
+      </a>
+    </section>
+
+    <footer>
+      <p>Start with the Critical issues, then revisit High impact fixes.</p>
+    </footer>
+
+    <script>
+      const focusAreas = {
+        accuracy: {
+          title: "Data Accuracy",
+          bullets: [
+            "Data Tag fires only on purchase, missing view_item and begin_checkout.",
+            "GA4 tags are missing for key ecommerce events.",
+            "Event_id mapping is inconsistent across client and server."
+          ]
+        },
+        privacy: {
+          title: "Privacy and Consent",
+          bullets: [
+            "add_data_layer can leak raw PII from checkout fields.",
+            "Consent gating is not consistently enforced in wGTM and sGTM.",
+            "Hashing is applied to user_id but not aligned to platform needs."
+          ]
+        },
+        attribution: {
+          title: "Attribution and Ads",
+          bullets: [
+            "Endpoint mismatch hides events from server-side tags.",
+            "User-ID does not reach GA4 user_id parameter.",
+            "MS UET ecommerce tags fire as page_load, not custom events."
+          ]
+        },
+        reliability: {
+          title: "Reliability",
+          bullets: [
+            "Server endpoint mismatch prevents /data hits from landing.",
+            "Missing data reduces validation in Tag Assistant.",
+            "Coverage gaps reduce confidence in GA4 ecommerce reports."
+          ]
+        }
+      };
+
+      const buttons = document.getElementById("focus-buttons");
+      const title = document.getElementById("focus-title");
+      const list = document.getElementById("focus-list");
+
+      function setFocus(key) {
+        const data = focusAreas[key];
+        title.textContent = data.title;
+        list.innerHTML = data.bullets.map((item) => `<li>${item}</li>`).join("");
+        document.querySelectorAll(".focus-button").forEach((button) => {
+          button.classList.toggle("active", button.dataset.key === key);
+        });
+      }
+
+      Object.keys(focusAreas).forEach((key) => {
+        const button = document.createElement("button");
+        button.className = "focus-button";
+        button.dataset.key = key;
+        button.textContent = focusAreas[key].title;
+        button.addEventListener("click", () => setFocus(key));
+        buttons.appendChild(button);
+      });
+
+      setFocus("accuracy");
+    </script>
+  </body>
+</html>

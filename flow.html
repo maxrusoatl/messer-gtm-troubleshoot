@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messer GTM Data Flow</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+      :root {
+        --ink: #1d2b2f;
+        --muted: #5a6b6f;
+        --paper: #f7f3eb;
+        --panel: #fffaf1;
+        --accent: #e07a3f;
+        --accent-2: #1f8a70;
+        --danger: #b23a48;
+        --warn: #d9a441;
+        --line: #d8cbb8;
+        --shadow: rgba(10, 20, 20, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Newsreader", "Palatino Linotype", "Book Antiqua", serif;
+        background-color: var(--paper);
+        background-image:
+          radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.18), transparent 40%),
+          radial-gradient(circle at 88% 6%, rgba(31, 138, 112, 0.16), transparent 38%),
+          linear-gradient(to right, rgba(29, 43, 47, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(29, 43, 47, 0.04) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      }
+
+      header,
+      section,
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px;
+      }
+
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px;
+        background: rgba(247, 243, 235, 0.92);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 6px 18px rgba(29, 43, 47, 0.08);
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav .brand {
+        font-size: 14px;
+        color: var(--ink);
+        letter-spacing: 0.18em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a.active {
+        color: var(--accent);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        margin: 0 0 12px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 3vw, 3.4rem);
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(300px, 1.2fr) minmax(260px, 0.8fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 12px 30px var(--shadow);
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        background: #fffdf6;
+        color: var(--muted);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .chip.active {
+        color: var(--accent-2);
+        border-color: var(--accent-2);
+        box-shadow: 0 8px 18px rgba(31, 138, 112, 0.2);
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .node rect {
+        fill: #fffaf0;
+        stroke: var(--line);
+        stroke-width: 1.2;
+        rx: 12px;
+      }
+
+      .node text {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 12px;
+        fill: var(--ink);
+      }
+
+      .node.active rect {
+        stroke: var(--accent-2);
+        stroke-width: 2;
+        fill: rgba(31, 138, 112, 0.12);
+      }
+
+      .flow-line {
+        stroke: rgba(29, 43, 47, 0.35);
+        stroke-width: 1.5;
+        marker-end: url(#arrow);
+      }
+
+      .detail-list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .break-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 12px;
+      }
+
+      .break-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px;
+        background: #fffdf6;
+      }
+
+      .break-card strong {
+        color: var(--ink);
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .top-nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a class="brand" href="index.html">Messer GTM Audit</a>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="gtm-audit-view.html">Audit Map</a>
+        <a href="flow.html" class="active">Data Flow</a>
+        <a href="action-plan.html">Action Plan</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <h1>Data flow and breakpoints</h1>
+      <p>
+        Click a node to see what it should receive and emit. Use the issue chips
+        to highlight the most critical breakpoints and their downstream impact.
+      </p>
+    </header>
+
+    <section class="layout">
+      <div class="panel">
+        <h2>Flow Diagram</h2>
+        <svg viewBox="0 0 720 360" role="img" aria-label="Tracking flow diagram">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 z" fill="rgba(29, 43, 47, 0.5)"></path>
+            </marker>
+          </defs>
+          <line class="flow-line" x1="90" y1="80" x2="220" y2="80"></line>
+          <line class="flow-line" x1="310" y1="80" x2="420" y2="80"></line>
+          <line class="flow-line" x1="510" y1="80" x2="620" y2="80"></line>
+          <line class="flow-line" x1="470" y1="120" x2="470" y2="220"></line>
+          <line class="flow-line" x1="470" y1="220" x2="280" y2="300"></line>
+          <line class="flow-line" x1="470" y1="220" x2="470" y2="300"></line>
+          <line class="flow-line" x1="470" y1="220" x2="660" y2="300"></line>
+
+          <g class="node" data-node="datalayer" transform="translate(20 50)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">DataLayer</text>
+          </g>
+          <g class="node" data-node="wgtm" transform="translate(160 50)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">wGTM</text>
+          </g>
+          <g class="node" data-node="data-tag" transform="translate(300 50)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">Data Tag</text>
+          </g>
+          <g class="node" data-node="endpoint" transform="translate(440 50)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">Endpoint</text>
+          </g>
+          <g class="node" data-node="sgtm" transform="translate(580 50)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">sGTM</text>
+          </g>
+          <g class="node" data-node="consent" transform="translate(380 160)">
+            <rect width="180" height="60"></rect>
+            <text x="90" y="35" text-anchor="middle">Consent Signals</text>
+          </g>
+          <g class="node" data-node="ga4" transform="translate(160 270)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">GA4</text>
+          </g>
+          <g class="node" data-node="google-ads" transform="translate(400 270)">
+            <rect width="140" height="60"></rect>
+            <text x="70" y="35" text-anchor="middle">Google Ads</text>
+          </g>
+          <g class="node" data-node="meta" transform="translate(580 270)">
+            <rect width="120" height="60"></rect>
+            <text x="60" y="35" text-anchor="middle">Meta CAPI</text>
+          </g>
+        </svg>
+        <div class="chip-row" id="issue-chips"></div>
+      </div>
+
+      <div class="panel">
+        <h2 id="detail-title">Select a node or issue</h2>
+        <p id="detail-summary">Pick a node to see expected inputs and outputs.</p>
+        <ul class="detail-list" id="detail-list"></ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Breakpoints to resolve first</h2>
+      <div class="break-grid">
+        <div class="break-card">
+          <strong>Endpoint mismatch</strong>
+          <p>Data Tag sends to a different domain than the sGTM debug host.</p>
+        </div>
+        <div class="break-card">
+          <strong>Data Tag scope gap</strong>
+          <p>Only purchase events are routed, leaving other ecommerce events idle.</p>
+        </div>
+        <div class="break-card">
+          <strong>User-ID mapping</strong>
+          <p>user_id is hashed and mapped to the wrong key before GA4.</p>
+        </div>
+        <div class="break-card">
+          <strong>Consent signals</strong>
+          <p>Consent settings vary between wGTM and sGTM tags.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Use the Action Plan page to turn each breakpoint into a checklist.</p>
+    </footer>
+
+    <script>
+      const nodes = {
+        datalayer: {
+          title: "DataLayer",
+          summary: "Origin of ecommerce events and user context.",
+          checks: [
+            "Ensure ecommerce events are GA4 formatted.",
+            "Avoid pushing raw PII on every keystroke.",
+            "Confirm purchase event includes transaction_id and items."
+          ]
+        },
+        wgtm: {
+          title: "wGTM",
+          summary: "Client-side routing and Data Tag configuration.",
+          checks: [
+            "Data Tag should fire on all ecommerce events.",
+            "Consent gating should be explicit for ads and analytics.",
+            "Event naming should map page_view consistently."
+          ]
+        },
+        "data-tag": {
+          title: "Data Tag",
+          summary: "Collects event payloads and forwards to sGTM.",
+          checks: [
+            "Use custom_data for items, value, currency, event_id.",
+            "Disable add_data_layer when sensitive PII is present.",
+            "Send user_id separately for GA4 and ads."
+          ]
+        },
+        endpoint: {
+          title: "Endpoint",
+          summary: "Server URL receiving /data requests.",
+          checks: [
+            "Align gtm_server_domain with the sGTM host.",
+            "Verify /data hits in server logs.",
+            "Confirm TLS and routing through CDN or proxy."
+          ]
+        },
+        sgtm: {
+          title: "sGTM",
+          summary: "Server-side routing to GA4 and ad platforms.",
+          checks: [
+            "Ensure GA4 tags exist for all ecommerce events.",
+            "Map event_id and user_id consistently.",
+            "Gate tags by consent status."
+          ]
+        },
+        consent: {
+          title: "Consent Signals",
+          summary: "Consent Mode v2 signals from the CMP.",
+          checks: [
+            "Pass ad_user_data and ad_personalization.",
+            "Confirm analytics_storage and ad_storage are honored.",
+            "Validate cookieless behavior when consent is denied."
+          ]
+        },
+        ga4: {
+          title: "GA4",
+          summary: "Analytics reporting destination.",
+          checks: [
+            "Confirm user_id is set on events.",
+            "Verify ecommerce items, value, currency.",
+            "Use DebugView for validation."
+          ]
+        },
+        "google-ads": {
+          title: "Google Ads",
+          summary: "Server-side conversions and remarketing.",
+          checks: [
+            "Enable conversion linker and enhanced conversions.",
+            "Deduplicate conversions with event_id.",
+            "Ensure remarketing uses correct user_id." 
+          ]
+        },
+        meta: {
+          title: "Meta CAPI",
+          summary: "Server-side events for Meta.",
+          checks: [
+            "Confirm event_id matches client pixel for dedupe.",
+            "Verify fbp and fbc in payload.",
+            "Send hashed user data only after consent."
+          ]
+        }
+      };
+
+      const issues = {
+        endpoint: {
+          title: "Endpoint mismatch",
+          summary: "Data Tag posts to a different domain than sGTM is previewing.",
+          nodes: ["data-tag", "endpoint", "sgtm"],
+          checks: [
+            "Align gtm_server_domain.",
+            "Confirm /data hits in logs.",
+            "Re-test Tag Assistant after updates."
+          ]
+        },
+        scope: {
+          title: "Data Tag scope",
+          summary: "Only purchase events reach sGTM, blocking key ecommerce events.",
+          nodes: ["wgtm", "data-tag"],
+          checks: [
+            "Fire on view_item, add_to_cart, begin_checkout.",
+            "Keep event_name mapping consistent.",
+            "Validate payload structure." 
+          ]
+        },
+        userid: {
+          title: "User-ID mapping",
+          summary: "user_id is hashed and mapped to user_data.user_id, not GA4 user_id.",
+          nodes: ["datalayer", "wgtm", "sgtm", "ga4"],
+          checks: [
+            "Map root user_id from dataLayer.",
+            "Send unhashed user_id to GA4.",
+            "Use hashed IDs only for ads."
+          ]
+        },
+        consent: {
+          title: "Consent gating",
+          summary: "Consent requirements vary across tags and clients.",
+          nodes: ["consent", "wgtm", "sgtm"],
+          checks: [
+            "Standardize consent checks per tag.",
+            "Pass ad_user_data and ad_personalization.",
+            "Validate cookieless behavior."
+          ]
+        }
+      };
+
+      const detailTitle = document.getElementById("detail-title");
+      const detailSummary = document.getElementById("detail-summary");
+      const detailList = document.getElementById("detail-list");
+      const chips = document.getElementById("issue-chips");
+
+      function clearActive() {
+        document.querySelectorAll(".chip").forEach((chip) => {
+          chip.classList.remove("active");
+        });
+        document.querySelectorAll(".node").forEach((node) => {
+          node.classList.remove("active");
+        });
+      }
+
+      function setDetail(title, summary, items) {
+        detailTitle.textContent = title;
+        detailSummary.textContent = summary;
+        detailList.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+      }
+
+      function highlightNodes(nodeList) {
+        nodeList.forEach((id) => {
+          const el = document.querySelector(`[data-node="${id}"]`);
+          if (el) {
+            el.classList.add("active");
+          }
+        });
+      }
+
+      function setIssue(key) {
+        const issue = issues[key];
+        clearActive();
+        setDetail(issue.title, issue.summary, issue.checks);
+        highlightNodes(issue.nodes);
+        const chip = document.querySelector(`[data-issue="${key}"]`);
+        if (chip) {
+          chip.classList.add("active");
+        }
+      }
+
+      Object.keys(issues).forEach((key) => {
+        const button = document.createElement("button");
+        button.className = "chip";
+        button.textContent = issues[key].title;
+        button.dataset.issue = key;
+        button.addEventListener("click", () => setIssue(key));
+        chips.appendChild(button);
+      });
+
+      document.querySelectorAll(".node").forEach((node) => {
+        node.addEventListener("click", () => {
+          const id = node.dataset.node;
+          const info = nodes[id];
+          if (!info) {
+            return;
+          }
+          clearActive();
+          node.classList.add("active");
+          setDetail(info.title, info.summary, info.checks);
+        });
+      });
+
+      setIssue("endpoint");
+    </script>
+  </body>
+</html>
