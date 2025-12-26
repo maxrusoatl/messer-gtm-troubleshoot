@@ -1,0 +1,100 @@
+{
+  "totalUniqueTags": 19,
+  "tags": [
+    {
+      "name": "FB - Page View",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "google_ads_calls",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "google_ads_800calls",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "ms_uet_base",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "Complianz.io - The Privacy Suite for WordPress",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "Google Tag",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "Conversion Linker",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "Click Cease",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "LinkedIn Insight",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "Mailchimp",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "ms_uet_view_item",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "ms_uet_add_to_cart",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "ms_uet_checkout",
+      "container": "GTM-MNRP4PF",
+      "firings": []
+    },
+    {
+      "name": "_Product-Owned Activity Tag 39",
+      "container": "GT-NS9Z5FWG",
+      "firings": []
+    },
+    {
+      "name": "_Product-Owned Activity Tag 37",
+      "container": "GT-NS9Z5FWG",
+      "firings": []
+    },
+    {
+      "name": "_Product-Owned Activity Tag 36",
+      "container": "GT-NS9Z5FWG",
+      "firings": []
+    },
+    {
+      "name": "_Product-Owned Activity Tag 35",
+      "container": "GT-NS9Z5FWG",
+      "firings": []
+    },
+    {
+      "name": "_Product-Owned Activity Tag 34",
+      "container": "GT-NS9Z5FWG",
+      "firings": []
+    },
+    {
+      "name": "_Product-Owned Activity Tag 33",
+      "container": "GT-NS9Z5FWG",
+      "firings": []
+    }
+  ]
+}

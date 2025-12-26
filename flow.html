@@ -300,12 +300,12 @@
       <h2>Breakpoints to resolve first</h2>
       <div class="break-grid">
         <div class="break-card">
-          <strong>Endpoint mismatch</strong>
-          <p>Data Tag sends to a different domain than the sGTM debug host.</p>
-        </div>
-        <div class="break-card">
           <strong>Data Tag scope gap</strong>
           <p>Only purchase events are routed, leaving other ecommerce events idle.</p>
+        </div>
+        <div class="break-card">
+          <strong>GA4 client missing</strong>
+          <p>gtag hits proxy to /metrics/g/collect but no GA4 client is configured in sGTM.</p>
         </div>
         <div class="break-card">
           <strong>User-ID mapping</strong>
@@ -314,6 +314,10 @@
         <div class="break-card">
           <strong>Consent signals</strong>
           <p>Consent settings vary between wGTM and sGTM tags.</p>
+        </div>
+        <div class="break-card">
+          <strong>sGTM hit logs missing</strong>
+          <p>No server-side hit evidence in logs or Tag Assistant, blocking verification.</p>
         </div>
       </div>
     </section>
@@ -355,9 +359,9 @@
           title: "Endpoint",
           summary: "Server URL receiving /data requests.",
           checks: [
-            "Align gtm_server_domain with the sGTM host.",
             "Verify /data hits in server logs.",
-            "Confirm TLS and routing through CDN or proxy."
+            "Confirm /metrics rewrite to sgtm domain.",
+            "Validate TLS and proxy routing."
           ]
         },
         sgtm: {
@@ -408,16 +412,6 @@
       };
 
       const issues = {
-        endpoint: {
-          title: "Endpoint mismatch",
-          summary: "Data Tag posts to a different domain than sGTM is previewing.",
-          nodes: ["data-tag", "endpoint", "sgtm"],
-          checks: [
-            "Align gtm_server_domain.",
-            "Confirm /data hits in logs.",
-            "Re-test Tag Assistant after updates."
-          ]
-        },
         scope: {
           title: "Data Tag scope",
           summary: "Only purchase events reach sGTM, blocking key ecommerce events.",
@@ -426,6 +420,16 @@
             "Fire on view_item, add_to_cart, begin_checkout.",
             "Keep event_name mapping consistent.",
             "Validate payload structure." 
+          ]
+        },
+        gtag: {
+          title: "GA4 client missing",
+          summary: "gtag hits proxy to /metrics/g/collect but no GA4 client processes them.",
+          nodes: ["wgtm", "endpoint", "sgtm", "ga4"],
+          checks: [
+            "Add GA4 client or route GA4 via Data Client.",
+            "Confirm gtag config hits in sGTM preview.",
+            "Avoid dead /g/collect requests."
           ]
         },
         userid: {
@@ -446,6 +450,16 @@
             "Standardize consent checks per tag.",
             "Pass ad_user_data and ad_personalization.",
             "Validate cookieless behavior."
+          ]
+        },
+        logs: {
+          title: "sGTM hit logs missing",
+          summary: "No /data or /g/collect traffic visible in logs or server preview.",
+          nodes: ["endpoint", "sgtm"],
+          checks: [
+            "Enable Stape hit logs or server logs.",
+            "Verify live traffic reaches sGTM.",
+            "Re-run Tag Assistant after logging is enabled."
           ]
         }
       };

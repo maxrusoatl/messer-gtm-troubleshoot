@@ -1,0 +1,154 @@
+{
+  "part": 7,
+  "totalParts": 10,
+  "containerId": "GTM-MNRP4PF",
+  "containerName": "messerattach.com",
+  "tagRange": "13-14 of 17",
+  "tags": [
+    {
+      "tagId": "333",
+      "name": "ms_uet_purchase",
+      "type": "baut",
+      "firingTriggerId": [
+        "96"
+      ],
+      "consentSettings": {
+        "consentStatus": "NEEDED",
+        "consentType": {
+          "type": "LIST",
+          "list": [
+            {
+              "type": "TEMPLATE",
+              "value": "ad_storage"
+            }
+          ]
+        }
+      },
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "c_navTimingApi",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "tagId",
+          "value": "{{ms_ads}}"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_consentInheritGtm",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_storeConvTrackCookies",
+          "value": "true"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "uetqName",
+          "value": "uetq"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_removeQueryFromUrls",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_disableAutoPageView",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_enhancedConversion",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_consentUpdates",
+          "value": "true"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "eventType",
+          "value": "PAGE_LOAD"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_enableAutoSpaTracking",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "tagId": "334",
+      "name": "ms_uet_checkout",
+      "type": "baut",
+      "firingTriggerId": [
+        "95"
+      ],
+      "consentSettings": {
+        "consentStatus": "NOT_NEEDED"
+      },
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "c_navTimingApi",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "tagId",
+          "value": "{{ms_ads}}"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_consentInheritGtm",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_storeConvTrackCookies",
+          "value": "true"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "uetqName",
+          "value": "uetq"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_removeQueryFromUrls",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_disableAutoPageView",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_enhancedConversion",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_consentUpdates",
+          "value": "true"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "eventType",
+          "value": "PAGE_LOAD"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "c_enableAutoSpaTracking",
+          "value": "false"
+        }
+      ]
+    }
+  ]
+}

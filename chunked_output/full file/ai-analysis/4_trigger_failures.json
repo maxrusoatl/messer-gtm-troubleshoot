@@ -1,0 +1,950 @@
+{
+  "description": "Why triggers failed - shows exact conditions that did not match",
+  "totalTriggers": 26,
+  "triggersWithFailures": 26,
+  "failures": [
+    {
+      "trigger": "CM - All Consent Granted - Page View",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Consent Initialization - All Pages",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "All Pages",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "ce_view_item",
+      "container": "GTM-MNRP4PF",
+      "passCount": 5,
+      "failCount": 299,
+      "failRate": "98%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 299
+        }
+      ]
+    },
+    {
+      "trigger": "ce_ site_search",
+      "container": "GTM-MNRP4PF",
+      "passCount": 0,
+      "failCount": 304,
+      "failRate": "100%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 304
+        }
+      ]
+    },
+    {
+      "trigger": "ce_purchase",
+      "container": "GTM-MNRP4PF",
+      "passCount": 0,
+      "failCount": 304,
+      "failRate": "100%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 304
+        }
+      ]
+    },
+    {
+      "trigger": "ce_checkout",
+      "container": "GTM-MNRP4PF",
+      "passCount": 2,
+      "failCount": 302,
+      "failRate": "99%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 302
+        }
+      ]
+    },
+    {
+      "trigger": "ce_add_to_cart",
+      "container": "GTM-MNRP4PF",
+      "passCount": 2,
+      "failCount": 302,
+      "failRate": "99%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 302
+        }
+      ]
+    },
+    {
+      "trigger": "Initialization - All Pages",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Payment method added",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Shipping info added",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Phone call - Local",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Phone call - Nationwide",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "FIND A DEALER",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "CONTACT US",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "PRIVACY POLICY",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "DOWNLOAD PRODUCT CATALOG",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "DOWNLOAD PARTS CATALOG",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Site Search",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Register",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Log in",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "click",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "scroll",
+      "container": "GTM-MNRP4PF",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "Page View - Search Results",
+      "container": "GTM-MNRP4PF",
+      "passCount": 0,
+      "failCount": 304,
+      "failRate": "100%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "re(?, ?)",
+          "count": 304
+        },
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "All Pages",
+      "container": "GT-NS9Z5FWG",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.init",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    },
+    {
+      "trigger": "_Trigger for Activity Condition Type GTM_INIT 17",
+      "container": "GT-NS9Z5FWG",
+      "passCount": 13,
+      "failCount": 291,
+      "failRate": "96%",
+      "failedOnEvents": [
+        "gtm.click",
+        "gtm.scrollDepth",
+        "gtm.linkClick",
+        "scroll",
+        "form_start",
+        "gtm.load",
+        "gtm.dom",
+        "cmplz_event_functional",
+        "cmplz_event_preferences",
+        "cmplz_event_marketing",
+        "cmplz_event_statistics",
+        "begin_checkout",
+        "checkout",
+        "user_init",
+        "gtm.js",
+        "gtm.init_consent",
+        "form_submit",
+        "view_cart",
+        "view_item_list",
+        "view_item",
+        "add_to_cart"
+      ],
+      "topFailureReasons": [
+        {
+          "reason": "eq(?, ?)",
+          "count": 291
+        }
+      ]
+    }
+  ]
+}

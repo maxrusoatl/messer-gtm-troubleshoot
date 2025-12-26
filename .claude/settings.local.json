@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(node combine-chunks.js:*)",
+      "Bash(node split-gtm.js:*)",
+      "Bash(node -e:*)",
+      "Bash(node extract-ai.js:*)",
+      "Bash(node extract-analysis.js:*)"
+    ]
+  }
+}

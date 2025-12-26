@@ -1,0 +1,592 @@
+{
+  "part": 6,
+  "totalParts": 10,
+  "containerId": "GTM-MNRP4PF",
+  "containerName": "messerattach.com",
+  "tagRange": "11-12 of 17",
+  "tags": [
+    {
+      "tagId": "310",
+      "name": "Data Tag",
+      "type": "cvt_MBTSV",
+      "firingTriggerId": [
+        "96"
+      ],
+      "consentSettings": {
+        "consentStatus": "NOT_NEEDED"
+      },
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "add_data_layer",
+          "value": "true"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "event_name_custom",
+          "value": "{{Event page_view Override}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "request_type",
+          "value": "auto"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "add_consent_state",
+          "value": "true"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "dataLayerEventPush",
+          "value": "false"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "richsstsse",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "data_tag_load_script_url",
+          "value": "https://stapecdn.com/dtag/v8.js"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "add_common_cookie",
+          "value": "true"
+        },
+        {
+          "type": "LIST",
+          "key": "user_data",
+          "list": [
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "email_address"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers Email}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "phone_number"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers Phone Number}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "first_name"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers First Name}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "last_name"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers Last Name}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "city"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers City}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "postal_code"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers Postal Code}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "country"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers Country}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "user_id"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{dlv - user_id}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "street"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers Address}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "region"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Customers State}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "sha256hex"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "cookies"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "protocol_version",
+          "value": "2"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "event_type",
+          "value": "custom"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "gtm_server_domain",
+          "value": "https://messerattach.com/metrics"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "request_path",
+          "value": "/data"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "add_common",
+          "value": "true"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "useFetchInsteadOfXHR",
+          "value": "true"
+        },
+        {
+          "type": "LIST",
+          "key": "custom_data",
+          "list": [
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "transaction_id"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{dlv_transactionID}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "value"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{dlv_value}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "currency"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{dlv_ecommerce_currency}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "event_id"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{Unique Event ID}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "items"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{cjs - Items with Index}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "fbp"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{1st Party Cookie - fbp}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "fbc"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{1st Party Cookie - fbc}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "name",
+                  "value": "search_term"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "{{URL - Query - Search Term}}"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "transformation",
+                  "value": "none"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "store",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagId": "322",
+      "name": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "cvt_WF68Z",
+      "firingTriggerId": [
+        "2147479572"
+      ],
+      "consentSettings": {
+        "consentStatus": "NOT_NEEDED"
+      },
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "ads_data_redaction",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "defaultConsentMarketing",
+          "value": "denied"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "defaultConsentStatistics",
+          "value": "denied"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "defaultConsentPreferences",
+          "value": "denied"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "url_passthrough",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

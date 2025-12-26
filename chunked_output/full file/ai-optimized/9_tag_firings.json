@@ -1,0 +1,2097 @@
+{
+  "firings": [
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 0,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 1,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 2,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 3,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 4,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 5,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 6,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 7,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 8,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 9,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 10,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 11,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "LinkedIn Insight",
+      "type": "LinkedIn Insight"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "FB - Page View",
+      "type": "Facebook Pixel"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Conversion Linker",
+      "type": "Conversion Linker"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "google_ads_800calls",
+      "type": "Google Ads Calls from Website Conversion"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_base",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_view_item",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_site_search",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Data Tag",
+      "type": "Data Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Complianz.io - The Privacy Suite for WordPress",
+      "type": "Complianz.io - The Privacy Suite for WordPress"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_purchase",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_checkout",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "ms_uet_add_to_cart",
+      "type": "Microsoft Advertising Universal Event Tracking"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Google Tag",
+      "type": "Google Tag"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Click Cease",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Mailchimp",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "eventIdx": 12,
+      "event": "gtm.init_consent",
+      "tag": "Helper - Push search Event",
+      "type": "Custom HTML"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 0,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 0,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 0,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 0,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 0,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 0,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 1,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 1,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 1,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 1,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 1,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 1,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 2,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 2,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 2,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 2,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 2,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 2,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 3,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 3,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 3,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 3,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 3,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 3,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 4,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 4,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 4,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 4,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 4,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 4,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 5,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 5,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 5,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 5,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 5,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 5,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 6,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 6,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 6,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 6,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 6,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 6,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 7,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 7,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 7,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 7,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 7,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 7,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 8,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 8,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 8,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 8,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 8,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 8,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 9,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 9,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 9,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 9,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 9,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 9,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 10,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 10,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 10,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 10,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 10,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 10,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 11,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 11,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 11,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 11,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 11,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 11,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 12,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 39",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 12,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 37",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 12,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 36",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 12,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 35",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 12,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 34",
+      "type": "Enhanced Measurement"
+    },
+    {
+      "container": "GT-NS9Z5FWG",
+      "eventIdx": 12,
+      "event": "gtm.init",
+      "tag": "_Product-Owned Activity Tag 33",
+      "type": "Enhanced Measurement"
+    }
+  ]
+}

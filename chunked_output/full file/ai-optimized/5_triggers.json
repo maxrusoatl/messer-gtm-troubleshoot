@@ -1,0 +1,161 @@
+{
+  "totalTriggers": 26,
+  "triggers": [
+    {
+      "name": "CM - All Consent Granted - Page View",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Consent Initialization - All Pages",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "All Pages",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "ce_view_item",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "ce_ site_search",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "ce_purchase",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "ce_checkout",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "ce_add_to_cart",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Initialization - All Pages",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Payment method added",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Shipping info added",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Phone call - Local",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Phone call - Nationwide",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "FIND A DEALER",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "CONTACT US",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "PRIVACY POLICY",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "DOWNLOAD PRODUCT CATALOG",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "DOWNLOAD PARTS CATALOG",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Site Search",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Register",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Log in",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "click",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "scroll",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "Page View - Search Results",
+      "container": "GTM-MNRP4PF",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "All Pages",
+      "container": "GT-NS9Z5FWG",
+      "fired": 0,
+      "blocked": 0
+    },
+    {
+      "name": "_Trigger for Activity Condition Type GTM_INIT 17",
+      "container": "GT-NS9Z5FWG",
+      "fired": 0,
+      "blocked": 0
+    }
+  ]
+}

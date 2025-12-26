@@ -1,0 +1,1891 @@
+{
+  "containerId": "GTM-MNRP4PF",
+  "totalTriggers": 33,
+  "totalVariables": 57,
+  "triggers": [
+    {
+      "triggerId": "92",
+      "name": "ce_view_item",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "view_item"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "93",
+      "name": "ce_add_to_cart",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "add_to_cart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "94",
+      "name": "ce_view_cart",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "view_cart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "95",
+      "name": "ce_checkout",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "begin_checkout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "96",
+      "name": "ce_purchase",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "purchase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "97",
+      "name": "Payment method added",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "MATCH_REGEX",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "Credit card / debit card|PayPal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "98",
+      "name": "Shipping info added",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click ID}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "billing_email"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "99",
+      "name": "ce_remove_from_cart",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "remove_from_cart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "100",
+      "name": "Submit form",
+      "type": "WINDOW_LOADED",
+      "filter": [
+        {
+          "type": "CONTAINS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{cjs - Contact Form}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "Thanks for contacting us! We will be in touch with you shortly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "101",
+      "name": "Phone call - Local",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "320-352-3477"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "142",
+      "name": "Phone call - Nationwide",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "833-352-3477"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "147",
+      "name": "FIND A DEALER",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "FIND A DEALER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "148",
+      "name": "CONTACT US",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "CONTACT US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "163",
+      "name": "PRIVACY POLICY",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "PRIVACY POLICY"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "164",
+      "name": "WARRANTY",
+      "type": "PAGEVIEW",
+      "filter": [
+        {
+          "type": "CONTAINS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Page URL}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "warranty"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "167",
+      "name": "DOWNLOAD PRODUCT CATALOG",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "DOWNLOAD PRODUCT CATALOG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "169",
+      "name": "DOWNLOAD PARTS CATALOG",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "DOWNLOAD PARTS CATALOG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "170",
+      "name": "Site Search",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Classes}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "dgwt-wcas-search-input"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "171",
+      "name": "Register",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "Register"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "172",
+      "name": "Log in",
+      "type": "CLICK",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Click Text}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "Log in"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "201",
+      "name": "click",
+      "type": "CLICK"
+    },
+    {
+      "triggerId": "205",
+      "name": "scroll",
+      "type": "SCROLL_DEPTH"
+    },
+    {
+      "triggerId": "213",
+      "name": "Initialization",
+      "type": "INIT"
+    },
+    {
+      "triggerId": "307",
+      "name": "CE - Ecommerce Actions for Ads Remarketing",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "MATCH_REGEX",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "view_item|add_to_cart|begin_checkout|purchase|view_cart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "313",
+      "name": "Trigger - Ecom Core Events",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "MATCH_REGEX",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "^(page_view|view_cart|add_payment_info|add_to_cart|begin_checkout|find_location|generate_lead|login|purchase|refund|search|share|sign_up|view_item|view_item_list|view_search_results)$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "324",
+      "name": "cmplz_event_marketing",
+      "type": "CUSTOM_EVENT",
+      "filter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "cmplz_event_marketing"
+            }
+          ]
+        }
+      ],
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "cmplz_event_marketing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "325",
+      "name": "cmplz_event_statistics",
+      "type": "CUSTOM_EVENT",
+      "filter": [
+        {
+          "type": "CONTAINS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "cmplz_event_statistics"
+            }
+          ]
+        }
+      ],
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "cmplz_event_statistics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "326",
+      "name": "TRG - wGTM - gtag.consent.update",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "gtag.consent.update"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "328",
+      "name": "cmplz_event_preferences",
+      "type": "CUSTOM_EVENT",
+      "filter": [
+        {
+          "type": "CONTAINS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "cmplz_event_preferences"
+            }
+          ]
+        }
+      ],
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "cmplz_event_preferences"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "330",
+      "name": "CM - All Consent Granted - Page View",
+      "type": "PAGEVIEW"
+    },
+    {
+      "triggerId": "331",
+      "name": "ce_ site_search",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "site_search"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "337",
+      "name": "Page View - Search Results",
+      "type": "DOM_READY",
+      "filter": [
+        {
+          "type": "MATCH_REGEX",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{Page URL}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "\\?s=.+"
+            },
+            {
+              "type": "BOOLEAN",
+              "key": "ignore_case",
+              "value": "true"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "triggerId": "340",
+      "name": "Event - search",
+      "type": "CUSTOM_EVENT",
+      "customEventFilter": [
+        {
+          "type": "EQUALS",
+          "parameter": [
+            {
+              "type": "TEMPLATE",
+              "key": "arg0",
+              "value": "{{_event}}"
+            },
+            {
+              "type": "TEMPLATE",
+              "key": "arg1",
+              "value": "search"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "variableId": "22",
+      "name": "1st Party Cookie - fbc",
+      "type": "k",
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "decodeCookie",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "_fbc"
+        }
+      ]
+    },
+    {
+      "variableId": "81",
+      "name": "Facebook Pixel",
+      "type": "c",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "value",
+          "value": "3695834564032094"
+        }
+      ]
+    },
+    {
+      "variableId": "82",
+      "name": "Event Id",
+      "type": "cvt_134846891_51",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "customEventCounter",
+          "value": "gtm.uniqueEventId"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "useCustomEventCounter",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "variableId": "83",
+      "name": "dlv_ecommerce_currency",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.currency"
+        }
+      ]
+    },
+    {
+      "variableId": "84",
+      "name": "dlv - Item ID",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.detail.products.id"
+        }
+      ]
+    },
+    {
+      "variableId": "85",
+      "name": "dlv - Item Name",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.detail.products.name"
+        }
+      ]
+    },
+    {
+      "variableId": "86",
+      "name": "dlv - Item Price",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.detail.products.price"
+        }
+      ]
+    },
+    {
+      "variableId": "87",
+      "name": "dlv_ecommerce_items",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.items"
+        }
+      ]
+    },
+    {
+      "variableId": "88",
+      "name": "dlv_value",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.value"
+        }
+      ]
+    },
+    {
+      "variableId": "89",
+      "name": "dlv_transactionID",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.transaction_id"
+        }
+      ]
+    },
+    {
+      "variableId": "90",
+      "name": "cjs - Items ID",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  var items = {{dlv_ecommerce_items}};\n  if (!Array.isArray(items) || !items.length) return [];\n  var out = [], seen = {};\n  for (var i = 0; i < items.length; i++) {\n    var v = items[i] && (items[i].item_id || items[i].id);\n    if (typeof v === 'string' && v && !seen[v]) {\n      seen[v] = 1;\n      out.push(v);\n    }\n  }\n  return out;\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "91",
+      "name": "cjs - Items Name",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  var items = {{dlv_ecommerce_items}};\n  if (!Array.isArray(items) || !items.length) return [];\n  var out = [], seen = {};\n  for (var i = 0; i < items.length; i++) {\n    var v = items[i] && (items[i].item_name || items[i].name);\n    if (typeof v === 'string' && v && !seen[v]) {\n      seen[v] = 1;\n      out.push(v);\n    }\n  }\n  return out;\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "103",
+      "name": "Customers First Name",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_first_name"
+        }
+      ]
+    },
+    {
+      "variableId": "104",
+      "name": "Customers Last Name",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_last_name"
+        }
+      ]
+    },
+    {
+      "variableId": "105",
+      "name": "Customers Address",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_address"
+        }
+      ]
+    },
+    {
+      "variableId": "106",
+      "name": "Customers City",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_city"
+        }
+      ]
+    },
+    {
+      "variableId": "107",
+      "name": "Customers Postal Code",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_postcode"
+        }
+      ]
+    },
+    {
+      "variableId": "108",
+      "name": "Customers Country",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_country"
+        }
+      ]
+    },
+    {
+      "variableId": "109",
+      "name": "Customers Phone Number",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.phone_number"
+        }
+      ]
+    },
+    {
+      "variableId": "110",
+      "name": "Customers Email",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_email"
+        }
+      ]
+    },
+    {
+      "variableId": "111",
+      "name": "dlv_coupon",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.coupon"
+        }
+      ]
+    },
+    {
+      "variableId": "135",
+      "name": "User-Provided Data",
+      "type": "awec",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "mode",
+          "value": "MANUAL"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "country",
+          "value": "{{Customers Country}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "city",
+          "value": "{{Customers City}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "street",
+          "value": "{{Customers Address}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "last_name",
+          "value": "{{Customers Last Name}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "phone_number",
+          "value": "{{Customers Phone Number}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "region",
+          "value": "{{Customers Country}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "postal_code",
+          "value": "{{Customers Postal Code}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "first_name",
+          "value": "{{Customers First Name}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "email",
+          "value": "{{Customers Email}}"
+        }
+      ]
+    },
+    {
+      "variableId": "207",
+      "name": "dlv_shipping",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.shipping"
+        }
+      ]
+    },
+    {
+      "variableId": "208",
+      "name": "dlv_affiliation",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.affiliation"
+        }
+      ]
+    },
+    {
+      "variableId": "209",
+      "name": "dlv_tax",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.tax"
+        }
+      ]
+    },
+    {
+      "variableId": "210",
+      "name": "Event Time",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  return Math.floor(Date.now() / 1000); // Unix-epoch seconds (UTC)\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "261",
+      "name": "cjs - Contact Form",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\nreturn document.querySelector(\"#wpforms-confirmation-14 > p\").innerText;\n}"
+        }
+      ]
+    },
+    {
+      "variableId": "269",
+      "name": "dlv_pagePostType",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "pagePostType"
+        }
+      ]
+    },
+    {
+      "variableId": "273",
+      "name": "customerTotalOrder",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "customerTotalOrderValue"
+        }
+      ]
+    },
+    {
+      "variableId": "274",
+      "name": "dlv_ecommerce_category",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.items[0].item_category"
+        }
+      ]
+    },
+    {
+      "variableId": "275",
+      "name": "dev_cartContent.items.length",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "cartContent.items.length"
+        }
+      ]
+    },
+    {
+      "variableId": "276",
+      "name": "dlv_ecommerce_products",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "ecommerce.products"
+        }
+      ]
+    },
+    {
+      "variableId": "297",
+      "name": "External ID",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  /* ---------- UUID v4 (RFC 4122) ---------- */\n  function uuid() {\n    var d  = new Date().getTime();\n    var d2 = (window.performance && window.performance.now\n              ? window.performance.now() * 1000\n              : 0);\n    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {\n      var r = Math.random() * 16;\n      if (d > 0) { r = (d + r) % 16 | 0; d = Math.floor(d / 16); }\n      else       { r = (d2 + r) % 16 | 0; d2 = Math.floor(d2 / 16); }\n      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);\n    });\n  }\n\n  /* ---------- simple cookie helpers ---------- */\n  function setCookie(k, v, days) {\n    var expires = '';\n    if (days) {\n      var t = new Date();\n      t.setTime(t.getTime() + days * 864e5);\n      expires = '; expires=' + t.toUTCString();\n    }\n    document.cookie = k + '=' + encodeURIComponent(v) + expires + '; path=/';\n  }\n  function getCookie(k) {\n    var nameEQ = k + '=';\n    var ca = document.cookie.split(';');\n    for (var i = 0; i < ca.length; i++) {\n      var c = ca[i];\n      while (c.charAt(0) === ' ') c = c.substring(1);\n      if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length));\n    }\n    return '';\n  }\n\n  /* ---------- query-string parser (ES5) ---------- */\n  function getQueryParam(q) {\n    var qs = window.location.search.substring(1).split('&');\n    for (var i = 0; i < qs.length; i++) {\n      var pair = qs[i].split('=');\n      if (decodeURIComponent(pair[0]) === q) {\n        return decodeURIComponent(pair[1] || '');\n      }\n    }\n    return '';\n  }\n\n  /* ---------- main logic ---------- */\n  var fromUrl    = getQueryParam('external_id');\n  var fromCookie = getCookie('external_id');\n\n  if (fromUrl) {\n    setCookie('external_id', fromUrl, 365);\n    return fromUrl;\n  }\n  if (fromCookie) {\n    return fromCookie;\n  }\n\n  var id = uuid();\n  setCookie('external_id', id, 365);\n  return id;\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "298",
+      "name": "GA4 - ID",
+      "type": "c",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "value",
+          "value": "G-YCL5FGZNCV"
+        }
+      ]
+    },
+    {
+      "variableId": "303",
+      "name": "dlv - user_id",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.user_id"
+        }
+      ]
+    },
+    {
+      "variableId": "311",
+      "name": "DLV - _fbp",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "_fbp"
+        }
+      ]
+    },
+    {
+      "variableId": "312",
+      "name": "1st Party Cookie - fbp",
+      "type": "k",
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "decodeCookie",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "_fbp"
+        }
+      ]
+    },
+    {
+      "variableId": "315",
+      "name": "sgtm.messerattach URL",
+      "type": "c",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "value",
+          "value": "https://sgtm.messerattach.com"
+        }
+      ]
+    },
+    {
+      "variableId": "316",
+      "name": "Customers State",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.billing_state"
+        }
+      ]
+    },
+    {
+      "variableId": "317",
+      "name": "cjs - Items with Index",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  var items = {{dlv_ecommerce_items}};\n  if (!Array.isArray(items) || !items.length) return [];\n  var out = [];\n  for (var i = 0; i < items.length; i++) {\n    var itm = items[i];\n    if (!itm || typeof itm !== 'object') continue;\n    var c = {};\n    for (var k in itm) if (Object.prototype.hasOwnProperty.call(itm, k)) c[k] = itm[k];\n    if (typeof c.index !== 'number' || !isFinite(c.index)) c.index = i + 1;\n    out.push(c);\n  }\n  return out;\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "332",
+      "name": "ms_ads",
+      "type": "c",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "value",
+          "value": "343101821"
+        }
+      ]
+    },
+    {
+      "variableId": "336",
+      "name": "Event page_view Override",
+      "type": "smm",
+      "parameter": [
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "true"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "input",
+          "value": "{{Event}}"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "defaultValue",
+          "value": "{{Event}}"
+        },
+        {
+          "type": "LIST",
+          "key": "map",
+          "list": [
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "key",
+                  "value": "gtm.dom"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "page_view"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "key",
+                  "value": "gtm.historyChange"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "page_view"
+                }
+              ]
+            },
+            {
+              "type": "MAP",
+              "map": [
+                {
+                  "type": "TEMPLATE",
+                  "key": "key",
+                  "value": "gtm.scrollDepth"
+                },
+                {
+                  "type": "TEMPLATE",
+                  "key": "value",
+                  "value": "scroll"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "variableId": "338",
+      "name": "URL - Query - Search Term",
+      "type": "u",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "component",
+          "value": "QUERY"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "queryKey",
+          "value": "s"
+        }
+      ]
+    },
+    {
+      "variableId": "341",
+      "name": "URL - Query - msclkid",
+      "type": "u",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "component",
+          "value": "QUERY"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "queryKey",
+          "value": "msclkid"
+        }
+      ]
+    },
+    {
+      "variableId": "343",
+      "name": "cjs - Items SKU",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  var items = {{dlv_ecommerce_items}};\n  if (!Array.isArray(items) || !items.length) return [];\n  var out = [], seen = {};\n  for (var i = 0; i < items.length; i++) {\n    var v = items[i] && (items[i].item_sku || items[i].sku);\n    if (typeof v === 'string' && v && !seen[v]) {\n      seen[v] = 1;\n      out.push(v);\n    }\n  }\n  return out;\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "344",
+      "name": "cjs - Items JSON",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "javascript",
+          "value": "function () {\n  var items = {{dlv_ecommerce_items}};\n  if (!Array.isArray(items) || !items.length) return '[]';\n  try { return JSON.stringify(items); } catch (e) { return '[]'; }\n}\n"
+        }
+      ]
+    },
+    {
+      "variableId": "347",
+      "name": "Debug Mode",
+      "type": "c",
+      "parameter": [
+        {
+          "type": "TEMPLATE",
+          "key": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "variableId": "350",
+      "name": "Unique Event ID",
+      "type": "cvt_M63B8"
+    },
+    {
+      "variableId": "494",
+      "name": "d2 user_data.email",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.email"
+        }
+      ]
+    },
+    {
+      "variableId": "495",
+      "name": "d2 user_data.phone",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.phone"
+        }
+      ]
+    },
+    {
+      "variableId": "496",
+      "name": "d2 user_data.postalcode",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.postalcode"
+        }
+      ]
+    },
+    {
+      "variableId": "497",
+      "name": "D2 user_data.last_name",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.last_name"
+        }
+      ]
+    },
+    {
+      "variableId": "498",
+      "name": "d2 user_data.first_name",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.first_name"
+        }
+      ]
+    },
+    {
+      "variableId": "499",
+      "name": "d2 user_data.country",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.country"
+        }
+      ]
+    },
+    {
+      "variableId": "500",
+      "name": "d2 user_data.state",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.state"
+        }
+      ]
+    },
+    {
+      "variableId": "501",
+      "name": "d2 user_data.city",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.city"
+        }
+      ]
+    },
+    {
+      "variableId": "502",
+      "name": "d2 user_data.address",
+      "type": "v",
+      "parameter": [
+        {
+          "type": "INTEGER",
+          "key": "dataLayerVersion",
+          "value": "2"
+        },
+        {
+          "type": "BOOLEAN",
+          "key": "setDefaultValue",
+          "value": "false"
+        },
+        {
+          "type": "TEMPLATE",
+          "key": "name",
+          "value": "user_data.address"
+        }
+      ]
+    }
+  ]
+}

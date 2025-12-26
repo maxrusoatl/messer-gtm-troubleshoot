@@ -1,0 +1,6891 @@
+[
+  {
+    "container": "GTM-MNRP4PF",
+    "totalEvents": 477,
+    "events": [
+      {
+        "idx": 477,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 476,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 475,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 474,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 473,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 472,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 471,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 470,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 469,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 468,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 467,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 466,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 465,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 464,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 463,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 462,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 461,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 460,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 459,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 458,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 457,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 456,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 455,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 454,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 453,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 452,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 451,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 450,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 449,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 448,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 447,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 446,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 445,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 444,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 443,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 442,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 441,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 440,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 439,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 438,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 437,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 436,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 435,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 434,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 433,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 432,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 431,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 430,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 429,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 428,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 427,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 426,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 425,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 424,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 423,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 422,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 421,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 420,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 419,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 418,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 417,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 416,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 415,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 414,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 413,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 412,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 411,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 410,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 409,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 408,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 407,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 406,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 405,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 404,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 403,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 402,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 401,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 400,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 399,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 398,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 397,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 396,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 395,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 394,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 393,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 392,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 391,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 390,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 389,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 388,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 387,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 386,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 385,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 384,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 383,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 382,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 381,
+        "event": "begin_checkout",
+        "page": "begin_checkout",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 380,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 379,
+        "event": "checkout",
+        "page": "checkout",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 378,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 377,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 376,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 375,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 374,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 373,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 372,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 371,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 370,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 369,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 368,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 367,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 366,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 365,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 364,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 363,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 362,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 361,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 360,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 359,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 358,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 357,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 356,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 355,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 354,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 353,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 352,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 351,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 350,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 349,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 348,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 347,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 346,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 345,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 344,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 343,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 342,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 341,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 340,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 339,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 338,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 337,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 336,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 335,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 334,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 333,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 332,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 331,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 330,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 329,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 328,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 327,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 326,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 325,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 324,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 323,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 322,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 321,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 320,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 319,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 318,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 317,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 316,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 315,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 314,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 313,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 312,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 311,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 310,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 309,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 308,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 307,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 306,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 305,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 304,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 303,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 302,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 301,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 300,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 299,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 298,
+        "event": "begin_checkout",
+        "page": "begin_checkout",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 297,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 296,
+        "event": "checkout",
+        "page": "checkout",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 295,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 294,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 293,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 292,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 291,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 290,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 289,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 288,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 287,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 286,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 285,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 284,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 283,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 282,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 281,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 280,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 279,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 278,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 277,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 276,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 275,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 274,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 273,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 272,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 271,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 270,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 269,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 268,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 267,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 266,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 265,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 264,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 263,
+        "event": "view_cart",
+        "page": "view_cart",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 262,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 261,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 260,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 259,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 258,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 257,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 256,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 255,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 254,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 253,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 252,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 251,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 250,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 249,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 248,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 247,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 246,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 245,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 244,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 243,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 242,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 241,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 240,
+        "event": "view_item_list",
+        "page": "view_item_list",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 239,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 238,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 237,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 236,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 235,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 234,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 233,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 232,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 231,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 230,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 229,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 228,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 227,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 226,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 225,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 224,
+        "event": "view_item_list",
+        "page": "view_item_list",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 223,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 222,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 221,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 220,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 219,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 218,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 217,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 216,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 215,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 214,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 213,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 212,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 211,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 210,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 209,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 208,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 207,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 206,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 205,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 204,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 203,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 202,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 201,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 200,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 199,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 198,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 197,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 196,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 195,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 194,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 193,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 192,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 191,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 190,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 189,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 188,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 187,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 186,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 185,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 184,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 183,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 182,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 181,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 180,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 179,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 178,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 177,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 176,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 175,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 174,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 173,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 172,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 171,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 170,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 169,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 168,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 167,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 166,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 165,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 164,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 163,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 162,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 161,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 160,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 159,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 158,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 157,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 156,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 155,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 154,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 153,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 152,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 151,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 150,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 149,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 148,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 147,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 146,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 145,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 144,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 143,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 142,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 141,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 140,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 139,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 138,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 137,
+        "event": "add_to_cart",
+        "page": "add_to_cart",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 136,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 135,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 134,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 133,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 132,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 131,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 130,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 129,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 128,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 127,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 126,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 125,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 124,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 123,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 122,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 121,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 120,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 119,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 118,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 117,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 116,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 115,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 114,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 113,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 112,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 111,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 110,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 109,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 108,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 107,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 106,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 105,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 104,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 103,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 102,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 101,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 100,
+        "event": "view_item_list",
+        "page": "view_item_list",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 99,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 98,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 97,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 96,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 95,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 94,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 93,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 92,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 91,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 90,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 89,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 88,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 87,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 86,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 85,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 84,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 83,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 82,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 81,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 80,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 79,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 78,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 77,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 76,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 75,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 74,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 73,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 72,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 71,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 70,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 69,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 68,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 67,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 66,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 65,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 64,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 63,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 62,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 61,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 60,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 59,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 58,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 57,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 56,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 55,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 54,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 53,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 52,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 51,
+        "event": "add_to_cart",
+        "page": "add_to_cart",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 50,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 49,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 48,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 47,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 46,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 45,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 44,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 43,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 42,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 41,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 40,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 39,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 38,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 37,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 36,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 35,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 34,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 33,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 32,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 31,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 30,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 29,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 28,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 27,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 26,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 25,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 24,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 23,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 22,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 21,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 20,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 19,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 18,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 17,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 16,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 15,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 14,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 13,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 12,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 11,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 10,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 9,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 8,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 7,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 6,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 5,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 4,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 3,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 2,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 17,
+        "consent": {}
+      },
+      {
+        "idx": 1,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      }
+    ]
+  },
+  {
+    "container": "GT-NS9Z5FWG",
+    "totalEvents": 524,
+    "events": [
+      {
+        "idx": 524,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 523,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 522,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 521,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 520,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 519,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 518,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 517,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 516,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 515,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 514,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 513,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 512,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 511,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 510,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 509,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 508,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 507,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 506,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 505,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 504,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 503,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 502,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 501,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 500,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 499,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 498,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 497,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 496,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 495,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 494,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 493,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 492,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 491,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 490,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 489,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 488,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 487,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 486,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 485,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 484,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 483,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 482,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 481,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 480,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 479,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 478,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 477,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 476,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 475,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 474,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 473,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 472,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 471,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 470,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 469,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 468,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 467,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 466,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 465,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 464,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 463,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 462,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 461,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 460,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 459,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 458,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 457,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 456,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 455,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 454,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 453,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 452,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 451,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 450,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 449,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 448,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 447,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 446,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 445,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 444,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 443,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 442,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 441,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 440,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 439,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 438,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 437,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 436,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 435,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 434,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 433,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 432,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 431,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 430,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 429,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 428,
+        "event": "begin_checkout",
+        "page": "begin_checkout",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 427,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 426,
+        "event": "checkout",
+        "page": "checkout",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 425,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 424,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 423,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 422,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 421,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 420,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 419,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 418,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 417,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 416,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 415,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 414,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 413,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 412,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 411,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 410,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 409,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 408,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 407,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 406,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 405,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 404,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 403,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 402,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 401,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 400,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 399,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 398,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 397,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 396,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 395,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 394,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 393,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 392,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 391,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 390,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 389,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 388,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 387,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 386,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 385,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 384,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 383,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 382,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 381,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 380,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 379,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 378,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 377,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 376,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 375,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 374,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 373,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 372,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 371,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 370,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 369,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 368,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 367,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 366,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 365,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 364,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 363,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 362,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 361,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 360,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 359,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 358,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 357,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 356,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 355,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 354,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 353,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 352,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 351,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 350,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 349,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 348,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 347,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 346,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 345,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 344,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 343,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 342,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 341,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 340,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 339,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 338,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 337,
+        "event": "begin_checkout",
+        "page": "begin_checkout",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 336,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 335,
+        "event": "checkout",
+        "page": "checkout",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 334,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 333,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 332,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 331,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 330,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 329,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 328,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 327,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 326,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 325,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 324,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 323,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 322,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 321,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 320,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 319,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 318,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 317,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 316,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 315,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 314,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 313,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 312,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 311,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 310,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 309,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 308,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 307,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 306,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 305,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 304,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 303,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 302,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 301,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 300,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 299,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 298,
+        "event": "view_cart",
+        "page": "view_cart",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 297,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 296,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 295,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 294,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 293,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 292,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 291,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 290,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 289,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 288,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 287,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 286,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 285,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 284,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 283,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 282,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 281,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 280,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 279,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 278,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 277,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 276,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 275,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 274,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 273,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 272,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 271,
+        "event": "view_item_list",
+        "page": "view_item_list",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 270,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 269,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 268,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 267,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 266,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 265,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 264,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 263,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 262,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 261,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 260,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 259,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 258,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 257,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 256,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 255,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 254,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 253,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 252,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 251,
+        "event": "view_item_list",
+        "page": "view_item_list",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 250,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 249,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 248,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 247,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 246,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 245,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 244,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 243,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 242,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 241,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 240,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 239,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 238,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 237,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 236,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 235,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 234,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 233,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 232,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 231,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 230,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 229,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 228,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 227,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 226,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 225,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 224,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 223,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 222,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 221,
+        "event": "scroll",
+        "page": "Scrolls",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 220,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 219,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 218,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 217,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 216,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 215,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 214,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 213,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 212,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 211,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 210,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 209,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 208,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 207,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 206,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 205,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 204,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 203,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 202,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 201,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 200,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 199,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 198,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 197,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 196,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 195,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 194,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 193,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 192,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 191,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 190,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 189,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 188,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 187,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 186,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 185,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 184,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 183,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 182,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 181,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 180,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 179,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 178,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 177,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 176,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 175,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 174,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 173,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 172,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 171,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 170,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 169,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 168,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 167,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 166,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 165,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 164,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 163,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 162,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 161,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 160,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 159,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 158,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 157,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 156,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 155,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 154,
+        "event": "add_to_cart",
+        "page": "add_to_cart",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 153,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 152,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 151,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 150,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 149,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 148,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 147,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 146,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 145,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 144,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 143,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 142,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 141,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 140,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 139,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 138,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 137,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 136,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 135,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 134,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 133,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 132,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 131,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 130,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 129,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 128,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 127,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 126,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 125,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 124,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 123,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 122,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 121,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 120,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 119,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 118,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 117,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 116,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 115,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 114,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 113,
+        "event": "view_item_list",
+        "page": "view_item_list",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 112,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 111,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 110,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 109,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 108,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 107,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 106,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 105,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 104,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 103,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 102,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 101,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 100,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 99,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 98,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 97,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 96,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 95,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 94,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 93,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 92,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 91,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 90,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 89,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 88,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 87,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 86,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 85,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 84,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 83,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 82,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 81,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 80,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 79,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 78,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 77,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 76,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 75,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 74,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 73,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 72,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 71,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 70,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 69,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 68,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 67,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 66,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 65,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 64,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 63,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 62,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 61,
+        "event": "form_submit",
+        "page": "form_submit",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 60,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 59,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 58,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 57,
+        "event": "form_start",
+        "page": "form_start",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 56,
+        "event": "add_to_cart",
+        "page": "add_to_cart",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 55,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 54,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 53,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 52,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 51,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 50,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 49,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 48,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 47,
+        "event": "view_item",
+        "page": "view_item",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 46,
+        "page": "Message",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 45,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 44,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 43,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 42,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 41,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 40,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 39,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 38,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 37,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 36,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 35,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 34,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 33,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 32,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 31,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 30,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 29,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 28,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 27,
+        "event": "User Engagement",
+        "page": "User Engagement",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 26,
+        "event": "gtm.linkClick",
+        "page": "Link Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 25,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 24,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 23,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 22,
+        "event": "gtm.scrollDepth",
+        "page": "Scroll Depth",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 21,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 20,
+        "event": "gtm.click",
+        "page": "Click",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 19,
+        "event": "cmplz_event_functional",
+        "page": "cmplz_event_functional",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 18,
+        "event": "cmplz_event_preferences",
+        "page": "cmplz_event_preferences",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 17,
+        "event": "cmplz_event_marketing",
+        "page": "cmplz_event_marketing",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 16,
+        "event": "cmplz_event_statistics",
+        "page": "cmplz_event_statistics",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 15,
+        "event": "gtm.load",
+        "page": "Window Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 14,
+        "event": "gtm.dom",
+        "page": "DOM Ready",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 13,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 12,
+        "event": "user_init",
+        "page": "user_init",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 11,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 10,
+        "event": "gtm.js",
+        "page": "Container Loaded",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 9,
+        "event": "gtag.config",
+        "page": "Config",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 8,
+        "event": "gtm.init",
+        "page": "Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 7,
+        "event": "gtag.consent.update",
+        "page": "Consent Update",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 6,
+        "event": "gtag.consent.default",
+        "page": "Consent Default",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 5,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 4,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 3,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      },
+      {
+        "idx": 2,
+        "event": "gtm.init_consent",
+        "page": "Consent Initialization",
+        "tagCount": 6,
+        "consent": {}
+      },
+      {
+        "idx": 1,
+        "event": "gtag.set",
+        "page": "Set",
+        "tagCount": 0,
+        "consent": {}
+      }
+    ]
+  }
+]

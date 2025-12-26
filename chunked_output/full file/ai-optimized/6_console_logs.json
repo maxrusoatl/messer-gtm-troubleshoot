@@ -1,0 +1,215 @@
+{
+  "totalLogs": 30,
+  "logs": [
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_add_to_cart",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 270
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_add_to_cart",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 294
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_checkout",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 136
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "Complianz.io - The Privacy Suite for WordPress",
+      "level": "log",
+      "message": "ConsentModeV2 {\"ads_data_redaction\":false,\"defaultConsentMarketing\":\"denied\",\"defaultConsentStatistics\":\"denied\",\"defaultConsentPreferences\":\"denied\",\"url_passthrough\":true,\"gtmOnSuccess\":\"Function\",\"gtmOnFailure\":\"Function\",\"gtmTagId\":322,\"gtmEventId\":12}",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_base",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 12
+    },
+    {
+      "container": "GTM-MNRP4PF",
+      "source": "ms_uet_checkout",
+      "level": "log",
+      "message": "UET GTM listening for consent updates",
+      "eventId": 136
+    }
+  ]
+}
