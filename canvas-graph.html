@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Canvas Graph — Trigger → Tag → Destination</title>
+    <style>
+      html, body { height:100%; margin:0; background:#0b0f14; color:#e6eef8; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial; }
+      .app { position:fixed; inset:0; display:grid; grid-template-columns: 1fr 360px; }
+      .stage { position:relative; }
+      canvas { position:absolute; inset:0; background:#0b0f14; }
+      #tl { position:absolute; left:0; right:0; bottom:0; height:120px; background:#0b0f14; border-top:1px solid #1b2636; }
+      .hud { position:absolute; top:10px; left:10px; display:flex; gap:6px; z-index:2; }
+      .hud .btn { border:1px solid #243140; background:#0f1520; color:#e6eef8; padding:6px 10px; border-radius:8px; font-size:12px; cursor:pointer; }
+      .filters { position:absolute; top:10px; right:10px; background:#0b1118; border:1px solid #243140; border-radius:10px; padding:8px 10px; display:flex; flex-direction:column; gap:8px; z-index:2; min-width:280px; }
+      .filters input[type="text"]{ width:100%; background:#0d131b; color:#e6eef8; border:1px solid #243140; border-radius:8px; padding:6px 8px; }
+      .chips { display:flex; flex-wrap:wrap; gap:6px; }
+      .chip { border:1px solid #243140; background:#0f1520; color:#e6eef8; padding:4px 8px; border-radius:999px; font-size:11px; cursor:pointer; }
+      .chip.off { opacity:0.5; }
+      .inspector { border-left:1px solid #1b2636; background:#121821; display:grid; grid-template-rows:auto 1fr; }
+      .insp-head { padding:10px; border-bottom:1px solid #1b2636; display:flex; align-items:center; justify-content:space-between; }
+      .insp-body { overflow:auto; padding:10px; }
+      .json { white-space:pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; border:1px solid #243140; background:#0d131b; border-radius:8px; padding:10px; }
+      .legend { position:absolute; bottom:10px; right:10px; background:#0b1118; border:1px solid #243140; border-radius:8px; padding:8px 10px; font-size:12px; z-index:2; }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="stage">
+        <div class="hud">
+          <button class="btn" id="fitBtn">Fit</button>
+          <button class="btn" id="resetBtn">Reset</button>
+        </div>
+        <!doctype html>
+        <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta http-equiv="refresh" content="0;url=audit-board.html" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Redirecting…</title>
+          <style>body{font-family:ui-sans-serif,system-ui;margin:40px;color:#94a3b8;background:#0f1115}</style>
+          <link rel="canonical" href="audit-board.html" />
+          <script>location.replace('audit-board.html');</script>
+        </head>
+        <body>
+          <p>Redirecting to Audit Board… <a href="audit-board.html">Click here if not redirected</a>.</p>
+        </body>
+        </html>
+        if(t==='bzi'||name.includes('linkedin')) return 'LinkedIn Insight';
+        if(name.includes('facebook')||t.includes('fb')||name.includes('meta')) return 'Meta Pixel';
+        if(t==='html') return 'Custom HTML';
+        if(t.startsWith('cvt_')) return 'Custom Template';
+        return t;
+      }
+      function getParam(tag, key){ const p=tag.parameter||[]; const it=p.find(x=>x.key===key); return it? (it.value||''):''; }
+      function getListParams(tag, key){ const p=tag.parameter||[]; const it=p.find(x=>x.key===key && Array.isArray(x.list)); return it? it.list: []; }
+      function deriveDestinations(tag){
+        const v = classifyTag(tag); const out=[];
+        if(v==='Google Analytics'){
+          const id=getParam(tag,'measurementId')||getParam(tag,'trackingId')||'GA';
+          const overrides = getListParams(tag,'parametersToOverride').map(m=>{
+            const name=(m.map||[]).find(x=>x.key==='name')?.value; const value=(m.map||[]).find(x=>x.key==='value')?.value; return {name,value};
+          });
+          out.push({ vendor:'Google Analytics', id, label:`GA4 ${id}` , payload:{ overrides } });
+        }
+        else if(v==='Google Ads'){
+          const cid=getParam(tag,'conversionId')||'AW-?'; const lbl=getParam(tag,'conversionLabel'); const value=getParam(tag,'conversionValue'); const currency=getParam(tag,'currencyCode');
+          out.push({ vendor:'Google Ads', id:cid, label: lbl? `${cid}/${lbl}`:cid, payload:{ value, currency } });
+        }
+        else if(v==='LinkedIn Insight'){
+          const id=getParam(tag,'id')||'LI-?'; out.push({ vendor:'LinkedIn Insight', id, label:`LI ${id}`, payload:{} });
+        }
+        else if(v==='Meta Pixel'){
+          const id=getParam(tag,'pixelId')||'FB-?'; const eventName=getParam(tag,'standardEventName')||getParam(tag,'eventName')||'event';
+          out.push({ vendor:'Meta Pixel', id, label:`FB ${id}`, payload:{ eventName } });
+        }
+        else if(v==='Custom HTML' || v==='Custom Template'){ out.push({ vendor:v, id:v, label:v }); }
+        return out;
+      }
+
+      function tagConsentInfo(tag){
+        const cs = tag.consentSettings || {};
+        const status = cs.consentStatus || 'NOT_SET';
+        const types = (cs.consentType?.list||[]).map(x=>x.value||x);
+        return { status, types };
+      }
+
+      function eventGrantsConsent(ev, type){
+        const full = ev?.message?.consentData?.fullConsentList || {};
+        if(full[type] && typeof full[type].isConsentGranted === 'boolean') return full[type].isConsentGranted;
+        const list = ev?.message?.consentData?.consentList || [];
+        const it = list.find(x=>x.type===type);
+        return it? (it.status==='granted') : true; // default true if missing
+      }
+
+      function gateForEvent(tag, ev){
+        const { status, types } = tagConsentInfo(tag);
+        if(status!=='NEEDED') return { gated:false, reason: status };
+        const missing = types.filter(t=> !eventGrantsConsent(ev, t));
+        return { gated: missing.length>0, missing };
+      }
+
+      async function loadCV(){
+        const out=[];
+        for(const f of FILES){ try{ const res=await fetch(f.path); const j=await res.json(); out.push(j.containerVersion||{}); }catch(e){} }
+        return out[0]||out[1]||null; // prefer WEB then SERVER
+      }
+
+      function setupCanvas(){
+        const cv = state.cv = document.getElementById('cv');
+        state.ctx = cv.getContext('2d');
+        const dpr = state.dpr = Math.max(1, window.devicePixelRatio||1);
+        const tl = state.tl = document.getElementById('tl');
+        state.tlctx = tl.getContext('2d');
+        function resize(){
+          const st = cv.parentElement.getBoundingClientRect();
+          state.width = st.width; state.height = st.height;
+          cv.width = Math.floor(st.width * dpr); cv.height = Math.floor(st.height * dpr);
+          tl.width = Math.floor(st.width * dpr); tl.height = Math.floor(state.tlHeight * dpr);
+          tl.style.height = state.tlHeight + 'px';
+          draw(); drawTimeline();
+        }
+        new ResizeObserver(resize).observe(cv);
+        cv.addEventListener('pointerdown', e=>{ state.dragging=true; state.sx=e.clientX; state.sy=e.clientY; state.stx=state.tx; state.sty=state.ty; cv.setPointerCapture(e.pointerId); });
+        cv.addEventListener('pointermove', e=>{ if(!state.dragging) return; state.tx=state.stx+(e.clientX-state.sx); state.ty=state.sty+(e.clientY-state.sy); draw(); });
+        cv.addEventListener('pointerup', ()=> state.dragging=false);
+        cv.addEventListener('wheel', e=>{ e.preventDefault(); const ds=e.deltaY<0?1.1:0.9; state.scale=Math.min(3,Math.max(0.3,state.scale*ds)); draw(); }, {passive:false});
+        // Timeline interactions
+        tl.addEventListener('pointerdown', e=>{ state.tlDragging=true; state.tlSx=e.clientX; state.tlSo=state.tlOffset; tl.setPointerCapture(e.pointerId); });
+        tl.addEventListener('pointermove', e=>{ if(!state.tlDragging) return; const dx=e.clientX-state.tlSx; state.tlOffset = state.tlSo + dx; drawTimeline(); });
+        tl.addEventListener('pointerup', ()=> state.tlDragging=false);
+        tl.addEventListener('wheel', e=>{ e.preventDefault(); const ds=e.deltaY<0?1.1:0.9; state.tlScale = Math.min(40, Math.max(2, state.tlScale*ds)); drawTimeline(); }, {passive:false});
+        tl.addEventListener('click', e=>{
+          const rect = tl.getBoundingClientRect(); const x=(e.clientX-rect.left)*dpr;
+          const idx = Math.round((x - state.tlOffset*dpr) / (state.tlScale*dpr));
+          const ev = state.events[idx]; if(ev){ selectEvent(ev); }
+        });
+      }
+
+      function worldToScreen(x,y){ return { x: (x*state.scale + state.tx), y: (y*state.scale + state.ty) }; }
+      function drawRoundedRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+
+      const hit = { nodes: [] };
+      function nodeRect(id, kind, x,y,w,h, label, sub, fill, raw){
+        const ctx=state.ctx, dpr=state.dpr; const s = worldToScreen(x,y); const sw=w*state.scale, sh=h*state.scale;
+        ctx.save(); ctx.scale(dpr,dpr);
+        ctx.translate(s.x, s.y);
+        ctx.fillStyle=fill; ctx.strokeStyle='#243140'; ctx.lineWidth=1;
+        drawRoundedRect(ctx,0,0,sw,sh,nodeR);
+        ctx.fill(); ctx.stroke();
+        ctx.fillStyle='#0b0f14'; ctx.font='600 12px ui-sans-serif'; ctx.fillText(label,10,18);
+        ctx.font='11px ui-sans-serif'; ctx.fillText(sub,10,34);
+        ctx.restore();
+        hit.nodes.push({ id, kind, x:s.x, y:s.y, w:sw, h:sh, raw, label });
+      }
+      function hitTest(px,py){ return hit.nodes.findLast(n=> px>=n.x && py>=n.y && px<=n.x+n.w && py<=n.y+n.h); }
+
+      function edge(x1,y1,x2,y2){ const ctx=state.ctx, dpr=state.dpr; const a=worldToScreen(x1,y1), b=worldToScreen(x2,y2); ctx.save(); ctx.scale(dpr,dpr); ctx.strokeStyle='#32465e'; ctx.lineWidth=1.5; ctx.beginPath(); const mx=(a.x+b.x)/2; ctx.moveTo(a.x,a.y); ctx.bezierCurveTo(mx,a.y,mx,b.y,b.x,b.y); ctx.stroke(); ctx.restore(); }
+
+      function layout(){
+        const t = state.data; t.tY=new Map(); t.tagY=new Map(); t.destY=new Map();
+        t.triggers.forEach((tr,i)=> t.tY.set(tr.id, i*90));
+        t.tags.forEach((tg,i)=>{ const first=[...tg.firing][0]; const base=(first&&t.tY.has(first))? t.tY.get(first): i*90; t.tagY.set(tg.id, base); });
+        t.dests.forEach((d,i)=> t.destY.set(d.key, i*90));
+      }
+
+      function draw(){
+        if(!state.ctx) return; const ctx=state.ctx; const dpr=state.dpr; const cv=state.cv; ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,cv.width,cv.height); hit.nodes=[];
+        ctx.save();
+        const leftX=pad, midX=leftX+colGap, rightX=midX+colGap;
+        const t=state.data; const trigFilter=state.trigFilter;
+        const triggers = t.triggers.filter(tr=> !trigFilter || (tr.name||'').toLowerCase().includes(trigFilter));
+        const tY=new Map(); triggers.forEach((tr,i)=> tY.set(tr.id, t.tY.get(tr.id)??(i*90)) );
+        const tags = t.tags.filter(tg=> state.vendorOn.get(tg.vendor));
+        const byTrig = new Map(); triggers.forEach(tr=>byTrig.set(tr.id,[]));
+        tags.forEach(tg=> tg.firing.forEach(trid=> { if(byTrig.has(trid)) byTrig.get(trid).push(tg); }));
+
+        // nodes
+        const activeSet = state.highlightTags;
+        triggers.forEach(tr=>{ const y=(tY.get(tr.id)||0)+pad; nodeRect(tr.id,'trigger', leftX,y,280,nodeH,' '+tr.name, tr.type, '#72f0c4', tr.raw); });
+        const tagY=new Map(); tags.forEach((tg,i)=>{
+          const first=[...tg.firing][0]; const base=(first&&tY.has(first))?tY.get(first):(i*90); tagY.set(tg.id, base);
+          const y=(base||0)+pad; const fill=colorMap[tg.vendor]||'#e6eef8';
+          const hl = activeSet.has(tg.name);
+          nodeRect(tg.id,'tag', midX,y,320,nodeH,(hl?'★ ':' ')+tg.name, tg.vendor, fill, tg.raw);
+          // Consent dot
+          const gate = state.activeEvent? gateForEvent(tg.raw, state.activeEvent) : { gated:false, reason: tagConsentInfo(tg.raw).status };
+          const s = worldToScreen(midX+320-12, y+12); ctx.save(); ctx.scale(dpr,dpr); ctx.beginPath(); ctx.arc(s.x,s.y,6,0,Math.PI*2);
+          let c='#9fb0c3'; if(tagConsentInfo(tg.raw).status==='NEEDED') c='#ffd166'; if(state.activeEvent){ c = gate.gated? '#ff6b6b':'#8be38b'; }
+          ctx.fillStyle=c; ctx.fill(); ctx.restore();
+        });
+        t.dests.forEach(d=>{ const y=((t.destY.get(d.key)||0)+pad); const fill=colorMap[d.vendor]||'#e6eef8'; nodeRect(d.key,'dest', rightX,y,300,nodeH,' '+d.label, d.vendor, fill, d); });
+
+        // edges
+        triggers.forEach(tr=>{ const y1=(tY.get(tr.id)||0)+pad+nodeH/2; (byTrig.get(tr.id)||[]).forEach(tg=>{ const y2=(tagY.get(tg.id)||0)+pad+nodeH/2; const strong = activeSet.has(tg.name); if(strong){ state.ctx.save(); state.ctx.lineWidth=3; } edge(leftX+280,y1, midX, y2); if(strong){ state.ctx.restore(); } }); });
+        tags.forEach(tg=>{ const y1=(tagY.get(tg.id)||0)+pad+nodeH/2; tg.dests.forEach(d=>{ const key=d.vendor+':'+d.id; const y2=(t.destY.get(key)||0)+pad+nodeH/2; const strong = activeSet.has(tg.name); if(strong){ state.ctx.save(); state.ctx.lineWidth=3; } edge(midX+320,y1, rightX, y2); if(strong){ state.ctx.restore(); } }); });
+        ctx.restore();
+      }
+
+      function drawTimeline(){
+        const tl=state.tl, ctx=state.tlctx, dpr=state.dpr; if(!tl) return;
+        ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,tl.width,tl.height);
+        ctx.save(); ctx.scale(dpr,dpr);
+        ctx.fillStyle='#9fb0c3'; ctx.font='12px ui-sans-serif'; ctx.fillText(`Events: ${state.events.length}`, 10, 16);
+        const baseY = state.tlHeight-40; ctx.strokeStyle='#243140'; ctx.beginPath(); ctx.moveTo(0, baseY); ctx.lineTo(tl.width/dpr, baseY); ctx.stroke();
+        state.events.forEach((ev, i)=>{
+          const x = state.tlOffset + i*state.tlScale;
+          const sel = state.activeEvent && state.activeEvent.message?.index===ev.message?.index;
+          ctx.fillStyle = sel? '#e07a3f' : '#72f0c4';
+          ctx.beginPath(); ctx.arc(x, baseY, 4, 0, Math.PI*2); ctx.fill();
+        });
+        ctx.restore();
+      }
+
+      async function loadEventChunks(){
+        const base = 'chunked_output/tag_assistant_messerattach_com_2025_12_24_messages_chunk_';
+        const chunks = []; let i=1, misses=0; const MAX_MISSES=5, MAX_FILES=2000;
+        while(i<=MAX_FILES && misses<MAX_MISSES){
+          try{ const res = await fetch(base+i+'.json'); if(res.ok){ chunks.push(await res.json()); misses=0; } else { misses++; } }catch(e){ misses++; }
+          i++;
+        }
+        const events=[]; chunks.forEach(ch=>{ (ch.messages||[]).forEach(m=> events.push(m)); });
+        events.sort((a,b)=> (a.message?.index||0)-(b.message?.index||0));
+        return events;
+      }
+
+      function selectEvent(ev){
+        state.activeEvent = ev;
+        const tagNames = new Set((ev.message?.tagInfo||[]).map(t=> t.displayName||t.name).filter(Boolean));
+        state.highlightTags = tagNames;
+        draw();
+        drawTimeline();
+        document.getElementById('inspTitle').textContent = ev.message?.title || ev.message?.eventName || 'Event';
+        document.getElementById('inspType').textContent = 'event';
+        document.getElementById('inspJson').textContent = JSON.stringify(ev, null, 2);
+      }
+
+      function fit(){ state.scale=1; state.tx=0; state.ty=0; draw(); }
+      function reset(){ state.scale=1; state.tx=0; state.ty=0; draw(); }
+
+      async function init(){
+        setupCanvas();
+        const cv = await loadCV();
+        if(!cv) return;
+        const triggers = (cv.trigger||[]).map(t=>({ id:t.triggerId, name:t.name||('Trigger '+t.triggerId), type:t.type, raw:t }));
+        const tagsRaw = (cv.tag||[]);
+        const tags = tagsRaw.map(t=>({ id:t.tagId, name:t.name||('Tag '+t.tagId), type:t.type, vendor:classifyTag(t), firing:new Set(t.firingTriggerId||[]), dests:deriveDestinations(t), raw:t }));
+        const vendorSet = Array.from(new Set(tags.map(t=>t.vendor))).filter(Boolean);
+        vendorSet.forEach(v=> state.vendorOn.set(v,true));
+        const destMap = new Map(); tags.forEach(tg=> tg.dests.forEach(d=>{ const key=d.vendor+':'+d.id; if(!destMap.has(key)) destMap.set(key,{key,label:d.label,vendor:d.vendor}); }));
+        const dests = Array.from(destMap.values());
+        state.data = { triggers, tags, dests, tY:new Map(), tagY:new Map(), destY:new Map() };
+        layout(); draw();
+
+        // UI wiring
+        document.getElementById('fitBtn').onclick = fit;
+        document.getElementById('resetBtn').onclick = reset;
+        const search = document.getElementById('trigSearch'); search.oninput = ()=>{ state.trigFilter = search.value.trim().toLowerCase(); draw(); };
+        const chips = document.getElementById('vendorChips'); vendorSet.forEach(v=>{ const c=document.createElement('button'); c.className='chip'; c.textContent=v; c.onclick=()=>{ const now=!state.vendorOn.get(v); state.vendorOn.set(v,now); c.classList.toggle('off', !now); draw(); }; chips.appendChild(c); });
+
+        // Hit/inspect
+        state.cv.addEventListener('click', (e)=>{
+          const r=state.cv.getBoundingClientRect(); const x=(e.clientX-r.left)*state.dpr; const y=(e.clientY-r.top)*state.dpr; const n=hitTest(x/state.dpr, y/state.dpr);
+          if(!n) return;
+          document.getElementById('inspTitle').textContent = n.label.trim();
+          document.getElementById('inspType').textContent = n.kind;
+          const raw = n.raw;
+          // Summaries for destinations and tags
+          let summary = '';
+          if(n.kind==='dest' && raw){
+            if(raw.vendor==='Google Analytics' && raw.payload){ summary += `Overrides: ${(raw.payload.overrides||[]).map(o=>o.name).join(', ')}`; }
+            if(raw.vendor==='Google Ads' && raw.payload){ summary += `Value: ${raw.payload.value || ''} ${raw.payload.currency || ''}`; }
+            if(raw.vendor==='Meta Pixel' && raw.payload){ summary += `Event: ${raw.payload.eventName || ''}`; }
+          } else if(n.kind==='tag' && raw){
+            const ci = tagConsentInfo(raw);
+            if(ci.status==='NEEDED') summary += `Consent needed: ${(ci.types||[]).join(', ')}`;
+          }
+          const insp = document.getElementById('inspJson'); insp.innerHTML = '';
+          if(summary){ const p=document.createElement('div'); p.textContent = summary; p.style.marginBottom='8px'; insp.appendChild(p); }
+          const pre = document.createElement('pre'); pre.className='json'; pre.textContent = JSON.stringify(raw, null, 2); insp.appendChild(pre);
+        });
+
+        // Load events and draw timeline
+        try { state.events = await loadEventChunks(); drawTimeline(); } catch(e){}
+      }
+
+      init();
+    </script>
+  </body>
+  </html>

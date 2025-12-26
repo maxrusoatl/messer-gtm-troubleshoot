@@ -1,0 +1,408 @@
+<!doctype html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flow Canvas</title>
+    <style>
+      html, body { height: 100%; margin: 0; }
+      body { background: #fffdf6; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+      #flow-canvas { display: block; width: 100vw; height: 100vh; touch-action: none; cursor: grab; }
+      #flow-canvas:active { cursor: grabbing; }
+      .hud { position: fixed; left: 12px; bottom: 12px; display: flex; gap: 8px; }
+      .btn { border: 1px solid #d8cbb8; background: #fffaf1; color: #1d2b2f; border-radius: 999px; padding: 6px 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+      .legend { position: fixed; left: 12px; top: 12px; display: flex; gap: 10px; align-items: center; background: rgba(255,250,241,.9); border: 1px solid #d8cbb8; border-radius: 10px; padding: 6px 8px; }
+      .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid #d8cbb8; }
+      .dot.source { background: rgba(224,122,63,.2); }
+      .dot.pipeline { background: rgba(31,138,112,.18); }
+      .dot.destination { background: rgba(90,107,111,.12); }
+      .dot.control { background: rgba(217,164,65,.22); }
+      #info-panel { position: fixed; right: 0; top: 0; width: 360px; height: 100vh; background: #ffffff; border-left: 1px solid #d8cbb8; box-shadow: -12px 0 30px rgba(29,43,47,.12); display: none; }
+      #info-panel header { padding: 14px 14px 8px; border-bottom: 1px solid #eee2cf; }
+      #info-panel h2 { margin: 0 0 6px; font-size: 18px; }
+      #info-panel .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+      #info-panel .tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px dashed #d8cbb8; background: #fffaf1; color: #5a6b6f; text-transform: uppercase; letter-spacing: .08em; }
+      #info-body { padding: 12px; display: grid; gap: 10px; overflow: auto; height: calc(100vh - 56px); }
+      .block { border: 1px solid #eee2cf; border-radius: 10px; padding: 10px; background: #fffdf6; }
+      .block h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; color: #5a6b6f; letter-spacing: .08em; }
+      .block ul { margin: 0; padding-left: 16px; color: #5a6b6f; }
+      .close { position: absolute; right: 10px; top: 10px; border: none; background: transparent; cursor: pointer; font-size: 18px; }
+    </style>
+    <style>
+      /* Detailed board overlay */
+      .board-wrap { position: fixed; inset: 0; background: rgba(29,43,47,.35); display: none; align-items: center; justify-content: center; z-index: 20; }
+      .board { width: min(1120px, 96vw); height: min(86vh, 820px); background: #fff; border: 1px solid #d8cbb8; border-radius: 14px; box-shadow: 0 40px 60px rgba(29,43,47,.25); display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+      .board header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #eee2cf; background: #fffaf1; }
+      .board h2 { margin: 0; font-size: 18px; }
+      .board .close { border: none; background: transparent; font-size: 22px; cursor: pointer; }
+      .board .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; padding: 14px; overflow: auto; }
+      .card { border: 1px solid #eee2cf; border-radius: 12px; padding: 12px; background: #fffdf6; }
+      .card h3 { margin: 0 0 6px; font-size: 13px; color: #5a6b6f; text-transform: uppercase; letter-spacing: .08em; }
+      .card ul { margin: 0; padding-left: 16px; color: #445055; }
+      .code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; background: #12212a; color: #e9f2f7; border-radius: 8px; padding: 10px; overflow: auto; }
+      .pill { display: inline-block; font-size: 11px; padding: 2px 8px; border: 1px dashed #d8cbb8; border-radius: 999px; background: #fff; color: #5a6b6f; margin-right: 6px; }
+    </style>
+  </head>
+    <meta http-equiv="refresh" content="0;url=audit-board.html" />
+    <link rel="canonical" href="audit-board.html" />
+    <script>location.replace('audit-board.html');</script>
+  <body>
+    <canvas id="flow-canvas" aria-label="Messer GTM dataflow canvas" role="img"></canvas>
+    <p>Redirecting to Audit Board… <a href="audit-board.html">Click here if not redirected</a>.</p>
+      <span class="dot pipeline" style="margin-left:10px"></span> Pipeline
+      <span class="dot destination" style="margin-left:10px"></span> Destination
+    </div>
+    <div class="hud">
+      <button class="btn" id="zoomOut">-</button>
+      <button class="btn" id="reset">Reset</button>
+      <button class="btn" id="zoomIn">+</button>
+    </div>
+    <aside id="info-panel" aria-live="polite" aria-hidden="true">
+      <header>
+        <button class="close" id="closeInfo" title="Close">×</button>
+        <h2 id="info-title"></h2>
+        <div class="tags" id="info-tags"></div>
+      </header>
+      <div id="info-body"></div>
+    </aside>
+    <div class="board-wrap" id="boardWrap" aria-hidden="true">
+      <div class="board" role="dialog" aria-modal="true" aria-labelledby="boardTitle">
+        <header>
+          <h2 id="boardTitle"></h2>
+          <div>
+            <span id="boardTags"></span>
+            <button class="close" id="boardClose" title="Close">×</button>
+          </div>
+        </header>
+        <div class="grid" id="boardGrid"></div>
+      </div>
+    </div>
+    <script>
+      const scene = { width: 1080, height: 340 };
+      const nodes = [
+        { id: "site", label: "Site/App", x: 40, y: 40, w: 120, h: 46, type: "source" },
+        { id: "datalayer", label: "dataLayer", x: 190, y: 40, w: 120, h: 46, type: "source" },
+        { id: "wgtm", label: "wGTM", x: 340, y: 40, w: 120, h: 46, type: "pipeline" },
+        { id: "dataTag", label: "Data Tag", x: 490, y: 40, w: 120, h: 46, type: "pipeline" },
+        { id: "endpoint", label: "Endpoint", x: 640, y: 40, w: 120, h: 46, type: "pipeline" },
+        { id: "sgtm", label: "sGTM", x: 790, y: 40, w: 120, h: 46, type: "pipeline" },
+        { id: "ga4", label: "GA4", x: 940, y: 20, w: 120, h: 46, type: "destination" },
+        { id: "googleAds", label: "Google Ads", x: 940, y: 100, w: 140, h: 46, type: "destination" },
+        { id: "meta", label: "Meta CAPI", x: 940, y: 180, w: 120, h: 46, type: "destination" },
+        { id: "gtag", label: "gtag.js", x: 340, y: 140, w: 120, h: 46, type: "pipeline" },
+        { id: "googleTag", label: "Google Tag", x: 490, y: 140, w: 120, h: 46, type: "pipeline" },
+        { id: "cmp", label: "CMP", x: 40, y: 240, w: 120, h: 46, type: "control" },
+        { id: "consent", label: "Consent Mode", x: 190, y: 240, w: 140, h: 46, type: "control" }
+      ];
+      const edges = [
+        { from: "site", to: "datalayer", type: "source" },
+        { from: "datalayer", to: "wgtm", type: "pipeline" },
+        { from: "wgtm", to: "dataTag", type: "pipeline" },
+        { from: "dataTag", to: "endpoint", type: "pipeline" },
+        { from: "endpoint", to: "sgtm", type: "pipeline" },
+        { from: "sgtm", to: "ga4", type: "pipeline" },
+        { from: "sgtm", to: "googleAds", type: "pipeline" },
+        { from: "sgtm", to: "meta", type: "pipeline" },
+        { from: "site", to: "gtag", type: "pipeline" },
+        { from: "gtag", to: "googleTag", type: "pipeline" },
+        { from: "googleTag", to: "ga4", type: "pipeline" },
+        { from: "googleTag", to: "googleAds", type: "pipeline" },
+        { from: "cmp", to: "consent", type: "control" },
+        { from: "consent", to: "wgtm", type: "control", dashed: true },
+        { from: "consent", to: "gtag", type: "control", dashed: true },
+        { from: "consent", to: "sgtm", type: "control", dashed: true }
+      ];
+
+      const canvas = document.getElementById('flow-canvas');
+      const ctx = canvas.getContext('2d');
+      const nodeMap = new Map(nodes.map(n => [n.id, n]));
+      let activeNodes = new Set();
+      const view = { scale: 1, offsetX: 0, offsetY: 0, minScale: 0.5, maxScale: 2.6 };
+
+      const details = {
+        datalayer: {
+          tags: ['Source','Client'],
+          inputs: ['On-site events and ecommerce context','User identity and session hints','Consent choices from the CMP'],
+          outputs: ['Event payloads for tags and server routing','event_id, user_id, transaction_id','Consistent event_name mapping'],
+          checks: ['GA4 item schema and currency fields','No raw PII in incremental pushes','Stable event_id for dedupe']
+        },
+        consent: {
+          tags: ['Control','CMP'],
+          inputs: ['CMP choices and geo defaults','Consent updates on user action','Region-specific policies'],
+          outputs: ['ad_storage and analytics_storage','ad_user_data and ad_personalization','Gating for wGTM, gtag, and sGTM'],
+          checks: ['Default deny until consent granted','Server-side consent propagation','Cookieless behavior validation']
+        },
+        wgtm: {
+          tags: ['Pipeline','Client'],
+          inputs: ['dataLayer ecommerce events','Consent state and region rules','Client identifiers and cookies'],
+          outputs: ['Data Tag payload to /data','Event name normalization','Optional client pixels and gtag'],
+          checks: ['Trigger coverage for all events','custom_data mapping for items','event_id consistency']
+        },
+        gtag: {
+          tags: ['Pipeline','Client'],
+          inputs: ['Site events and config IDs','Consent state updates','Transaction and user context'],
+          outputs: ['GA4 config and event hits','Google Ads conversion pings','Consent mode updates'],
+          checks: ['Single tag config per page','Deduplicate page_view events','Consent update before config']
+        },
+        sgtm: {
+          tags: ['Pipeline','Server'],
+          inputs: ['/data events and headers','Consent state and user context','Event payload with event_id'],
+          outputs: ['GA4 ecommerce events','Google Ads conversions','Meta CAPI events'],
+          checks: ['gtm_server_domain alignment','event_id dedupe mapping','Consent gating per tag']
+        },
+        ga4: {
+          tags: ['Destination','Analytics'],
+          inputs: ['Client-side and server-side events','user_id, session_id, event_id','Ecommerce items and value'],
+          outputs: ['GA4 reports and funnels','Audiences for ads','DebugView validation'],
+          checks: ['Consistent event naming','user_id mapped to GA4 field','items, value, currency present']
+        },
+        googleAds: {
+          tags: ['Destination','Ads'],
+          inputs: ['gtag conversion hits','sGTM conversion events','gclid or transaction_id'],
+          outputs: ['Conversion reporting','Remarketing lists','Enhanced conversions'],
+          checks: ['Conversion linker enabled','event_id or transaction_id','Consent for ad_storage']
+        },
+        meta: {
+          tags: ['Destination','Ads'],
+          inputs: ['sGTM eventData payload','Pixel events for dedupe','fbp and fbc identifiers'],
+          outputs: ['Meta CAPI events','Deduplicated conversions','Attribution signals'],
+          checks: ['event_id matches pixel','Hashed user data only','Consent for ad_user_data']
+        },
+        site: { tags: ['Source'], inputs: ['User actions','Page context'], outputs: ['dataLayer pushes','client events'], checks: ['No PII leakage'] },
+        dataTag: { tags: ['Pipeline'], inputs: ['Normalized events'], outputs: ['/data payload'], checks: ['event_id present'] },
+        endpoint: { tags: ['Pipeline'], inputs: ['Data Tag requests'], outputs: ['Requests to sGTM'], checks: ['Domain alignment'] },
+        googleTag: { tags: ['Pipeline'], inputs: ['gtag events'], outputs: ['GA4/Ads hits'], checks: ['Deduplicate hits'] },
+        cmp: { tags: ['Control'], inputs: ['User consent'], outputs: ['Consent state'], checks: ['Region logic'] }
+      };
+
+      const infoPanel = document.getElementById('info-panel');
+      const infoTitle = document.getElementById('info-title');
+      const infoTags = document.getElementById('info-tags');
+      const infoBody = document.getElementById('info-body');
+      const closeInfo = document.getElementById('closeInfo');
+
+      // Deep-dive boards with more granular blocks
+      const boards = {
+        datalayer: {
+          tags: ['Source','Client'],
+          sections: [
+            { title: 'Overview', items: ['Central event bus on the page','WooCommerce ecommerce schema','No raw PII in incremental pushes'] },
+            { title: 'Examples', code: `dataLayer.push({\n  event: 'begin_checkout',\n  currency: 'USD',\n  value: 129.99,\n  items: [{ item_id: 'SKU123', item_name: 'Widget', price: 129.99 }]\n});` },
+            { title: 'Checks', items: ['Stable event_id for dedupe','currency, value, items present','Respect consent defaults'] }
+          ]
+        },
+        wgtm: {
+          tags: ['Pipeline','Client'],
+          sections: [
+            { title: 'Data Tag', items: ['Normalize event names','Attach event_id / user_id','POST to /data endpoint'] },
+            { title: 'Triggers', items: ['view_item','add_to_cart','begin_checkout','purchase'] },
+            { title: 'Variables', items: ['Item list -> items[]','Client hints (gclid, fbp, fbc)','Consent state'] },
+            { title: 'Lookups', items: ['Event map (view_item->view_item)','Currency defaults'] },
+            { title: 'Examples', code: `fetch('https://<sgtm-domain>/data', {\n  method: 'POST',\n  keepalive: true,\n  body: JSON.stringify(eventData)\n});` }
+          ]
+        },
+        sgtm: {
+          tags: ['Pipeline','Server'],
+          sections: [
+            { title: 'Clients', items: ['Data Client (accepts /data)','Google Tag Web Container (gtag)'] },
+            { title: 'Tags', items: ['GA4 Ecommerce','Google Ads Conversion','Meta CAPI'] },
+            { title: 'Variables', items: ['eventData.items','transaction_id / event_id','user_data (hashed)'] },
+            { title: 'Checks', items: ['gtm_server_domain alignment','Consent gating per tag','Deduplication keys present'] }
+          ]
+        },
+        gtag: {
+          tags: ['Pipeline','Client'],
+          sections: [
+            { title: 'Config', items: ['Load once per page','Send consent before config'] },
+            { title: 'Events', items: ['page_view','purchase','custom events as needed'] }
+          ]
+        },
+        ga4: {
+          tags: ['Destination','Analytics'],
+          sections: [
+            { title: 'Streams', items: ['Client (gtag)','Server (sGTM)'] },
+            { title: 'Reports', items: ['Funnel coverage','DebugView to validate'] },
+            { title: 'Checks', items: ['user_id mapped','items/value/currency present'] }
+          ]
+        },
+        googleAds: {
+          tags: ['Destination','Ads'],
+          sections: [
+            { title: 'Conversions', items: ['gtag conversions','sGTM conversions'] },
+            { title: 'Identifiers', items: ['gclid or transaction_id','Enhanced conversions (hashed)'] }
+          ]
+        },
+        meta: {
+          tags: ['Destination','Ads'],
+          sections: [
+            { title: 'CAPI', items: ['Server events with event_id','Pixel deduplication'] },
+            { title: 'Identifiers', items: ['fbp','fbc','Hashed user data'] }
+          ]
+        }
+      };
+
+      function renderList(title, items) {
+        const div = document.createElement('div');
+        div.className = 'block';
+        const h = document.createElement('h3'); h.textContent = title; div.appendChild(h);
+        const ul = document.createElement('ul');
+        items.forEach(i => { const li = document.createElement('li'); li.textContent = i; ul.appendChild(li); });
+        div.appendChild(ul);
+        return div;
+      }
+
+      function openInfo(nodeId) {
+        const d = details[nodeId];
+        infoTitle.textContent = nodeMap.get(nodeId)?.label || nodeId;
+        infoTags.innerHTML = '';
+        (d?.tags || []).forEach(t => { const s = document.createElement('span'); s.className = 'tag'; s.textContent = t; infoTags.appendChild(s); });
+        infoBody.innerHTML = '';
+        if (d) {
+          infoBody.appendChild(renderList('Inputs', d.inputs || []));
+          infoBody.appendChild(renderList('Outputs', d.outputs || []));
+          infoBody.appendChild(renderList('Checks', d.checks || []));
+        } else {
+          infoBody.appendChild(renderList('Info', ['No additional details available for this node.']));
+        }
+        infoPanel.style.display = 'block';
+        infoPanel.setAttribute('aria-hidden','false');
+      }
+      function closeInfoPanel() {
+        infoPanel.style.display = 'none';
+        infoPanel.setAttribute('aria-hidden','true');
+      }
+      closeInfo?.addEventListener('click', closeInfoPanel);
+
+      // Board rendering helpers
+      const boardWrap = document.getElementById('boardWrap');
+      const boardTitle = document.getElementById('boardTitle');
+      const boardTags = document.getElementById('boardTags');
+      const boardGrid = document.getElementById('boardGrid');
+      const boardClose = document.getElementById('boardClose');
+      function openBoard(nodeId) {
+        const node = nodeMap.get(nodeId); const b = boards[nodeId];
+        boardTitle.textContent = node?.label || nodeId; boardTags.innerHTML = '';
+        (b?.tags || []).forEach(t => { const s = document.createElement('span'); s.className = 'pill'; s.textContent = t; boardTags.appendChild(s); });
+        boardGrid.innerHTML = '';
+        if (b?.sections) b.sections.forEach(sec => {
+          const card = document.createElement('div'); card.className = 'card';
+          const h = document.createElement('h3'); h.textContent = sec.title; card.appendChild(h);
+          if (sec.items) { const ul = document.createElement('ul'); sec.items.forEach(i => { const li = document.createElement('li'); li.textContent = i; ul.appendChild(li); }); card.appendChild(ul); }
+          if (sec.code) { const pre = document.createElement('pre'); pre.className = 'code'; pre.textContent = sec.code; card.appendChild(pre); }
+          boardGrid.appendChild(card);
+        });
+        boardWrap.style.display = 'flex'; boardWrap.setAttribute('aria-hidden','false');
+      }
+      function closeBoard() { boardWrap.style.display = 'none'; boardWrap.setAttribute('aria-hidden','true'); }
+      boardClose?.addEventListener('click', closeBoard);
+      boardWrap?.addEventListener('click', (e) => { if (e.target === boardWrap) closeBoard(); });
+
+      const fills = { source: 'rgba(224,122,63,0.16)', pipeline: 'rgba(31,138,112,0.14)', destination: 'rgba(90,107,111,0.12)', control: 'rgba(217,164,65,0.18)' };
+      const edgeColors = { source: 'rgba(224,122,63,0.5)', pipeline: 'rgba(31,138,112,0.45)', destination: 'rgba(90,107,111,0.35)', control: 'rgba(217,164,65,0.6)' };
+      const theme = { stroke: '#d8cbb8', text: '#1d2b2f', accent: '#e07a3f', accentStrong: '#1f8a70' };
+
+      function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+      function drawRoundedRect(c, x, y, w, h, r) {
+        const rr = Math.min(r, w/2, h/2);
+        c.beginPath();
+        c.moveTo(x+rr, y);
+        c.lineTo(x+w-rr, y);
+        c.quadraticCurveTo(x+w, y, x+w, y+rr);
+        c.lineTo(x+w, y+h-rr);
+        c.quadraticCurveTo(x+w, y+h, x+w-rr, y+h);
+        c.lineTo(x+rr, y+h);
+        c.quadraticCurveTo(x, y+h, x, y+h-rr);
+        c.lineTo(x, y+rr);
+        c.quadraticCurveTo(x, y, x+rr, y);
+        c.closePath();
+      }
+      function drawArrow(c, x1, y1, x2, y2, color, width, dashed) {
+        const head = 6; const a = Math.atan2(y2-y1, x2-x1);
+        c.save(); c.strokeStyle = color; c.lineWidth = width; if (dashed) c.setLineDash([6,4]);
+        c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke(); c.setLineDash([]);
+        c.fillStyle = color; c.beginPath(); c.moveTo(x2,y2);
+        c.lineTo(x2 - head*Math.cos(a - Math.PI/6), y2 - head*Math.sin(a - Math.PI/6));
+        c.lineTo(x2 - head*Math.cos(a + Math.PI/6), y2 - head*Math.sin(a + Math.PI/6));
+        c.closePath(); c.fill(); c.restore();
+      }
+      function getEdgePoints(from, to) {
+        const fc = { x: from.x + from.w/2, y: from.y + from.h/2 };
+        const tc = { x: to.x + to.w/2, y: to.y + to.h/2 };
+        const ang = Math.atan2(tc.y - fc.y, tc.x - fc.x);
+        const fox = (from.w/2) * Math.cos(ang);
+        const foy = (from.h/2) * Math.sin(ang);
+        const tox = (to.w/2) * Math.cos(ang);
+        const toy = (to.h/2) * Math.sin(ang);
+        return { x1: fc.x + fox, y1: fc.y + foy, x2: tc.x - tox, y2: tc.y - toy };
+      }
+
+      function drawScene() {
+        const rect = canvas.getBoundingClientRect(); if (!rect.width || !rect.height) return;
+        const dpr = window.devicePixelRatio || 1; ctx.setTransform(1,0,0,1,0,0);
+        ctx.clearRect(0,0,canvas.width, canvas.height);
+        ctx.setTransform(dpr*view.scale, 0, 0, dpr*view.scale, view.offsetX*dpr, view.offsetY*dpr);
+        ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+        edges.forEach((e) => {
+          const from = nodeMap.get(e.from); const to = nodeMap.get(e.to); if (!from || !to) return;
+          const { x1, y1, x2, y2 } = getEdgePoints(from, to);
+          const isActive = activeNodes.has(from.id) || activeNodes.has(to.id);
+          const stroke = isActive ? theme.accent : (edgeColors[e.type] || '#999');
+          const width = isActive ? 2.2 : 1.4; drawArrow(ctx, x1, y1, x2, y2, stroke, width, e.dashed);
+        });
+        nodes.forEach((n) => {
+          const isActive = activeNodes.has(n.id);
+          ctx.save(); ctx.fillStyle = fills[n.type] || 'rgba(255,255,255,0.9)';
+          ctx.strokeStyle = isActive ? theme.accentStrong : theme.stroke; ctx.lineWidth = isActive ? 2 : 1.2;
+          if (isActive) { ctx.shadowColor = 'rgba(224,122,63,0.35)'; ctx.shadowBlur = 10; }
+          drawRoundedRect(ctx, n.x, n.y, n.w, n.h, 12); ctx.fill(); ctx.shadowBlur = 0; ctx.stroke();
+          ctx.fillStyle = theme.text; ctx.font = `${isActive ? 600 : 500} 11px system-ui, Segoe UI, Roboto, Arial`;
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(n.label, n.x + n.w/2, n.y + n.h/2);
+          ctx.restore();
+        });
+      }
+
+      function fitView() {
+        const rect = canvas.getBoundingClientRect(); if (!rect.width || !rect.height) return;
+        const fit = Math.min(rect.width/scene.width, rect.height/scene.height);
+        view.scale = fit; view.minScale = fit*0.6; view.maxScale = fit*2.6;
+        view.offsetX = (rect.width - scene.width*fit)/2; view.offsetY = (rect.height - scene.height*fit)/2;
+      }
+      function resizeCanvas(reset) {
+        const rect = canvas.getBoundingClientRect(); if (!rect.width || !rect.height) return;
+        const dpr = window.devicePixelRatio || 1; canvas.width = Math.round(rect.width * dpr); canvas.height = Math.round(rect.height * dpr);
+        if (reset) fitView(); else view.scale = clamp(view.scale, view.minScale, view.maxScale); drawScene();
+      }
+      function toScenePoint(clientX, clientY) { const r = canvas.getBoundingClientRect(); return { x: (clientX - r.left - view.offsetX)/view.scale, y: (clientY - r.top - view.offsetY)/view.scale }; }
+
+      let isPanning = false; let lastPt = { x: 0, y: 0 }; let dragMoved = false;
+      canvas.addEventListener('pointerdown', (e) => { isPanning = true; dragMoved = false; lastPt = { x: e.clientX, y: e.clientY }; canvas.setPointerCapture(e.pointerId); });
+      canvas.addEventListener('pointermove', (e) => { if (!isPanning) return; const dx = e.clientX-lastPt.x; const dy = e.clientY-lastPt.y; if (Math.abs(dx)+Math.abs(dy) > 2) dragMoved = true; view.offsetX += dx; view.offsetY += dy; lastPt = { x: e.clientX, y: e.clientY }; drawScene(); });
+      canvas.addEventListener('pointerup', (e) => { if (!isPanning) return; isPanning = false; if (canvas.hasPointerCapture(e.pointerId)) canvas.releasePointerCapture(e.pointerId); if (!dragMoved) { const p = toScenePoint(e.clientX, e.clientY); const hit = nodes.find(n => p.x>=n.x && p.x<=n.x+n.w && p.y>=n.y && p.y<=n.y+n.h); if (hit) { activeNodes = new Set([hit.id]); openInfo(hit.id); } else { activeNodes.clear(); closeInfoPanel(); } drawScene(); } });
+      canvas.addEventListener('pointercancel', (e) => { isPanning = false; if (canvas.hasPointerCapture(e.pointerId)) canvas.releasePointerCapture(e.pointerId); });
+      canvas.addEventListener('wheel', (e) => { e.preventDefault(); const r = canvas.getBoundingClientRect(); const cx = e.clientX - r.left; const cy = e.clientY - r.top; const delta = e.deltaY < 0 ? 1.1 : 0.9; const next = clamp(view.scale * delta, view.minScale, view.maxScale); const k = next / view.scale; view.offsetX = cx - (cx - view.offsetX) * k; view.offsetY = cy - (cy - view.offsetY) * k; view.scale = next; drawScene(); }, { passive: false });
+      // Double‑click a node to open deep board
+      canvas.addEventListener('dblclick', (e) => {
+        const p = toScenePoint(e.clientX, e.clientY);
+        const hit = nodes.find(n => p.x>=n.x && p.x<=n.x+n.w && p.y>=n.y && p.y<=n.y+n.h);
+        if (hit) openBoard(hit.id);
+      });
+
+      const zoomInBtn = document.getElementById('zoomIn');
+      const zoomOutBtn = document.getElementById('zoomOut');
+      const resetBtn = document.getElementById('reset');
+      function zoomBy(f) {
+        const rect = canvas.getBoundingClientRect(); const cx = rect.width/2, cy = rect.height/2;
+        const next = clamp(view.scale * f, view.minScale, view.maxScale); const k = next / view.scale;
+        view.offsetX = cx - (cx - view.offsetX) * k; view.offsetY = cy - (cy - view.offsetY) * k; view.scale = next; drawScene();
+      }
+      zoomInBtn?.addEventListener('click', () => zoomBy(1.15));
+      zoomOutBtn?.addEventListener('click', () => zoomBy(0.87));
+      resetBtn?.addEventListener('click', () => { fitView(); drawScene(); });
+
+      function init() { resizeCanvas(true); }
+      window.addEventListener('resize', () => resizeCanvas(true));
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeInfoPanel(); closeBoard(); } });
+    </script>
+  </body>
+</html>
