@@ -1,6 +1,0 @@
-{
-  "description": "Variables that are often undefined - likely data layer issues",
-  "totalVariables": 95,
-  "problematicCount": 0,
-  "problems": []
-}
