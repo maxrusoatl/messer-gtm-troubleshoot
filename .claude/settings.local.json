@@ -6,7 +6,14 @@
       "Bash(node split-gtm.js:*)",
       "Bash(node -e:*)",
       "Bash(node extract-ai.js:*)",
-      "Bash(node extract-analysis.js:*)"
+      "Bash(node extract-analysis.js:*)",
+      "Bash(ren canvas.html dashboard.html)",
+      "Bash(git -C \"c:\\\\Users\\\\maxru\\\\max_projects\\\\TenantAds\\\\backend\\\\tenantads-docker\\\\messer-gtm-troubleshoot\" status original-data/)",
+      "Bash(git -C \"c:\\\\Users\\\\maxru\\\\max_projects\\\\TenantAds\\\\backend\\\\tenantads-docker\\\\messer-gtm-troubleshoot\" log --oneline -3 -- original-data/)",
+      "Bash(certutil -hashfile:*)",
+      "Bash(certutil:*)",
+      "Bash(attrib +R \"c:\\\\Users\\\\maxru\\\\max_projects\\\\TenantAds\\\\backend\\\\tenantads-docker\\\\messer-gtm-troubleshoot\\\\original-data\\\\*.*\")",
+      "Bash(attrib:*)"
     ]
   }
 }

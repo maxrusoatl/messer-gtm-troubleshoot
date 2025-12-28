@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Messer GTM Audit Diagrams</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+    :root {
+      --ink: #1d2b2f;
+      --muted: #5a6b6f;
+      --paper: #f7f3eb;
+      --panel: #fffaf1;
+      --accent: #e07a3f;
+      --accent-2: #1f8a70;
+      --danger: #b23a48;
+      --warn: #d9a441;
+      --ok: #2f8a6b;
+      --line: #d8cbb8;
+      --radius-sm: 10px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 20px;
+      --space-md: 8px;
+      --space-lg: 12px;
+      --space-xl: 16px;
+      --space-2xl: 20px;
+      --space-3xl: 24px;
+      --space-4xl: 32px;
+      --shadow-panel: 0 14px 28px rgba(10, 20, 20, 0.12);
+      --shadow-card: 0 8px 20px rgba(29, 43, 47, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      color: var(--ink);
+      font-family: "Newsreader", "Palatino Linotype", serif;
+      background-color: var(--paper);
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.12), transparent 40%),
+        radial-gradient(circle at 88% 6%, rgba(31, 138, 112, 0.1), transparent 38%);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--space-3xl);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+      padding: var(--space-3xl);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-panel);
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      margin: 0 0 var(--space-lg);
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: var(--ink);
+      border-bottom: 2px solid var(--line);
+      padding-bottom: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 var(--space-lg);
+      color: var(--muted);
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge.critical { background: var(--danger); color: white; }
+    .badge.verified { background: var(--ok); color: white; }
+    .badge.warning { background: var(--warn); color: white; }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      justify-content: center;
+      margin-top: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: var(--space-md) var(--space-lg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: var(--space-3xl);
+      margin-bottom: var(--space-4xl);
+    }
+
+    @media (max-width: 700px) {
+      .diagram-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .diagram-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-3xl);
+      box-shadow: var(--shadow-card);
+    }
+
+    .diagram-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .diagram-svg {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: var(--space-xl) 0;
+    }
+
+    /* Pipeline Diagram Styles */
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: var(--space-xl) 0;
+    }
+
+    .pipeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pipeline-box {
+      min-width: 140px;
+      padding: var(--space-lg) var(--space-xl);
+      border-radius: var(--radius-md);
+      text-align: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      border: 2px solid var(--line);
+      background: white;
+      transition: all 0.2s ease;
+    }
+
+    .pipeline-box.pass {
+      border-color: var(--ok);
+      background: rgba(47, 138, 107, 0.08);
+    }
+
+    .pipeline-box.fail {
+      border-color: var(--danger);
+      background: rgba(178, 58, 72, 0.1);
+    }
+
+    .pipeline-box.pending {
+      border-color: var(--warn);
+      background: rgba(217, 164, 65, 0.1);
+    }
+
+    .pipeline-status {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pipeline-status.pass { color: var(--ok); }
+    .pipeline-status.fail { color: var(--danger); }
+    .pipeline-status.pending { color: var(--warn); }
+
+    .pipeline-arrow {
+      font-size: 24px;
+      color: var(--line);
+    }
+
+    .pipeline-arrow.active {
+      color: var(--ok);
+    }
+
+    .pipeline-arrow.broken {
+      color: var(--danger);
+    }
+
+    /* Event Table */
+    .event-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-xl) 0;
+      font-size: 14px;
+    }
+
+    .event-table th,
+    .event-table td {
+      padding: var(--space-md) var(--space-lg);
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .event-table th {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      background: rgba(29, 43, 47, 0.03);
+    }
+
+    .event-table td {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .event-table .icon-pass { color: var(--ok); }
+    .event-table .icon-fail { color: var(--danger); }
+    .event-table .icon-pending { color: var(--warn); }
+
+    /* Status Grid */
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+
+    .status-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .status-icon.pass {
+      background: rgba(47, 138, 107, 0.15);
+      color: var(--ok);
+    }
+
+    .status-icon.fail {
+      background: rgba(178, 58, 72, 0.15);
+      color: var(--danger);
+    }
+
+    .status-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Fix Box */
+    .fix-box {
+      background: linear-gradient(135deg, rgba(47, 138, 107, 0.08) 0%, rgba(47, 138, 107, 0.02) 100%);
+      border: 2px solid var(--ok);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      margin: var(--space-xl) 0;
+    }
+
+    .fix-box h3 {
+      color: var(--ok);
+      margin-bottom: var(--space-md);
+    }
+
+    .fix-steps {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-lg) 0 0;
+      counter-reset: step;
+    }
+
+    .fix-steps li {
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: var(--space-md);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+      counter-increment: step;
+    }
+
+    .fix-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--ok);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Architecture Diagram */
+    .arch-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      justify-content: center;
+      align-items: flex-start;
+      padding: var(--space-2xl);
+    }
+
+    .arch-lane {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      min-width: 160px;
+    }
+
+    .arch-lane-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-align: center;
+      padding-bottom: var(--space-md);
+      border-bottom: 2px solid var(--line);
+    }
+
+    .arch-node {
+      padding: var(--space-lg);
+      background: white;
+      border: 2px solid var(--line);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .arch-node.highlight {
+      border-color: var(--danger);
+      background: rgba(178, 58, 72, 0.08);
+      box-shadow: 0 0 0 4px rgba(178, 58, 72, 0.15);
+    }
+
+    .arch-node.verified {
+      border-color: var(--ok);
+      background: rgba(47, 138, 107, 0.08);
+    }
+
+    .arch-node-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .arch-node-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .arch-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--line);
+      padding: var(--space-md);
+    }
+
+    .arch-connector.broken {
+      color: var(--danger);
+    }
+
+    .arch-connector.active {
+      color: var(--ok);
+    }
+
+    footer {
+      text-align: center;
+      padding: var(--space-3xl);
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: var(--space-4xl);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Messer GTM Server-Side Tracking Audit</h1>
+      <p class="subtitle">messerattach.com | December 2024</p>
+      <div style="margin-top: var(--space-xl);">
+        <span class="badge critical">1 Critical Fix</span>
+        <span class="badge verified" style="margin-left: 8px;">Infrastructure Verified</span>
+      </div>
+      <nav class="nav-links">
+        <a href="canvas.html">Flow Canvas</a>
+        <a href="GTM_AUDIT_REPORT.md">Full Report</a>
+        <a href="index.html">Home</a>
+      </nav>
+    </header>
+
+    <!-- Root Cause Diagram -->
+    <section class="diagram-card full-width">
+      <h2>Root Cause: Data Tag Trigger Misconfiguration</h2>
+      <p>The wGTM Data Tag only fires on <code>purchase</code> events. All other ecommerce events are not forwarded to sGTM.</p>
+
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="pipeline-box pass">
+            <div>DataLayer</div>
+            <div class="pipeline-status pass">Events OK</div>
+          </div>
+        </div>
+        <div class="pipeline-arrow active">&#8594;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box fail">
+            <div>Data Tag</div>
+            <div class="pipeline-status fail">Wrong Trigger</div>
+          </div>
+        </div>
+        <div class="pipeline-arrow broken">&#8594;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box pending">
+            <div>/metrics/data</div>
+            <div class="pipeline-status pending">No Request</div>
+          </div>
+        </div>
+        <div class="pipeline-arrow">&#8594;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box pass">
+            <div>CF Worker</div>
+            <div class="pipeline-status pass">Verified</div>
+          </div>
+        </div>
+        <div class="pipeline-arrow active">&#8594;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box pass">
+            <div>sGTM</div>
+            <div class="pipeline-status pass">Ready</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fix-box">
+        <h3>Single Fix Required</h3>
+        <p>Update the Data Tag trigger in GTM-MNRP4PF to fire on ALL ecommerce events.</p>
+        <ol class="fix-steps">
+          <li>Open GTM-MNRP4PF in Google Tag Manager</li>
+          <li>Navigate to Tags &rarr; Data Tag</li>
+          <li>Remove trigger <code>ce_purchase</code> (ID 96)</li>
+          <li>Add trigger <code>Trigger - Ecom Core Events</code> (ID 313)</li>
+          <li>Save and Publish</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="diagram-grid">
+      <!-- Event Chain Results -->
+      <section class="diagram-card">
+        <h2>Event Chain Results</h2>
+        <p>All events pass Step 1 (DataLayer) but fail at Step 2 (Data Tag trigger).</p>
+
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Count</th>
+              <th>DataLayer</th>
+              <th>Data Tag</th>
+              <th>sGTM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>view_item</td>
+              <td>5</td>
+              <td class="icon-pass">&#10003;</td>
+              <td class="icon-fail">&#10007;</td>
+              <td class="icon-fail">&#10007;</td>
+            </tr>
+            <tr>
+              <td>add_to_cart</td>
+              <td>2</td>
+              <td class="icon-pass">&#10003;</td>
+              <td class="icon-fail">&#10007;</td>
+              <td class="icon-fail">&#10007;</td>
+            </tr>
+            <tr>
+              <td>begin_checkout</td>
+              <td>2</td>
+              <td class="icon-pass">&#10003;</td>
+              <td class="icon-fail">&#10007;</td>
+              <td class="icon-fail">&#10007;</td>
+            </tr>
+            <tr>
+              <td>view_cart</td>
+              <td>1</td>
+              <td class="icon-pass">&#10003;</td>
+              <td class="icon-fail">&#10007;</td>
+              <td class="icon-fail">&#10007;</td>
+            </tr>
+            <tr>
+              <td>purchase</td>
+              <td>0</td>
+              <td class="icon-pending">&#8212;</td>
+              <td class="icon-pending">&#8212;</td>
+              <td class="icon-pending">&#8212;</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12px; color: var(--muted);">* Purchase not tested during Tag Assistant recording</p>
+      </section>
+
+      <!-- Infrastructure Status -->
+      <section class="diagram-card">
+        <h2>Infrastructure Status</h2>
+        <p>All infrastructure components verified working. No action needed.</p>
+
+        <div class="status-grid">
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">Cloudflare Worker</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">Cache Bypass Rules</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">WAF Exemptions</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">WP Rocket Exclusions</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">sGTM Data Client</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">sGTM Tags Ready</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon fail">&#10007;</div>
+            <div class="status-label">Data Tag Trigger</div>
+          </div>
+          <div class="status-item">
+            <div class="status-icon pass">&#10003;</div>
+            <div class="status-label">DataLayer Schema</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Architecture Diagram -->
+    <section class="diagram-card full-width">
+      <h2>Server-Side Architecture</h2>
+      <p>Data flows from WooCommerce through wGTM to sGTM destinations. The break occurs at the Data Tag trigger.</p>
+
+      <div class="arch-flow">
+        <div class="arch-lane">
+          <div class="arch-lane-title">Sources</div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">WooCommerce</div>
+            <div class="arch-node-sub">Ecommerce events</div>
+          </div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">DataLayer</div>
+            <div class="arch-node-sub">view_item, add_to_cart, ...</div>
+          </div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">Consent (CMP)</div>
+            <div class="arch-node-sub">Complianz</div>
+          </div>
+        </div>
+
+        <div class="arch-connector active">&#8594;</div>
+
+        <div class="arch-lane">
+          <div class="arch-lane-title">Web GTM</div>
+          <div class="arch-node highlight">
+            <div class="arch-node-label">Data Tag</div>
+            <div class="arch-node-sub">POST /data</div>
+          </div>
+          <div class="arch-node highlight">
+            <div class="arch-node-label">Triggers</div>
+            <div class="arch-node-sub">ce_purchase ONLY</div>
+          </div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">MS UET</div>
+            <div class="arch-node-sub">Client-side OK</div>
+          </div>
+        </div>
+
+        <div class="arch-connector broken">&#10007;</div>
+
+        <div class="arch-lane">
+          <div class="arch-lane-title">Edge</div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">Endpoint</div>
+            <div class="arch-node-sub">/metrics/data</div>
+          </div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">CF Worker</div>
+            <div class="arch-node-sub">Proxy to sGTM</div>
+          </div>
+        </div>
+
+        <div class="arch-connector active">&#8594;</div>
+
+        <div class="arch-lane">
+          <div class="arch-lane-title">Server GTM</div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">Data Client</div>
+            <div class="arch-node-sub">Claims /data</div>
+          </div>
+        </div>
+
+        <div class="arch-connector active">&#8594;</div>
+
+        <div class="arch-lane">
+          <div class="arch-lane-title">Destinations</div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">GA4</div>
+            <div class="arch-node-sub">Ready</div>
+          </div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">Google Ads</div>
+            <div class="arch-node-sub">Ready</div>
+          </div>
+          <div class="arch-node verified">
+            <div class="arch-node-label">Meta CAPI</div>
+            <div class="arch-node-sub">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOP Contract Summary -->
+    <section class="diagram-card full-width">
+      <h2>SOP Contract Verification</h2>
+      <p>Summary of the Same-Origin Proxy configuration status.</p>
+
+      <table class="event-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Configured Value</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>wGTM Data Tag endpoint</td>
+            <td><code>https://messerattach.com/metrics/data</code></td>
+            <td class="icon-pass">&#10003; OK</td>
+          </tr>
+          <tr>
+            <td>sGTM Data Client claim</td>
+            <td><code>/data</code></td>
+            <td class="icon-pass">&#10003; OK</td>
+          </tr>
+          <tr>
+            <td>Cloudflare Worker upstream</td>
+            <td><code>sgtm.messerattach.com</code></td>
+            <td class="icon-pass">&#10003; Verified</td>
+          </tr>
+          <tr>
+            <td>wGTM Data Tag trigger</td>
+            <td><code>ce_purchase (ID 96) ONLY</code></td>
+            <td class="icon-fail">&#10007; Broken</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Findings Summary -->
+    <section class="diagram-card full-width">
+      <h2>Audit Findings Summary</h2>
+
+      <table class="event-table">
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Finding</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge critical">Critical</span></td>
+            <td>Data Tag fires only on purchase event</td>
+            <td>Fix Required</td>
+          </tr>
+          <tr>
+            <td><span class="badge verified">Verified</span></td>
+            <td>Cloudflare Worker forwards /metrics/* correctly</td>
+            <td>No Action</td>
+          </tr>
+          <tr>
+            <td><span class="badge verified">Verified</span></td>
+            <td>Cache bypass rules configured</td>
+            <td>No Action</td>
+          </tr>
+          <tr>
+            <td><span class="badge verified">Verified</span></td>
+            <td>WAF exemptions configured</td>
+            <td>No Action</td>
+          </tr>
+          <tr>
+            <td><span class="badge warning">Medium</span></td>
+            <td>Guest user_id should not be tracked</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><span class="badge warning">Low</span></td>
+            <td>Event ID alignment for deduplication</td>
+            <td>Optional</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>Generated from GTM Audit Analysis | <a href="GTM_AUDIT_REPORT.md">View Full Report</a></p>
+    </footer>
+  </div>
+</body>
+</html>

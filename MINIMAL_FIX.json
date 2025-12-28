@@ -1,0 +1,295 @@
+{
+  "_meta": {
+    "title": "Messer GTM Complete Fix",
+    "description": "THREE changes required across wGTM and sGTM containers",
+    "created": "2024-12-28",
+    "updated": "2024-12-28",
+    "action": "MANUAL CHANGES IN GTM UI",
+    "previousVersion": "Incorrectly stated only 1 fix needed - sGTM issues and dedup were missed"
+  },
+
+  "summary": {
+    "totalChanges": 3,
+    "wGTM_changes": 2,
+    "sGTM_changes": 1,
+    "changes": [
+      "1. wGTM: Update Data Tag trigger (96 → 313)",
+      "2. wGTM: Fix Event ID variable mismatch for deduplication",
+      "3. sGTM: Add missing triggers to GA4 Advanced tag"
+    ]
+  },
+
+  "fix_1_wGTM_DataTag_Trigger": {
+    "container": "GTM-MNRP4PF (wGTM)",
+    "severity": "CRITICAL",
+    "tagId": "310",
+    "tagName": "Data Tag",
+    "issue": "Tag only fires on purchase events, missing 95% of ecommerce events",
+
+    "current": {
+      "firingTriggerId": ["96"],
+      "triggerName": "ce_purchase",
+      "description": "Only fires on purchase event"
+    },
+
+    "target": {
+      "firingTriggerId": ["313"],
+      "triggerName": "Trigger - Ecom Core Events",
+      "description": "Fires on: page_view, view_cart, add_payment_info, add_to_cart, begin_checkout, find_location, generate_lead, login, purchase, refund, search, share, sign_up, view_item, view_item_list, view_search_results"
+    },
+
+    "howToFix": [
+      "1. Open Google Tag Manager → GTM-MNRP4PF",
+      "2. Go to Tags → 'Data Tag' (ID 310)",
+      "3. Click on Triggering section",
+      "4. Remove trigger 'ce_purchase'",
+      "5. Add trigger 'Trigger - Ecom Core Events' (ID 313)",
+      "6. Save tag",
+      "7. DO NOT PUBLISH YET - Complete Fix #2 first"
+    ]
+  },
+
+  "fix_2_wGTM_EventID_Dedup": {
+    "container": "GTM-MNRP4PF (wGTM)",
+    "severity": "CRITICAL",
+    "tagId": "310",
+    "tagName": "Data Tag",
+    "issue": "Event ID mismatch breaks Facebook CAPI deduplication",
+
+    "problem": {
+      "description": "FB Pixel and Data Tag use DIFFERENT event ID variables",
+      "fbPixel": {
+        "tagId": "112",
+        "tagName": "FB - Page View (and other FB tags)",
+        "eventIdVariable": "{{Event Id}}",
+        "templateSource": "mbaersch template"
+      },
+      "dataTag": {
+        "tagId": "310",
+        "eventIdParameter": "event_id",
+        "currentVariable": "{{Unique Event ID}}",
+        "templateSource": "stape-io template"
+      },
+      "result": "Facebook sees browser event and server event as TWO DIFFERENT events → double counting, poor Event Match Quality"
+    },
+
+    "current": {
+      "event_id": "{{Unique Event ID}}"
+    },
+
+    "target": {
+      "event_id": "{{Event Id}}"
+    },
+
+    "howToFix": [
+      "1. In GTM-MNRP4PF, go to Tags → 'Data Tag' (ID 310)",
+      "2. Find the 'event_id' parameter in the tag configuration",
+      "3. Change the variable from {{Unique Event ID}} to {{Event Id}}",
+      "4. Save tag",
+      "5. Submit and Publish wGTM container",
+      "6. Proceed to Fix #3 in sGTM"
+    ],
+
+    "verification": {
+      "inTagAssistant": "Both FB Pixel and Data Tag should show same event_id value for same user action",
+      "inMetaEventsManager": "Event Match Quality score should improve, no duplicate events"
+    }
+  },
+
+  "fix_3_sGTM_GA4_Triggers": {
+    "container": "GTM-K3CQBMZ9 (sGTM)",
+    "severity": "CRITICAL",
+    "tagId": "16",
+    "tagName": "GA4 Advanced",
+    "issue": "GA4 tag only fires on purchase, ignoring all other ecommerce events",
+
+    "problem": {
+      "description": "GA4 Advanced tag is missing triggers for non-purchase events",
+      "currentTriggers": ["54 (purchase)"],
+      "missingTriggers": ["12 (t_engagement)", "14 (t_ecomCore)"]
+    },
+
+    "current": {
+      "firingTriggerId": ["54"],
+      "triggerName": "purchase",
+      "description": "Only fires on purchase events"
+    },
+
+    "target": {
+      "firingTriggerId": ["54", "12", "14"],
+      "triggerNames": ["purchase", "t_engagement", "t_ecomCore"],
+      "description": "Fires on: page_view, view_item, add_to_cart, begin_checkout, purchase, and all engagement events"
+    },
+
+    "howToFix": [
+      "1. Open Google Tag Manager → GTM-K3CQBMZ9 (Server Container)",
+      "2. Go to Tags → 'GA4 Advanced' (ID 16)",
+      "3. Click on Triggering section",
+      "4. Keep 'purchase' trigger (ID 54)",
+      "5. ADD trigger 't_engagement' (ID 12)",
+      "6. ADD trigger 't_ecomCore' (ID 14)",
+      "7. Save tag",
+      "8. Submit and Publish sGTM container"
+    ],
+
+    "triggers_detail": {
+      "t_engagement_ID12": {
+        "events": "page_view, view_item, scroll, video events, etc."
+      },
+      "t_ecomCore_ID14": {
+        "events": "add_to_cart, begin_checkout, view_cart, add_payment_info, etc."
+      },
+      "purchase_ID54": {
+        "events": "purchase (already attached)"
+      }
+    }
+  },
+
+  "warning_ConversionLinker": {
+    "container": "GTM-K3CQBMZ9 (sGTM)",
+    "severity": "WARNING",
+    "tagId": "46",
+    "tagName": "Conversion Linker",
+    "issue": "Verify Conversion Linker fires on Data Client events",
+
+    "recommendation": [
+      "1. Check Tag 46 (Conversion Linker) trigger configuration",
+      "2. Ensure trigger covers 'Client Name equals Data Client'",
+      "3. May use Trigger ID 71 or a custom trigger matching Data Client"
+    ]
+  },
+
+  "existingConfigurationVerified": {
+    "wGTM_DataTag_310": {
+      "gtm_server_domain": "https://messerattach.com/metrics",
+      "request_path": "/data",
+      "full_endpoint": "https://messerattach.com/metrics/data (domain + path)",
+      "add_data_layer": true,
+      "add_consent_state": true,
+      "add_common_cookie": true,
+      "transaction_id": "{{dlv_transactionID}}",
+      "value": "{{dlv_value}}",
+      "currency": "{{dlv_ecommerce_currency}}",
+      "items": "{{cjs - Items with Index}}",
+      "user_data": {
+        "email_address": "{{Customers Email}} (sha256)",
+        "phone_number": "{{Customers Phone Number}} (sha256)",
+        "first_name": "{{Customers First Name}} (sha256)",
+        "last_name": "{{Customers Last Name}} (sha256)"
+      },
+      "note": "All above are correct - only trigger and event_id need fixing"
+    },
+
+    "sGTM_DataClient_18": {
+      "id": "18",
+      "priority": "102",
+      "path": "/data",
+      "status": "Ready to receive"
+    },
+
+    "sGTM_Tags": {
+      "status": "Configured but some under-firing",
+      "tags": [
+        "GA4 Advanced - NEEDS FIX (only purchase trigger)",
+        "Google Ads Conversion Tracking - Checkout",
+        "Google Ads Conversion Tracking - Add to Cart",
+        "Google Ads Conversion Tracking - Purchase",
+        "FB CAPI - AddToCart",
+        "FB CAPI - Purchase",
+        "FB CAPI - Begin Checkout",
+        "FB CAPI - ViewContent"
+      ]
+    }
+  },
+
+  "platformStrategy": {
+    "serverSide_via_sGTM": {
+      "path": "wGTM Data Tag → /metrics/data → sGTM Data Client → Platform Tags",
+      "platforms": [
+        {
+          "name": "Google Analytics 4",
+          "tag": "GA4 Advanced (Tag 16)",
+          "status": "NEEDS FIX - Add triggers 12 and 14",
+          "events_after_fix": "All ecommerce events"
+        },
+        {
+          "name": "Google Ads",
+          "tags": ["Checkout", "Add to Cart", "Purchase"],
+          "features": "Enhanced Conversions enabled"
+        },
+        {
+          "name": "Meta/Facebook",
+          "tags": ["FB CAPI - AddToCart", "FB CAPI - Purchase", "FB CAPI - Begin Checkout", "FB CAPI - ViewContent"],
+          "features": "CAPI with browser deduplication",
+          "dedup_requirement": "MUST use same event_id as browser pixel - Fix #2"
+        }
+      ]
+    },
+
+    "clientSide_noSGTM": {
+      "path": "wGTM → Direct to Platform",
+      "platforms": [
+        {
+          "name": "Microsoft Ads (UET)",
+          "reason": "No CAPI available from Microsoft",
+          "tags": ["ms_uet_base", "ms_uet_view_item", "ms_uet_add_to_cart", "ms_uet_checkout", "ms_uet_purchase"],
+          "note": "Already working correctly - no changes needed"
+        },
+        {
+          "name": "LinkedIn Insight",
+          "reason": "Primary tracking via client-side pixel",
+          "tag": "LinkedIn Insight",
+          "note": "LinkedIn CAPI available in sGTM if needed later"
+        }
+      ]
+    },
+
+    "dualPath_deduplication": {
+      "path": "Both client-side AND server-side",
+      "status": "BROKEN - needs Fix #2",
+      "platforms": [
+        {
+          "name": "Facebook Pixel + CAPI",
+          "clientSide": "FB - Page View (uses {{Event Id}})",
+          "serverSide": "FB CAPI tags (currently receives {{Unique Event ID}})",
+          "problem": "Different event IDs = double counting",
+          "fix": "Change Data Tag to use {{Event Id}} instead of {{Unique Event ID}}"
+        }
+      ]
+    }
+  },
+
+  "implementationOrder": [
+    {
+      "step": 1,
+      "container": "wGTM (GTM-MNRP4PF)",
+      "action": "Update Data Tag trigger from 96 to 313",
+      "publish": false
+    },
+    {
+      "step": 2,
+      "container": "wGTM (GTM-MNRP4PF)",
+      "action": "Change Data Tag event_id from {{Unique Event ID}} to {{Event Id}}",
+      "publish": true
+    },
+    {
+      "step": 3,
+      "container": "sGTM (GTM-K3CQBMZ9)",
+      "action": "Add triggers 12 and 14 to GA4 Advanced tag",
+      "publish": true
+    }
+  ],
+
+  "verificationChecklist": {
+    "afterFix1and2_wGTM": [
+      "Tag Assistant: Data Tag fires on view_item, add_to_cart, begin_checkout",
+      "Tag Assistant: Data Tag event_id matches FB Pixel event_id",
+      "Network tab: POST to /metrics/data for each event"
+    ],
+    "afterFix3_sGTM": [
+      "sGTM Tag Assistant: GA4 Advanced fires on view_item, add_to_cart, begin_checkout",
+      "GA4 Real-Time: All ecommerce events appearing",
+      "Meta Events Manager: Server events appearing with correct deduplication"
+    ]
+  }
+}

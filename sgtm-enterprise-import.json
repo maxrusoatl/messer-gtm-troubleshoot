@@ -1,0 +1,600 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2024-12-28T12:00:00.000Z",
+  "containerVersion": {
+    "path": "accounts/ACCOUNT_ID/containers/CONTAINER_ID/versions/0",
+    "accountId": "ACCOUNT_ID",
+    "containerId": "CONTAINER_ID",
+    "containerVersionId": "0",
+    "name": "Enterprise sGTM Tags Import",
+    "description": "Server-side GTM configuration with proper triggers for all platforms. Import via GTM Admin > Import Container > Merge.",
+
+    "variable": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5001",
+        "name": "CV - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "G-YCL5FGZNCV" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5002",
+        "name": "CV - Meta Pixel ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "YOUR_PIXEL_ID" }
+        ],
+        "notes": "Replace with actual Meta Pixel ID"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5003",
+        "name": "CV - Meta Access Token",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "YOUR_ACCESS_TOKEN" }
+        ],
+        "notes": "Replace with actual Meta CAPI Access Token from Events Manager"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5004",
+        "name": "CV - Google Ads Conversion ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "AW-767740215" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5005",
+        "name": "CV - Google Ads Conv Label Purchase",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "YOUR_CONVERSION_LABEL" }
+        ],
+        "notes": "Replace with actual conversion label from Google Ads"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5006",
+        "name": "CV - LinkedIn Partner ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "4898740" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5010",
+        "name": "ED - Event Name",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "event_name" }
+        ],
+        "formatValue": {}
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5011",
+        "name": "ED - Client ID",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "client_id" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5012",
+        "name": "ED - Session ID",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "session_id" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5013",
+        "name": "ED - User ID",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "user_id" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5014",
+        "name": "ED - Event ID",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "event_id" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5015",
+        "name": "ED - Transaction ID",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "transaction_id" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5016",
+        "name": "ED - Value",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "value" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5017",
+        "name": "ED - Currency",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "currency" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5018",
+        "name": "ED - Items",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "items" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5019",
+        "name": "ED - Page Location",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "page_location" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5020",
+        "name": "ED - User Email",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "user_data.email" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5021",
+        "name": "ED - User Phone",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "user_data.phone" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5022",
+        "name": "ED - First Name",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "user_data.first_name" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5023",
+        "name": "ED - Last Name",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "user_data.last_name" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5030",
+        "name": "Request - IP Address",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "ip_override" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5031",
+        "name": "Request - User Agent",
+        "type": "v",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "name", "value": "user_agent" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "5040",
+        "name": "LUT - Meta Event Name",
+        "type": "smm",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "input", "value": "{{ED - Event Name}}" },
+          {
+            "type": "LIST",
+            "key": "map",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "page_view" },
+                  { "type": "TEMPLATE", "key": "value", "value": "PageView" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "view_item" },
+                  { "type": "TEMPLATE", "key": "value", "value": "ViewContent" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "view_item_list" },
+                  { "type": "TEMPLATE", "key": "value", "value": "ViewContent" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "add_to_cart" },
+                  { "type": "TEMPLATE", "key": "value", "value": "AddToCart" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "begin_checkout" },
+                  { "type": "TEMPLATE", "key": "value", "value": "InitiateCheckout" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "add_payment_info" },
+                  { "type": "TEMPLATE", "key": "value", "value": "AddPaymentInfo" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "purchase" },
+                  { "type": "TEMPLATE", "key": "value", "value": "Purchase" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "generate_lead" },
+                  { "type": "TEMPLATE", "key": "value", "value": "Lead" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "key", "value": "sign_up" },
+                  { "type": "TEMPLATE", "key": "value", "value": "CompleteRegistration" }
+                ]
+              }
+            ]
+          },
+          { "type": "TEMPLATE", "key": "defaultValue", "value": "{{ED - Event Name}}" }
+        ]
+      }
+    ],
+
+    "trigger": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "6001",
+        "name": "TR - All Data Client Events",
+        "type": "CUSTOM",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Client Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "Data Tag" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "6002",
+        "name": "TR - GA4 Client Events",
+        "type": "CUSTOM",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Client Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "GA4" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "6003",
+        "name": "TR - Ecommerce Events",
+        "type": "CUSTOM",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Client Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "Data Tag" }
+            ]
+          },
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{ED - Event Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "^(view_item|view_item_list|select_item|add_to_cart|remove_from_cart|view_cart|begin_checkout|add_payment_info|add_shipping_info|purchase)$" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "6004",
+        "name": "TR - Purchase Only",
+        "type": "CUSTOM",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Client Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "Data Tag" }
+            ]
+          },
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{ED - Event Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "purchase" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "6005",
+        "name": "TR - Page View Only",
+        "type": "CUSTOM",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Client Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "Data Tag" }
+            ]
+          },
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{ED - Event Name}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "page_view" }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "tag": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "7001",
+        "name": "GA4 - All Events",
+        "type": "sgtmgaaw",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementId", "value": "{{CV - GA4 Measurement ID}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "{{ED - Event Name}}" },
+          { "type": "BOOLEAN", "key": "sendToGa", "value": "true" },
+          {
+            "type": "LIST",
+            "key": "eventParameters",
+            "list": []
+          },
+          {
+            "type": "LIST",
+            "key": "userProperties",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "name", "value": "user_id" },
+                  { "type": "TEMPLATE", "key": "value", "value": "{{ED - User ID}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["6001", "6002"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "7002",
+        "name": "Meta CAPI - All Ecommerce",
+        "type": "cvt_TEMPLATE_ID_META_CAPI",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "pixelId", "value": "{{CV - Meta Pixel ID}}" },
+          { "type": "TEMPLATE", "key": "accessToken", "value": "{{CV - Meta Access Token}}" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "{{LUT - Meta Event Name}}" },
+          { "type": "TEMPLATE", "key": "eventId", "value": "{{ED - Event ID}}" },
+          { "type": "TEMPLATE", "key": "actionSource", "value": "website" },
+          { "type": "TEMPLATE", "key": "eventSourceUrl", "value": "{{ED - Page Location}}" },
+          { "type": "TEMPLATE", "key": "userData.em", "value": "{{ED - User Email}}" },
+          { "type": "TEMPLATE", "key": "userData.ph", "value": "{{ED - User Phone}}" },
+          { "type": "TEMPLATE", "key": "userData.fn", "value": "{{ED - First Name}}" },
+          { "type": "TEMPLATE", "key": "userData.ln", "value": "{{ED - Last Name}}" },
+          { "type": "TEMPLATE", "key": "userData.external_id", "value": "{{ED - User ID}}" },
+          { "type": "TEMPLATE", "key": "userData.client_ip_address", "value": "{{Request - IP Address}}" },
+          { "type": "TEMPLATE", "key": "userData.client_user_agent", "value": "{{Request - User Agent}}" },
+          { "type": "TEMPLATE", "key": "customData.currency", "value": "{{ED - Currency}}" },
+          { "type": "TEMPLATE", "key": "customData.value", "value": "{{ED - Value}}" },
+          { "type": "TEMPLATE", "key": "customData.contents", "value": "{{ED - Items}}" }
+        ],
+        "firingTriggerId": ["6003"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "notes": "Replace cvt_TEMPLATE_ID_META_CAPI with actual template ID after installing Meta CAPI template from Community Gallery"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "7003",
+        "name": "Google Ads - Purchase Conversion",
+        "type": "awct",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "conversionId", "value": "{{CV - Google Ads Conversion ID}}" },
+          { "type": "TEMPLATE", "key": "conversionLabel", "value": "{{CV - Google Ads Conv Label Purchase}}" },
+          { "type": "TEMPLATE", "key": "conversionValue", "value": "{{ED - Value}}" },
+          { "type": "TEMPLATE", "key": "currencyCode", "value": "{{ED - Currency}}" },
+          { "type": "TEMPLATE", "key": "orderId", "value": "{{ED - Transaction ID}}" },
+          { "type": "BOOLEAN", "key": "enableEnhancedConversions", "value": "true" },
+          { "type": "TEMPLATE", "key": "enhancedConversionsEmail", "value": "{{ED - User Email}}" },
+          { "type": "TEMPLATE", "key": "enhancedConversionsPhone", "value": "{{ED - User Phone}}" },
+          { "type": "TEMPLATE", "key": "enhancedConversionsFirstName", "value": "{{ED - First Name}}" },
+          { "type": "TEMPLATE", "key": "enhancedConversionsLastName", "value": "{{ED - Last Name}}" }
+        ],
+        "firingTriggerId": ["6004"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "7004",
+        "name": "LinkedIn CAPI - All Conversions",
+        "type": "cvt_TEMPLATE_ID_LINKEDIN_CAPI",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "partnerId", "value": "{{CV - LinkedIn Partner ID}}" },
+          { "type": "TEMPLATE", "key": "eventType", "value": "{{ED - Event Name}}" },
+          { "type": "TEMPLATE", "key": "conversionValue", "value": "{{ED - Value}}" },
+          { "type": "TEMPLATE", "key": "currency", "value": "{{ED - Currency}}" },
+          { "type": "TEMPLATE", "key": "userEmail", "value": "{{ED - User Email}}" },
+          { "type": "TEMPLATE", "key": "userLinkedinFirstPartyAdsId", "value": "" }
+        ],
+        "firingTriggerId": ["6003"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "notes": "Replace cvt_TEMPLATE_ID_LINKEDIN_CAPI with actual template ID after installing LinkedIn CAPI template"
+      }
+    ],
+
+    "client": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "clientId": "8001",
+        "name": "GA4 Client",
+        "type": "gaaw_client",
+        "parameter": [
+          { "type": "BOOLEAN", "key": "defaultGaRoutes", "value": "true" },
+          { "type": "BOOLEAN", "key": "claimRequest", "value": "true" }
+        ],
+        "priority": 1
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "clientId": "8002",
+        "name": "Data Client",
+        "type": "data_tag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "requestPath", "value": "/data" },
+          { "type": "BOOLEAN", "key": "claimRequest", "value": "true" }
+        ],
+        "priority": 2
+      }
+    ]
+  },
+
+  "fingerprint": "enterprise-sgtm-tags-v1",
+
+  "_readme": {
+    "description": "Enterprise sGTM Configuration for Messer Attach",
+    "author": "GTM Audit Tool",
+    "created": "2024-12-28",
+    "howToImport": [
+      "1. Go to Google Tag Manager",
+      "2. Select your Server container (GTM-K3CQBMZ9)",
+      "3. Navigate to Admin > Import Container",
+      "4. Upload this JSON file",
+      "5. Choose 'Merge' as the import option",
+      "6. Select 'Rename conflicting tags, triggers, and variables'",
+      "7. Review and confirm the import",
+      "8. IMPORTANT: Install required templates from Community Gallery:",
+      "   - Meta Conversions API Tag",
+      "   - LinkedIn CAPI Tag (if using LinkedIn)",
+      "9. Update template IDs in tags after installing",
+      "10. Test in Preview mode before publishing"
+    ],
+    "requiredTemplates": [
+      {
+        "name": "Meta Conversions API",
+        "gallery": "Community Template Gallery",
+        "afterInstall": "Replace cvt_TEMPLATE_ID_META_CAPI with actual template ID"
+      },
+      {
+        "name": "LinkedIn Conversions API",
+        "gallery": "Community Template Gallery",
+        "afterInstall": "Replace cvt_TEMPLATE_ID_LINKEDIN_CAPI with actual template ID"
+      }
+    ],
+    "notes": [
+      "Replace ACCOUNT_ID and CONTAINER_ID with your actual values",
+      "Update CV - Meta Access Token with your actual token from Events Manager",
+      "Update CV - Google Ads Conv Label Purchase with your actual label",
+      "The LUT - Meta Event Name variable maps GA4 events to Meta event names",
+      "Triggers use Client Name to filter for Data Tag client only"
+    ],
+    "triggerLogic": {
+      "TR - All Data Client Events": "Fires for ALL events from Data Tag client",
+      "TR - GA4 Client Events": "Fires for all events from GA4 client (gtag.js)",
+      "TR - Ecommerce Events": "Fires only for ecommerce events from Data Tag",
+      "TR - Purchase Only": "Fires only for purchase events (for Google Ads)",
+      "TR - Page View Only": "Fires only for page_view events"
+    }
+  }
+}

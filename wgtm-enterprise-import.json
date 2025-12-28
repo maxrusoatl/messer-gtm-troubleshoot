@@ -1,0 +1,674 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2024-12-28T12:00:00.000Z",
+  "containerVersion": {
+    "path": "accounts/ACCOUNT_ID/containers/CONTAINER_ID/versions/0",
+    "accountId": "ACCOUNT_ID",
+    "containerId": "CONTAINER_ID",
+    "containerVersionId": "0",
+    "name": "Enterprise Data Tags Import",
+    "description": "Enterprise GTM configuration with 4 Data Tags by category. Import via GTM Admin > Import Container > Merge > Rename conflicting.",
+
+    "variable": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1001",
+        "name": "CV - sGTM Endpoint",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "https://messerattach.com/metrics" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1002",
+        "name": "CV - Data Endpoint",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "https://messerattach.com/metrics/data" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1003",
+        "name": "CV - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "G-YCL5FGZNCV" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1010",
+        "name": "DLV - event",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "event" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1011",
+        "name": "DLV - ecommerce",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1012",
+        "name": "DLV - ecommerce.items",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.items" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1013",
+        "name": "DLV - ecommerce.value",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.value" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1014",
+        "name": "DLV - ecommerce.currency",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.currency" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1015",
+        "name": "DLV - ecommerce.transaction_id",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.transaction_id" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1016",
+        "name": "DLV - ecommerce.tax",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.tax" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1017",
+        "name": "DLV - ecommerce.shipping",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.shipping" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1018",
+        "name": "DLV - ecommerce.coupon",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "ecommerce.coupon" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1020",
+        "name": "CJS - Client ID",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function() {\n  try {\n    var match = document.cookie.match(/_ga=GA\\d+\\.\\d+\\.(\\d+\\.\\d+)/);\n    return match ? match[1] : undefined;\n  } catch(e) {\n    return undefined;\n  }\n}"
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1021",
+        "name": "CJS - Session ID",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function() {\n  try {\n    var match = document.cookie.match(/_ga_[A-Z0-9]+=GS\\d+\\.\\d+\\.(\\d+)/);\n    return match ? match[1] : undefined;\n  } catch(e) {\n    return undefined;\n  }\n}"
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1022",
+        "name": "CJS - Event ID (Dedup)",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function() {\n  var timestamp = Date.now();\n  var random = Math.random().toString(36).substring(2, 9);\n  var event = {{DLV - event}} || 'unknown';\n  return event + '_' + timestamp + '_' + random;\n}"
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1023",
+        "name": "CJS - User ID",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function() {\n  if (window.dataLayer) {\n    for (var i = 0; i < window.dataLayer.length; i++) {\n      if (window.dataLayer[i].user_id) {\n        return window.dataLayer[i].user_id;\n      }\n    }\n  }\n  return undefined;\n}"
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "variableId": "1024",
+        "name": "CJS - Timestamp",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function() {\n  return Date.now();\n}"
+          }
+        ]
+      }
+    ],
+
+    "trigger": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2001",
+        "name": "TR - Page View",
+        "type": "PAGEVIEW"
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2002",
+        "name": "TR - Ecommerce - View Item",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "^(view_item|view_item_list|select_item)$" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2003",
+        "name": "TR - Ecommerce - Cart Actions",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "^(add_to_cart|remove_from_cart|view_cart)$" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2004",
+        "name": "TR - Ecommerce - Checkout",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "^(begin_checkout|add_payment_info|add_shipping_info)$" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2005",
+        "name": "TR - Ecommerce - Purchase",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "purchase" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2006",
+        "name": "TR - Engagement - Scroll",
+        "type": "SCROLL_DEPTH",
+        "parameter": [
+          { "type": "BOOLEAN", "key": "verticalThresholdOn", "value": "true" },
+          { "type": "TEMPLATE", "key": "verticalThresholdUnits", "value": "PERCENT" },
+          { "type": "TEMPLATE", "key": "verticalThresholdsPercent", "value": "25, 50, 75, 90" }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2007",
+        "name": "TR - Engagement - Form Submit",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "^(form_submit|generate_lead|sign_up)$" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "triggerId": "2008",
+        "name": "TR - All Custom Events",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": ".*" }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "tag": [
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "3001",
+        "name": "sGTM - Data Tag - Core Events",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "{{CV - Data Endpoint}}" },
+          { "type": "TEMPLATE", "key": "configSettingsVariable", "value": "" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "page_location" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Page URL}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "page_title" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Page Title}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "page_referrer" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Referrer}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "client_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Client ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "session_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Session ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "user_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - User ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "event_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Event ID (Dedup)}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "timestamp" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Timestamp}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2001", "2006"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        }
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "3002",
+        "name": "sGTM - Data Tag - Ecommerce",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "{{CV - Data Endpoint}}" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "page_location" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Page URL}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "client_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Client ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "session_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Session ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "user_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - User ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "event_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Event ID (Dedup)}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "items" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.items}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "value" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.value}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "currency" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.currency}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2002", "2003", "2004"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        }
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "3003",
+        "name": "sGTM - Data Tag - Conversions",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "{{CV - Data Endpoint}}" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "page_location" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Page URL}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "client_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Client ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "session_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Session ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "user_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - User ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "event_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Event ID (Dedup)}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "transaction_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.transaction_id}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "items" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.items}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "value" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.value}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "currency" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.currency}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "tax" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.tax}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "shipping" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.shipping}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "coupon" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - ecommerce.coupon}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2005"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        }
+      },
+      {
+        "accountId": "ACCOUNT_ID",
+        "containerId": "CONTAINER_ID",
+        "tagId": "3004",
+        "name": "sGTM - Data Tag - Engagement",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "{{CV - Data Endpoint}}" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "page_location" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Page URL}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "client_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Client ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "session_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Session ID}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "event_id" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "{{CJS - Event ID (Dedup)}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2007"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        }
+      }
+    ]
+  },
+
+  "fingerprint": "enterprise-data-tags-v1",
+
+  "_readme": {
+    "description": "Enterprise GTM Configuration for Messer Attach",
+    "author": "GTM Audit Tool",
+    "created": "2024-12-28",
+    "howToImport": [
+      "1. Go to Google Tag Manager",
+      "2. Select your Web container (GTM-MNRP4PF)",
+      "3. Navigate to Admin > Import Container",
+      "4. Upload this JSON file",
+      "5. Choose 'Merge' as the import option",
+      "6. Select 'Rename conflicting tags, triggers, and variables'",
+      "7. Review and confirm the import",
+      "8. Test in Preview mode before publishing"
+    ],
+    "notes": [
+      "Replace ACCOUNT_ID and CONTAINER_ID with your actual values",
+      "Verify CV - sGTM Endpoint matches your CF Worker URL",
+      "Test each Data Tag individually before publishing",
+      "Monitor Tag Assistant for successful event delivery"
+    ],
+    "dataTags": {
+      "Core Events": "Fires on page_view, scroll events. Sends basic page info + identifiers.",
+      "Ecommerce": "Fires on view_item, add_to_cart, begin_checkout. Sends items[], value, currency.",
+      "Conversions": "Fires on purchase. Sends full transaction data including transaction_id for dedup.",
+      "Engagement": "Fires on form_submit, generate_lead. Sends engagement-specific data."
+    }
+  }
+}

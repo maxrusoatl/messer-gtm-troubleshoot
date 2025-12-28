@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messer GTM Complete Inventory</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --border: #30363d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+
+      --green: #3fb950;
+      --green-bg: rgba(63, 185, 80, 0.15);
+      --red: #f85149;
+      --red-bg: rgba(248, 81, 73, 0.15);
+      --yellow: #d29922;
+      --yellow-bg: rgba(210, 153, 34, 0.15);
+      --blue: #58a6ff;
+      --blue-bg: rgba(88, 166, 255, 0.15);
+      --purple: #a371f7;
+      --purple-bg: rgba(163, 113, 247, 0.15);
+      --orange: #f0883e;
+      --orange-bg: rgba(240, 136, 62, 0.15);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tab {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-secondary);
+      border: none;
+      background: none;
+    }
+
+    .tab:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+    .tab.active { background: var(--blue); color: white; }
+
+    .stats {
+      margin-left: auto;
+      display: flex;
+      gap: 16px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .stat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .stat-dot.green { background: var(--green); }
+    .stat-dot.red { background: var(--red); }
+    .stat-dot.yellow { background: var(--yellow); }
+
+    /* Main Content */
+    .main {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .main.single-col {
+      grid-template-columns: 1fr;
+    }
+
+    /* Container Section */
+    .container-section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .container-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .container-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .container-icon.wgtm { background: var(--blue-bg); color: var(--blue); }
+    .container-icon.sgtm { background: var(--purple-bg); color: var(--purple); }
+
+    .container-title h2 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .container-title p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .container-body {
+      padding: 16px;
+    }
+
+    /* Category Group */
+    .category {
+      margin-bottom: 20px;
+    }
+
+    .category:last-child {
+      margin-bottom: 0;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .category-header:hover {
+      background: #2d333b;
+    }
+
+    .category-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .category-icon.tags { background: var(--blue-bg); color: var(--blue); }
+    .category-icon.triggers { background: var(--green-bg); color: var(--green); }
+    .category-icon.variables { background: var(--purple-bg); color: var(--purple); }
+    .category-icon.clients { background: var(--orange-bg); color: var(--orange); }
+
+    .category-name {
+      font-size: 13px;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .category-count {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .category-chevron {
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+
+    .category.collapsed .category-chevron {
+      transform: rotate(-90deg);
+    }
+
+    .category.collapsed .category-items {
+      display: none;
+    }
+
+    /* Items */
+    .category-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-left: 8px;
+    }
+
+    .item-group {
+      margin-bottom: 12px;
+    }
+
+    .item-group-header {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 12px 4px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      transition: background 0.15s;
+    }
+
+    .item:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .item-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .item-status.ok { background: var(--green); }
+    .item-status.error { background: var(--red); }
+    .item-status.warning { background: var(--yellow); }
+    .item-status.info { background: var(--blue); }
+
+    .item-id {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .item-name {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-type {
+      font-size: 10px;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .item-badge {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .item-badge.fix { background: var(--red-bg); color: var(--red); }
+    .item-badge.add { background: var(--green-bg); color: var(--green); }
+    .item-badge.adjust { background: var(--yellow-bg); color: var(--yellow); }
+    .item-badge.critical { background: var(--red); color: white; }
+
+    /* Fix Panel */
+    .fix-panel {
+      background: var(--red-bg);
+      border: 1px solid rgba(248, 81, 73, 0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .fix-panel-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+
+    .fix-panel-list {
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding-left: 20px;
+    }
+
+    .fix-panel-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      gap: 20px;
+      padding: 12px 20px;
+      background: var(--bg-tertiary);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+    }
+
+    .tooltip::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .tooltip:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* View Toggle */
+    .view-toggle {
+      display: flex;
+      background: var(--bg-primary);
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    .view-btn {
+      padding: 6px 12px;
+      border: none;
+      background: none;
+      color: var(--text-secondary);
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .view-btn.active {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    /* Hierarchy View */
+    .hierarchy-view {
+      display: none;
+    }
+
+    .hierarchy-view.active {
+      display: block;
+    }
+
+    .hierarchy-tree {
+      padding: 16px;
+    }
+
+    .tree-node {
+      margin-left: 20px;
+      border-left: 1px solid var(--border);
+      padding-left: 16px;
+    }
+
+    .tree-node:first-child {
+      margin-left: 0;
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .tree-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 13px;
+    }
+
+    .tree-connector {
+      width: 12px;
+      height: 1px;
+      background: var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">M</div>
+        <span>Messer GTM Inventory</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-view="all">All Components</button>
+        <button class="tab" data-view="fixes">Fixes Required</button>
+        <button class="tab" data-view="wgtm">wGTM Only</button>
+        <button class="tab" data-view="sgtm">sGTM Only</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-dot green"></span>
+          <span>Working: 45</span>
+        </div>
+        <div class="stat">
+          <span class="stat-dot red"></span>
+          <span>Needs Fix: 4</span>
+        </div>
+        <div class="stat">
+          <span class="stat-dot yellow"></span>
+          <span>Verify: 2</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="mainContent">
+    <!-- wGTM Container -->
+    <section class="container-section" id="wgtmSection">
+      <div class="container-header">
+        <div class="container-icon wgtm">W</div>
+        <div class="container-title">
+          <h2>Web GTM (wGTM)</h2>
+          <p>GTM-MNRP4PF | Browser-side container</p>
+        </div>
+      </div>
+
+      <div class="container-body">
+        <!-- Fix Panel -->
+        <div class="fix-panel">
+          <div class="fix-panel-header">
+            <span>!</span> 2 Fixes Required
+          </div>
+          <ul class="fix-panel-list">
+            <li><strong>Fix #1:</strong> Data Tag trigger: 96 (ce_purchase) -> 313 (Ecom Core Events)</li>
+            <li><strong>Fix #2:</strong> Data Tag event_id: {{Unique Event ID}} -> {{Event Id}}</li>
+          </ul>
+        </div>
+
+        <!-- TAGS -->
+        <div class="category" id="wgtm-tags">
+          <div class="category-header" onclick="toggleCategory('wgtm-tags')">
+            <div class="category-icon tags">T</div>
+            <span class="category-name">Tags</span>
+            <span class="category-count">17 tags</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <!-- Data Tag Group -->
+            <div class="item-group">
+              <div class="item-group-header">Server-Side Data</div>
+              <div class="item">
+                <span class="item-status error"></span>
+                <span class="item-id">310</span>
+                <span class="item-name">Data Tag</span>
+                <span class="item-type">cvt_MBTSV</span>
+                <span class="item-badge critical">FIX #1 #2</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">351</span>
+                <span class="item-name">Google Tag (gtag)</span>
+                <span class="item-type">googtag</span>
+              </div>
+            </div>
+
+            <!-- Facebook Group -->
+            <div class="item-group">
+              <div class="item-group-header">Facebook / Meta</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">112</span>
+                <span class="item-name">FB - Page View</span>
+                <span class="item-type">cvt</span>
+              </div>
+            </div>
+
+            <!-- Microsoft UET Group -->
+            <div class="item-group">
+              <div class="item-group-header">Microsoft Ads (UET) - Client-Side Only</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">214</span>
+                <span class="item-name">ms_uet_base</span>
+                <span class="item-type">baut</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">228</span>
+                <span class="item-name">ms_uet_view_item</span>
+                <span class="item-type">baut</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">335</span>
+                <span class="item-name">ms_uet_add_to_cart</span>
+                <span class="item-type">baut</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">334</span>
+                <span class="item-name">ms_uet_checkout</span>
+                <span class="item-type">baut</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">333</span>
+                <span class="item-name">ms_uet_purchase</span>
+                <span class="item-type">baut</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">254</span>
+                <span class="item-name">ms_uet_site_search</span>
+                <span class="item-type">baut</span>
+              </div>
+            </div>
+
+            <!-- Google Ads Group -->
+            <div class="item-group">
+              <div class="item-group-header">Google Ads</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">145</span>
+                <span class="item-name">google_ads_calls</span>
+                <span class="item-type">awcc</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">146</span>
+                <span class="item-name">google_ads_800calls</span>
+                <span class="item-type">awcc</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">134</span>
+                <span class="item-name">Conversion Linker</span>
+                <span class="item-type">gclidw</span>
+              </div>
+            </div>
+
+            <!-- Other Platforms -->
+            <div class="item-group">
+              <div class="item-group-header">Other Platforms</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">16</span>
+                <span class="item-name">LinkedIn Insight</span>
+                <span class="item-type">bzi</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">173</span>
+                <span class="item-name">Mailchimp</span>
+                <span class="item-type">html</span>
+              </div>
+            </div>
+
+            <!-- Utility -->
+            <div class="item-group">
+              <div class="item-group-header">Utility / Consent</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">322</span>
+                <span class="item-name">Complianz.io - Privacy Suite</span>
+                <span class="item-type">cvt</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">46</span>
+                <span class="item-name">Click Cease</span>
+                <span class="item-type">html</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">339</span>
+                <span class="item-name">Helper - Push search Event</span>
+                <span class="item-type">html</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRIGGERS -->
+        <div class="category" id="wgtm-triggers">
+          <div class="category-header" onclick="toggleCategory('wgtm-triggers')">
+            <div class="category-icon triggers">></div>
+            <span class="category-name">Triggers</span>
+            <span class="category-count">28 triggers</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <!-- Ecommerce Events -->
+            <div class="item-group">
+              <div class="item-group-header">Ecommerce Events</div>
+              <div class="item">
+                <span class="item-status info"></span>
+                <span class="item-id">313</span>
+                <span class="item-name">Trigger - Ecom Core Events</span>
+                <span class="item-type">CUSTOM</span>
+                <span class="item-badge add">USE THIS</span>
+              </div>
+              <div class="item">
+                <span class="item-status warning"></span>
+                <span class="item-id">96</span>
+                <span class="item-name">ce_purchase</span>
+                <span class="item-type">CUSTOM</span>
+                <span class="item-badge adjust">REMOVE</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">92</span>
+                <span class="item-name">ce_view_item</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">93</span>
+                <span class="item-name">ce_add_to_cart</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">94</span>
+                <span class="item-name">ce_view_cart</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">95</span>
+                <span class="item-name">ce_checkout</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">99</span>
+                <span class="item-name">ce_remove_from_cart</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">307</span>
+                <span class="item-name">CE - Ecommerce Actions for Ads</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+            </div>
+
+            <!-- Consent -->
+            <div class="item-group">
+              <div class="item-group-header">Consent / GDPR</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">324</span>
+                <span class="item-name">cmplz_event_marketing</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">325</span>
+                <span class="item-name">cmplz_event_statistics</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">326</span>
+                <span class="item-name">TRG - wGTM - gtag.consent.update</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">328</span>
+                <span class="item-name">cmplz_event_preferences</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">330</span>
+                <span class="item-name">CM - All Consent Granted</span>
+                <span class="item-type">PAGEVIEW</span>
+              </div>
+            </div>
+
+            <!-- User Interactions -->
+            <div class="item-group">
+              <div class="item-group-header">User Interactions</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">201</span>
+                <span class="item-name">click</span>
+                <span class="item-type">CLICK</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">205</span>
+                <span class="item-name">scroll</span>
+                <span class="item-type">SCROLL</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">100</span>
+                <span class="item-name">Submit form</span>
+                <span class="item-type">WINDOW</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">213</span>
+                <span class="item-name">Initialization</span>
+                <span class="item-type">INIT</span>
+              </div>
+            </div>
+
+            <!-- Click Tracking -->
+            <div class="item-group">
+              <div class="item-group-header">Click Tracking</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">101</span>
+                <span class="item-name">Phone call - Local</span>
+                <span class="item-type">CLICK</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">142</span>
+                <span class="item-name">Phone call - Nationwide</span>
+                <span class="item-type">CLICK</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">147</span>
+                <span class="item-name">FIND A DEALER</span>
+                <span class="item-type">CLICK</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">148</span>
+                <span class="item-name">CONTACT US</span>
+                <span class="item-type">CLICK</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">167</span>
+                <span class="item-name">DOWNLOAD PRODUCT CATALOG</span>
+                <span class="item-type">CLICK</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">169</span>
+                <span class="item-name">DOWNLOAD PARTS CATALOG</span>
+                <span class="item-type">CLICK</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VARIABLES -->
+        <div class="category collapsed" id="wgtm-variables">
+          <div class="category-header" onclick="toggleCategory('wgtm-variables')">
+            <div class="category-icon variables">{}</div>
+            <span class="category-name">Variables</span>
+            <span class="category-count">52 variables</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <!-- Event IDs - CRITICAL -->
+            <div class="item-group">
+              <div class="item-group-header">Event IDs (Deduplication)</div>
+              <div class="item">
+                <span class="item-status info"></span>
+                <span class="item-id">82</span>
+                <span class="item-name">Event Id</span>
+                <span class="item-type">cvt</span>
+                <span class="item-badge add">USE THIS</span>
+              </div>
+              <div class="item">
+                <span class="item-status warning"></span>
+                <span class="item-id">350</span>
+                <span class="item-name">Unique Event ID</span>
+                <span class="item-type">cvt</span>
+                <span class="item-badge adjust">DON'T USE</span>
+              </div>
+            </div>
+
+            <!-- DataLayer Variables -->
+            <div class="item-group">
+              <div class="item-group-header">DataLayer Variables (dlv_)</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">88</span>
+                <span class="item-name">dlv_value</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">89</span>
+                <span class="item-name">dlv_transactionID</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">83</span>
+                <span class="item-name">dlv_ecommerce_currency</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">87</span>
+                <span class="item-name">dlv_ecommerce_items</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">111</span>
+                <span class="item-name">dlv_coupon</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">207</span>
+                <span class="item-name">dlv_shipping</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">209</span>
+                <span class="item-name">dlv_tax</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">303</span>
+                <span class="item-name">dlv - user_id</span>
+                <span class="item-type">v</span>
+              </div>
+            </div>
+
+            <!-- Custom JavaScript -->
+            <div class="item-group">
+              <div class="item-group-header">Custom JavaScript (cjs -)</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">317</span>
+                <span class="item-name">cjs - Items with Index</span>
+                <span class="item-type">jsm</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">90</span>
+                <span class="item-name">cjs - Items ID</span>
+                <span class="item-type">jsm</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">91</span>
+                <span class="item-name">cjs - Items Name</span>
+                <span class="item-type">jsm</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">343</span>
+                <span class="item-name">cjs - Items SKU</span>
+                <span class="item-type">jsm</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">344</span>
+                <span class="item-name">cjs - Items JSON</span>
+                <span class="item-type">jsm</span>
+              </div>
+            </div>
+
+            <!-- User Data -->
+            <div class="item-group">
+              <div class="item-group-header">User Data (Customers)</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">110</span>
+                <span class="item-name">Customers Email</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">109</span>
+                <span class="item-name">Customers Phone Number</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">103</span>
+                <span class="item-name">Customers First Name</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">104</span>
+                <span class="item-name">Customers Last Name</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">105</span>
+                <span class="item-name">Customers Address</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">106</span>
+                <span class="item-name">Customers City</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">316</span>
+                <span class="item-name">Customers State</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">107</span>
+                <span class="item-name">Customers Postal Code</span>
+                <span class="item-type">v</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">108</span>
+                <span class="item-name">Customers Country</span>
+                <span class="item-type">v</span>
+              </div>
+            </div>
+
+            <!-- Platform IDs -->
+            <div class="item-group">
+              <div class="item-group-header">Platform IDs & Constants</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">81</span>
+                <span class="item-name">Facebook Pixel</span>
+                <span class="item-type">c</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">298</span>
+                <span class="item-name">GA4 - ID</span>
+                <span class="item-type">c</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">332</span>
+                <span class="item-name">ms_ads</span>
+                <span class="item-type">c</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">315</span>
+                <span class="item-name">sgtm.messerattach URL</span>
+                <span class="item-type">c</span>
+              </div>
+            </div>
+
+            <!-- Facebook Cookies -->
+            <div class="item-group">
+              <div class="item-group-header">Facebook Cookies</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">22</span>
+                <span class="item-name">1st Party Cookie - fbc</span>
+                <span class="item-type">k</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">312</span>
+                <span class="item-name">1st Party Cookie - fbp</span>
+                <span class="item-type">k</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">311</span>
+                <span class="item-name">DLV - _fbp</span>
+                <span class="item-type">v</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="stat-dot green"></span>
+          <span>Working</span>
+        </div>
+        <div class="legend-item">
+          <span class="stat-dot red"></span>
+          <span>Needs Fix</span>
+        </div>
+        <div class="legend-item">
+          <span class="stat-dot yellow"></span>
+          <span>Adjust/Remove</span>
+        </div>
+        <div class="legend-item">
+          <span class="stat-dot" style="background: var(--blue)"></span>
+          <span>Use This</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- sGTM Container -->
+    <section class="container-section" id="sgtmSection">
+      <div class="container-header">
+        <div class="container-icon sgtm">S</div>
+        <div class="container-title">
+          <h2>Server GTM (sGTM)</h2>
+          <p>GTM-K3CQBMZ9 | Hosted on Stape.io</p>
+        </div>
+      </div>
+
+      <div class="container-body">
+        <!-- Fix Panel -->
+        <div class="fix-panel">
+          <div class="fix-panel-header">
+            <span>!</span> 1 Fix Required + 1 Warning
+          </div>
+          <ul class="fix-panel-list">
+            <li><strong>Fix #3:</strong> GA4 Advanced: Add triggers 12 (t_engagement) + 14 (t_ecomCore)</li>
+            <li><strong>Warning:</strong> GA4 ADV add_to_cart may cause duplicates after Fix #3</li>
+          </ul>
+        </div>
+
+        <!-- CLIENTS -->
+        <div class="category" id="sgtm-clients">
+          <div class="category-header" onclick="toggleCategory('sgtm-clients')">
+            <div class="category-icon clients">C</div>
+            <span class="category-name">Clients</span>
+            <span class="category-count">2 clients</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <div class="item-group">
+              <div class="item-group-header">Request Handlers</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">18</span>
+                <span class="item-name">Data Client</span>
+                <span class="item-type">stape</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">69</span>
+                <span class="item-name">GTM Web Container</span>
+                <span class="item-type">gtag</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGS -->
+        <div class="category" id="sgtm-tags">
+          <div class="category-header" onclick="toggleCategory('sgtm-tags')">
+            <div class="category-icon tags">T</div>
+            <span class="category-name">Tags</span>
+            <span class="category-count">12 tags</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <!-- GA4 -->
+            <div class="item-group">
+              <div class="item-group-header">Google Analytics 4</div>
+              <div class="item">
+                <span class="item-status error"></span>
+                <span class="item-id">16</span>
+                <span class="item-name">GA4 Advanced</span>
+                <span class="item-type">cvt</span>
+                <span class="item-badge critical">FIX #3</span>
+              </div>
+              <div class="item">
+                <span class="item-status warning"></span>
+                <span class="item-id">72</span>
+                <span class="item-name">GA4 ADV add_to_cart</span>
+                <span class="item-type">cvt</span>
+                <span class="item-badge adjust">DUPLICATE?</span>
+              </div>
+            </div>
+
+            <!-- Google Ads -->
+            <div class="item-group">
+              <div class="item-group-header">Google Ads Conversions</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">8</span>
+                <span class="item-name">Google Ads - Checkout</span>
+                <span class="item-type">sgtmadsct</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">25</span>
+                <span class="item-name">Google Ads - Add to Cart</span>
+                <span class="item-type">sgtmadsct</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">58</span>
+                <span class="item-name">Google Ads - Purchase</span>
+                <span class="item-type">sgtmadsct</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">56</span>
+                <span class="item-name">Google Ads - Contact Form</span>
+                <span class="item-type">sgtmadsct</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">57</span>
+                <span class="item-name">Google Ads Remarketing</span>
+                <span class="item-type">sgtmrem</span>
+              </div>
+              <div class="item">
+                <span class="item-status warning"></span>
+                <span class="item-id">46</span>
+                <span class="item-name">Conversion Linker</span>
+                <span class="item-type">linker</span>
+                <span class="item-badge adjust">VERIFY</span>
+              </div>
+            </div>
+
+            <!-- Facebook CAPI -->
+            <div class="item-group">
+              <div class="item-group-header">Facebook CAPI</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">64</span>
+                <span class="item-name">FB CAPI - ViewContent</span>
+                <span class="item-type">capi</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">43</span>
+                <span class="item-name">FB CAPI - AddToCart</span>
+                <span class="item-type">capi</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">59</span>
+                <span class="item-name">FB CAPI - Begin Checkout</span>
+                <span class="item-type">capi</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">55</span>
+                <span class="item-name">FB CAPI - Purchase</span>
+                <span class="item-type">capi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRIGGERS -->
+        <div class="category" id="sgtm-triggers">
+          <div class="category-header" onclick="toggleCategory('sgtm-triggers')">
+            <div class="category-icon triggers">></div>
+            <span class="category-name">Triggers</span>
+            <span class="category-count">11 triggers</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <!-- Event Triggers -->
+            <div class="item-group">
+              <div class="item-group-header">Event-Based Triggers</div>
+              <div class="item">
+                <span class="item-status info"></span>
+                <span class="item-id">12</span>
+                <span class="item-name">t_engagement</span>
+                <span class="item-type">CUSTOM</span>
+                <span class="item-badge add">ADD TO GA4</span>
+              </div>
+              <div class="item">
+                <span class="item-status info"></span>
+                <span class="item-id">14</span>
+                <span class="item-name">t_ecomCore</span>
+                <span class="item-type">CUSTOM</span>
+                <span class="item-badge add">ADD TO GA4</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">54</span>
+                <span class="item-name">purchase</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">45</span>
+                <span class="item-name">begin_checkout</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">24</span>
+                <span class="item-name">add_to_cart</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">63</span>
+                <span class="item-name">FB - ViewContent Trigger</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+            </div>
+
+            <!-- Client Triggers -->
+            <div class="item-group">
+              <div class="item-group-header">Client-Based Triggers</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">71</span>
+                <span class="item-name">data client trigger</span>
+                <span class="item-type">ALWAYS</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">48</span>
+                <span class="item-name">ce_generate_lead</span>
+                <span class="item-type">CUSTOM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VARIABLES -->
+        <div class="category collapsed" id="sgtm-variables">
+          <div class="category-header" onclick="toggleCategory('sgtm-variables')">
+            <div class="category-icon variables">{}</div>
+            <span class="category-name">Variables</span>
+            <span class="category-count">28 variables</span>
+            <span class="category-chevron">v</span>
+          </div>
+          <div class="category-items">
+            <!-- Event Data Variables -->
+            <div class="item-group">
+              <div class="item-group-header">Event Data Variables (EDV)</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV_ecommerce.value</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV_ecommerce.currency</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV_ecommerce.items</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV_ecommerce.transaction_id</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - client_id</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - user_id</span>
+                <span class="item-type">edv</span>
+              </div>
+            </div>
+
+            <!-- User Data -->
+            <div class="item-group">
+              <div class="item-group-header">User Data (Enhanced Conversions)</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - User Data - Billing - Email</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - User Data - Billing - Phone</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - User Data - Billing - First Name</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - User Data - Billing - Last Name</span>
+                <span class="item-type">edv</span>
+              </div>
+            </div>
+
+            <!-- Facebook -->
+            <div class="item-group">
+              <div class="item-group-header">Facebook CAPI</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - fbc</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">EDV - fbp</span>
+                <span class="item-type">edv</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">Constant - FB CAPI Access Token</span>
+                <span class="item-type">const</span>
+              </div>
+            </div>
+
+            <!-- Constants -->
+            <div class="item-group">
+              <div class="item-group-header">Constants & IDs</div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">GA4 - ID</span>
+                <span class="item-type">const</span>
+              </div>
+              <div class="item">
+                <span class="item-status ok"></span>
+                <span class="item-id">-</span>
+                <span class="item-name">Google Ads Constant Variable</span>
+                <span class="item-type">const</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="stat-dot green"></span>
+          <span>Working</span>
+        </div>
+        <div class="legend-item">
+          <span class="stat-dot red"></span>
+          <span>Needs Fix</span>
+        </div>
+        <div class="legend-item">
+          <span class="stat-dot yellow"></span>
+          <span>Verify/Duplicate</span>
+        </div>
+        <div class="legend-item">
+          <span class="stat-dot" style="background: var(--blue)"></span>
+          <span>Add This</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Toggle category expand/collapse
+    function toggleCategory(id) {
+      const category = document.getElementById(id);
+      category.classList.toggle('collapsed');
+    }
+
+    // Tab switching
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const view = tab.dataset.view;
+        const main = document.getElementById('mainContent');
+        const wgtm = document.getElementById('wgtmSection');
+        const sgtm = document.getElementById('sgtmSection');
+
+        main.classList.remove('single-col');
+        wgtm.style.display = '';
+        sgtm.style.display = '';
+
+        if (view === 'wgtm') {
+          sgtm.style.display = 'none';
+          main.classList.add('single-col');
+        } else if (view === 'sgtm') {
+          wgtm.style.display = 'none';
+          main.classList.add('single-col');
+        } else if (view === 'fixes') {
+          // Highlight only items with fixes
+          document.querySelectorAll('.item').forEach(item => {
+            if (!item.querySelector('.item-badge')) {
+              item.style.opacity = '0.3';
+            } else {
+              item.style.opacity = '1';
+            }
+          });
+        } else {
+          document.querySelectorAll('.item').forEach(item => {
+            item.style.opacity = '1';
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
