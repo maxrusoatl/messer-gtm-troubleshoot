@@ -176,6 +176,16 @@
       color: #fff;
     }
 
+    .view-mode-indicator.inventory {
+      background: rgba(249, 115, 22, 0.9);
+      color: #fff;
+    }
+
+    .view-mode-indicator.data-tag {
+      background: rgba(14, 165, 233, 0.9);
+      color: #fff;
+    }
+
     /* Recommendation boxes in nodes */
     .recommendation-box {
       margin-top: 10px;
@@ -248,6 +258,808 @@
       border-color: #4caf50;
       box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
     }
+
+    /* Inventory Puzzle Nodes */
+    .inventory-node {
+      background: #0f172a;
+      border: 1px solid #24304a;
+      border-radius: 10px;
+      padding: 8px 10px;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    .inventory-node.container {
+      background: linear-gradient(135deg, #12233a, #0f172a);
+      border-color: #3b82f6;
+    }
+
+    .inventory-node.section {
+      background: #111827;
+      border-color: #334155;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .inventory-node.tile {
+      background: #0b1220;
+      border-color: #1f2b46;
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .inventory-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      max-height: 2.4em;
+      overflow: hidden;
+    }
+
+    .inventory-subtitle {
+      font-size: 10px;
+      color: #aab3c3;
+      margin-top: 2px;
+    }
+
+    .inventory-meta {
+      font-size: 9px;
+      color: #8b98b0;
+      margin-top: 4px;
+    }
+
+    .inventory-lines {
+      margin-top: 6px;
+      font-size: 9px;
+      color: #cbd5f5;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .inventory-line {
+      display: flex;
+      gap: 6px;
+      line-height: 1.2;
+    }
+
+    .inventory-line-label {
+      color: #8aa0c8;
+      min-width: 64px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 8px;
+    }
+
+    .inventory-line-value {
+      color: #d5def0;
+      word-break: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .inventory-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .inventory-chip {
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .inventory-chip.template {
+      background: rgba(38, 166, 154, 0.18);
+      color: #26a69a;
+      border: 1px solid rgba(38, 166, 154, 0.5);
+    }
+
+    .inventory-chip.custom {
+      background: rgba(255, 152, 0, 0.18);
+      color: #ff9800;
+      border: 1px solid rgba(255, 152, 0, 0.5);
+    }
+
+    .inventory-chip.built {
+      background: rgba(100, 181, 246, 0.18);
+      color: #64b5f6;
+      border: 1px solid rgba(100, 181, 246, 0.5);
+    }
+
+    .inventory-badge {
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border: 1px solid transparent;
+    }
+
+    .inventory-badge.keep {
+      background: rgba(47, 93, 159, 0.18);
+      color: #90caf9;
+      border-color: rgba(47, 93, 159, 0.6);
+    }
+
+    .inventory-badge.add {
+      background: rgba(76, 175, 80, 0.18);
+      color: #81c784;
+      border-color: rgba(76, 175, 80, 0.6);
+    }
+
+    .inventory-badge.update {
+      background: rgba(255, 152, 0, 0.18);
+      color: #ffb74d;
+      border-color: rgba(255, 152, 0, 0.6);
+    }
+
+    .inventory-badge.missing {
+      background: rgba(239, 68, 68, 0.18);
+      color: #fca5a5;
+      border-color: rgba(239, 68, 68, 0.6);
+    }
+
+    .inventory-node.tile.status-add {
+      border-color: rgba(76, 175, 80, 0.9);
+    }
+
+    .inventory-node.tile.status-update {
+      border-color: rgba(255, 152, 0, 0.9);
+    }
+
+    .inventory-node.tile.status-keep {
+      border-color: rgba(59, 130, 246, 0.8);
+    }
+
+    .inventory-node.group {
+      background: rgba(10, 16, 30, 0.85);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      border-radius: 14px;
+      padding: 6px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    .inventory-node.group .inventory-title {
+      font-size: 11px;
+      color: #cbd5f5;
+    }
+
+    .inventory-node.group::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 18px;
+      background: linear-gradient(90deg, rgba(59,130,246,0.3), rgba(14,165,233,0.15));
+      border-bottom: 1px solid rgba(59,130,246,0.2);
+      border-radius: 14px 14px 0 0;
+      pointer-events: none;
+    }
+
+    .inventory-node.tile.status-missing {
+      border-color: rgba(239, 68, 68, 0.8);
+      background: rgba(80, 24, 24, 0.25);
+    }
+
+    .inventory-node.panel {
+      background: #ffffff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .inventory-node.panel.panel-theme-warning {
+      border-left: 6px solid #f97316;
+      background: #fff7ed;
+    }
+
+    .inventory-node.panel.panel-theme-success {
+      border-left: 6px solid #22c55e;
+      background: #f0fdf4;
+    }
+
+    .inventory-node.panel.panel-theme-info {
+      border-left: 6px solid #38bdf8;
+      background: #f0f9ff;
+    }
+
+    .inventory-node.panel.panel-theme-neutral {
+      border-left: 6px solid #94a3b8;
+      background: #f8fafc;
+    }
+
+    .panel-kicker {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .panel-subtitle {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    .panel-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .panel-badge.current {
+      background: rgba(239, 68, 68, 0.12);
+      color: #b91c1c;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .panel-badge.target {
+      background: rgba(34, 197, 94, 0.12);
+      color: #15803d;
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    .panel-section {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .panel-section.boxed {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 12px;
+      background: #ffffff;
+    }
+
+    .panel-section.boxed.emphasis-primary {
+      border-color: #fdba74;
+      background: #fffaf3;
+    }
+
+    .panel-section.boxed.emphasis-secondary {
+      border-color: #e2e8f0;
+      background: #ffffff;
+    }
+
+    .panel-section.boxed.emphasis-tertiary {
+      border-color: #e2e8f0;
+      background: #ffffff;
+    }
+
+    .panel-section.boxed .panel-section-header {
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .panel-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .panel-step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      background: #e2e8f0;
+      color: #475569;
+      white-space: nowrap;
+    }
+
+    .panel-step-badge.primary {
+      background: #ffedd5;
+      color: #9a3412;
+      border-color: #fdba74;
+    }
+
+    .panel-step-badge.secondary {
+      background: #dcfce7;
+      color: #166534;
+      border-color: #86efac;
+    }
+
+    .panel-step-badge.tertiary {
+      background: #e2e8f0;
+      color: #475569;
+      border-color: #cbd5f5;
+    }
+
+    .panel-section-meta {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .panel-toggle {
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      color: #475569;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .panel-rows {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .panel-lines {
+      display: grid;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .panel-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 12px;
+      color: #111827;
+    }
+
+    .panel-line.primary,
+    .panel-line.value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .panel-line.secondary {
+      color: #475569;
+    }
+
+    .panel-line.tertiary {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .panel-line.label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+    }
+
+    .panel-line-badges {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .panel-line-badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
+      background: #f8fafc;
+      white-space: nowrap;
+    }
+
+    .panel-rows.divided .panel-row {
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .panel-rows.divided .panel-row:last-child {
+      border-bottom: none;
+    }
+
+    .panel-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px;
+      font-size: 12px;
+      color: #111827;
+      align-items: start;
+    }
+
+    .panel-row.full {
+      grid-template-columns: 1fr;
+    }
+
+    .panel-row.full .panel-row-label {
+      display: none;
+    }
+
+    .panel-row-label {
+      color: #6b7280;
+    }
+
+    .panel-row-value {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      word-break: break-word;
+    }
+
+    .panel-status-badge {
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid transparent;
+    }
+
+    .panel-status-badge.keep {
+      background: rgba(59, 130, 246, 0.12);
+      color: #1d4ed8;
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .panel-status-badge.update {
+      background: rgba(249, 115, 22, 0.12);
+      color: #c2410c;
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+
+    .panel-status-badge.add {
+      background: rgba(34, 197, 94, 0.12);
+      color: #15803d;
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    .panel-status-badge.missing {
+      background: rgba(239, 68, 68, 0.12);
+      color: #b91c1c;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .panel-checklist {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .panel-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #111827;
+    }
+
+    .panel-check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      color: #334155;
+    }
+
+    .panel-check-icon.checked {
+      background: #ecfdf3;
+      border-color: #86efac;
+      color: #15803d;
+    }
+
+    .panel-check-icon.unchecked {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #b91c1c;
+    }
+
+    .panel-table {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .panel-table-header,
+    .panel-table-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1.8fr 1.1fr 0.9fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .panel-table-header {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .panel-table-cell {
+      color: #111827;
+      word-break: break-word;
+    }
+
+    .panel-table-row {
+      padding-top: 6px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .panel-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .panel-chip {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      text-transform: lowercase;
+    }
+
+    .panel-chip.missing {
+      background: #fef2f2;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+
+    .panel-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .panel-empty {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .panel-code {
+      margin-top: 10px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .panel-code-label {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .panel-code-text {
+      width: 100%;
+      min-height: 72px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      color: #111827;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 8px;
+      resize: vertical;
+    }
+
+    .panel-trigger-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .panel-trigger-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #f8fafc;
+      font-size: 12px;
+    }
+
+    .panel-trigger-card.recommended {
+      border-color: #22c55e;
+      background: #ecfdf5;
+      box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.3);
+    }
+
+    .panel-trigger-card.alternative {
+      border-color: #e2e8f0;
+      background: #f8fafc;
+    }
+
+    .panel-trigger-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #f97316;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .panel-trigger-icon.recommended {
+      background: #16a34a;
+    }
+
+    .panel-trigger-icon.alternative {
+      background: #64748b;
+    }
+
+    .panel-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .panel-flow-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.12);
+      color: #0369a1;
+      border: 1px solid rgba(14, 165, 233, 0.35);
+      font-weight: 600;
+    }
+
+    .panel-flow-arrow {
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    .panel-callout {
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+      display: grid;
+      gap: 6px;
+      font-size: 12px;
+      color: #9a3412;
+    }
+
+    .panel-callout strong {
+      color: #7c2d12;
+    }
+
+    .inventory-toggle {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(30, 58, 138, 0.4);
+      color: #e2e8f0;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      cursor: pointer;
+    }
+
+    .inventory-toggle:hover {
+      background: rgba(30, 64, 175, 0.6);
+    }
+
+    .inventory-overlay {
+      position: fixed;
+      top: 58px;
+      right: 24px;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .inventory-search {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: 10px;
+      padding: 8px 12px;
+      color: #e2e8f0;
+      font-size: 12px;
+      width: 260px;
+    }
+
+    .inventory-legend {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 11px;
+      color: #cbd5f5;
+      display: grid;
+      gap: 6px;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .legend-dot.keep { background: rgba(59, 130, 246, 0.9); }
+    .legend-dot.add { background: rgba(34, 197, 94, 0.9); }
+    .legend-dot.update { background: rgba(249, 115, 22, 0.9); }
+    .legend-dot.missing { background: rgba(239, 68, 68, 0.9); }
+    .legend-dot.note { background: rgba(148, 163, 184, 0.9); }
 
     /* Left Toolbar */
     .toolbar {
@@ -438,6 +1250,8 @@
     .custom-node.meta { border-color: #0668e1; }
     .custom-node.linkedin { border-color: #0077b5; }
     .custom-node.msads { border-color: #00a4ef; }
+    .custom-node.template { border-color: #26a69a; }
+    .custom-node.custom { border-color: #ff9800; }
 
     .node-header {
       padding: 12px 15px;
@@ -472,6 +1286,8 @@
     .node-icon.linkedin { background: linear-gradient(135deg, #0077b5, #004182); }
     .node-icon.msads { background: linear-gradient(135deg, #00a4ef, #0078d4); }
     .node-icon.datalayer { background: linear-gradient(135deg, #ff9800, #ff5722); }
+    .node-icon.template { background: linear-gradient(135deg, #26a69a, #00796b); }
+    .node-icon.custom { background: linear-gradient(135deg, #ffb74d, #f57c00); }
 
     /* Brand logo icons - using inline SVG data URIs for reliability */
     .node-icon.has-logo {
@@ -1152,8 +1968,13 @@
       Messer GTM Audit
     </div>
     <div class="nav-links">
+      <a href="index.html" class="nav-link">Overview</a>
+      <a href="datalayers.html" class="nav-link">DataLayers</a>
+      <a href="gtm-audit-view.html" class="nav-link">Audit Map</a>
+      <a href="flow.html" class="nav-link">Data Flow</a>
       <a href="canvas.html" class="nav-link active">Canvas</a>
       <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="gtm-inventory-enterprise.html" class="nav-link">Inventory</a>
     </div>
     <div class="nav-status">
       <span class="nav-badge critical">1 Critical</span>
@@ -1185,7 +2006,7 @@
   </script>
 
   <script type="text/babel">
-    const { useState, useCallback } = React;
+    const { useState, useCallback, useEffect, useMemo } = React;
     const {
       ReactFlow,
       ReactFlowProvider,
@@ -1464,7 +2285,2574 @@
       );
     }
 
-    const nodeTypes = { custom: CustomNode };
+    function InventoryNode({ data }) {
+      const statusClass = data.status ? `status-${data.status.toLowerCase()}` : '';
+      const hasHeader = data.title || data.subtitle || data.meta;
+      const showTags = (data.groupLabel || data.status) && data.variant !== 'group';
+      const hiddenHandleStyle = {
+        opacity: 0,
+        width: 8,
+        height: 8,
+        border: 'none',
+        background: 'transparent',
+        pointerEvents: 'none'
+      };
+      if (data.variant === 'panel') {
+        const panel = data.panel || {};
+        const sections = panel.sections || [];
+        const collapsedMap = panel.collapsedMap || {};
+        const showHeader = !panel.hideHeader;
+        const renderStatus = (status) => {
+          if (!status) return null;
+          return <span className={`panel-status-badge ${status.toLowerCase()}`}>{status}</span>;
+        };
+        const themeClass = panel.theme ? `panel-theme-${panel.theme}` : '';
+        return (
+          <div className={`inventory-node panel ${themeClass}`}>
+            {showHeader && panel.kicker && <div className="panel-kicker">{panel.kicker}</div>}
+            {showHeader && (
+              <div className="panel-header">
+                <div>
+                  <div className="panel-title">{panel.title || 'Data Tag'}</div>
+                  {panel.subtitle && <div className="panel-subtitle">{panel.subtitle}</div>}
+                </div>
+                {panel.badge && <div className={`panel-badge ${panel.badgeClass || ''}`}>{panel.badge}</div>}
+              </div>
+            )}
+            {sections.map((section, idx) => {
+              const countLabel = typeof section.count === 'number' ? ` (${section.count})` : '';
+              const title = `${section.title || ''}${countLabel}`;
+              const hasCollapsedKey = Object.prototype.hasOwnProperty.call(collapsedMap, section.id);
+              const collapsed = section.collapsible
+                ? (hasCollapsedKey ? !!collapsedMap[section.id] : !!section.collapsedByDefault)
+                : false;
+              const tableRows = safeList(section.rows);
+              const hasTableRows = tableRows.length > 0;
+              const chipCount = safeList(section.chips).length;
+              const lineCount = safeList(section.lines).length;
+              const showHeader = !section.hideHeader;
+              const emphasisClass = section.emphasis ? `emphasis-${section.emphasis}` : '';
+              const sectionClass = section.boxed
+                ? `panel-section boxed ${emphasisClass}`.trim()
+                : `panel-section ${emphasisClass}`.trim();
+              return (
+                <div className={sectionClass} key={section.id || idx}>
+                  {showHeader && (
+                    <div className="panel-section-header">
+                      <div className="panel-section-title">
+                        {section.step && (
+                          <span className={`panel-step-badge ${section.emphasis || ''}`}>Step {section.step}</span>
+                        )}
+                        <span>{title}</span>
+                      </div>
+                      <div className="panel-section-meta">{section.meta || ''}</div>
+                      {section.collapsible && (
+                        <button
+                          className="panel-toggle"
+                          onClick={() => panel.onToggle && panel.onToggle(section.id)}
+                        >
+                          {collapsed ? 'Expand' : 'Collapse'}
+                        </button>
+                      )}
+                    </div>
+                  )}
+                  {section.note && !collapsed && <div className="panel-note">{section.note}</div>}
+                  {!collapsed && section.type === 'callout' && (
+                    <div className="panel-callout">
+                      {section.items.map((item, itemIdx) => (
+                        <div key={itemIdx}>
+                          <strong>{item.title}</strong>{item.detail ? ` - ${item.detail}` : ''}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'rows' && (
+                    <div className={`panel-rows${section.rowBorders ? ' divided' : ''}`}>
+                      {section.rows.map((row, rowIdx) => {
+                        const hasLabel = row.label && String(row.label).trim().length > 0;
+                        const rowClass = hasLabel ? 'panel-row' : 'panel-row full';
+                        return (
+                          <div className={rowClass} key={rowIdx}>
+                            {hasLabel && <div className="panel-row-label">{row.label}</div>}
+                            <div className="panel-row-value">
+                              <span>{row.value}</span>
+                              {renderStatus(row.status)}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'lines' && lineCount > 0 && (
+                    <div className="panel-lines">
+                      {section.lines.map((line, lineIdx) => {
+                        const badges = line.badges && line.badges.length ? line.badges : (line.badge ? [line.badge] : []);
+                        return (
+                          <div className={`panel-line ${line.kind || ''}`.trim()} key={lineIdx}>
+                            <span>{line.text}</span>
+                            {badges.length > 0 && (
+                              <span className="panel-line-badges">
+                                {badges.map((badge, badgeIdx) => (
+                                  <span className="panel-line-badge" key={badgeIdx}>{badge}</span>
+                                ))}
+                              </span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'lines' && lineCount === 0 && section.emptyNote && (
+                    <div className="panel-empty">{section.emptyNote}</div>
+                  )}
+                  {!collapsed && section.type === 'rows' && section.checks && section.checks.length > 0 && (
+                    <div className="panel-checklist">
+                      {section.checks.map((check, checkIdx) => (
+                        <div className="panel-check" key={checkIdx}>
+                          <span className={`panel-check-icon ${check.checked ? 'checked' : 'unchecked'}`}>
+                            {check.checked ? 'v' : '!'}
+                          </span>
+                          <span>{check.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'table' && hasTableRows && (
+                    <div className="panel-table">
+                      <div className="panel-table-header">
+                        {section.headers.map((header, headerIdx) => (
+                          <div className="panel-table-cell" key={headerIdx}>{header}</div>
+                        ))}
+                      </div>
+                      {tableRows.map((row, rowIdx) => (
+                        <div className="panel-table-row" key={rowIdx}>
+                          {row.cells.map((cell, cellIdx) => {
+                            const isDelta = row.status && cellIdx === row.cells.length - 1;
+                            return (
+                              <div className="panel-table-cell" key={cellIdx}>
+                                {isDelta ? renderStatus(row.status) : cell}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'table' && !hasTableRows && section.emptyNote && (
+                    <div className="panel-empty">{section.emptyNote}</div>
+                  )}
+                  {!collapsed && section.type === 'chips' && chipCount > 0 && (
+                    <div className="panel-chips">
+                      {section.chips.map((chip, chipIdx) => {
+                        const chipText = typeof chip === 'string' ? chip : chip.label;
+                        const chipClass = typeof chip === 'string' ? '' : (chip.className || '');
+                        return (
+                          <span className={`panel-chip ${chipClass}`} key={chipIdx}>{chipText}</span>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'chips' && chipCount === 0 && section.emptyNote && (
+                    <div className="panel-empty">{section.emptyNote}</div>
+                  )}
+                  {!collapsed && section.type === 'trigger-list' && safeList(section.triggers).length > 0 && (
+                    <div className="panel-trigger-list">
+                      {section.triggers.map((trigger, triggerIdx) => {
+                        const triggerClass = trigger.className
+                          ? `panel-trigger-card ${trigger.className}`
+                          : 'panel-trigger-card';
+                        const iconClass = trigger.iconClass
+                          ? `panel-trigger-icon ${trigger.iconClass}`
+                          : 'panel-trigger-icon';
+                        return (
+                          <div className={triggerClass} key={triggerIdx}>
+                            <span className={iconClass}>&gt;</span>
+                            <div>
+                            <div>{trigger.name}</div>
+                            {trigger.type && <div className="panel-section-meta">{trigger.type}</div>}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'trigger-list' && safeList(section.triggers).length === 0 && section.emptyNote && (
+                    <div className="panel-empty">{section.emptyNote}</div>
+                  )}
+                  {!collapsed && section.type === 'flow' && (
+                    <div className="panel-flow">
+                      {section.steps.map((step, stepIdx) => (
+                        <React.Fragment key={stepIdx}>
+                          <span className="panel-flow-chip">{step}</span>
+                          {stepIdx < section.steps.length - 1 && <span className="panel-flow-arrow">&gt;</span>}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  )}
+                  {!collapsed && section.type === 'code' && (
+                    <div className="panel-code">
+                      {section.label && <div className="panel-code-label">{section.label}</div>}
+                      <textarea className="panel-code-text" readOnly value={section.text || ''}></textarea>
+                    </div>
+                  )}
+                  {section.footerNote && !collapsed && <div className="panel-note">{section.footerNote}</div>}
+                </div>
+              );
+            })}
+          </div>
+        );
+      }
+      return (
+        <div className={`inventory-node ${data.variant || 'tile'} ${statusClass}`}>
+          {hasHeader && (
+            <div>
+              <div className="inventory-title">{data.title}</div>
+              {data.subtitle && <div className="inventory-subtitle">{data.subtitle}</div>}
+              {data.meta && <div className="inventory-meta">{data.meta}</div>}
+            </div>
+          )}
+          {data.toggleable && (
+            <button
+              className="inventory-toggle"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (data.onToggle) data.onToggle(data.collapseKey);
+              }}
+              title={data.collapsed ? 'Expand details' : 'Collapse details'}
+            >
+              {data.collapsed ? 'Expand' : 'Collapse'}
+            </button>
+          )}
+          {data.lines && data.lines.length > 0 && (
+            <div className="inventory-lines">
+              {data.lines.map((line, idx) => {
+                const isString = typeof line === 'string';
+                const label = isString ? '' : (line.label || '');
+                const value = isString ? line : (line.value || '');
+                return (
+                  <div className="inventory-line" key={idx}>
+                    {label && <span className="inventory-line-label">{label}</span>}
+                    <span className="inventory-line-value" title={value}>{value}</span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {showTags && (
+            <div className="inventory-tags">
+              {data.groupLabel && (
+                <span className={`inventory-chip ${data.groupClass || 'built'}`}>{data.groupLabel}</span>
+              )}
+              {data.status && (
+                <span className={`inventory-badge ${data.status.toLowerCase()}`}>{data.status}</span>
+              )}
+            </div>
+          )}
+          <Handle type="source" position={Position.Left} id="left" style={hiddenHandleStyle} />
+          <Handle type="source" position={Position.Right} id="right" style={hiddenHandleStyle} />
+          <Handle type="target" position={Position.Left} id="left" style={hiddenHandleStyle} />
+          <Handle type="target" position={Position.Right} id="right" style={hiddenHandleStyle} />
+        </div>
+      );
+    }
+
+    const nodeTypes = { custom: CustomNode, inventory: InventoryNode };
+
+    const INVENTORY_LAYOUT = {
+      startX: 80,
+      startY: 80,
+      containerGap: 220,
+      containerHeaderHeight: 56,
+      groupHeaderHeight: 36,
+      columnHeaderHeight: 26,
+      columnGap: 28,
+      columnWidth: 320,
+      tagTileHeight: 58,
+      tagTileCollapsedHeight: 66,
+      detailGap: 10,
+      groupPadding: 10,
+      groupGap: 28,
+      detailLineHeight: 14,
+      detailPadding: 24
+    };
+
+    const DATA_TAG_LAYOUT = {
+      startX: 120,
+      startY: 90,
+      columnGap: 120,
+      columnWidth: 560,
+      columnHeaderHeight: 36,
+      sectionHeaderHeight: 28,
+      sectionPadding: 12,
+      cardMinHeight: 58,
+      cardGap: 8,
+      blockGap: 22
+    };
+
+    const TAG_GROUP_CONFIG = {
+      wgtm: [
+        { key: 'data_tag', title: 'Data Tags', matcher: (tag) => {
+          const name = (tag.name || '').toLowerCase();
+          const template = (tag.templateName || '').toLowerCase();
+          return name.includes('data tag') || template.includes('data tag');
+        }},
+        { key: 'gtag', title: 'Google Tag (gtag)', matcher: (tag) => {
+          const name = (tag.name || '').toLowerCase();
+          return tag.type === 'googtag' || name.includes('google tag') || name.includes('gtag');
+        }},
+        { key: 'other', title: 'Other Tags', matcher: () => true }
+      ],
+      sgtm: [
+        { key: 'ga4', title: 'GA4 / gtag', matcher: (tag) => (tag.name || '').toLowerCase().includes('ga4') },
+        { key: 'gads', title: 'Google Ads', matcher: (tag) => (tag.name || '').toLowerCase().includes('google ads') },
+        { key: 'linkedin', title: 'LinkedIn CAPI', matcher: (tag) => (tag.name || '').toLowerCase().includes('linkedin') },
+        { key: 'meta', title: 'Meta CAPI', matcher: (tag) => {
+          const name = (tag.name || '').toLowerCase();
+          if (name.includes('linkedin')) return false;
+          return name.includes('meta') || name.includes('facebook') || name.includes('fb -') || name.includes('fb ') || name.includes('capi');
+        }},
+        { key: 'conversion', title: 'Conversion Linker', matcher: (tag) => (tag.name || '').toLowerCase().includes('conversion linker') },
+        { key: 'other', title: 'Other Tags', matcher: () => true }
+      ]
+    };
+
+    const INVENTORY_SOURCES = {
+      wgtm: {
+        current: 'original-data/GTM-MNRP4PF_workspace247.json',
+        target: 'wgtm-enterprise-import.json'
+      },
+      sgtm: {
+        current: 'original-data/GTM-K3CQBMZ9_workspace36.json',
+        target: 'sgtm-enterprise-import.json'
+      }
+    };
+
+    function safeList(value) {
+      return Array.isArray(value) ? value : [];
+    }
+
+    function normalizeName(name) {
+      return (name || '').trim().toLowerCase();
+    }
+
+    function parseTemplateInfo(template) {
+      const templateData = template.templateData || '';
+      const infoBlock = templateData.split('___INFO___')[1];
+      if (!infoBlock) return { type: 'OTHER' };
+      const jsonBlock = infoBlock.split('___TEMPLATE_PARAMETERS___')[0];
+      if (!jsonBlock) return { type: 'OTHER' };
+      const match = jsonBlock.match(/\{[\s\S]*\}/);
+      if (!match) return { type: 'OTHER' };
+      try {
+        const parsed = JSON.parse(match[0]);
+        return { type: parsed.type || 'OTHER' };
+      } catch (err) {
+        return { type: 'OTHER' };
+      }
+    }
+
+    function buildTemplateMap(customTemplates) {
+      const map = new Map();
+      customTemplates.forEach((template) => {
+        const info = parseTemplateInfo(template);
+        if (template.templateId) {
+          map.set(String(template.templateId), {
+            name: template.name || 'Custom Template',
+            type: info.type || 'OTHER'
+          });
+        }
+      });
+      return map;
+    }
+
+    function templateNameFromType(type, templateMap) {
+      if (!type || !type.startsWith('cvt_')) return null;
+      const parts = type.split('_');
+      const templateId = parts[parts.length - 1];
+      const template = templateMap.get(templateId);
+      return template ? template.name : 'Custom Template';
+    }
+
+    function customTemplateGroup(templateType) {
+      if (templateType === 'TAG') return 'tag';
+      if (templateType === 'MACRO') return 'variable';
+      if (templateType === 'CLIENT') return 'client';
+      return 'other';
+    }
+
+    function extractInventory(exportJson) {
+      const version = exportJson && exportJson.containerVersion ? exportJson.containerVersion : {};
+      const container = version.container || {};
+      const customTemplates = safeList(version.customTemplate);
+      const templateMap = buildTemplateMap(customTemplates);
+
+      const tags = safeList(version.tag).map((tag) => {
+        const group = tag.type && tag.type.startsWith('cvt_')
+          ? 'template'
+          : (tag.type === 'html' || tag.type === 'img')
+            ? 'custom_html'
+            : 'built_in';
+        return {
+          id: tag.tagId ? String(tag.tagId) : null,
+          name: tag.name || 'Unnamed Tag',
+          type: tag.type || '',
+          group,
+          templateName: templateNameFromType(tag.type, templateMap),
+          triggerIds: safeList(tag.firingTriggerId).map((id) => String(id)),
+          parameters: safeList(tag.parameter),
+          consentSettings: tag.consentSettings || null
+        };
+      });
+
+      const triggers = safeList(version.trigger).map((trigger) => {
+        const group = trigger.type === 'CUSTOM_EVENT' ? 'custom_event' : 'built_in';
+        return {
+          id: trigger.triggerId ? String(trigger.triggerId) : null,
+          name: trigger.name || 'Unnamed Trigger',
+          type: trigger.type || '',
+          group,
+          customEventFilter: safeList(trigger.customEventFilter),
+          filter: safeList(trigger.filter)
+        };
+      });
+
+      const variables = safeList(version.variable).map((variable) => {
+        const group = variable.type && variable.type.startsWith('cvt_') ? 'template' : 'standard';
+        return {
+          id: variable.variableId ? String(variable.variableId) : null,
+          name: variable.name || 'Unnamed Variable',
+          type: variable.type || '',
+          group,
+          templateName: templateNameFromType(variable.type, templateMap)
+        };
+      });
+
+      const builtInVariables = safeList(version.builtInVariable).map((variable) => ({
+        id: null,
+        name: variable.name || variable.type || 'Built-in Variable',
+        type: variable.type || '',
+        group: 'built_in'
+      }));
+
+      const customTemplateItems = customTemplates.map((template) => {
+        const info = parseTemplateInfo(template);
+        return {
+          id: template.templateId ? String(template.templateId) : null,
+          name: template.name || 'Custom Template',
+          type: info.type || '',
+          group: customTemplateGroup(info.type)
+        };
+      });
+
+      const folders = safeList(version.folder).map((folder) => ({
+        id: folder.folderId ? String(folder.folderId) : null,
+        name: folder.name || 'Folder',
+        type: 'folder',
+        group: 'folders'
+      }));
+
+      const clients = safeList(version.client).map((client) => {
+        const group = client.type && client.type.startsWith('cvt_') ? 'template' : 'built_in';
+        return {
+          id: client.clientId ? String(client.clientId) : null,
+          name: client.name || 'Client',
+          type: client.type || '',
+          group,
+          templateName: templateNameFromType(client.type, templateMap)
+        };
+      });
+
+      return {
+        meta: {
+          name: container.name || version.name || '',
+          publicId: container.publicId || '',
+          usageContext: container.usageContext || []
+        },
+        items: {
+          tags,
+          triggers,
+          variables,
+          builtInVariables,
+          customTemplates: customTemplateItems,
+          folders,
+          clients
+        }
+      };
+    }
+
+    function mergeCategory(currentItems, importItems) {
+      const merged = currentItems.map((item) => ({ ...item, status: 'KEEP' }));
+      const index = new Map(merged.map((item) => [normalizeName(item.name), item]));
+
+      importItems.forEach((item) => {
+        const key = normalizeName(item.name);
+        if (!key) {
+          merged.push({ ...item, status: 'ADD' });
+          return;
+        }
+        const existing = index.get(key);
+        if (!existing) {
+          merged.push({ ...item, status: 'ADD' });
+          return;
+        }
+        const changed = existing.type !== item.type || existing.group !== item.group || existing.templateName !== item.templateName;
+        if (changed) {
+          existing.status = 'UPDATE';
+          existing.type = item.type || existing.type;
+          existing.group = item.group || existing.group;
+          existing.templateName = item.templateName || existing.templateName;
+          if (item.parameters) existing.parameters = item.parameters;
+          if (item.triggerIds) existing.triggerIds = item.triggerIds;
+          existing.importId = item.id || existing.importId;
+        }
+      });
+
+      return merged;
+    }
+
+    function buildInventoryDataset(currentJson, importJson) {
+      const current = extractInventory(currentJson);
+      const imported = importJson ? extractInventory(importJson) : { items: {} };
+      const target = {};
+
+      Object.keys(current.items).forEach((key) => {
+        const currentItems = current.items[key] || [];
+        const importItems = imported.items && imported.items[key] ? imported.items[key] : [];
+        target[key] = mergeCategory(currentItems, importItems);
+      });
+
+      return { meta: current.meta, current: current.items, target };
+    }
+
+    function extractVariableRefs(value, refs) {
+      if (!value) return;
+      if (typeof value === 'string') {
+        const matches = value.match(/{{([^}]+)}}/g);
+        if (matches) {
+          matches.forEach((match) => {
+            const name = match.replace('{{', '').replace('}}', '').trim();
+            if (name) refs.add(name);
+          });
+        }
+        return;
+      }
+      if (Array.isArray(value)) {
+        value.forEach((entry) => extractVariableRefs(entry, refs));
+        return;
+      }
+      if (typeof value === 'object') {
+        Object.values(value).forEach((entry) => extractVariableRefs(entry, refs));
+      }
+    }
+
+    function extractTagVariableRefs(tag) {
+      const refs = new Set();
+      extractVariableRefs(tag.parameters || [], refs);
+      return Array.from(refs).sort((a, b) => a.localeCompare(b));
+    }
+
+    function buildTriggerMap(triggers) {
+      const map = new Map();
+      triggers.forEach((trigger) => {
+        if (trigger.id) map.set(String(trigger.id), trigger);
+      });
+      return map;
+    }
+
+    function buildVariableMap(variables, builtInVariables) {
+      const map = new Map();
+      variables.forEach((variable) => {
+        if (variable.name) {
+          map.set(variable.name, { name: variable.name, type: variable.type || '', group: variable.group || 'standard' });
+        }
+      });
+      builtInVariables.forEach((variable) => {
+        if (variable.name && !map.has(variable.name)) {
+          map.set(variable.name, { name: variable.name, type: variable.type || '', group: 'built_in' });
+        }
+      });
+      return map;
+    }
+
+    function extractTriggerHints(trigger) {
+      const hints = [];
+      const seen = new Set();
+      const filters = [...safeList(trigger.customEventFilter), ...safeList(trigger.filter)];
+      filters.forEach((filter) => {
+        safeList(filter.parameter).forEach((param) => {
+          if (param.key === 'arg1' && typeof param.value === 'string') {
+            if (!seen.has(param.value)) {
+              hints.push(param.value);
+              seen.add(param.value);
+            }
+          }
+        });
+      });
+      return hints;
+    }
+
+    function extractTriggerEventNames(trigger) {
+      if (!trigger) return [];
+      const events = new Set();
+      const filters = [...safeList(trigger.customEventFilter), ...safeList(trigger.filter)];
+      filters.forEach((filter) => {
+        const params = safeList(filter.parameter);
+        const arg0 = params.find((param) => param.key === 'arg0');
+        const arg1 = params.find((param) => param.key === 'arg1');
+        if (!arg1 || arg1.value === undefined || arg1.value === null) return;
+        if (arg0 && typeof arg0.value === 'string' && !arg0.value.includes('_event')) return;
+        const raw = String(arg1.value);
+        if (filter.type === 'MATCH_REGEX') {
+          let inner = raw;
+          const match = raw.match(/^\^\((.+)\)\$$/);
+          if (match) {
+            inner = match[1];
+          } else if (raw.startsWith('^') && raw.endsWith('$')) {
+            inner = raw.slice(1, -1);
+          }
+          inner.split('|').forEach((name) => {
+            const trimmed = name.trim();
+            if (trimmed) events.add(trimmed);
+          });
+          return;
+        }
+        const trimmed = raw.trim();
+        if (trimmed) events.add(trimmed);
+      });
+      return Array.from(events).sort((a, b) => a.localeCompare(b));
+    }
+
+    function collectEventNamesFromTriggerIds(triggerIds, details) {
+      const events = new Set();
+      safeList(triggerIds).forEach((id) => {
+        const trigger = details.triggerMap.get(String(id));
+        extractTriggerEventNames(trigger).forEach((name) => events.add(name));
+      });
+      return Array.from(events).sort((a, b) => a.localeCompare(b));
+    }
+
+    function formatTriggerLine(trigger) {
+      if (!trigger) return 'Unknown Trigger';
+      const type = trigger.type ? trigger.type.replace(/_/g, ' ') : '';
+      const hints = trigger.type === 'CUSTOM_EVENT' ? extractTriggerHints(trigger) : [];
+      const hintText = hints.length ? `: ${hints.join(' | ')}` : '';
+      const typeText = type ? `${type}${hintText}` : '';
+      return typeText ? `${trigger.name} (${typeText})` : trigger.name;
+    }
+
+    function formatTriggerMeta(trigger) {
+      if (!trigger) return '';
+      const type = trigger.type ? trigger.type.replace(/_/g, ' ') : '';
+      const hints = trigger.type === 'CUSTOM_EVENT' ? extractTriggerHints(trigger) : [];
+      const hintText = hints.length ? `: ${hints.join(' | ')}` : '';
+      return type ? `${type}${hintText}` : '';
+    }
+
+    function formatTriggerTypeSimple(trigger) {
+      if (!trigger) return '';
+      const type = trigger.type ? trigger.type.replace(/_/g, ' ') : '';
+      if (!type) return '';
+      return type.replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    function suggestTriggerRename(name) {
+      if (!name) return '';
+      const raw = String(name).trim();
+      if (/^ce_/i.test(raw)) return '';
+      if (/ecom\s+core\s+events/i.test(raw)) return 'ce_ecom_core_events';
+      return '';
+    }
+
+    function getTagParamValue(parameters, key) {
+      const param = safeList(parameters).find((item) => item.key === key);
+      if (!param) return '';
+      if (param.type === 'LIST') return param.list || [];
+      if (param.value === undefined || param.value === null) return '';
+      return String(param.value);
+    }
+
+    function parseParamMapList(list) {
+      return safeList(list)
+        .filter((item) => item && item.type === 'MAP')
+        .map((item) => {
+          const record = {};
+          safeList(item.map).forEach((entry) => {
+            if (!entry || !entry.key) return;
+            record[entry.key] = entry.value === undefined || entry.value === null ? '' : String(entry.value);
+          });
+          return record;
+        })
+        .filter((item) => Object.keys(item).length > 0);
+    }
+
+    function toOnOff(value) {
+      if (value === true || value === 'true') return 'on';
+      if (value === false || value === 'false') return 'off';
+      return value || '';
+    }
+
+    function buildDataTagConfig(tag) {
+      const params = safeList(tag.parameters);
+      const eventType = getTagParamValue(params, 'event_type') || '';
+      const eventNameCustom = getTagParamValue(params, 'event_name_custom');
+      const eventNameVar = getTagParamValue(params, 'event_name_variable');
+      const eventNameDefault = getTagParamValue(params, 'event_name');
+      const eventName = eventNameCustom || eventNameVar || eventNameDefault || '';
+      const serverDomain = getTagParamValue(params, 'gtm_server_domain');
+      const requestPath = getTagParamValue(params, 'request_path');
+      const requestType = getTagParamValue(params, 'request_type');
+      const useFetch = getTagParamValue(params, 'useFetchInsteadOfXHR');
+      const scriptUrl = getTagParamValue(params, 'data_tag_load_script_url');
+      const addDataLayer = getTagParamValue(params, 'add_data_layer');
+      const addConsentState = getTagParamValue(params, 'add_consent_state');
+      const addCommonCookie = getTagParamValue(params, 'add_common_cookie');
+      const addCommon = getTagParamValue(params, 'add_common');
+      const customData = parseParamMapList(getTagParamValue(params, 'custom_data'));
+      const userData = parseParamMapList(getTagParamValue(params, 'user_data'));
+      const consentStatus = tag.consentSettings && tag.consentSettings.consentStatus
+        ? String(tag.consentSettings.consentStatus)
+        : '';
+
+      return {
+        eventType,
+        eventName,
+        serverDomain,
+        requestPath,
+        requestType,
+        useFetch,
+        scriptUrl,
+        addDataLayer,
+        addConsentState,
+        addCommonCookie,
+        addCommon,
+        customData,
+        userData,
+        consentStatus
+      };
+    }
+
+    function normalizeCompareValue(value) {
+      if (value === undefined || value === null) return '';
+      return String(value).trim();
+    }
+
+    function summarizeList(list, limit = 3) {
+      const items = safeList(list).filter(Boolean);
+      if (!items.length) return '';
+      if (items.length <= limit) return items.join(', ');
+      return `${items.slice(0, limit).join(', ')} +${items.length - limit} more`;
+    }
+
+    function compareValues(currentValue, targetValue) {
+      const currentText = normalizeCompareValue(currentValue);
+      const targetText = normalizeCompareValue(targetValue);
+      const hasCurrent = currentText.length > 0;
+      const hasTarget = targetText.length > 0;
+
+      if (!hasCurrent && !hasTarget) {
+        return { currentStatus: 'MISSING', targetStatus: 'MISSING' };
+      }
+      if (!hasCurrent && hasTarget) {
+        return { currentStatus: 'MISSING', targetStatus: 'ADD' };
+      }
+      if (hasCurrent && !hasTarget) {
+        return { currentStatus: 'KEEP', targetStatus: 'MISSING' };
+      }
+      if (currentText === targetText) {
+        return { currentStatus: 'KEEP', targetStatus: 'KEEP' };
+      }
+      return { currentStatus: 'UPDATE', targetStatus: 'UPDATE' };
+    }
+
+    function listTriggerNames(tag, details) {
+      if (!tag) return [];
+      return safeList(tag.triggerIds).map((id) => {
+        const trigger = details.triggerMap.get(String(id));
+        return trigger ? (trigger.name || 'Trigger') : 'Built-in Trigger';
+      });
+    }
+
+    function findCustomDataValue(config, key) {
+      const match = safeList(config.customData).find((item) => {
+        if (!item || !item.name) return false;
+        return String(item.name).toLowerCase() === key.toLowerCase();
+      });
+      return match ? match.value || '' : '';
+    }
+
+    function buildComparisonRows(currentTag, targetTag, currentDetails, targetDetails, currentConfig, targetConfig) {
+      const currentTriggers = listTriggerNames(currentTag, currentDetails);
+      const targetTriggers = listTriggerNames(targetTag, targetDetails);
+      const currentTriggerSummary = summarizeList(currentTriggers, 2) || 'missing';
+      const targetTriggerSummary = summarizeList(targetTriggers, 2) || 'missing';
+
+      const currentEndpoint = [currentConfig.serverDomain, currentConfig.requestPath].filter(Boolean).join('');
+      const targetEndpoint = [targetConfig.serverDomain, targetConfig.requestPath].filter(Boolean).join('');
+
+      const currentEventId = findCustomDataValue(currentConfig, 'event_id');
+      const targetEventId = findCustomDataValue(targetConfig, 'event_id');
+
+      const rows = [
+        { label: 'Trigger', currentValue: currentTriggerSummary, targetValue: targetTriggerSummary },
+        { label: 'Endpoint', currentValue: currentEndpoint || 'missing', targetValue: targetEndpoint || 'missing' },
+        { label: 'Event Name', currentValue: currentConfig.eventName || 'missing', targetValue: targetConfig.eventName || 'missing' },
+        { label: 'Consent State', currentValue: toOnOff(currentConfig.addConsentState), targetValue: toOnOff(targetConfig.addConsentState) },
+        { label: 'Send DataLayer', currentValue: toOnOff(currentConfig.addDataLayer), targetValue: toOnOff(targetConfig.addDataLayer) },
+        { label: 'Common Cookie', currentValue: toOnOff(currentConfig.addCommonCookie), targetValue: toOnOff(targetConfig.addCommonCookie) },
+        { label: 'Event ID', currentValue: currentEventId || 'missing', targetValue: targetEventId || 'missing' },
+        { label: 'Event Data', currentValue: `${currentConfig.customData.length} items`, targetValue: `${targetConfig.customData.length} items` },
+        { label: 'User Data', currentValue: `${currentConfig.userData.length} items`, targetValue: `${targetConfig.userData.length} items` }
+      ];
+
+      return rows.map((row) => ({
+        ...row,
+        ...compareValues(row.currentValue, row.targetValue)
+      }));
+    }
+
+    function formatLabelFromName(name, useTitleCase) {
+      if (!name) return '';
+      const text = String(name).replace(/_/g, ' ');
+      if (!useTitleCase) return text;
+      return text.replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    const DEFAULT_CONSENT_CHIPS = [
+      'ad_storage',
+      'ad_user_data',
+      'ad_personalization',
+      'analytics_storage',
+      'functionality_storage',
+      'personalization_storage',
+      'security_storage'
+    ];
+
+    function getDeltaStatus(currentStatus, targetStatus) {
+      if (currentStatus === 'MISSING' && targetStatus === 'ADD') return 'ADD';
+      if (currentStatus === 'KEEP' && targetStatus === 'MISSING') return 'MISSING';
+      if (currentStatus === 'UPDATE' || targetStatus === 'UPDATE') return 'UPDATE';
+      if (currentStatus === 'KEEP' && targetStatus === 'KEEP') return 'KEEP';
+      return 'UPDATE';
+    }
+
+    function estimateSectionBodyHeight(section, collapsed) {
+      if (collapsed) return 0;
+      const rowHeight = 20;
+      const rowGap = 6;
+      const noteHeight = 16;
+      const tableHeaderHeight = 18;
+      const tableRowHeight = 20;
+      const checklistRowHeight = 18;
+      const chipRowHeight = 24;
+      const triggerRowHeight = 44;
+      const flowHeight = 36;
+      const calloutRowHeight = 34;
+      let height = 0;
+
+      if (section.note) {
+        height += noteHeight;
+      }
+      if (section.type === 'callout') {
+        height += safeList(section.items).length * calloutRowHeight;
+      }
+      if (section.type === 'rows') {
+        const rows = safeList(section.rows);
+        if (rows.length) {
+          height += rows.length * rowHeight + Math.max(0, rows.length - 1) * rowGap;
+        }
+        const checks = safeList(section.checks);
+        if (checks.length) {
+          height += (rows.length ? rowGap : 0) + checks.length * checklistRowHeight;
+        }
+      }
+      if (section.type === 'lines') {
+        const lines = safeList(section.lines);
+        if (lines.length) {
+          height += lines.length * rowHeight + Math.max(0, lines.length - 1) * rowGap;
+        } else if (section.emptyNote) {
+          height += noteHeight;
+        }
+      }
+      if (section.type === 'table') {
+        const rows = safeList(section.rows);
+        if (rows.length) {
+          height += tableHeaderHeight + rows.length * tableRowHeight;
+        } else if (section.emptyNote) {
+          height += noteHeight;
+        }
+      }
+      if (section.type === 'chips') {
+        const chips = safeList(section.chips);
+        if (chips.length) {
+          const rows = Math.ceil(chips.length / 4) || 1;
+          height += rows * chipRowHeight;
+        } else if (section.emptyNote) {
+          height += noteHeight;
+        }
+      }
+      if (section.type === 'trigger-list') {
+        height += safeList(section.triggers).length * triggerRowHeight;
+      }
+      if (section.type === 'flow') {
+        height += flowHeight;
+      }
+      if (section.footerNote) {
+        height += noteHeight;
+      }
+      return height;
+    }
+
+    function estimatePanelHeight(panel, collapsedMap) {
+      const padding = 18;
+      const headerHeight = panel && panel.hideHeader ? 0 : 64;
+      const sectionHeaderHeight = 20;
+      const sectionGap = 12;
+      let height = padding * 2 + headerHeight;
+      safeList(panel.sections).forEach((section) => {
+        const hasHeader = !section.hideHeader;
+        height += sectionGap + (hasHeader ? sectionHeaderHeight : 0);
+        const hasCollapsedKey = Object.prototype.hasOwnProperty.call(collapsedMap, section.id);
+        const collapsed = section.collapsible
+          ? (hasCollapsedKey ? !!collapsedMap[section.id] : !!section.collapsedByDefault)
+          : false;
+        height += estimateSectionBodyHeight(section, collapsed);
+      });
+      return height;
+    }
+
+    function buildTagDetails(tags, items) {
+      const triggerMap = buildTriggerMap(items.triggers || []);
+      const variableMap = buildVariableMap(items.variables || [], items.builtInVariables || []);
+      const usedVarNames = new Set();
+      const usedTriggerIds = new Set();
+
+      const detailedTags = tags.map((tag) => {
+        const variableRefs = extractTagVariableRefs(tag);
+        variableRefs.forEach((name) => usedVarNames.add(name));
+
+        const triggerIds = safeList(tag.triggerIds).map((id) => String(id));
+        triggerIds.forEach((id) => usedTriggerIds.add(id));
+
+        const variableLines = variableRefs.map((name) => name);
+
+        const triggerLines = [];
+        triggerIds.forEach((id) => {
+          const trigger = triggerMap.get(id);
+          if (trigger) {
+            triggerLines.push(formatTriggerLine(trigger));
+          } else {
+            triggerLines.push('Built-in Trigger');
+          }
+        });
+
+        return {
+          ...tag,
+          variableLines,
+          triggerLines,
+          variableCount: variableRefs.length,
+          triggerCount: triggerIds.length
+        };
+      });
+
+      return { tags: detailedTags, usedVarNames, usedTriggerIds, variableMap, triggerMap };
+    }
+
+    function isVariableExpected(tag) {
+      const name = (tag.name || '').toLowerCase();
+      const template = (tag.templateName || '').toLowerCase();
+      const type = (tag.type || '').toLowerCase();
+
+      if (name.includes('data tag') || template.includes('data tag')) return true;
+      if (name.includes('ga4') || name.includes('google tag') || name.includes('gtag') || type === 'googtag') return true;
+      if (name.includes('google ads') || name.includes('conversion tracking') || name.includes('remarketing')) return true;
+      if (name.includes('capi') || name.includes('facebook') || name.includes('meta') || name.includes('fb -') || name.includes('fb ')) return true;
+      if (name.includes('linkedin')) return true;
+      if (name.includes('uet') || name.includes('ms_uet') || name.includes('microsoft')) return true;
+      if (type.includes('ads') || type.includes('ga4')) return true;
+      return false;
+    }
+
+    function tagSearchText(tag) {
+      const parts = [
+        tag.name,
+        tag.templateName,
+        tag.type,
+        ...(tag.variableLines || []),
+        ...(tag.triggerLines || [])
+      ];
+      return parts.filter(Boolean).join(' ').toLowerCase();
+    }
+
+    function buildAlignedPairs(currentTags, targetTags) {
+      const map = new Map();
+      const pushTag = (tag, side) => {
+        const key = normalizeName(tag.name) || 'unnamed';
+        const entry = map.get(key) || { key, current: [], target: [] };
+        entry[side].push(tag);
+        map.set(key, entry);
+      };
+      currentTags.forEach((tag) => pushTag(tag, 'current'));
+      targetTags.forEach((tag) => pushTag(tag, 'target'));
+
+      const keys = Array.from(map.keys()).sort((a, b) => a.localeCompare(b));
+      const pairs = [];
+      keys.forEach((key) => {
+        const entry = map.get(key);
+        const max = Math.max(entry.current.length, entry.target.length);
+        for (let i = 0; i < max; i += 1) {
+          pairs.push({
+            key,
+            current: entry.current[i] || null,
+            target: entry.target[i] || null
+          });
+        }
+      });
+      return pairs;
+    }
+
+    function buildMissingBlock(label, x, y, width, height, prefix) {
+      return [
+        {
+          id: `${prefix}-missing-group`,
+          type: 'inventory',
+          position: { x, y },
+          data: { variant: 'group' },
+          style: { width, height }
+        },
+        {
+          id: `${prefix}-missing-tile`,
+          type: 'inventory',
+          parentNode: `${prefix}-missing-group`,
+          extent: 'parent',
+          position: { x: INVENTORY_LAYOUT.groupPadding, y: INVENTORY_LAYOUT.groupPadding },
+          data: {
+            variant: 'tile',
+            title: label,
+            meta: 'Only in one column',
+            status: 'MISSING'
+          },
+          style: {
+            width: width - INVENTORY_LAYOUT.groupPadding * 2,
+            height: height - INVENTORY_LAYOUT.groupPadding * 2
+          }
+        }
+      ];
+    }
+
+    function buildTagGroups(tags, containerKey) {
+      const config = TAG_GROUP_CONFIG[containerKey] || TAG_GROUP_CONFIG.wgtm;
+      const groups = config.map((group) => ({ ...group, tags: [] }));
+      tags.forEach((tag) => {
+        const match = groups.find((group) => group.matcher(tag));
+        if (match) match.tags.push(tag);
+      });
+      return groups;
+    }
+
+    function calcDetailHeight(lineCount) {
+      const lines = Math.max(lineCount, 1);
+      return INVENTORY_LAYOUT.detailPadding + lines * INVENTORY_LAYOUT.detailLineHeight;
+    }
+
+    function buildTagBlock(tag, x, y, width, prefix, options = {}) {
+      const nodes = [];
+      const metaParts = [];
+      if (tag.type) metaParts.push(tag.type);
+
+      const variableCount = typeof tag.variableCount === 'number' ? tag.variableCount : (tag.variableLines ? tag.variableLines.length : 0);
+      const triggerCount = typeof tag.triggerCount === 'number' ? tag.triggerCount : (tag.triggerLines ? tag.triggerLines.length : 0);
+
+      const collapsed = options.collapsed || false;
+      const showVariables = variableCount > 0 || isVariableExpected(tag);
+      const variableLines = variableCount
+        ? (tag.variableLines || [])
+        : showVariables
+          ? ['Expected variable refs not found']
+          : [];
+      const variableHeight = showVariables ? calcDetailHeight(variableLines.length || 1) : 0;
+      const variableMissing = showVariables && variableCount === 0;
+
+      const showTriggers = true;
+      const triggerLines = triggerCount
+        ? (tag.triggerLines || [])
+        : ['Missing trigger binding'];
+      const triggerHeight = showTriggers ? calcDetailHeight(triggerLines.length || 1) : 0;
+      const triggerMissing = showTriggers && triggerCount === 0;
+
+      const tagHeight = collapsed ? INVENTORY_LAYOUT.tagTileCollapsedHeight : INVENTORY_LAYOUT.tagTileHeight;
+      const blocks = collapsed
+        ? [{ key: 'tag', height: tagHeight }]
+        : [
+            { key: 'tag', height: tagHeight },
+            ...(showVariables ? [{ key: 'vars', height: variableHeight }] : []),
+            ...(showTriggers ? [{ key: 'triggers', height: triggerHeight }] : [])
+          ];
+
+      const groupHeight = INVENTORY_LAYOUT.groupPadding * 2
+        + blocks.reduce((sum, block) => sum + block.height, 0)
+        + INVENTORY_LAYOUT.detailGap * (blocks.length - 1);
+
+      const groupId = `${prefix}-group`;
+      nodes.push({
+        id: groupId,
+        type: 'inventory',
+        position: { x, y },
+        data: {
+          variant: 'group'
+        },
+        style: { width, height: groupHeight }
+      });
+
+      const innerWidth = width - INVENTORY_LAYOUT.groupPadding * 2;
+      const innerX = INVENTORY_LAYOUT.groupPadding;
+      let yOffset = INVENTORY_LAYOUT.groupPadding;
+
+      const summaryParts = [];
+      if (variableCount > 0) summaryParts.push(`Vars: ${variableCount}`);
+      else if (variableMissing) summaryParts.push('Vars: missing');
+      if (triggerCount > 0) summaryParts.push(`Triggers: ${triggerCount}`);
+      else if (triggerMissing) summaryParts.push('Triggers: missing');
+      const summaryLine = collapsed && summaryParts.length ? summaryParts.join(' | ') : '';
+      nodes.push({
+        id: `${prefix}-tag`,
+        type: 'inventory',
+        parentNode: groupId,
+        extent: 'parent',
+        position: { x: innerX, y: yOffset },
+        data: {
+          variant: 'tile',
+          title: tag.name || 'Unnamed Tag',
+          subtitle: tag.templateName || '',
+          meta: summaryLine || metaParts.join(' | '),
+          status: tag.status || '',
+          toggleable: true,
+          collapsed,
+          collapseKey: options.collapseKey,
+          onToggle: options.onToggle
+        },
+        style: { width: innerWidth, height: tagHeight }
+      });
+
+      if (collapsed) {
+        return { nodes, height: groupHeight };
+      }
+
+      yOffset += tagHeight + INVENTORY_LAYOUT.detailGap;
+
+      if (showVariables) {
+        nodes.push({
+          id: `${prefix}-vars`,
+          type: 'inventory',
+          parentNode: groupId,
+          extent: 'parent',
+          position: { x: innerX, y: yOffset },
+          data: {
+            variant: 'tile',
+            title: variableCount ? `Variables (${variableCount})` : 'Variables (missing)',
+            lines: variableLines,
+            status: variableMissing ? 'MISSING' : ''
+          },
+          style: { width: innerWidth, height: variableHeight }
+        });
+        yOffset += variableHeight + INVENTORY_LAYOUT.detailGap;
+      }
+
+      if (showTriggers) {
+        nodes.push({
+          id: `${prefix}-triggers`,
+          type: 'inventory',
+          parentNode: groupId,
+          extent: 'parent',
+          position: { x: innerX, y: yOffset },
+          data: {
+            variant: 'tile',
+            title: triggerCount ? `Triggers (${triggerCount})` : 'Triggers (missing)',
+            lines: triggerLines,
+            status: triggerMissing ? 'MISSING' : ''
+          },
+          style: { width: innerWidth, height: triggerHeight }
+        });
+      }
+
+      return { nodes, height: groupHeight };
+    }
+
+    function buildAlignedBlocks(currentTags, targetTags, x, y, width, prefix, options) {
+      const nodes = [];
+      let yOffset = y;
+      const pairs = buildAlignedPairs(currentTags, targetTags).filter((pair) => {
+        if (!options.searchTerm) return true;
+        const currentMatch = pair.current && pair.current.searchMatch;
+        const targetMatch = pair.target && pair.target.searchMatch;
+        return currentMatch || targetMatch;
+      });
+
+      pairs.forEach((pair, idx) => {
+        let rowHeight = 0;
+        if (pair.current) {
+          const collapseKey = `${prefix}-${pair.key}-current`;
+          const block = buildTagBlock(
+            pair.current,
+            x,
+            yOffset,
+            width,
+            `${prefix}-current-${idx}`,
+            {
+              collapsed: options.collapsedMap[collapseKey],
+              collapseKey,
+              onToggle: options.onToggle
+            }
+          );
+          nodes.push(...block.nodes);
+          rowHeight = Math.max(rowHeight, block.height);
+        }
+
+        if (pair.target) {
+          const collapseKey = `${prefix}-${pair.key}-target`;
+          const block = buildTagBlock(
+            pair.target,
+            x + width + INVENTORY_LAYOUT.columnGap,
+            yOffset,
+            width,
+            `${prefix}-target-${idx}`,
+            {
+              collapsed: options.collapsedMap[collapseKey],
+              collapseKey,
+              onToggle: options.onToggle
+            }
+          );
+          nodes.push(...block.nodes);
+          rowHeight = Math.max(rowHeight, block.height);
+        }
+
+        if (!pair.current && pair.target) {
+          const missing = buildMissingBlock('Missing in Current', x, yOffset, width, rowHeight || INVENTORY_LAYOUT.tagTileCollapsedHeight, `${prefix}-missing-current-${idx}`);
+          nodes.push(...missing);
+          rowHeight = Math.max(rowHeight, rowHeight || INVENTORY_LAYOUT.tagTileCollapsedHeight);
+        }
+
+        if (!pair.target && pair.current) {
+          const missing = buildMissingBlock('Missing in Target', x + width + INVENTORY_LAYOUT.columnGap, yOffset, width, rowHeight || INVENTORY_LAYOUT.tagTileCollapsedHeight, `${prefix}-missing-target-${idx}`);
+          nodes.push(...missing);
+          rowHeight = Math.max(rowHeight, rowHeight || INVENTORY_LAYOUT.tagTileCollapsedHeight);
+        }
+
+        yOffset += rowHeight + INVENTORY_LAYOUT.detailGap;
+      });
+
+      return { nodes, height: yOffset - y };
+    }
+
+    function buildUnusedBlocks(detailState, x, y, width, prefix) {
+      const nodes = [];
+      let yOffset = y;
+
+      const unusedVars = Array.from(detailState.variableMap.values())
+        .filter((variable) => !detailState.usedVarNames.has(variable.name))
+        .map((variable) => variable.name)
+        .sort((a, b) => a.localeCompare(b));
+
+      const unusedTriggers = Array.from(detailState.triggerMap.values())
+        .filter((trigger) => trigger.id && !detailState.usedTriggerIds.has(String(trigger.id)))
+        .map(formatTriggerLine)
+        .sort((a, b) => a.localeCompare(b));
+
+      if (unusedVars.length) {
+        const height = calcDetailHeight(unusedVars.length);
+        nodes.push({
+          id: `${prefix}-unused-vars`,
+          type: 'inventory',
+          position: { x, y: yOffset },
+          data: { variant: 'tile', title: `Unused Variables (${unusedVars.length})`, lines: unusedVars },
+          style: { width, height }
+        });
+        yOffset += height + INVENTORY_LAYOUT.detailGap;
+      }
+
+      if (unusedTriggers.length) {
+        const height = calcDetailHeight(unusedTriggers.length);
+        nodes.push({
+          id: `${prefix}-unused-triggers`,
+          type: 'inventory',
+          position: { x, y: yOffset },
+          data: { variant: 'tile', title: `Unused Triggers (${unusedTriggers.length})`, lines: unusedTriggers },
+          style: { width, height }
+        });
+        yOffset += height + INVENTORY_LAYOUT.detailGap;
+      }
+
+      return { nodes, height: yOffset - y, hasUnused: unusedVars.length || unusedTriggers.length };
+    }
+
+    function buildSupportBlocks(items, x, y, width, prefix, containerKey, searchTerm) {
+      const nodes = [];
+      let yOffset = y;
+      const templatesByGroup = { tag: [], variable: [], client: [], other: [] };
+
+      safeList(items.customTemplates).forEach((template) => {
+        const group = template.group || 'other';
+        if (!templatesByGroup[group]) templatesByGroup[group] = [];
+        templatesByGroup[group].push(template.name || 'Custom Template');
+      });
+
+      Object.entries(templatesByGroup).forEach(([group, names]) => {
+        if (!names.length) return;
+        let lines = names.sort((a, b) => a.localeCompare(b));
+        if (searchTerm) {
+          lines = lines.filter((line) => line.toLowerCase().includes(searchTerm));
+        }
+        if (!lines.length) return;
+        const height = calcDetailHeight(lines.length);
+        const label = group === 'tag'
+          ? 'Tag Templates'
+          : group === 'variable'
+            ? 'Variable Templates'
+            : group === 'client'
+              ? 'Client Templates'
+              : 'Other Templates';
+        nodes.push({
+          id: `${prefix}-templates-${group}`,
+          type: 'inventory',
+          position: { x, y: yOffset },
+          data: { variant: 'tile', title: `${label} (${lines.length})`, lines },
+          style: { width, height }
+        });
+        yOffset += height + INVENTORY_LAYOUT.detailGap;
+      });
+
+      if (safeList(items.clients).length) {
+        let lines = safeList(items.clients)
+          .map((client) => `${client.name || 'Client'}${client.type ? ` [${client.type}]` : ''}`)
+          .sort((a, b) => a.localeCompare(b));
+        if (searchTerm) {
+          lines = lines.filter((line) => line.toLowerCase().includes(searchTerm));
+        }
+        if (!lines.length) return { nodes, height: yOffset - y, hasSupport: nodes.length > 0 };
+        const height = calcDetailHeight(lines.length);
+        nodes.push({
+          id: `${prefix}-clients`,
+          type: 'inventory',
+          position: { x, y: yOffset },
+          data: { variant: 'tile', title: `Clients (${lines.length})`, lines },
+          style: { width, height }
+        });
+        yOffset += height + INVENTORY_LAYOUT.detailGap;
+      }
+
+      if (safeList(items.folders).length) {
+        let lines = safeList(items.folders)
+          .map((folder) => folder.name || 'Folder')
+          .sort((a, b) => a.localeCompare(b));
+        if (searchTerm) {
+          lines = lines.filter((line) => line.toLowerCase().includes(searchTerm));
+        }
+        if (!lines.length) return { nodes, height: yOffset - y, hasSupport: nodes.length > 0 };
+        const height = calcDetailHeight(lines.length);
+        nodes.push({
+          id: `${prefix}-folders`,
+          type: 'inventory',
+          position: { x, y: yOffset },
+          data: { variant: 'tile', title: `Folders (${lines.length})`, lines },
+          style: { width, height }
+        });
+        yOffset += height + INVENTORY_LAYOUT.detailGap;
+      }
+
+      return { nodes, height: yOffset - y, hasSupport: nodes.length > 0 };
+    }
+
+    function buildInventoryNodesForContainer(containerKey, containerData, xBase, yBase, options) {
+      const nodes = [];
+      const containerWidth = INVENTORY_LAYOUT.columnWidth * 2 + INVENTORY_LAYOUT.columnGap;
+      const headerId = `inventory-${containerKey}-header`;
+      const headerTitle = containerKey === 'wgtm' ? 'wGTM Inventory' : 'sGTM Inventory';
+      const subtitleParts = [];
+      if (containerData.meta.publicId) subtitleParts.push(containerData.meta.publicId);
+      subtitleParts.push('Current vs Target');
+
+      nodes.push({
+        id: headerId,
+        type: 'inventory',
+        position: { x: xBase, y: yBase },
+        data: { variant: 'container', title: headerTitle, subtitle: subtitleParts.join(' | ') },
+        style: { width: containerWidth, height: INVENTORY_LAYOUT.containerHeaderHeight }
+      });
+
+      const currentDetails = buildTagDetails(containerData.current.tags || [], containerData.current);
+      const targetDetails = buildTagDetails(containerData.target.tags || [], containerData.target);
+      const searchTerm = options.searchTerm.trim().toLowerCase();
+      const currentTags = currentDetails.tags.map((tag) => ({
+        ...tag,
+        searchMatch: !searchTerm || tagSearchText(tag).includes(searchTerm)
+      }));
+      const targetTags = targetDetails.tags.map((tag) => ({
+        ...tag,
+        searchMatch: !searchTerm || tagSearchText(tag).includes(searchTerm)
+      }));
+
+      const currentGroups = buildTagGroups(currentTags, containerKey);
+      const targetGroups = buildTagGroups(targetTags, containerKey);
+
+      const currentGroupMap = new Map(currentGroups.map((group) => [group.key, group]));
+      const targetGroupMap = new Map(targetGroups.map((group) => [group.key, group]));
+      const groupConfig = TAG_GROUP_CONFIG[containerKey] || TAG_GROUP_CONFIG.wgtm;
+
+      let yOffset = yBase + INVENTORY_LAYOUT.containerHeaderHeight + INVENTORY_LAYOUT.groupGap;
+
+      groupConfig.forEach((group) => {
+        const currentTags = (currentGroupMap.get(group.key) || {}).tags || [];
+        const targetTags = (targetGroupMap.get(group.key) || {}).tags || [];
+        if (!currentTags.length && !targetTags.length) return;
+        const hasMatches = !searchTerm || currentTags.some((tag) => tag.searchMatch) || targetTags.some((tag) => tag.searchMatch);
+        if (!hasMatches) return;
+
+        nodes.push({
+          id: `inventory-${containerKey}-${group.key}-header`,
+          type: 'inventory',
+          position: { x: xBase, y: yOffset },
+          data: { variant: 'section', title: group.title, subtitle: '' },
+          style: { width: containerWidth, height: INVENTORY_LAYOUT.groupHeaderHeight }
+        });
+
+        yOffset += INVENTORY_LAYOUT.groupHeaderHeight + INVENTORY_LAYOUT.detailGap;
+
+        const columnHeaderY = yOffset;
+        nodes.push({
+          id: `inventory-${containerKey}-${group.key}-current-header`,
+          type: 'inventory',
+          position: { x: xBase, y: columnHeaderY },
+          data: { variant: 'section', title: 'Current', subtitle: '' },
+          style: { width: INVENTORY_LAYOUT.columnWidth, height: INVENTORY_LAYOUT.columnHeaderHeight }
+        });
+        nodes.push({
+          id: `inventory-${containerKey}-${group.key}-target-header`,
+          type: 'inventory',
+          position: { x: xBase + INVENTORY_LAYOUT.columnWidth + INVENTORY_LAYOUT.columnGap, y: columnHeaderY },
+          data: { variant: 'section', title: 'Target', subtitle: '' },
+          style: { width: INVENTORY_LAYOUT.columnWidth, height: INVENTORY_LAYOUT.columnHeaderHeight }
+        });
+
+        yOffset += INVENTORY_LAYOUT.columnHeaderHeight + INVENTORY_LAYOUT.detailGap;
+
+        const aligned = buildAlignedBlocks(
+          currentTags,
+          targetTags,
+          xBase,
+          yOffset,
+          INVENTORY_LAYOUT.columnWidth,
+          `inventory-${containerKey}-${group.key}`,
+          { ...options, searchTerm }
+        );
+
+        nodes.push(...aligned.nodes);
+
+        yOffset += aligned.height + INVENTORY_LAYOUT.groupGap;
+      });
+
+      const supportHeaderY = yOffset;
+      const supportColumnHeaderY = supportHeaderY + INVENTORY_LAYOUT.groupHeaderHeight + INVENTORY_LAYOUT.detailGap;
+      const supportColumnStartY = supportColumnHeaderY + INVENTORY_LAYOUT.columnHeaderHeight + INVENTORY_LAYOUT.detailGap;
+
+      const supportCurrent = buildSupportBlocks(containerData.current, xBase, supportColumnStartY, INVENTORY_LAYOUT.columnWidth, `inventory-${containerKey}-support-current`, containerKey, searchTerm);
+      const supportTarget = buildSupportBlocks(containerData.target, xBase + INVENTORY_LAYOUT.columnWidth + INVENTORY_LAYOUT.columnGap, supportColumnStartY, INVENTORY_LAYOUT.columnWidth, `inventory-${containerKey}-support-target`, containerKey, searchTerm);
+
+      if (supportCurrent.hasSupport || supportTarget.hasSupport) {
+        nodes.push({
+          id: `inventory-${containerKey}-support-header`,
+          type: 'inventory',
+          position: { x: xBase, y: supportHeaderY },
+          data: { variant: 'section', title: 'Supporting Objects', subtitle: '' },
+          style: { width: containerWidth, height: INVENTORY_LAYOUT.groupHeaderHeight }
+        });
+
+        nodes.push({
+          id: `inventory-${containerKey}-support-current-header`,
+          type: 'inventory',
+          position: { x: xBase, y: supportColumnHeaderY },
+          data: { variant: 'section', title: 'Current', subtitle: '' },
+          style: { width: INVENTORY_LAYOUT.columnWidth, height: INVENTORY_LAYOUT.columnHeaderHeight }
+        });
+        nodes.push({
+          id: `inventory-${containerKey}-support-target-header`,
+          type: 'inventory',
+          position: { x: xBase + INVENTORY_LAYOUT.columnWidth + INVENTORY_LAYOUT.columnGap, y: supportColumnHeaderY },
+          data: { variant: 'section', title: 'Target', subtitle: '' },
+          style: { width: INVENTORY_LAYOUT.columnWidth, height: INVENTORY_LAYOUT.columnHeaderHeight }
+        });
+
+        nodes.push(...supportCurrent.nodes, ...supportTarget.nodes);
+
+        const supportHeight = Math.max(supportCurrent.height, supportTarget.height);
+        yOffset = supportColumnStartY + supportHeight + INVENTORY_LAYOUT.groupGap;
+      }
+
+      const unusedHeaderY = yOffset;
+      const unusedColumnHeaderY = unusedHeaderY + INVENTORY_LAYOUT.groupHeaderHeight + INVENTORY_LAYOUT.detailGap;
+      const unusedColumnStartY = unusedColumnHeaderY + INVENTORY_LAYOUT.columnHeaderHeight + INVENTORY_LAYOUT.detailGap;
+
+      const unusedCurrent = buildUnusedBlocks(currentDetails, xBase, unusedColumnStartY, INVENTORY_LAYOUT.columnWidth, `inventory-${containerKey}-unused-current`);
+      const unusedTarget = buildUnusedBlocks(targetDetails, xBase + INVENTORY_LAYOUT.columnWidth + INVENTORY_LAYOUT.columnGap, unusedColumnStartY, INVENTORY_LAYOUT.columnWidth, `inventory-${containerKey}-unused-target`);
+
+      if (unusedCurrent.hasUnused || unusedTarget.hasUnused) {
+        nodes.push({
+          id: `inventory-${containerKey}-unused-header`,
+          type: 'inventory',
+          position: { x: xBase, y: unusedHeaderY },
+          data: { variant: 'section', title: 'Unused Inventory', subtitle: '' },
+          style: { width: containerWidth, height: INVENTORY_LAYOUT.groupHeaderHeight }
+        });
+
+        nodes.push({
+          id: `inventory-${containerKey}-unused-current-header`,
+          type: 'inventory',
+          position: { x: xBase, y: unusedColumnHeaderY },
+          data: { variant: 'section', title: 'Current', subtitle: '' },
+          style: { width: INVENTORY_LAYOUT.columnWidth, height: INVENTORY_LAYOUT.columnHeaderHeight }
+        });
+        nodes.push({
+          id: `inventory-${containerKey}-unused-target-header`,
+          type: 'inventory',
+          position: { x: xBase + INVENTORY_LAYOUT.columnWidth + INVENTORY_LAYOUT.columnGap, y: unusedColumnHeaderY },
+          data: { variant: 'section', title: 'Target', subtitle: '' },
+          style: { width: INVENTORY_LAYOUT.columnWidth, height: INVENTORY_LAYOUT.columnHeaderHeight }
+        });
+
+        nodes.push(...unusedCurrent.nodes, ...unusedTarget.nodes);
+      }
+
+      return { nodes, height: yOffset - yBase };
+    }
+
+    function buildInventoryLayout(inventoryData, options) {
+      const nodes = [];
+      let xOffset = INVENTORY_LAYOUT.startX;
+      ['wgtm', 'sgtm'].forEach((containerKey) => {
+        if (!inventoryData[containerKey]) return;
+        const result = buildInventoryNodesForContainer(containerKey, inventoryData[containerKey], xOffset, INVENTORY_LAYOUT.startY, options);
+        nodes.push(...result.nodes);
+        const containerWidth = INVENTORY_LAYOUT.columnWidth * 2 + INVENTORY_LAYOUT.columnGap;
+        xOffset += containerWidth + INVENTORY_LAYOUT.containerGap;
+      });
+      return { nodes, edges: [] };
+    }
+
+    function cardHeightForLines(lines) {
+      if (!lines || !lines.length) return DATA_TAG_LAYOUT.cardMinHeight;
+      const height = INVENTORY_LAYOUT.detailPadding + lines.length * INVENTORY_LAYOUT.detailLineHeight;
+      return Math.max(DATA_TAG_LAYOUT.cardMinHeight, height);
+    }
+
+    function buildSectionGroup(title, items, x, y, width, prefix, options = {}) {
+      const nodes = [];
+      const padding = DATA_TAG_LAYOUT.sectionPadding;
+      const headerHeight = DATA_TAG_LAYOUT.sectionHeaderHeight;
+      const cardGap = DATA_TAG_LAYOUT.cardGap;
+      const contentWidth = width - padding * 2;
+      const groupId = `${prefix}-group`;
+      const collapsed = options.collapsed || false;
+      const safeItems = items && items.length ? items : [{ title: 'None', status: 'MISSING', lines: [] }];
+      const prepared = safeItems.map((item) => ({
+        ...item,
+        height: item.height || cardHeightForLines(item.lines || [])
+      }));
+
+      let contentHeight = headerHeight;
+      if (!collapsed && prepared.length) {
+        contentHeight += cardGap;
+        prepared.forEach((item, idx) => {
+          contentHeight += item.height;
+          if (idx < prepared.length - 1) contentHeight += cardGap;
+        });
+      }
+      const groupHeight = padding * 2 + contentHeight;
+      const count = typeof options.count === 'number' ? options.count : prepared.length;
+      const headerTitle = typeof count === 'number' ? `${title} (${count})` : title;
+
+      nodes.push({
+        id: groupId,
+        type: 'inventory',
+        position: { x, y },
+        data: { variant: 'group' },
+        style: { width, height: groupHeight }
+      });
+
+      nodes.push({
+        id: `${prefix}-header`,
+        type: 'inventory',
+        parentNode: groupId,
+        extent: 'parent',
+        position: { x: padding, y: padding },
+        data: {
+          variant: 'section',
+          title: headerTitle,
+          subtitle: options.subtitle || '',
+          meta: options.meta || '',
+          toggleable: options.toggleable,
+          collapsed,
+          collapseKey: options.collapseKey,
+          onToggle: options.onToggle
+        },
+        style: { width: contentWidth, height: headerHeight }
+      });
+
+      if (collapsed) {
+        return { nodes, height: groupHeight };
+      }
+
+      let yOffset = padding + headerHeight + cardGap;
+      prepared.forEach((item, idx) => {
+        nodes.push({
+          id: `${prefix}-item-${idx}`,
+          type: 'inventory',
+          parentNode: groupId,
+          extent: 'parent',
+          position: { x: padding, y: yOffset },
+          data: {
+            variant: 'tile',
+            title: item.title,
+            subtitle: item.subtitle || '',
+            meta: item.meta || '',
+            lines: item.lines || [],
+            status: item.status || ''
+          },
+          style: { width: contentWidth, height: item.height }
+        });
+        yOffset += item.height + cardGap;
+      });
+
+      return { nodes, height: groupHeight };
+    }
+
+    function buildFlowStrip(tagLabel, triggerLabel, payloadLines, x, y, width, prefix) {
+      const nodes = [];
+      const edges = [];
+      const padding = DATA_TAG_LAYOUT.sectionPadding;
+      const headerHeight = DATA_TAG_LAYOUT.sectionHeaderHeight;
+      const tileGap = DATA_TAG_LAYOUT.cardGap;
+      const tileHeight = DATA_TAG_LAYOUT.cardMinHeight;
+      const tileWidth = Math.floor((width - padding * 2 - tileGap * 2) / 3);
+      const groupHeight = padding * 2 + headerHeight + tileGap + tileHeight;
+      const groupId = `${prefix}-flow-group`;
+
+      nodes.push({
+        id: groupId,
+        type: 'inventory',
+        position: { x, y },
+        data: { variant: 'group' },
+        style: { width, height: groupHeight }
+      });
+
+      nodes.push({
+        id: `${prefix}-flow-header`,
+        type: 'inventory',
+        parentNode: groupId,
+        extent: 'parent',
+        position: { x: padding, y: padding },
+        data: { variant: 'section', title: 'Flow Strip', subtitle: 'Tag -> Trigger -> Payload' },
+        style: { width: width - padding * 2, height: headerHeight }
+      });
+
+      const rowY = padding + headerHeight + tileGap;
+
+      const tagId = `${prefix}-flow-tag`;
+      nodes.push({
+        id: tagId,
+        type: 'inventory',
+        parentNode: groupId,
+        extent: 'parent',
+        position: { x: padding, y: rowY },
+        data: {
+          variant: 'tile',
+          title: 'Tag',
+          lines: [{ label: 'Name', value: tagLabel || 'Data Tag' }]
+        },
+        style: { width: tileWidth, height: tileHeight }
+      });
+
+      const triggerId = `${prefix}-flow-trigger`;
+      nodes.push({
+        id: triggerId,
+        type: 'inventory',
+        parentNode: groupId,
+        extent: 'parent',
+        position: { x: padding + tileWidth + tileGap, y: rowY },
+        data: {
+          variant: 'tile',
+          title: 'Trigger',
+          lines: [{ label: 'Primary', value: triggerLabel || 'missing' }]
+        },
+        style: { width: tileWidth, height: tileHeight }
+      });
+
+      const payloadId = `${prefix}-flow-payload`;
+      nodes.push({
+        id: payloadId,
+        type: 'inventory',
+        parentNode: groupId,
+        extent: 'parent',
+        position: { x: padding + (tileWidth + tileGap) * 2, y: rowY },
+        data: {
+          variant: 'tile',
+          title: 'Payload',
+          lines: payloadLines || []
+        },
+        style: { width: tileWidth, height: tileHeight }
+      });
+
+      edges.push({
+        id: `${prefix}-flow-edge-1`,
+        source: tagId,
+        sourceHandle: 'right',
+        target: triggerId,
+        targetHandle: 'left',
+        type: 'smoothstep',
+        style: { stroke: '#38bdf8', strokeWidth: 1.5 }
+      });
+      edges.push({
+        id: `${prefix}-flow-edge-2`,
+        source: triggerId,
+        sourceHandle: 'right',
+        target: payloadId,
+        targetHandle: 'left',
+        type: 'smoothstep',
+        style: { stroke: '#38bdf8', strokeWidth: 1.5 }
+      });
+
+      return { nodes, edges, height: groupHeight };
+    }
+
+    function resolveServerUrl(config) {
+      const rawDomain = String(config.serverDomain || '').trim();
+      const rawPath = String(config.requestPath || '').trim();
+      if (!rawDomain && !rawPath) return '';
+      if (!rawDomain) return rawPath;
+      if (!rawPath) return rawDomain;
+
+      const hasProtocol = /^https?:\/\//i.test(rawDomain);
+      if (hasProtocol) {
+        try {
+          const url = new URL(rawDomain);
+          if (url.pathname && url.pathname !== '/') return rawDomain;
+        } catch (err) {
+          // Fall back to concatenation.
+        }
+      } else if (rawDomain.includes('/')) {
+        return rawDomain;
+      }
+
+      if (rawDomain.includes(rawPath)) return rawDomain;
+      const domain = rawDomain.replace(/\/$/, '');
+      const path = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
+      return `${domain}${path}`;
+    }
+
+    function normalizeDataList(items) {
+      return safeList(items)
+        .map((item) => {
+          const name = String(item && item.name ? item.name : '').trim().toLowerCase();
+          const value = String(item && item.value ? item.value : '').trim();
+          const transformation = String(item && item.transformation ? item.transformation : '').trim().toLowerCase();
+          const store = String(item && item.store ? item.store : '').trim().toLowerCase();
+          if (!name && !value && !transformation && !store) return '';
+          return `${name}|${value}|${transformation}|${store}`;
+        })
+        .filter((entry) => entry.length > 0)
+        .sort();
+    }
+
+    function normalizeDataItem(item) {
+      const name = String(item && item.name ? item.name : '').trim().toLowerCase();
+      const value = String(item && item.value ? item.value : '').trim();
+      const transformation = String(item && item.transformation ? item.transformation : '').trim().toLowerCase();
+      const store = String(item && item.store ? item.store : '').trim().toLowerCase();
+      return { name, value, transformation, store };
+    }
+
+    function buildDataItemMap(items) {
+      const map = new Map();
+      safeList(items).forEach((item) => {
+        const normalized = normalizeDataItem(item);
+        if (!normalized.name) return;
+        map.set(normalized.name, normalized);
+      });
+      return map;
+    }
+
+    function filterChangedDataItems(items, compareItems) {
+      const compareMap = buildDataItemMap(compareItems);
+      return safeList(items).filter((item) => {
+        const normalized = normalizeDataItem(item);
+        if (!normalized.name) return false;
+        const compare = compareMap.get(normalized.name);
+        if (!compare) return true;
+        return normalized.value !== compare.value
+          || normalized.transformation !== compare.transformation
+          || normalized.store !== compare.store;
+      });
+    }
+
+    function areListsEqual(a, b) {
+      if (a.length !== b.length) return false;
+      for (let i = 0; i < a.length; i += 1) {
+        if (a[i] !== b[i]) return false;
+      }
+      return true;
+    }
+
+    function isTrue(value) {
+      return value === true || value === 'true';
+    }
+
+    function listAvailableEcomTriggers(details) {
+      const triggers = Array.from(details.triggerMap.values());
+      return triggers
+        .filter((trigger) => {
+          const name = (trigger.name || '').toLowerCase();
+          return name.includes('ecom') || name.includes('ecommerce');
+        })
+        .map((trigger) => trigger.name || 'Trigger')
+        .sort((a, b) => a.localeCompare(b));
+    }
+
+    function listAvailableEcomTriggerDetails(details) {
+      const triggers = Array.from(details.triggerMap.values());
+      return triggers
+        .filter((trigger) => {
+          const name = (trigger.name || '').toLowerCase();
+          return name.includes('ecom') || name.includes('ecommerce');
+        })
+        .map((trigger) => ({
+          id: trigger.id ? String(trigger.id) : '',
+          name: trigger.name || 'Trigger',
+          events: extractTriggerEventNames(trigger)
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    function buildTriggerUsageMap(tags) {
+      const map = new Map();
+      safeList(tags).forEach((tag) => {
+        const tagName = tag.name || 'Tag';
+        safeList(tag.triggerIds).forEach((id) => {
+          const key = String(id);
+          if (!map.has(key)) {
+            map.set(key, { count: 0, tags: [] });
+          }
+          const entry = map.get(key);
+          entry.count += 1;
+          entry.tags.push(tagName);
+        });
+      });
+      return map;
+    }
+
+    function computeDataTagDiff(currentTag, currentConfig, targetTag, targetConfig) {
+      const currentEventKey = `${String(currentConfig.eventType || '').toLowerCase()}|${String(currentConfig.eventName || '')}`;
+      const targetEventKey = `${String(targetConfig.eventType || '').toLowerCase()}|${String(targetConfig.eventName || '')}`;
+      const eventName = currentEventKey !== targetEventKey;
+
+      const currentServer = resolveServerUrl(currentConfig);
+      const targetServer = resolveServerUrl(targetConfig);
+      const serverUrl = currentServer !== targetServer
+        || isTrue(currentConfig.addDataLayer) !== isTrue(targetConfig.addDataLayer)
+        || isTrue(currentConfig.addConsentState) !== isTrue(targetConfig.addConsentState)
+        || isTrue(currentConfig.addCommonCookie) !== isTrue(targetConfig.addCommonCookie);
+
+      const eventData = !areListsEqual(
+        normalizeDataList(currentConfig.customData),
+        normalizeDataList(targetConfig.customData)
+      );
+      const userData = !areListsEqual(
+        normalizeDataList(currentConfig.userData),
+        normalizeDataList(targetConfig.userData)
+      );
+      const consent = isTrue(currentConfig.addConsentState) !== isTrue(targetConfig.addConsentState);
+
+      const currentTriggers = safeList(currentTag && currentTag.triggerIds).map((id) => String(id)).sort();
+      const targetTriggers = safeList(targetTag && targetTag.triggerIds).map((id) => String(id)).sort();
+      const triggering = !areListsEqual(currentTriggers, targetTriggers);
+
+      return { eventName, serverUrl, eventData, userData, consent, triggering };
+    }
+
+    function buildPanelNode(panel, x, y, width, id) {
+      const height = estimatePanelHeight(panel, panel.collapsedMap || {});
+      return {
+        node: {
+          id,
+          type: 'inventory',
+          position: { x, y },
+          data: { variant: 'panel', panel },
+          style: { width, height }
+        },
+        height
+      };
+    }
+
+    function buildRecommendedDataTag(baseTag, baseConfig, details) {
+      const sourceTag = baseTag || { name: 'Data Tag', templateName: 'Custom Template', triggerIds: [] };
+      const nextTag = {
+        ...sourceTag,
+        triggerIds: safeList(sourceTag.triggerIds).map((id) => String(id))
+      };
+      const customData = safeList(baseConfig.customData).map((item) => ({ ...item }));
+      const userData = safeList(baseConfig.userData).map((item) => ({ ...item }));
+
+      const ecomTrigger = Array.from(details.triggerMap.values()).find((trigger) => {
+        const name = (trigger.name || '').toLowerCase();
+        return name.includes('ecom core events');
+      });
+      nextTag.triggerIds = ecomTrigger ? [String(ecomTrigger.id)] : ['313'];
+
+      return {
+        tag: nextTag,
+        config: {
+          ...baseConfig,
+          customData,
+          userData
+        },
+        notes: {
+          triggering: 'Use Ecom Core Events so all ecommerce actions reach sGTM.'
+        }
+      };
+    }
+
+    function buildDataTagTargetCards(context, x, y, prefix, options = {}) {
+      const nodes = [];
+      let yOffset = y;
+      const width = DATA_TAG_LAYOUT.columnWidth;
+      const collapsedMap = options.collapsedMap || {};
+      const {
+        dataTag,
+        config,
+        details,
+        diffFlags,
+        compareConfig,
+        compareTag,
+        compareDetails,
+        notes,
+        triggerUsageMap
+      } = context;
+
+      if (!dataTag) {
+        const panel = {
+          title: 'Data Tag',
+          subtitle: 'Custom Template',
+          badge: 'Target',
+          badgeClass: 'target',
+          sections: [
+            {
+              id: `${prefix}-missing`,
+              title: 'Data Tag',
+              type: 'callout',
+              items: [{ title: 'No Data Tag found', detail: 'Check import or template install.' }]
+            }
+          ],
+          collapsedMap,
+          onToggle: options.onToggle
+        };
+        const { node, height } = buildPanelNode(panel, x, yOffset, width, `${prefix}-missing`);
+        nodes.push(node);
+        return { nodes, height };
+      }
+
+      const valueOr = (value, fallback) => {
+        if (value === undefined || value === null) return fallback;
+        const text = String(value).trim();
+        return text ? text : fallback;
+      };
+
+      const panels = [];
+
+      if (diffFlags.eventName) {
+        const eventTypeLabel = formatLabelFromName(config.eventType || 'custom', true) || 'Custom';
+        const eventNameValue = valueOr(config.eventName, 'missing');
+        panels.push({
+          id: `${prefix}-event-name`,
+          title: 'Event Name',
+          sections: [
+            {
+              id: `${prefix}-event-name-body`,
+              title: 'Event Name',
+              type: 'rows',
+              rows: [
+                { label: 'Type', value: eventTypeLabel },
+                { label: 'Value', value: eventNameValue }
+              ]
+            }
+          ]
+        });
+      }
+
+      if (diffFlags.serverUrl) {
+        const serverUrl = valueOr(resolveServerUrl(config), 'missing');
+        const checks = [
+          { label: 'Send all from DataLayer', checked: config.addDataLayer === 'true' || config.addDataLayer === true },
+          { label: 'Add consent state', checked: config.addConsentState === 'true' || config.addConsentState === true },
+          { label: 'Add Common Cookie', checked: config.addCommonCookie === 'true' || config.addCommonCookie === true }
+        ];
+        panels.push({
+          id: `${prefix}-server-url`,
+          title: 'GTM Server Side URL',
+          sections: [
+            {
+              id: `${prefix}-server-url-body`,
+              title: 'GTM Server Side URL',
+              type: 'rows',
+              rows: [{ label: 'URL', value: serverUrl }],
+              checks
+            }
+          ]
+        });
+      }
+
+      if (diffFlags.eventData) {
+        const eventItems = compareConfig
+          ? filterChangedDataItems(config.customData, compareConfig.customData)
+          : config.customData;
+        const eventRows = eventItems.map((item) => ({
+          cells: [
+            valueOr(item.name, 'event_data'),
+            valueOr(item.value, 'missing'),
+            valueOr(item.transformation, 'None'),
+            valueOr(item.store, 'None')
+          ]
+        }));
+        panels.push({
+          id: `${prefix}-event-data`,
+          title: 'Event Data',
+          sections: [
+            {
+              id: `${prefix}-event-data-body`,
+              title: 'Event Data',
+              type: 'table',
+              headers: ['Name', 'Value', 'Transformation', 'Store'],
+              rows: eventRows,
+              emptyNote: eventRows.length ? undefined : 'None',
+              collapsible: true,
+              footerNote: notes && notes.eventData ? notes.eventData : undefined
+            }
+          ]
+        });
+      }
+
+      if (diffFlags.userData) {
+        const userItems = compareConfig
+          ? filterChangedDataItems(config.userData, compareConfig.userData)
+          : config.userData;
+        const userRows = userItems.map((item) => ({
+          cells: [
+            valueOr(item.name, 'user_data'),
+            valueOr(item.value, 'missing'),
+            valueOr(item.transformation, 'None'),
+            valueOr(item.store, 'None')
+          ]
+        }));
+        panels.push({
+          id: `${prefix}-user-data`,
+          title: 'User Data',
+          sections: [
+            {
+              id: `${prefix}-user-data-body`,
+              title: 'User Data',
+              type: 'table',
+              headers: ['Name', 'Value', 'Transformation', 'Store'],
+              rows: userRows,
+              emptyNote: userRows.length ? undefined : 'None',
+              collapsible: true
+            }
+          ]
+        });
+      }
+
+      if (diffFlags.consent) {
+        const consentEnabled = config.addConsentState === 'true' || config.addConsentState === true;
+        const consentChips = consentEnabled ? DEFAULT_CONSENT_CHIPS : [];
+        panels.push({
+          id: `${prefix}-consent`,
+          title: 'Consent Settings (BETA)',
+          sections: [
+            {
+              id: `${prefix}-consent-body`,
+              title: 'Consent Settings (BETA)',
+              type: 'chips',
+              chips: consentChips,
+              note: consentEnabled ? 'Built-in Consent Checks' : undefined,
+              footerNote: consentEnabled ? 'Additional consent checks: no additional consent required' : undefined,
+              emptyNote: consentEnabled ? undefined : 'Consent state disabled',
+              collapsible: true
+            }
+          ]
+        });
+      }
+
+      if (diffFlags.triggering) {
+        const sourceDetails = compareDetails || details;
+        const targetTriggerIds = safeList(dataTag.triggerIds).map((id) => String(id));
+        const targetTriggerNames = targetTriggerIds.map((id) => {
+          const trigger = details.triggerMap.get(String(id));
+          return trigger ? (trigger.name || 'Trigger') : 'Built-in Trigger';
+        });
+        const primaryTriggerName = targetTriggerNames[0] || 'missing';
+        const displayTriggerName = primaryTriggerName.replace(/^Trigger\s*-\s*/i, '').replace(/^TR\s*-\s*/i, '').trim();
+        const primaryTriggerId = targetTriggerIds.length ? targetTriggerIds[0] : '';
+        const isExistingTrigger = primaryTriggerId
+          ? sourceDetails.triggerMap.has(primaryTriggerId)
+          : false;
+        const renameSuggestion = suggestTriggerRename(primaryTriggerName);
+        const usageEntry = primaryTriggerId && triggerUsageMap ? triggerUsageMap.get(primaryTriggerId) : null;
+        const usageLine = usageEntry && usageEntry.count > 0
+          ? `Used by: ${summarizeList(usageEntry.tags, 2)}`
+          : '';
+        const currentLabel = usageLine ? `Current name · ${usageLine}` : 'Current name';
+        const lines = [
+          { text: currentLabel, kind: 'label' },
+          {
+            text: displayTriggerName || primaryTriggerName,
+            kind: 'value',
+            badges: ['Trigger', isExistingTrigger ? 'Existing' : 'New']
+          }
+        ];
+        if (renameSuggestion) {
+          lines.push({ text: 'Rename to', kind: 'label' });
+          lines.push({ text: renameSuggestion.toLowerCase(), kind: 'value' });
+        }
+        const targetEvents = collectEventNamesFromTriggerIds(dataTag.triggerIds, details);
+        const currentEvents = compareTag
+          ? collectEventNamesFromTriggerIds(compareTag.triggerIds, sourceDetails)
+          : [];
+        const missingEvents = targetEvents.filter((event) => !currentEvents.includes(event));
+        const missingChips = missingEvents.map((event) => ({ label: event, className: 'missing' }));
+
+        const eventRegex = targetEvents.length ? `^(${targetEvents.join('|')})$` : '';
+        panels.push({
+          id: `${prefix}-events-copy`,
+          title: 'Events To Include (Copy/Paste)',
+          theme: 'info',
+          sections: [
+            {
+              id: `${prefix}-events-copy-body`,
+              title: 'Trigger Regex',
+              type: 'code',
+              label: 'Copy into trigger event filter (arg1)',
+              text: eventRegex,
+              boxed: true
+            },
+            {
+              id: `${prefix}-events-copy-missing`,
+              title: `Missing Events (${missingEvents.length})`,
+              type: 'chips',
+              chips: missingChips,
+              emptyNote: 'None',
+              collapsible: true,
+              boxed: true
+            }
+          ]
+        });
+
+        panels.push({
+          id: `${prefix}-trigger-decision`,
+          title: '',
+          hideHeader: true,
+          sections: [
+            {
+              id: `${prefix}-trigger-decision-body`,
+              title: '',
+              type: 'lines',
+              lines,
+              boxed: true,
+              emphasis: 'primary',
+              hideHeader: true
+            }
+          ]
+        });
+        // Inventory is now shown inside the Trigger Inventory + Change card.
+      }
+
+      if (!panels.length) {
+        const panel = {
+          title: 'No Changes',
+          subtitle: 'Target matches current',
+          badge: 'Target',
+          badgeClass: 'target',
+          sections: [
+            {
+              id: `${prefix}-no-changes`,
+              title: 'No Changes',
+              type: 'callout',
+              items: [{ title: 'No differences vs current' }]
+            }
+          ],
+          collapsedMap,
+          onToggle: options.onToggle
+        };
+        const { node, height } = buildPanelNode(panel, x, yOffset, width, `${prefix}-no-changes`);
+        nodes.push(node);
+        return { nodes, height };
+      }
+
+      panels.forEach((panelDef, index) => {
+        const panel = {
+          title: panelDef.title,
+          theme: panelDef.theme,
+          badge: 'Target',
+          badgeClass: 'target',
+          hideHeader: panelDef.hideHeader,
+          sections: panelDef.sections,
+          collapsedMap,
+          onToggle: options.onToggle
+        };
+        const { node, height } = buildPanelNode(panel, x, yOffset, width, `${panelDef.id}-panel`);
+        nodes.push(node);
+        yOffset += height + DATA_TAG_LAYOUT.blockGap;
+      });
+
+      return { nodes, height: yOffset - y };
+    }
+
+    function buildDataTagPanelNode(context, x, y, label, prefix, options = {}) {
+      const nodes = [];
+      const columnWidth = DATA_TAG_LAYOUT.columnWidth;
+      const collapsedMap = options.collapsedMap || {};
+      const {
+        details,
+        dataTag,
+        config,
+        side,
+        notes,
+        diffOnly,
+        diffFlags,
+        compareConfig,
+        compareTag,
+        compareDetails
+      } = context;
+      const badgeLabel = side === 'current' ? 'Current' : 'Target';
+      const kicker = '';
+
+      if (!dataTag) {
+        const panel = {
+          kicker: kicker || undefined,
+          title: 'Data Tag',
+          subtitle: 'stape-io',
+          badge: badgeLabel,
+          badgeClass: side,
+          sections: [
+            {
+              id: `${prefix}-missing`,
+              title: 'Data Tag',
+              type: 'callout',
+              items: [{ title: 'No Data Tag found', detail: 'Check import or template install.' }]
+            }
+          ],
+          collapsedMap,
+          onToggle: options.onToggle
+        };
+        const height = estimatePanelHeight(panel, collapsedMap);
+        nodes.push({
+          id: `${prefix}-panel`,
+          type: 'inventory',
+          position: { x, y },
+          data: { variant: 'panel', panel },
+          style: { width: columnWidth, height }
+        });
+        return { nodes, height };
+      }
+
+      const valueOr = (value, fallback) => {
+        if (value === undefined || value === null) return fallback;
+        const text = String(value).trim();
+        return text ? text : fallback;
+      };
+
+      const eventTypeLabel = formatLabelFromName(config.eventType || 'custom', true) || 'Custom';
+      const eventNameValue = valueOr(config.eventName, 'missing');
+      const serverUrl = valueOr(resolveServerUrl(config), 'missing');
+
+      const sections = [];
+      if (!diffOnly || (diffFlags && diffFlags.eventName)) {
+        sections.push({
+          id: `${prefix}-event-name`,
+          title: 'Event Name',
+          type: 'rows',
+          rows: [
+            { label: '', value: eventTypeLabel },
+            { label: '', value: eventNameValue }
+          ]
+        });
+      }
+
+      const checks = [
+        { label: 'Send all from DataLayer', checked: config.addDataLayer === 'true' || config.addDataLayer === true },
+        { label: 'Add consent state', checked: config.addConsentState === 'true' || config.addConsentState === true },
+        { label: 'Add Common Cookie', checked: config.addCommonCookie === 'true' || config.addCommonCookie === true }
+      ];
+
+      if (!diffOnly || (diffFlags && diffFlags.serverUrl)) {
+        sections.push({
+          id: `${prefix}-server-url`,
+          title: 'GTM Server Side URL',
+          type: 'rows',
+          rows: [{ label: '', value: serverUrl }],
+          checks
+        });
+      }
+
+      const eventItems = diffOnly && compareConfig
+        ? filterChangedDataItems(config.customData, compareConfig.customData)
+        : config.customData;
+      const eventRows = eventItems.map((item) => ({
+        cells: [
+          valueOr(item.name, 'event_data'),
+          valueOr(item.value, 'missing'),
+          valueOr(item.transformation, 'None'),
+          valueOr(item.store, 'None')
+        ]
+      }));
+      if (!diffOnly || (diffFlags && diffFlags.eventData)) {
+        sections.push({
+          id: `${prefix}-event-data`,
+          title: 'Event Data',
+          type: 'table',
+          headers: ['Name', 'Value', 'Transformation', 'Store'],
+          rows: eventRows,
+          emptyNote: eventRows.length ? undefined : 'None',
+          collapsible: true,
+          footerNote: notes && notes.eventData ? notes.eventData : undefined
+        });
+      }
+
+      const userItems = diffOnly && compareConfig
+        ? filterChangedDataItems(config.userData, compareConfig.userData)
+        : config.userData;
+      const userRows = userItems.map((item) => ({
+        cells: [
+          valueOr(item.name, 'user_data'),
+          valueOr(item.value, 'missing'),
+          valueOr(item.transformation, 'None'),
+          valueOr(item.store, 'None')
+        ]
+      }));
+      if (!diffOnly || (diffFlags && diffFlags.userData)) {
+        sections.push({
+          id: `${prefix}-user-data`,
+          title: 'User Data',
+          type: 'table',
+          headers: ['Name', 'Value', 'Transformation', 'Store'],
+          rows: userRows,
+          emptyNote: userRows.length ? undefined : 'None',
+          collapsible: true
+        });
+      }
+
+      const consentEnabled = config.addConsentState === 'true' || config.addConsentState === true;
+      const consentChips = consentEnabled ? DEFAULT_CONSENT_CHIPS : [];
+      if (!diffOnly || (diffFlags && diffFlags.consent)) {
+        sections.push({
+          id: `${prefix}-consent`,
+          title: 'Consent Settings (BETA)',
+          type: 'chips',
+          chips: consentChips,
+          note: consentEnabled ? 'Built-in Consent Checks' : undefined,
+          footerNote: consentEnabled ? 'Additional consent checks: no additional consent required' : undefined,
+          emptyNote: consentEnabled ? undefined : 'Consent state disabled',
+          collapsible: true
+        });
+      }
+
+      const triggerRows = safeList(dataTag.triggerIds).map((id) => {
+        const trigger = details.triggerMap.get(String(id));
+        const typeLabel = trigger ? (formatTriggerTypeSimple(trigger) || 'Trigger') : 'Trigger';
+        return {
+          name: trigger ? (trigger.name || 'Trigger') : 'Built-in Trigger',
+          type: typeLabel
+        };
+      });
+
+      if (diffOnly && diffFlags && diffFlags.triggering) {
+        const sourceDetails = compareDetails || details;
+        const currentTriggerNames = compareTag ? listTriggerNames(compareTag, sourceDetails) : [];
+        const currentSummary = summarizeList(currentTriggerNames, 3) || 'missing';
+        const targetSummary = summarizeList(triggerRows.map((item) => item.name), 3) || 'missing';
+        const available = listAvailableEcomTriggers(sourceDetails);
+        const availableSummary = available.length ? available.join(', ') : 'none';
+        sections.push({
+          id: `${prefix}-trigger-update`,
+          title: 'Trigger Update',
+          type: 'rows',
+          rows: [
+            { label: 'Current Trigger', value: currentSummary },
+            { label: 'Recommended Trigger', value: targetSummary },
+            { label: 'Available Ecommerce Triggers', value: availableSummary }
+          ],
+          footerNote: notes && notes.triggering ? notes.triggering : undefined,
+          collapsible: true
+        });
+      } else if (!diffOnly || (diffFlags && diffFlags.triggering)) {
+        sections.push({
+          id: `${prefix}-triggers`,
+          title: 'Triggering',
+          note: 'Firing Triggers',
+          type: 'trigger-list',
+          triggers: triggerRows.length ? triggerRows : [{ name: 'Missing trigger', type: 'Trigger' }],
+          collapsible: true
+        });
+      }
+
+      if (diffOnly && sections.length === 0) {
+        sections.push({
+          id: `${prefix}-no-changes`,
+          title: 'No Changes',
+          type: 'callout',
+          items: [{ title: 'No differences vs current' }]
+        });
+      }
+
+      const panel = {
+        kicker: kicker || undefined,
+        title: dataTag.name || 'Data Tag',
+        subtitle: dataTag.templateName || 'stape-io',
+        badge: badgeLabel,
+        badgeClass: side,
+        sections,
+        collapsedMap,
+        onToggle: options.onToggle
+      };
+      const height = estimatePanelHeight(panel, collapsedMap);
+      nodes.push({
+        id: `${prefix}-panel`,
+        type: 'inventory',
+        position: { x, y },
+        data: { variant: 'panel', panel },
+        style: { width: columnWidth, height }
+      });
+      return { nodes, height };
+    }
+
+    function buildDataTagDeltaPanel(comparisonRows, x, y, width, prefix, options = {}) {
+      if (!comparisonRows || !comparisonRows.length) return { nodes: [], height: 0 };
+      const collapsedMap = options.collapsedMap || {};
+      const deltaRows = comparisonRows.map((row) => ({
+        cells: [
+          row.label,
+          row.currentValue || 'missing',
+          row.targetValue || 'missing',
+          getDeltaStatus(row.currentStatus, row.targetStatus)
+        ],
+        status: getDeltaStatus(row.currentStatus, row.targetStatus)
+      }));
+      const panel = {
+        kicker: 'Alignment',
+        title: 'Current vs Target',
+        subtitle: 'Data Tag Deltas',
+        sections: [
+          {
+            id: `${prefix}-delta`,
+            title: 'Aligned Rows',
+            type: 'table',
+            headers: ['Field', 'Current', 'Target', 'Delta'],
+            rows: deltaRows,
+            count: deltaRows.length
+          }
+        ],
+        collapsedMap,
+        onToggle: options.onToggle
+      };
+      const height = estimatePanelHeight(panel, collapsedMap);
+      return {
+        nodes: [
+          {
+            id: `${prefix}-panel`,
+            type: 'inventory',
+            position: { x, y },
+            data: { variant: 'panel', panel },
+            style: { width, height }
+          }
+        ],
+        height
+      };
+    }
+
+    function buildDataTagDetailLayout(inventoryData, options = {}) {
+      const nodes = [];
+      const edges = [];
+      if (!inventoryData || !inventoryData.wgtm) return { nodes, edges };
+
+      const currentItems = inventoryData.wgtm.current;
+      const targetItems = inventoryData.wgtm.target;
+      const currentDetails = buildTagDetails(currentItems.tags || [], currentItems);
+      const targetDetails = buildTagDetails(targetItems.tags || [], targetItems);
+      const dataTagMatcher = TAG_GROUP_CONFIG.wgtm[0].matcher;
+      const currentTag = currentDetails.tags.find((tag) => dataTagMatcher(tag)) || null;
+      const targetTag = targetDetails.tags.find((tag) => dataTagMatcher(tag)) || null;
+      const emptyConfig = {
+        eventType: '',
+        eventName: '',
+        serverDomain: '',
+        requestPath: '',
+        requestType: '',
+        useFetch: '',
+        scriptUrl: '',
+        addDataLayer: '',
+        addConsentState: '',
+        addCommonCookie: '',
+        addCommon: '',
+        customData: [],
+        userData: [],
+        consentStatus: ''
+      };
+      const currentConfig = currentTag ? buildDataTagConfig(currentTag) : { ...emptyConfig };
+      const triggerUsageMap = buildTriggerUsageMap(currentDetails.tags || []);
+      const baseTag = currentTag || targetTag;
+      const baseConfig = currentTag
+        ? currentConfig
+        : targetTag
+          ? buildDataTagConfig(targetTag)
+          : { ...emptyConfig };
+      const baseDetails = currentTag ? currentDetails : targetDetails;
+      const recommended = buildRecommendedDataTag(baseTag, baseConfig, baseDetails);
+      const targetConfig = recommended.config;
+      const targetNotes = recommended.notes;
+      const targetViewTag = recommended.tag;
+      const diffFlags = computeDataTagDiff(currentTag, currentConfig, targetViewTag, targetConfig);
+
+      const panelStartY = DATA_TAG_LAYOUT.startY;
+      const current = buildDataTagPanelNode(
+        {
+          details: currentDetails,
+          dataTag: currentTag,
+          config: currentConfig,
+          side: 'current'
+        },
+        DATA_TAG_LAYOUT.startX,
+        panelStartY,
+        'wGTM Current Data Tag',
+        'datatag-current',
+        options
+      );
+      nodes.push(...current.nodes);
+
+      const targetX = DATA_TAG_LAYOUT.startX + DATA_TAG_LAYOUT.columnWidth + DATA_TAG_LAYOUT.columnGap;
+      const target = buildDataTagTargetCards(
+        {
+          details: baseDetails,
+          dataTag: targetViewTag,
+          config: targetConfig,
+          notes: targetNotes,
+          diffFlags,
+          compareConfig: currentConfig,
+          compareTag: currentTag,
+          compareDetails: currentDetails,
+          triggerUsageMap
+        },
+        targetX,
+        panelStartY,
+        'datatag-target',
+        options
+      );
+      nodes.push(...target.nodes);
+
+      return { nodes, edges };
+    }
 
     // Nodes - Layout designed for clarity with ALL cards expanded
     // Column 1 (x:50): Sources | Column 2 (x:350): DataLayer | Column 3 (x:600): wGTM Hub | Column 4 (x:1050+): Server Path | Row 3 (y:1100): Destinations
@@ -2697,8 +6085,533 @@
         style: { stroke: '#ff9800', strokeWidth: 2, strokeDasharray: '5 5' } }
     ];
 
+    // Tags / Triggers / Variables - Current State
+    const ttvCurrentNodes = [
+      {
+        id: 'ttv-container',
+        type: 'custom',
+        position: { x: 300, y: 20 },
+        data: {
+          label: 'GTM Web Container',
+          subtitle: 'GTM-MNRP4PF (Current)',
+          icon: 'G',
+          nodeType: 'wgtm',
+          useLogo: true,
+          status: 'warning',
+          statusText: 'CURRENT',
+          expanded: false
+        }
+      },
+      {
+        id: 'ttv-template-tags',
+        type: 'custom',
+        position: { x: 80, y: 150 },
+        data: {
+          label: 'Template Tags',
+          subtitle: 'Built-in + vendor',
+          icon: 'T',
+          nodeType: 'template',
+          status: 'warning',
+          statusText: 'MIXED',
+          expanded: true,
+          items: [
+            {
+              title: 'Core Templates',
+              rows: [
+                { text: 'Google Tag (gtag)', iconType: 'success', type: 'success' },
+                { text: 'Conversion Linker', iconType: 'success', type: 'success' },
+                { text: 'Data Tag (Stape) - purchase only', iconType: 'warning', type: 'warning' }
+              ]
+            },
+            {
+              title: 'Vendor Templates',
+              rows: [
+                { text: 'LinkedIn Insight', iconType: 'success', type: 'success' },
+                { text: 'MS UET base + events', iconType: 'success', type: 'success' },
+                { text: 'FB - Page View', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-custom-tags',
+        type: 'custom',
+        position: { x: 520, y: 150 },
+        data: {
+          label: 'Custom Tags',
+          subtitle: 'Custom HTML',
+          icon: 'C',
+          nodeType: 'custom',
+          status: 'warning',
+          statusText: 'REVIEW',
+          expanded: true,
+          items: [
+            {
+              title: 'Custom HTML',
+              rows: [
+                { text: 'Mailchimp (html)', iconType: 'success', type: 'success' },
+                { text: 'Click Cease (html)', iconType: 'success', type: 'success' },
+                { text: 'Helper - Push search Event', iconType: 'warning', type: 'warning' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-template-triggers',
+        type: 'custom',
+        position: { x: 80, y: 520 },
+        data: {
+          label: 'Template Triggers',
+          subtitle: 'Built-in event types',
+          icon: 'TR',
+          nodeType: 'template',
+          status: 'success',
+          statusText: 'OK',
+          expanded: true,
+          items: [
+            {
+              title: 'Consent + Page',
+              rows: [
+                { text: 'CM - All Consent Granted (ID 330)', iconType: 'success', type: 'success' },
+                { text: 'Initialization (ID 213)', iconType: 'success', type: 'success' }
+              ]
+            },
+            {
+              title: 'Interaction',
+              rows: [
+                { text: 'Click (ID 201)', iconType: 'success', type: 'success' },
+                { text: 'Scroll (ID 205)', iconType: 'success', type: 'success' },
+                { text: 'Submit form (ID 100)', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-custom-triggers',
+        type: 'custom',
+        position: { x: 520, y: 520 },
+        data: {
+          label: 'Custom Triggers',
+          subtitle: 'Custom event rules',
+          icon: 'C',
+          nodeType: 'custom',
+          status: 'warning',
+          statusText: 'MISWIRED',
+          expanded: true,
+          items: [
+            {
+              title: 'Ecommerce Events',
+              rows: [
+                { text: 'Trigger - Ecom Core Events (ID 313)', iconType: 'success', type: 'success' },
+                { text: 'ce_purchase (ID 96) - in use', iconType: 'error', type: 'error' },
+                { text: 'ce_view_item (ID 92)', iconType: 'success', type: 'success' },
+                { text: 'ce_add_to_cart (ID 93)', iconType: 'success', type: 'success' }
+              ]
+            },
+            {
+              title: 'Consent Events',
+              rows: [
+                { text: 'cmplz_event_marketing (ID 324)', iconType: 'success', type: 'success' },
+                { text: 'cmplz_event_statistics (ID 325)', iconType: 'success', type: 'success' },
+                { text: 'gtag.consent.update (ID 326)', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-template-vars',
+        type: 'custom',
+        position: { x: 80, y: 890 },
+        data: {
+          label: 'Template Variables',
+          subtitle: 'Built-in variables',
+          icon: 'V',
+          nodeType: 'template',
+          status: 'success',
+          statusText: 'OK',
+          expanded: true,
+          items: [
+            {
+              title: 'Built-in Variables',
+              rows: [
+                { text: 'Page URL', iconType: 'success', type: 'success' },
+                { text: 'Page Path', iconType: 'success', type: 'success' },
+                { text: 'Referrer', iconType: 'success', type: 'success' },
+                { text: 'Click URL', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-custom-vars',
+        type: 'custom',
+        position: { x: 520, y: 890 },
+        data: {
+          label: 'Custom Variables',
+          subtitle: 'DLV + custom IDs',
+          icon: 'C',
+          nodeType: 'custom',
+          status: 'warning',
+          statusText: 'CLEANUP',
+          expanded: true,
+          items: [
+            {
+              title: 'Event IDs',
+              rows: [
+                { text: 'Event Id (ID 82)', iconType: 'success', type: 'success' },
+                { text: 'Unique Event ID (ID 350) - avoid', iconType: 'warning', type: 'warning' }
+              ]
+            },
+            {
+              title: 'DataLayer (dlv_)',
+              rows: [
+                { text: 'dlv_value (ID 88)', iconType: 'success', type: 'success' },
+                { text: 'dlv_transactionID (ID 89)', iconType: 'success', type: 'success' },
+                { text: 'dlv_ecommerce_items (ID 87)', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      }
+    ];
+
+    const ttvCurrentEdges = [
+      {
+        id: 'ttv-c-e1',
+        source: 'ttv-container',
+        target: 'ttv-template-tags',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'templates', labelColor: '#64b5f6' },
+        style: { stroke: '#64b5f6', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-c-e2',
+        source: 'ttv-container',
+        target: 'ttv-custom-tags',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'custom html', labelColor: '#ff9800' },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-c-e3',
+        source: 'ttv-template-tags',
+        target: 'ttv-template-triggers',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'fires on', labelColor: '#4caf50' },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-c-e4',
+        source: 'ttv-template-tags',
+        target: 'ttv-custom-triggers',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        data: {
+          label: 'Data Tag -> ce_purchase',
+          labelColor: '#f44336',
+          tooltipTitle: 'Miswired Trigger',
+          tooltip: 'Data Tag fires on ce_purchase only, dropping other ecommerce events.'
+        },
+        style: { stroke: '#f44336', strokeWidth: 2, strokeDasharray: '6 4' }
+      },
+      {
+        id: 'ttv-c-e5',
+        source: 'ttv-custom-tags',
+        target: 'ttv-custom-triggers',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'custom events', labelColor: '#ff9800' },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-c-e6',
+        source: 'ttv-template-triggers',
+        target: 'ttv-template-vars',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'built-in filters', labelColor: '#4caf50' },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-c-e7',
+        source: 'ttv-custom-triggers',
+        target: 'ttv-custom-vars',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'event params', labelColor: '#ff9800' },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      }
+    ];
+
+    // Tags / Triggers / Variables - Target State
+    const ttvTargetNodes = [
+      {
+        id: 'ttv-container',
+        type: 'custom',
+        position: { x: 300, y: 20 },
+        data: {
+          label: 'GTM Web Container',
+          subtitle: 'GTM-MNRP4PF (Target)',
+          icon: 'G',
+          nodeType: 'wgtm',
+          useLogo: true,
+          status: 'success',
+          statusText: 'TARGET',
+          expanded: false
+        }
+      },
+      {
+        id: 'ttv-template-tags',
+        type: 'custom',
+        position: { x: 80, y: 150 },
+        data: {
+          label: 'Template Tags',
+          subtitle: 'Standardized templates',
+          icon: 'T',
+          nodeType: 'template',
+          status: 'success',
+          statusText: 'STANDARD',
+          expanded: true,
+          items: [
+            {
+              title: 'Data Tags (Recommended)',
+              rows: [
+                { text: 'Core Events Tag', iconType: 'success', type: 'success' },
+                { text: 'Ecommerce Tag', iconType: 'success', type: 'success' },
+                { text: 'Conversion Tag', iconType: 'success', type: 'success' },
+                { text: 'Engagement Tag', iconType: 'success', type: 'success' }
+              ]
+            },
+            {
+              title: 'Vendor Templates',
+              rows: [
+                { text: 'Google Tag (gtag)', iconType: 'success', type: 'success' },
+                { text: 'Conversion Linker', iconType: 'success', type: 'success' },
+                { text: 'LinkedIn Insight', iconType: 'success', type: 'success' },
+                { text: 'MS UET', iconType: 'success', type: 'success' },
+                { text: 'FB Pixel (dedup)', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-custom-tags',
+        type: 'custom',
+        position: { x: 520, y: 150 },
+        data: {
+          label: 'Custom Tags',
+          subtitle: 'Custom HTML (minimal)',
+          icon: 'C',
+          nodeType: 'custom',
+          status: 'success',
+          statusText: 'MINIMAL',
+          expanded: true,
+          items: [
+            {
+              title: 'Custom HTML (Minimal)',
+              rows: [
+                { text: 'Mailchimp (if required)', iconType: 'success', type: 'success' },
+                { text: 'Click Cease (if required)', iconType: 'success', type: 'success' },
+                { text: 'Helper - Push search Event (review)', iconType: 'warning', type: 'warning' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-template-triggers',
+        type: 'custom',
+        position: { x: 80, y: 520 },
+        data: {
+          label: 'Template Triggers',
+          subtitle: 'Built-in event types',
+          icon: 'TR',
+          nodeType: 'template',
+          status: 'success',
+          statusText: 'STANDARD',
+          expanded: true,
+          items: [
+            {
+              title: 'Consent + Page',
+              rows: [
+                { text: 'All Pages (consent granted)', iconType: 'success', type: 'success' },
+                { text: 'Initialization', iconType: 'success', type: 'success' }
+              ]
+            },
+            {
+              title: 'Interaction',
+              rows: [
+                { text: 'Click', iconType: 'success', type: 'success' },
+                { text: 'Scroll', iconType: 'success', type: 'success' },
+                { text: 'Form Submit', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-custom-triggers',
+        type: 'custom',
+        position: { x: 520, y: 520 },
+        data: {
+          label: 'Custom Triggers',
+          subtitle: 'Event taxonomy',
+          icon: 'C',
+          nodeType: 'custom',
+          status: 'success',
+          statusText: 'STANDARD',
+          expanded: true,
+          items: [
+            {
+              title: 'Event Taxonomy',
+              rows: [
+                { text: 'Ecom Core Events (ID 313)', iconType: 'success', type: 'success' },
+                { text: 'Engagement Events (form_submit, search)', iconType: 'success', type: 'success' },
+                { text: 'Consent Update (cmplz_*)', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-template-vars',
+        type: 'custom',
+        position: { x: 80, y: 890 },
+        data: {
+          label: 'Template Variables',
+          subtitle: 'Built-in variables',
+          icon: 'V',
+          nodeType: 'template',
+          status: 'success',
+          statusText: 'STANDARD',
+          expanded: true,
+          items: [
+            {
+              title: 'Built-in Variables',
+              rows: [
+                { text: 'Page URL', iconType: 'success', type: 'success' },
+                { text: 'Page Path', iconType: 'success', type: 'success' },
+                { text: 'Referrer', iconType: 'success', type: 'success' },
+                { text: 'Click URL', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'ttv-custom-vars',
+        type: 'custom',
+        position: { x: 520, y: 890 },
+        data: {
+          label: 'Custom Variables',
+          subtitle: 'DLV + custom IDs',
+          icon: 'C',
+          nodeType: 'custom',
+          status: 'success',
+          statusText: 'STANDARD',
+          expanded: true,
+          items: [
+            {
+              title: 'Event IDs',
+              rows: [
+                { text: 'Event Id (single source)', iconType: 'success', type: 'success' },
+                { text: 'No duplicate Event ID vars', iconType: 'success', type: 'success' }
+              ]
+            },
+            {
+              title: 'DataLayer (standardized)',
+              rows: [
+                { text: 'dlv_value', iconType: 'success', type: 'success' },
+                { text: 'dlv_transaction_id', iconType: 'success', type: 'success' },
+                { text: 'dlv_ecommerce_items', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      }
+    ];
+
+    const ttvTargetEdges = [
+      {
+        id: 'ttv-t-e1',
+        source: 'ttv-container',
+        target: 'ttv-template-tags',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'templates', labelColor: '#4caf50' },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-t-e2',
+        source: 'ttv-container',
+        target: 'ttv-custom-tags',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'custom html', labelColor: '#ff9800' },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-t-e3',
+        source: 'ttv-template-tags',
+        target: 'ttv-template-triggers',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'fires on', labelColor: '#4caf50' },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-t-e4',
+        source: 'ttv-custom-tags',
+        target: 'ttv-custom-triggers',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'custom events', labelColor: '#ff9800' },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-t-e5',
+        source: 'ttv-template-triggers',
+        target: 'ttv-template-vars',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'built-in filters', labelColor: '#4caf50' },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'ttv-t-e6',
+        source: 'ttv-custom-triggers',
+        target: 'ttv-custom-vars',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: { label: 'event params', labelColor: '#ff9800' },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      }
+    ];
+
     // Toolbar Component
-    function Toolbar({ tool, setTool, viewMode, setViewMode }) {
+    function Toolbar({ tool, setTool, viewMode, setViewMode, diagramMode, setDiagramMode }) {
       // Keyboard shortcuts
       React.useEffect(() => {
         const handleKeyDown = (e) => {
@@ -2707,10 +6620,14 @@
           if (e.key === 'h' || e.key === 'H') setTool('hand');
           if (e.key === '1') setViewMode('current');
           if (e.key === '2') setViewMode('target');
+          if (e.key === '3') setDiagramMode('system');
+          if (e.key === '4') setDiagramMode('ttv');
+          if (e.key === '5') setDiagramMode('inventory');
+          if (e.key === '6') setDiagramMode('data-tag');
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-      }, [setTool, setViewMode]);
+      }, [setTool, setViewMode, setDiagramMode]);
 
       return (
         <div className="toolbar">
@@ -2750,23 +6667,64 @@
             <span className="toolbar-hint">Fit View</span>
           </button>
           <div className="toolbar-divider"></div>
+          {diagramMode !== 'inventory' && diagramMode !== 'data-tag' && (
+            <>
+              <button
+                className={`toolbar-btn ${viewMode === 'current' ? 'active' : ''}`}
+                onClick={() => setViewMode('current')}
+                title="Current State"
+                style={{ fontSize: '10px', fontWeight: '700' }}
+              >
+                <span style={{ color: viewMode === 'current' ? '#fff' : '#f44336' }}>!</span>
+                <span className="toolbar-hint">Current State <kbd>1</kbd></span>
+              </button>
+              <button
+                className={`toolbar-btn ${viewMode === 'target' ? 'active' : ''}`}
+                onClick={() => setViewMode('target')}
+                title="Target State"
+                style={{ fontSize: '10px', fontWeight: '700', background: viewMode === 'target' ? '#4caf50' : 'transparent' }}
+              >
+                <span style={{ color: viewMode === 'target' ? '#fff' : '#4caf50' }}>T</span>
+                <span className="toolbar-hint">Target State <kbd>2</kbd></span>
+              </button>
+            </>
+          )}
+          <div className="toolbar-divider"></div>
           <button
-            className={`toolbar-btn ${viewMode === 'current' ? 'active' : ''}`}
-            onClick={() => setViewMode('current')}
-            title="Current State"
+            className={`toolbar-btn ${diagramMode === 'system' ? 'active' : ''}`}
+            onClick={() => setDiagramMode('system')}
+            title="System Flow Diagram"
             style={{ fontSize: '10px', fontWeight: '700' }}
           >
-            <span style={{ color: viewMode === 'current' ? '#fff' : '#f44336' }}>!</span>
-            <span className="toolbar-hint">Current State <kbd>1</kbd></span>
+            <span style={{ color: diagramMode === 'system' ? '#fff' : '#64b5f6' }}>F</span>
+            <span className="toolbar-hint">System Flow <kbd>3</kbd></span>
           </button>
           <button
-            className={`toolbar-btn ${viewMode === 'target' ? 'active' : ''}`}
-            onClick={() => setViewMode('target')}
-            title="Target State"
-            style={{ fontSize: '10px', fontWeight: '700', background: viewMode === 'target' ? '#4caf50' : 'transparent' }}
+            className={`toolbar-btn ${diagramMode === 'ttv' ? 'active' : ''}`}
+            onClick={() => setDiagramMode('ttv')}
+            title="Tags / Triggers / Variables Diagram"
+            style={{ fontSize: '10px', fontWeight: '700', background: diagramMode === 'ttv' ? '#26a69a' : 'transparent' }}
           >
-            <span style={{ color: viewMode === 'target' ? '#fff' : '#4caf50' }}>T</span>
-            <span className="toolbar-hint">Target State <kbd>2</kbd></span>
+            <span style={{ color: diagramMode === 'ttv' ? '#fff' : '#26a69a' }}>G</span>
+            <span className="toolbar-hint">Tags / Triggers / Vars <kbd>4</kbd></span>
+          </button>
+          <button
+            className={`toolbar-btn ${diagramMode === 'inventory' ? 'active' : ''}`}
+            onClick={() => setDiagramMode('inventory')}
+            title="Inventory Puzzle Diagram"
+            style={{ fontSize: '10px', fontWeight: '700', background: diagramMode === 'inventory' ? '#f97316' : 'transparent' }}
+          >
+            <span style={{ color: diagramMode === 'inventory' ? '#fff' : '#f59e0b' }}>I</span>
+            <span className="toolbar-hint">Inventory Puzzle <kbd>5</kbd></span>
+          </button>
+          <button
+            className={`toolbar-btn ${diagramMode === 'data-tag' ? 'active' : ''}`}
+            onClick={() => setDiagramMode('data-tag')}
+            title="Data Tag Detail Diagram"
+            style={{ fontSize: '10px', fontWeight: '700', background: diagramMode === 'data-tag' ? '#0ea5e9' : 'transparent' }}
+          >
+            <span style={{ color: diagramMode === 'data-tag' ? '#fff' : '#38bdf8' }}>D</span>
+            <span className="toolbar-hint">Data Tag Detail <kbd>6</kbd></span>
           </button>
         </div>
       );
@@ -2774,25 +6732,131 @@
 
     function Flow() {
       const [viewMode, setViewMode] = useState('current'); // 'current' or 'target'
+      const [diagramMode, setDiagramMode] = useState('system'); // 'system', 'ttv', 'inventory', or 'data-tag'
       const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
       const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
       const [showMinimap, setShowMinimap] = useState(false);
       const [tool, setTool] = useState('select'); // 'select' or 'hand'
+      const [inventoryData, setInventoryData] = useState(null);
+      const [inventoryError, setInventoryError] = useState('');
+      const [inventorySearch, setInventorySearch] = useState('');
+      const [inventoryCollapse, setInventoryCollapse] = useState({});
+      const [dataTagCollapse, setDataTagCollapse] = useState({});
 
-      // Switch nodes/edges when viewMode changes
-      React.useEffect(() => {
-        if (viewMode === 'current') {
-          setNodes(initialNodes);
-          setEdges(initialEdges);
-        } else {
-          setNodes(targetNodes);
-          setEdges(targetEdges);
+      const handleInventoryToggle = useCallback((collapseKey) => {
+        setInventoryCollapse((prev) => ({
+          ...prev,
+          [collapseKey]: !prev[collapseKey]
+        }));
+      }, []);
+
+      const handleDataTagToggle = useCallback((collapseKey) => {
+        setDataTagCollapse((prev) => ({
+          ...prev,
+          [collapseKey]: !prev[collapseKey]
+        }));
+      }, []);
+
+      useEffect(() => {
+        let cancelled = false;
+        async function loadInventory() {
+          try {
+            const [wgtmCurrent, sgtmCurrent, wgtmImport, sgtmImport] = await Promise.all([
+              fetch(INVENTORY_SOURCES.wgtm.current).then((res) => res.json()),
+              fetch(INVENTORY_SOURCES.sgtm.current).then((res) => res.json()),
+              fetch(INVENTORY_SOURCES.wgtm.target).then((res) => res.json()),
+              fetch(INVENTORY_SOURCES.sgtm.target).then((res) => res.json())
+            ]);
+            if (cancelled) return;
+            const wgtm = buildInventoryDataset(wgtmCurrent, wgtmImport);
+            const sgtm = buildInventoryDataset(sgtmCurrent, sgtmImport);
+            setInventoryData({ wgtm, sgtm });
+            setInventoryError('');
+          } catch (err) {
+            if (cancelled) return;
+            setInventoryError(err && err.message ? err.message : 'Failed to load inventory data');
+          }
         }
+        loadInventory();
+        return () => {
+          cancelled = true;
+        };
+      }, []);
+
+      // Switch nodes/edges when viewMode or diagramMode changes
+      useEffect(() => {
+        let nextNodes = initialNodes;
+        let nextEdges = initialEdges;
+
+        if (diagramMode === 'inventory') {
+          if (!inventoryData) {
+            nextNodes = [
+              {
+                id: 'inventory-loading',
+                type: 'inventory',
+                position: { x: 200, y: 200 },
+                data: {
+                  variant: 'section',
+                  title: inventoryError ? 'Inventory Load Failed' : 'Loading Inventory',
+                  subtitle: inventoryError || 'Fetching wGTM + sGTM exports...'
+                },
+                style: { width: 360, height: 60 }
+              }
+            ];
+            nextEdges = [];
+          } else {
+            const layout = buildInventoryLayout(inventoryData, {
+              searchTerm: inventorySearch,
+              collapsedMap: inventoryCollapse,
+              onToggle: handleInventoryToggle
+            });
+            nextNodes = layout.nodes;
+            nextEdges = layout.edges;
+          }
+        } else if (diagramMode === 'data-tag') {
+          if (!inventoryData) {
+            nextNodes = [
+              {
+                id: 'datatag-loading',
+                type: 'inventory',
+                position: { x: 200, y: 200 },
+                data: {
+                  variant: 'section',
+                  title: inventoryError ? 'Data Tag Load Failed' : 'Loading Data Tag Detail',
+                  subtitle: inventoryError || 'Fetching wGTM export...'
+                },
+                style: { width: 360, height: 60 }
+              }
+            ];
+            nextEdges = [];
+          } else {
+            const layout = buildDataTagDetailLayout(inventoryData, {
+              collapsedMap: dataTagCollapse,
+              onToggle: handleDataTagToggle
+            });
+            nextNodes = layout.nodes;
+            nextEdges = layout.edges;
+          }
+        } else if (diagramMode === 'ttv') {
+          if (viewMode === 'current') {
+            nextNodes = ttvCurrentNodes;
+            nextEdges = ttvCurrentEdges;
+          } else {
+            nextNodes = ttvTargetNodes;
+            nextEdges = ttvTargetEdges;
+          }
+        } else if (viewMode === 'target') {
+          nextNodes = targetNodes;
+          nextEdges = targetEdges;
+        }
+
+        setNodes(nextNodes);
+        setEdges(nextEdges);
         // Fit view after switching
         setTimeout(() => {
           window.reactFlowInstance?.fitView({ padding: 0.3 });
         }, 100);
-      }, [viewMode, setNodes, setEdges]);
+      }, [viewMode, diagramMode, inventoryData, inventoryError, inventorySearch, inventoryCollapse, dataTagCollapse, handleInventoryToggle, handleDataTagToggle, setNodes, setEdges]);
 
       // Store instance for fit view button
       const onInit = useCallback((instance) => {
@@ -2801,13 +6865,125 @@
 
       // Tool-based settings
       const isHandTool = tool === 'hand';
+      const viewLabel = useMemo(() => {
+        if (diagramMode === 'inventory') {
+          return 'Inventory Puzzle - Split view';
+        }
+        if (diagramMode === 'data-tag') {
+          return 'Data Tag Detail - Current vs Target';
+        }
+        return viewMode === 'current' ? '⚠️ Current State (Issues)' : '✅ Target State (Fixed)';
+      }, [diagramMode, viewMode]);
+      const viewIndicatorClass = diagramMode === 'inventory'
+        ? 'inventory'
+        : diagramMode === 'data-tag'
+          ? 'data-tag'
+          : viewMode;
+
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (diagramMode !== 'inventory') return;
+          if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+          if (!(e.ctrlKey || e.metaKey)) return;
+          if (e.key !== 'g' && e.key !== 'G') return;
+          e.preventDefault();
+
+          setNodes((currentNodes) => {
+            const selectedIds = new Set(currentNodes.filter((node) => node.selected).map((node) => node.id));
+            if (!selectedIds.size) return currentNodes;
+
+            const groupIds = new Set();
+
+            currentNodes.forEach((node) => {
+              if (selectedIds.has(node.id) && node.data && node.data.variant === 'group') {
+                groupIds.add(node.id);
+              }
+            });
+
+            currentNodes.forEach((node) => {
+              if (selectedIds.has(node.id) && node.parentNode) {
+                groupIds.add(node.parentNode);
+              }
+            });
+
+            if (!groupIds.size) return currentNodes;
+
+            const groupMap = new Map();
+            currentNodes.forEach((node) => {
+              if (groupIds.has(node.id)) groupMap.set(node.id, node);
+            });
+
+            return currentNodes
+              .filter((node) => !groupIds.has(node.id))
+              .map((node) => {
+                if (!node.parentNode || !groupIds.has(node.parentNode)) return node;
+                const parent = groupMap.get(node.parentNode);
+                if (!parent) return node;
+                const parentPos = parent.positionAbsolute || parent.position || { x: 0, y: 0 };
+                const childPos = node.position || { x: 0, y: 0 };
+                return {
+                  ...node,
+                  parentNode: undefined,
+                  extent: undefined,
+                  position: {
+                    x: parentPos.x + childPos.x,
+                    y: parentPos.y + childPos.y
+                  }
+                };
+              });
+          });
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [diagramMode, setNodes]);
 
       return (
         <>
-          <Toolbar tool={tool} setTool={setTool} viewMode={viewMode} setViewMode={setViewMode} />
+          <Toolbar
+            tool={tool}
+            setTool={setTool}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            diagramMode={diagramMode}
+            setDiagramMode={setDiagramMode}
+          />
+          {diagramMode === 'inventory' && (
+            <div className="inventory-overlay">
+              <input
+                className="inventory-search"
+                type="search"
+                placeholder="Search tags, triggers, variables..."
+                value={inventorySearch}
+                onChange={(e) => setInventorySearch(e.target.value)}
+              />
+              <div className="inventory-legend">
+                <div className="legend-row">
+                  <span className="legend-dot keep"></span>
+                  <span>Keep</span>
+                </div>
+                <div className="legend-row">
+                  <span className="legend-dot add"></span>
+                  <span>Add</span>
+                </div>
+                <div className="legend-row">
+                  <span className="legend-dot update"></span>
+                  <span>Update</span>
+                </div>
+                <div className="legend-row">
+                  <span className="legend-dot missing"></span>
+                  <span>Only in one column</span>
+                </div>
+                <div className="legend-row">
+                  <span className="legend-dot note"></span>
+                  <span>Missing vars/triggers = gap</span>
+                </div>
+              </div>
+            </div>
+          )}
           {/* View Mode Indicator */}
-          <div className={`view-mode-indicator ${viewMode}`}>
-            {viewMode === 'current' ? '⚠️ Current State (Issues)' : '✅ Target State (Fixed)'}
+          <div className={`view-mode-indicator ${viewIndicatorClass}`}>
+            {viewLabel}
           </div>
           <div className="flow-container" style={{ cursor: isHandTool ? 'grab' : 'default' }}>
             <ReactFlow

@@ -13,7 +13,9 @@
       "Bash(certutil -hashfile:*)",
       "Bash(certutil:*)",
       "Bash(attrib +R \"c:\\\\Users\\\\maxru\\\\max_projects\\\\TenantAds\\\\backend\\\\tenantads-docker\\\\messer-gtm-troubleshoot\\\\original-data\\\\*.*\")",
-      "Bash(attrib:*)"
+      "Bash(attrib:*)",
+      "Bash(findstr:*)",
+      "Bash(del \"c:\\\\Users\\\\maxru\\\\max_projects\\\\TenantAds\\\\backend\\\\tenantads-docker\\\\messer-gtm-troubleshoot\\\\gtm-analyzer.html\")"
     ]
   }
 }

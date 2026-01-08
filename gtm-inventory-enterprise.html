@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GTM Inventory - Enterprise Rebuild</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+    :root {
+      --bg: #f7f3ed;
+      --panel: #ffffff;
+      --ink: #1f2a2e;
+      --muted: #5b6a70;
+      --line: #e1d7c7;
+      --accent: #d16b36;
+      --accent-2: #1f8a70;
+      --accent-3: #2f5d9f;
+      --shadow: 0 16px 30px rgba(31, 42, 46, 0.12);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --status-add: #1f8a70;
+      --status-keep: #2f5d9f;
+      --status-update: #d16b36;
+      --status-current: #4b5563;
+      --tag-template: #1f8a70;
+      --tag-custom: #d16b36;
+      --tag-built: #2f5d9f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 15% 12%, rgba(209, 107, 54, 0.12), transparent 45%),
+        radial-gradient(circle at 85% 8%, rgba(31, 138, 112, 0.12), transparent 40%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    header {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .nav-link.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .segment {
+      display: inline-flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fdfbf8;
+      gap: 4px;
+    }
+
+    .segment button {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .segment button.active {
+      background: var(--accent-2);
+      color: white;
+    }
+
+    .tabs {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .tabs button {
+      border: 1px solid var(--line);
+      background: #fdfbf8;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: "Space Grotesk", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .tabs button.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #fff6f0;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .search input {
+      width: min(360px, 100%);
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      background: #fff;
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: #fffaf4;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      cursor: pointer;
+      background: #fffaf4;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .section-header .count {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .section.collapsed .section-body {
+      display: none;
+    }
+
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      padding: 16px 20px 22px;
+    }
+
+    .group-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 120px;
+    }
+
+    .group-header {
+      padding: 12px 14px;
+      background: #f7f1e7;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .group-body {
+      padding: 8px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 420px;
+      overflow: auto;
+    }
+
+    .item-row {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      background: #fff;
+    }
+
+    .item-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .item-name {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .item-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .item-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      font-size: 10px;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .badge.add { background: rgba(31, 138, 112, 0.15); color: var(--status-add); }
+    .badge.keep { background: rgba(47, 93, 159, 0.15); color: var(--status-keep); }
+    .badge.update { background: rgba(209, 107, 54, 0.15); color: var(--status-update); }
+    .badge.current { background: rgba(75, 85, 99, 0.12); color: var(--status-current); }
+
+    .chip {
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      background: rgba(47, 93, 159, 0.1);
+      color: var(--accent-3);
+    }
+
+    .chip.template { background: rgba(31, 138, 112, 0.12); color: var(--accent-2); }
+    .chip.custom { background: rgba(209, 107, 54, 0.12); color: var(--accent); }
+
+    .empty {
+      padding: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 800px) {
+      .controls { flex-direction: column; align-items: stretch; }
+      .search { width: 100%; justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <h1>GTM Inventory - Enterprise Rebuild</h1>
+        <div class="subtitle">Full inventory for wGTM and sGTM with Current vs Target (enterprise import merged).</div>
+      </div>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Overview</a>
+        <a class="nav-link" href="datalayers.html">DataLayers</a>
+        <a class="nav-link" href="gtm-audit-view.html">Audit Map</a>
+        <a class="nav-link" href="flow.html">Data Flow</a>
+        <a class="nav-link" href="canvas.html">Canvas</a>
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link active" href="gtm-inventory-enterprise.html">Inventory</a>
+      </div>
+      <div class="controls">
+        <div class="segment">
+          <button data-view="current" class="active">Current</button>
+          <button data-view="target">Target</button>
+        </div>
+        <div class="tabs">
+          <button data-container="wgtm" class="active">wGTM</button>
+          <button data-container="sgtm">sGTM</button>
+        </div>
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="Search name, ID, type, template...">
+        </div>
+      </div>
+      <div class="stats" id="statRow"></div>
+      <div class="legend">
+        <span><span class="dot" style="background: var(--status-keep);"></span>Keep</span>
+        <span><span class="dot" style="background: var(--status-add);"></span>Add</span>
+        <span><span class="dot" style="background: var(--status-update);"></span>Update</span>
+        <span><span class="dot" style="background: var(--status-current);"></span>Current view</span>
+      </div>
+    </header>
+
+    <main id="content"></main>
+  </div>
+
+  <script>
+    const DATA = {"wgtm": {"meta": {"name": "messerattach.com", "publicId": "GTM-MNRP4PF", "usageContext": ["WEB"]}, "current": {"tags": {"built_in": [{"id": "16", "name": "LinkedIn Insight", "type": "bzi", "group": "built_in", "templateName": null, "meta": "triggers:1, params:1"}, {"id": "134", "name": "Conversion Linker", "type": "gclidw", "group": "built_in", "templateName": null, "meta": "triggers:1, params:7"}, {"id": "145", "name": "google_ads_calls", "type": "awcc", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3"}, {"id": "146", "name": "google_ads_800calls", "type": "awcc", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3"}, {"id": "214", "name": "ms_uet_base", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:14"}, {"id": "228", "name": "ms_uet_view_item", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3"}, {"id": "254", "name": "ms_uet_site_search", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3"}, {"id": "333", "name": "ms_uet_purchase", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:11"}, {"id": "334", "name": "ms_uet_checkout", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:11"}, {"id": "335", "name": "ms_uet_add_to_cart", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:11"}, {"id": "351", "name": "Google Tag", "type": "googtag", "group": "built_in", "templateName": null, "meta": "triggers:1, params:2"}], "custom_html": [{"id": "46", "name": "Click Cease", "type": "html", "group": "custom_html", "templateName": null, "meta": "triggers:1, params:2"}, {"id": "173", "name": "Mailchimp", "type": "html", "group": "custom_html", "templateName": null, "meta": "triggers:1, params:2"}, {"id": "339", "name": "Helper - Push search Event", "type": "html", "group": "custom_html", "templateName": null, "meta": "triggers:1, params:2"}], "template": [{"id": "112", "name": "FB - Page View", "type": "cvt_134846891_7", "group": "template", "templateName": "Facebook Pixel", "meta": "triggers:1, params:12"}, {"id": "310", "name": "Data Tag", "type": "cvt_MBTSV", "group": "template", "templateName": "Data Tag", "meta": "triggers:1, params:16"}, {"id": "322", "name": "Complianz.io - The Privacy Suite for WordPress", "type": "cvt_WF68Z", "group": "template", "templateName": "Complianz.io - The Privacy Suite for WordPress", "meta": "triggers:1, params:5"}]}, "triggers": {"custom_event": [{"id": "92", "name": "ce_view_item", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "93", "name": "ce_add_to_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "94", "name": "ce_view_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "95", "name": "ce_checkout", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "96", "name": "ce_purchase", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "99", "name": "ce_remove_from_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "307", "name": "CE - Ecommerce Actions for Ads Remarketing", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "313", "name": "Trigger - Ecom Core Events", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "324", "name": "cmplz_event_marketing", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "325", "name": "cmplz_event_statistics", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "326", "name": "TRG - wGTM - gtag.consent.update", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "328", "name": "cmplz_event_preferences", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "331", "name": "ce_ site_search", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "340", "name": "Event - search", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}], "built_in": [{"id": "97", "name": "Payment method added", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "98", "name": "Shipping info added", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "100", "name": "Submit form", "type": "WINDOW_LOADED", "group": "built_in", "meta": "filters:1"}, {"id": "101", "name": "Phone call - Local", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "142", "name": "Phone call - Nationwide", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "147", "name": "FIND A DEALER", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "148", "name": "CONTACT US", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "163", "name": "PRIVACY POLICY", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "164", "name": "WARRANTY", "type": "PAGEVIEW", "group": "built_in", "meta": "filters:1"}, {"id": "167", "name": "DOWNLOAD PRODUCT CATALOG", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "169", "name": "DOWNLOAD PARTS CATALOG", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "170", "name": "Site Search", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "171", "name": "Register", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "172", "name": "Log in", "type": "CLICK", "group": "built_in", "meta": "filters:1"}, {"id": "201", "name": "click", "type": "CLICK", "group": "built_in", "meta": ""}, {"id": "205", "name": "scroll", "type": "SCROLL_DEPTH", "group": "built_in", "meta": ""}, {"id": "213", "name": "Initialization", "type": "INIT", "group": "built_in", "meta": ""}, {"id": "330", "name": "CM - All Consent Granted - Page View", "type": "PAGEVIEW", "group": "built_in", "meta": ""}, {"id": "337", "name": "Page View - Search Results", "type": "DOM_READY", "group": "built_in", "meta": "filters:1"}]}, "variables": {"standard": [{"id": "22", "name": "1st Party Cookie - fbc", "type": "k", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "81", "name": "Facebook Pixel", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "83", "name": "dlv_ecommerce_currency", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "84", "name": "dlv - Item ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "85", "name": "dlv - Item Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "86", "name": "dlv - Item Price", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "87", "name": "dlv_ecommerce_items", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "88", "name": "dlv_value", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "89", "name": "dlv_transactionID", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "90", "name": "cjs - Items ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "91", "name": "cjs - Items Name", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "103", "name": "Customers First Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "104", "name": "Customers Last Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "105", "name": "Customers Address", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "106", "name": "Customers City", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "107", "name": "Customers Postal Code", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "108", "name": "Customers Country", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "109", "name": "Customers Phone Number", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "110", "name": "Customers Email", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "111", "name": "dlv_coupon", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "135", "name": "User-Provided Data", "type": "awec", "group": "standard", "templateName": null, "meta": "params:10"}, {"id": "207", "name": "dlv_shipping", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "208", "name": "dlv_affiliation", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "209", "name": "dlv_tax", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "210", "name": "Event Time", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "261", "name": "cjs - Contact Form", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "269", "name": "dlv_pagePostType", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "273", "name": "customerTotalOrder", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "274", "name": "dlv_ecommerce_category", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "275", "name": "dev_cartContent.items.length", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "276", "name": "dlv_ecommerce_products", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "297", "name": "External ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "298", "name": "GA4 - ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "303", "name": "dlv - user_id", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "311", "name": "DLV - _fbp", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "312", "name": "1st Party Cookie - fbp", "type": "k", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "315", "name": "sgtm.messerattach URL", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "316", "name": "Customers State", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "317", "name": "cjs - Items with Index", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "332", "name": "ms_ads", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "336", "name": "Event page_view Override", "type": "smm", "group": "standard", "templateName": null, "meta": "params:4"}, {"id": "338", "name": "URL - Query - Search Term", "type": "u", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "341", "name": "URL - Query - msclkid", "type": "u", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "343", "name": "cjs - Items SKU", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "344", "name": "cjs - Items JSON", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "347", "name": "Debug Mode", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "494", "name": "d2 user_data.email", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "495", "name": "d2 user_data.phone", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "496", "name": "d2 user_data.postalcode", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "497", "name": "D2 user_data.last_name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "498", "name": "d2 user_data.first_name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "499", "name": "d2 user_data.country", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "500", "name": "d2 user_data.state", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "501", "name": "d2 user_data.city", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "502", "name": "d2 user_data.address", "type": "v", "group": "standard", "templateName": null, "meta": "params:3"}], "template": [{"id": "82", "name": "Event Id", "type": "cvt_134846891_51", "group": "template", "templateName": "Event Id", "meta": "params:2"}, {"id": "350", "name": "Unique Event ID", "type": "cvt_M63B8", "group": "template", "templateName": "Unique Event ID", "meta": ""}]}, "clients": {}, "builtInVariables": {"built_in": [{"id": null, "name": "Page URL", "type": "PAGE_URL", "group": "built_in", "meta": ""}, {"id": null, "name": "Page Hostname", "type": "PAGE_HOSTNAME", "group": "built_in", "meta": ""}, {"id": null, "name": "Page Path", "type": "PAGE_PATH", "group": "built_in", "meta": ""}, {"id": null, "name": "Referrer", "type": "REFERRER", "group": "built_in", "meta": ""}, {"id": null, "name": "Event", "type": "EVENT", "group": "built_in", "meta": ""}, {"id": null, "name": "Click Element", "type": "CLICK_ELEMENT", "group": "built_in", "meta": ""}, {"id": null, "name": "Click Classes", "type": "CLICK_CLASSES", "group": "built_in", "meta": ""}, {"id": null, "name": "Click ID", "type": "CLICK_ID", "group": "built_in", "meta": ""}, {"id": null, "name": "Click Target", "type": "CLICK_TARGET", "group": "built_in", "meta": ""}, {"id": null, "name": "Click URL", "type": "CLICK_URL", "group": "built_in", "meta": ""}, {"id": null, "name": "Click Text", "type": "CLICK_TEXT", "group": "built_in", "meta": ""}, {"id": null, "name": "Form Element", "type": "FORM_ELEMENT", "group": "built_in", "meta": ""}, {"id": null, "name": "Form Classes", "type": "FORM_CLASSES", "group": "built_in", "meta": ""}, {"id": null, "name": "Form ID", "type": "FORM_ID", "group": "built_in", "meta": ""}, {"id": null, "name": "Form Target", "type": "FORM_TARGET", "group": "built_in", "meta": ""}, {"id": null, "name": "Form URL", "type": "FORM_URL", "group": "built_in", "meta": ""}, {"id": null, "name": "Form Text", "type": "FORM_TEXT", "group": "built_in", "meta": ""}, {"id": null, "name": "Container Version", "type": "CONTAINER_VERSION", "group": "built_in", "meta": ""}, {"id": null, "name": "Random Number", "type": "RANDOM_NUMBER", "group": "built_in", "meta": ""}, {"id": null, "name": "Container ID", "type": "CONTAINER_ID", "group": "built_in", "meta": ""}, {"id": null, "name": "HTML ID", "type": "HTML_ID", "group": "built_in", "meta": ""}, {"id": null, "name": "Environment Name", "type": "ENVIRONMENT_NAME", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Provider", "type": "VIDEO_PROVIDER", "group": "built_in", "meta": ""}, {"id": null, "name": "Video URL", "type": "VIDEO_URL", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Title", "type": "VIDEO_TITLE", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Duration", "type": "VIDEO_DURATION", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Percent", "type": "VIDEO_PERCENT", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Visible", "type": "VIDEO_VISIBLE", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Status", "type": "VIDEO_STATUS", "group": "built_in", "meta": ""}, {"id": null, "name": "Video Current Time", "type": "VIDEO_CURRENT_TIME", "group": "built_in", "meta": ""}, {"id": null, "name": "Scroll Depth Threshold", "type": "SCROLL_DEPTH_THRESHOLD", "group": "built_in", "meta": ""}, {"id": null, "name": "Scroll Depth Units", "type": "SCROLL_DEPTH_UNITS", "group": "built_in", "meta": ""}, {"id": null, "name": "Scroll Direction", "type": "SCROLL_DEPTH_DIRECTION", "group": "built_in", "meta": ""}, {"id": null, "name": "Percent Visible", "type": "ELEMENT_VISIBILITY_RATIO", "group": "built_in", "meta": ""}, {"id": null, "name": "On-Screen Duration", "type": "ELEMENT_VISIBILITY_TIME", "group": "built_in", "meta": ""}]}, "customTemplates": {"tag": [{"id": "7", "name": "Facebook Pixel", "type": "cvt_temp_public_id", "group": "tag", "meta": "TAG"}, {"id": "277", "name": "Data Tag", "type": "cvt_MBTSV", "group": "tag", "meta": "TAG"}, {"id": "321", "name": "Complianz.io - The Privacy Suite for WordPress", "type": "cvt_WF68Z", "group": "tag", "meta": "TAG"}], "variable": [{"id": "51", "name": "Event Id", "type": "cvt_temp_public_id", "group": "variable", "meta": "MACRO"}, {"id": "349", "name": "Unique Event ID", "type": "cvt_M63B8", "group": "variable", "meta": "MACRO"}]}, "folders": {"folders": [{"id": "301", "name": "User", "type": "folder", "group": "folders", "meta": ""}, {"id": "302", "name": "E-commerce", "type": "folder", "group": "folders", "meta": ""}, {"id": "309", "name": "Google Ads", "type": "folder", "group": "folders", "meta": ""}]}}, "target": {"tags": {"built_in": [{"id": "16", "name": "LinkedIn Insight", "type": "bzi", "group": "built_in", "templateName": null, "meta": "triggers:1, params:1", "status": "KEEP"}, {"id": "134", "name": "Conversion Linker", "type": "gclidw", "group": "built_in", "templateName": null, "meta": "triggers:1, params:7", "status": "KEEP"}, {"id": "145", "name": "google_ads_calls", "type": "awcc", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3", "status": "KEEP"}, {"id": "146", "name": "google_ads_800calls", "type": "awcc", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3", "status": "KEEP"}, {"id": "214", "name": "ms_uet_base", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:14", "status": "KEEP"}, {"id": "228", "name": "ms_uet_view_item", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3", "status": "KEEP"}, {"id": "254", "name": "ms_uet_site_search", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:3", "status": "KEEP"}, {"id": "333", "name": "ms_uet_purchase", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:11", "status": "KEEP"}, {"id": "334", "name": "ms_uet_checkout", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:11", "status": "KEEP"}, {"id": "335", "name": "ms_uet_add_to_cart", "type": "baut", "group": "built_in", "templateName": null, "meta": "triggers:1, params:11", "status": "KEEP"}, {"id": "351", "name": "Google Tag", "type": "googtag", "group": "built_in", "templateName": null, "meta": "triggers:1, params:2", "status": "KEEP"}, {"id": "3001", "name": "sGTM - Data Tag - Core Events", "type": "googtag", "group": "built_in", "templateName": null, "meta": "triggers:2, params:3", "status": "ADD"}, {"id": "3002", "name": "sGTM - Data Tag - Ecommerce", "type": "googtag", "group": "built_in", "templateName": null, "meta": "triggers:3, params:2", "status": "ADD"}, {"id": "3003", "name": "sGTM - Data Tag - Conversions", "type": "googtag", "group": "built_in", "templateName": null, "meta": "triggers:1, params:2", "status": "ADD"}, {"id": "3004", "name": "sGTM - Data Tag - Engagement", "type": "googtag", "group": "built_in", "templateName": null, "meta": "triggers:1, params:2", "status": "ADD"}], "custom_html": [{"id": "46", "name": "Click Cease", "type": "html", "group": "custom_html", "templateName": null, "meta": "triggers:1, params:2", "status": "KEEP"}, {"id": "173", "name": "Mailchimp", "type": "html", "group": "custom_html", "templateName": null, "meta": "triggers:1, params:2", "status": "KEEP"}, {"id": "339", "name": "Helper - Push search Event", "type": "html", "group": "custom_html", "templateName": null, "meta": "triggers:1, params:2", "status": "KEEP"}], "template": [{"id": "112", "name": "FB - Page View", "type": "cvt_134846891_7", "group": "template", "templateName": "Facebook Pixel", "meta": "triggers:1, params:12", "status": "KEEP"}, {"id": "310", "name": "Data Tag", "type": "cvt_MBTSV", "group": "template", "templateName": "Data Tag", "meta": "triggers:1, params:16", "status": "KEEP"}, {"id": "322", "name": "Complianz.io - The Privacy Suite for WordPress", "type": "cvt_WF68Z", "group": "template", "templateName": "Complianz.io - The Privacy Suite for WordPress", "meta": "triggers:1, params:5", "status": "KEEP"}]}, "triggers": {"custom_event": [{"id": "92", "name": "ce_view_item", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "93", "name": "ce_add_to_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "94", "name": "ce_view_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "95", "name": "ce_checkout", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "96", "name": "ce_purchase", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "99", "name": "ce_remove_from_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "307", "name": "CE - Ecommerce Actions for Ads Remarketing", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "313", "name": "Trigger - Ecom Core Events", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "324", "name": "cmplz_event_marketing", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "325", "name": "cmplz_event_statistics", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "326", "name": "TRG - wGTM - gtag.consent.update", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "328", "name": "cmplz_event_preferences", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "331", "name": "ce_ site_search", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "340", "name": "Event - search", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "2002", "name": "TR - Ecommerce - View Item", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "ADD"}, {"id": "2003", "name": "TR - Ecommerce - Cart Actions", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "ADD"}, {"id": "2004", "name": "TR - Ecommerce - Checkout", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "ADD"}, {"id": "2005", "name": "TR - Ecommerce - Purchase", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "ADD"}, {"id": "2007", "name": "TR - Engagement - Form Submit", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "ADD"}, {"id": "2008", "name": "TR - All Custom Events", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "ADD"}], "built_in": [{"id": "97", "name": "Payment method added", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "98", "name": "Shipping info added", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "100", "name": "Submit form", "type": "WINDOW_LOADED", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "101", "name": "Phone call - Local", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "142", "name": "Phone call - Nationwide", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "147", "name": "FIND A DEALER", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "148", "name": "CONTACT US", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "163", "name": "PRIVACY POLICY", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "164", "name": "WARRANTY", "type": "PAGEVIEW", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "167", "name": "DOWNLOAD PRODUCT CATALOG", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "169", "name": "DOWNLOAD PARTS CATALOG", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "170", "name": "Site Search", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "171", "name": "Register", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "172", "name": "Log in", "type": "CLICK", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "201", "name": "click", "type": "CLICK", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": "205", "name": "scroll", "type": "SCROLL_DEPTH", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": "213", "name": "Initialization", "type": "INIT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": "330", "name": "CM - All Consent Granted - Page View", "type": "PAGEVIEW", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": "337", "name": "Page View - Search Results", "type": "DOM_READY", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "2001", "name": "TR - Page View", "type": "PAGEVIEW", "group": "built_in", "meta": "", "status": "ADD"}, {"id": "2006", "name": "TR - Engagement - Scroll", "type": "SCROLL_DEPTH", "group": "built_in", "meta": "", "status": "ADD"}]}, "variables": {"standard": [{"id": "22", "name": "1st Party Cookie - fbc", "type": "k", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "81", "name": "Facebook Pixel", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "83", "name": "dlv_ecommerce_currency", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "84", "name": "dlv - Item ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "85", "name": "dlv - Item Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "86", "name": "dlv - Item Price", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "87", "name": "dlv_ecommerce_items", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "88", "name": "dlv_value", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "89", "name": "dlv_transactionID", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "90", "name": "cjs - Items ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "91", "name": "cjs - Items Name", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "103", "name": "Customers First Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "104", "name": "Customers Last Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "105", "name": "Customers Address", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "106", "name": "Customers City", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "107", "name": "Customers Postal Code", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "108", "name": "Customers Country", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "109", "name": "Customers Phone Number", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "110", "name": "Customers Email", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "111", "name": "dlv_coupon", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "135", "name": "User-Provided Data", "type": "awec", "group": "standard", "templateName": null, "meta": "params:10", "status": "KEEP"}, {"id": "207", "name": "dlv_shipping", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "208", "name": "dlv_affiliation", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "209", "name": "dlv_tax", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "210", "name": "Event Time", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "261", "name": "cjs - Contact Form", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "269", "name": "dlv_pagePostType", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "273", "name": "customerTotalOrder", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "274", "name": "dlv_ecommerce_category", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "275", "name": "dev_cartContent.items.length", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "276", "name": "dlv_ecommerce_products", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "297", "name": "External ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "298", "name": "GA4 - ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "303", "name": "dlv - user_id", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "311", "name": "DLV - _fbp", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "312", "name": "1st Party Cookie - fbp", "type": "k", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "315", "name": "sgtm.messerattach URL", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "316", "name": "Customers State", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "317", "name": "cjs - Items with Index", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "332", "name": "ms_ads", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "336", "name": "Event page_view Override", "type": "smm", "group": "standard", "templateName": null, "meta": "params:4", "status": "KEEP"}, {"id": "338", "name": "URL - Query - Search Term", "type": "u", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "341", "name": "URL - Query - msclkid", "type": "u", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "343", "name": "cjs - Items SKU", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "344", "name": "cjs - Items JSON", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "347", "name": "Debug Mode", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "494", "name": "d2 user_data.email", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "495", "name": "d2 user_data.phone", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "496", "name": "d2 user_data.postalcode", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "497", "name": "D2 user_data.last_name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "498", "name": "d2 user_data.first_name", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "499", "name": "d2 user_data.country", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "500", "name": "d2 user_data.state", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "501", "name": "d2 user_data.city", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "502", "name": "d2 user_data.address", "type": "v", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "1001", "name": "CV - sGTM Endpoint", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1002", "name": "CV - Data Endpoint", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1003", "name": "CV - GA4 Measurement ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1010", "name": "DLV - event", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1011", "name": "DLV - ecommerce", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1012", "name": "DLV - ecommerce.items", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1013", "name": "DLV - ecommerce.value", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1014", "name": "DLV - ecommerce.currency", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1015", "name": "DLV - ecommerce.transaction_id", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1016", "name": "DLV - ecommerce.tax", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1017", "name": "DLV - ecommerce.shipping", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1018", "name": "DLV - ecommerce.coupon", "type": "v", "group": "standard", "templateName": null, "meta": "params:2", "status": "ADD"}, {"id": "1020", "name": "CJS - Client ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1021", "name": "CJS - Session ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1022", "name": "CJS - Event ID (Dedup)", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1023", "name": "CJS - User ID", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "1024", "name": "CJS - Timestamp", "type": "jsm", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}], "template": [{"id": "82", "name": "Event Id", "type": "cvt_134846891_51", "group": "template", "templateName": "Event Id", "meta": "params:2", "status": "KEEP"}, {"id": "350", "name": "Unique Event ID", "type": "cvt_M63B8", "group": "template", "templateName": "Unique Event ID", "meta": "", "status": "KEEP"}]}, "clients": {}, "builtInVariables": {"built_in": [{"id": null, "name": "Page URL", "type": "PAGE_URL", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Page Hostname", "type": "PAGE_HOSTNAME", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Page Path", "type": "PAGE_PATH", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Referrer", "type": "REFERRER", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Event", "type": "EVENT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Click Element", "type": "CLICK_ELEMENT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Click Classes", "type": "CLICK_CLASSES", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Click ID", "type": "CLICK_ID", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Click Target", "type": "CLICK_TARGET", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Click URL", "type": "CLICK_URL", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Click Text", "type": "CLICK_TEXT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Form Element", "type": "FORM_ELEMENT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Form Classes", "type": "FORM_CLASSES", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Form ID", "type": "FORM_ID", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Form Target", "type": "FORM_TARGET", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Form URL", "type": "FORM_URL", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Form Text", "type": "FORM_TEXT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Container Version", "type": "CONTAINER_VERSION", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Random Number", "type": "RANDOM_NUMBER", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Container ID", "type": "CONTAINER_ID", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "HTML ID", "type": "HTML_ID", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Environment Name", "type": "ENVIRONMENT_NAME", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Provider", "type": "VIDEO_PROVIDER", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video URL", "type": "VIDEO_URL", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Title", "type": "VIDEO_TITLE", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Duration", "type": "VIDEO_DURATION", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Percent", "type": "VIDEO_PERCENT", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Visible", "type": "VIDEO_VISIBLE", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Status", "type": "VIDEO_STATUS", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Video Current Time", "type": "VIDEO_CURRENT_TIME", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Scroll Depth Threshold", "type": "SCROLL_DEPTH_THRESHOLD", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Scroll Depth Units", "type": "SCROLL_DEPTH_UNITS", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Scroll Direction", "type": "SCROLL_DEPTH_DIRECTION", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Percent Visible", "type": "ELEMENT_VISIBILITY_RATIO", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "On-Screen Duration", "type": "ELEMENT_VISIBILITY_TIME", "group": "built_in", "meta": "", "status": "KEEP"}]}, "customTemplates": {"tag": [{"id": "7", "name": "Facebook Pixel", "type": "cvt_temp_public_id", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "277", "name": "Data Tag", "type": "cvt_MBTSV", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "321", "name": "Complianz.io - The Privacy Suite for WordPress", "type": "cvt_WF68Z", "group": "tag", "meta": "TAG", "status": "KEEP"}], "variable": [{"id": "51", "name": "Event Id", "type": "cvt_temp_public_id", "group": "variable", "meta": "MACRO", "status": "KEEP"}, {"id": "349", "name": "Unique Event ID", "type": "cvt_M63B8", "group": "variable", "meta": "MACRO", "status": "KEEP"}]}, "folders": {"folders": [{"id": "301", "name": "User", "type": "folder", "group": "folders", "meta": "", "status": "KEEP"}, {"id": "302", "name": "E-commerce", "type": "folder", "group": "folders", "meta": "", "status": "KEEP"}, {"id": "309", "name": "Google Ads", "type": "folder", "group": "folders", "meta": "", "status": "KEEP"}]}}}, "sgtm": {"meta": {"name": "sgtm Messer Same-Origin", "publicId": "GTM-K3CQBMZ9", "usageContext": ["SERVER"]}, "current": {"tags": {"built_in": [{"id": "8", "name": "Google Ads Conversion Tracking - Checkout", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:10"}, {"id": "25", "name": "Google Ads Conversion Tracking - Add to Cart", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:9"}, {"id": "46", "name": "Conversion Linker", "type": "sgtmadscl", "group": "built_in", "templateName": null, "meta": "triggers:1, params:2"}, {"id": "56", "name": "Google Ads Conversion Tracking - Contact Form Submit", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:8"}, {"id": "57", "name": "Google Ads Remarketing", "type": "sgtmadsremarket", "group": "built_in", "templateName": null, "meta": "triggers:1, params:9"}, {"id": "58", "name": "Google Ads Conversion Tracking - Purchase", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:10"}], "template": [{"id": "16", "name": "GA4 Advanced", "type": "cvt_K8FK5", "group": "template", "templateName": "GA4 Advanced", "meta": "triggers:1, params:8"}, {"id": "43", "name": "FB - CAPI - AddToCart (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15"}, {"id": "55", "name": "FB - CAPI - Purchase (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15"}, {"id": "59", "name": "FB - CAPI - Begin Checkout (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15"}, {"id": "64", "name": "FB - CAPI - ViewContent (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15"}, {"id": "72", "name": "GA4 ADV add_to_cart", "type": "cvt_K8FK5", "group": "template", "templateName": "GA4 Advanced", "meta": "triggers:1, params:8"}]}, "triggers": {"custom_event": [{"id": "12", "name": "t_engagement", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "14", "name": "t_ecomCore", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "24", "name": "add_to_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "45", "name": "begin_checkout", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "48", "name": "ce_generate_lead", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}, {"id": "54", "name": "purchase", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1"}, {"id": "63", "name": "FB - ViewContent Trigger", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1"}], "built_in": [{"id": "26", "name": "ce_conversion_events", "type": "ALWAYS", "group": "built_in", "meta": "filters:1"}, {"id": "29", "name": "Client Name - GA4", "type": "ALWAYS", "group": "built_in", "meta": "filters:1"}, {"id": "71", "name": "data client trigger", "type": "ALWAYS", "group": "built_in", "meta": "filters:1"}]}, "variables": {"standard": [{"id": "3", "name": "Google Ads Constant Variable", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "5", "name": "EDV_ecommerce.currency", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "6", "name": "EDV_ecommerce.value", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "9", "name": "EDV - client_id", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "10", "name": "EDV - user_id", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "11", "name": "EDV - ip_override", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "15", "name": "GA4 - ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "19", "name": "google_ads_look_up_conversions", "type": "smm", "group": "standard", "templateName": null, "meta": "params:3"}, {"id": "20", "name": "EDV - User Data - Billing - Last Name", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "21", "name": "google_ads_look_up_conversion_var", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "22", "name": "EDV - gtm.uniqueEventId", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "28", "name": "ms_uet_value", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "30", "name": "EDV - User Data - Billing - First Name", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "31", "name": "Event Data - content_ids", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "32", "name": "EDV - fbc", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "33", "name": "EDV_ecommerce.transaction_id", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "34", "name": "EDV - User Data - Billing - City", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "37", "name": "EDV - User Data - Billing - Email", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "38", "name": "Constant - FB CAPI Access Token", "type": "c", "group": "standard", "templateName": null, "meta": "params:1"}, {"id": "39", "name": "EDV - User Data - Billing - Phone", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "40", "name": "EDV - User Data - Billing - Postal Code", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "41", "name": "EDV - fbp", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "42", "name": "EDV - User Data - Billing - Region", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "44", "name": "ga_YCL5FGZNCV", "type": "sgtmk", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "50", "name": "EDV_ecommerce.tax", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "52", "name": "EDV_ecommerce.items", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "53", "name": "EDV - User Data - Billing - Country", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "60", "name": "EDV - User Data - Billing - Street", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2"}, {"id": "65", "name": "ga", "type": "sgtmk", "group": "standard", "templateName": null, "meta": "params:2"}], "template": [{"id": "36", "name": "EDV - Contents with Currency", "type": "cvt_224857654_35", "group": "template", "templateName": "Contents with Currency", "meta": ""}]}, "clients": {"template": [{"id": "18", "name": "Data Client", "type": "cvt_224857654_17", "group": "template", "templateName": "Data Client", "meta": "params:8"}], "built_in": [{"id": "69", "name": "Google Tag Manager Web Container", "type": "gtm_client", "group": "built_in", "templateName": null, "meta": "params:5"}]}, "builtInVariables": {"built_in": [{"id": null, "name": "Debug Mode", "type": "DEBUG_MODE", "group": "built_in", "meta": ""}, {"id": null, "name": "Event Name", "type": "EVENT_NAME", "group": "built_in", "meta": ""}, {"id": null, "name": "Request Path", "type": "REQUEST_PATH", "group": "built_in", "meta": ""}, {"id": null, "name": "Client Name", "type": "CLIENT_NAME", "group": "built_in", "meta": ""}, {"id": null, "name": "Query String", "type": "QUERY_STRING", "group": "built_in", "meta": ""}, {"id": null, "name": "Visitor Region", "type": "VISITOR_REGION", "group": "built_in", "meta": ""}]}, "customTemplates": {"tag": [{"id": "13", "name": "GA4 Advanced", "type": "cvt_K8FK5", "group": "tag", "meta": "TAG"}, {"id": "23", "name": "Microsoft Ads Offline Conversion", "type": "cvt_MK4N7", "group": "tag", "meta": "TAG"}, {"id": "27", "name": "Facebook Conversion API", "type": "cvt_5TP8W", "group": "tag", "meta": "TAG"}, {"id": "47", "name": "Conversions API Tag", "type": "cvt_NCN6S", "group": "tag", "meta": "TAG"}, {"id": "51", "name": "Cookie ReStore", "type": "cvt_temp_public_id", "group": "tag", "meta": "TAG"}, {"id": "66", "name": "Mailchimp Event Track", "type": "cvt_NGJ89", "group": "tag", "meta": "TAG"}], "client": [{"id": "17", "name": "Data Client", "type": "cvt_temp_public_id", "group": "client", "meta": "CLIENT"}], "variable": [{"id": "35", "name": "Contents with Currency", "type": "cvt_temp_public_id", "group": "variable", "meta": "MACRO"}, {"id": "61", "name": "Generate FBC from fbclid", "type": "cvt_temp_public_id", "group": "variable", "meta": "MACRO"}]}, "folders": {"folders": [{"id": "4", "name": "e-Commerce", "type": "folder", "group": "folders", "meta": ""}]}}, "target": {"tags": {"built_in": [{"id": "8", "name": "Google Ads Conversion Tracking - Checkout", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:10", "status": "KEEP"}, {"id": "25", "name": "Google Ads Conversion Tracking - Add to Cart", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:9", "status": "KEEP"}, {"id": "46", "name": "Conversion Linker", "type": "sgtmadscl", "group": "built_in", "templateName": null, "meta": "triggers:1, params:2", "status": "KEEP"}, {"id": "56", "name": "Google Ads Conversion Tracking - Contact Form Submit", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:8", "status": "KEEP"}, {"id": "57", "name": "Google Ads Remarketing", "type": "sgtmadsremarket", "group": "built_in", "templateName": null, "meta": "triggers:1, params:9", "status": "KEEP"}, {"id": "58", "name": "Google Ads Conversion Tracking - Purchase", "type": "sgtmadsct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:10", "status": "KEEP"}, {"id": "7001", "name": "GA4 - All Events", "type": "sgtmgaaw", "group": "built_in", "templateName": null, "meta": "triggers:2, params:5", "status": "ADD"}, {"id": "7003", "name": "Google Ads - Purchase Conversion", "type": "awct", "group": "built_in", "templateName": null, "meta": "triggers:1, params:10", "status": "ADD"}], "template": [{"id": "16", "name": "GA4 Advanced", "type": "cvt_K8FK5", "group": "template", "templateName": "GA4 Advanced", "meta": "triggers:1, params:8", "status": "KEEP"}, {"id": "43", "name": "FB - CAPI - AddToCart (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15", "status": "KEEP"}, {"id": "55", "name": "FB - CAPI - Purchase (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15", "status": "KEEP"}, {"id": "59", "name": "FB - CAPI - Begin Checkout (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15", "status": "KEEP"}, {"id": "64", "name": "FB - CAPI - ViewContent (sGTM)", "type": "cvt_5TP8W", "group": "template", "templateName": "Facebook Conversion API", "meta": "triggers:1, params:15", "status": "KEEP"}, {"id": "72", "name": "GA4 ADV add_to_cart", "type": "cvt_K8FK5", "group": "template", "templateName": "GA4 Advanced", "meta": "triggers:1, params:8", "status": "KEEP"}, {"id": "7002", "name": "Meta CAPI - All Ecommerce", "type": "cvt_TEMPLATE_ID_META_CAPI", "group": "template", "templateName": "Custom Template", "meta": "triggers:1, params:16", "status": "ADD"}, {"id": "7004", "name": "LinkedIn CAPI - All Conversions", "type": "cvt_TEMPLATE_ID_LINKEDIN_CAPI", "group": "template", "templateName": "Custom Template", "meta": "triggers:1, params:6", "status": "ADD"}]}, "triggers": {"custom_event": [{"id": "12", "name": "t_engagement", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "14", "name": "t_ecomCore", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "24", "name": "add_to_cart", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "45", "name": "begin_checkout", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "48", "name": "ce_generate_lead", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}, {"id": "54", "name": "purchase", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "filters:1, eventFilters:1", "status": "KEEP"}, {"id": "63", "name": "FB - ViewContent Trigger", "type": "CUSTOM_EVENT", "group": "custom_event", "meta": "eventFilters:1", "status": "KEEP"}], "built_in": [{"id": "26", "name": "ce_conversion_events", "type": "ALWAYS", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "29", "name": "Client Name - GA4", "type": "ALWAYS", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "71", "name": "data client trigger", "type": "ALWAYS", "group": "built_in", "meta": "filters:1", "status": "KEEP"}, {"id": "6001", "name": "TR - All Data Client Events", "type": "CUSTOM", "group": "built_in", "meta": "eventFilters:1", "status": "ADD"}, {"id": "6002", "name": "TR - GA4 Client Events", "type": "CUSTOM", "group": "built_in", "meta": "eventFilters:1", "status": "ADD"}, {"id": "6003", "name": "TR - Ecommerce Events", "type": "CUSTOM", "group": "built_in", "meta": "eventFilters:2", "status": "ADD"}, {"id": "6004", "name": "TR - Purchase Only", "type": "CUSTOM", "group": "built_in", "meta": "eventFilters:2", "status": "ADD"}, {"id": "6005", "name": "TR - Page View Only", "type": "CUSTOM", "group": "built_in", "meta": "eventFilters:2", "status": "ADD"}]}, "variables": {"standard": [{"id": "3", "name": "Google Ads Constant Variable", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "5", "name": "EDV_ecommerce.currency", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "6", "name": "EDV_ecommerce.value", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "9", "name": "EDV - client_id", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "10", "name": "EDV - user_id", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "11", "name": "EDV - ip_override", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "15", "name": "GA4 - ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "19", "name": "google_ads_look_up_conversions", "type": "smm", "group": "standard", "templateName": null, "meta": "params:3", "status": "KEEP"}, {"id": "20", "name": "EDV - User Data - Billing - Last Name", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "21", "name": "google_ads_look_up_conversion_var", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "22", "name": "EDV - gtm.uniqueEventId", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "28", "name": "ms_uet_value", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "30", "name": "EDV - User Data - Billing - First Name", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "31", "name": "Event Data - content_ids", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "32", "name": "EDV - fbc", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "33", "name": "EDV_ecommerce.transaction_id", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "34", "name": "EDV - User Data - Billing - City", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "37", "name": "EDV - User Data - Billing - Email", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "38", "name": "Constant - FB CAPI Access Token", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "KEEP"}, {"id": "39", "name": "EDV - User Data - Billing - Phone", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "40", "name": "EDV - User Data - Billing - Postal Code", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "41", "name": "EDV - fbp", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "42", "name": "EDV - User Data - Billing - Region", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "44", "name": "ga_YCL5FGZNCV", "type": "sgtmk", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "50", "name": "EDV_ecommerce.tax", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "52", "name": "EDV_ecommerce.items", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "53", "name": "EDV - User Data - Billing - Country", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "60", "name": "EDV - User Data - Billing - Street", "type": "ed", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "65", "name": "ga", "type": "sgtmk", "group": "standard", "templateName": null, "meta": "params:2", "status": "KEEP"}, {"id": "5001", "name": "CV - GA4 Measurement ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5002", "name": "CV - Meta Pixel ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5003", "name": "CV - Meta Access Token", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5004", "name": "CV - Google Ads Conversion ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5005", "name": "CV - Google Ads Conv Label Purchase", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5006", "name": "CV - LinkedIn Partner ID", "type": "c", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5010", "name": "ED - Event Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5011", "name": "ED - Client ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5012", "name": "ED - Session ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5013", "name": "ED - User ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5014", "name": "ED - Event ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5015", "name": "ED - Transaction ID", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5016", "name": "ED - Value", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5017", "name": "ED - Currency", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5018", "name": "ED - Items", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5019", "name": "ED - Page Location", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5020", "name": "ED - User Email", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5021", "name": "ED - User Phone", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5022", "name": "ED - First Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5023", "name": "ED - Last Name", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5030", "name": "Request - IP Address", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5031", "name": "Request - User Agent", "type": "v", "group": "standard", "templateName": null, "meta": "params:1", "status": "ADD"}, {"id": "5040", "name": "LUT - Meta Event Name", "type": "smm", "group": "standard", "templateName": null, "meta": "params:3", "status": "ADD"}], "template": [{"id": "36", "name": "EDV - Contents with Currency", "type": "cvt_224857654_35", "group": "template", "templateName": "Contents with Currency", "meta": "", "status": "KEEP"}]}, "clients": {"built_in": [{"id": "8002", "name": "Data Client", "type": "data_tag", "group": "built_in", "templateName": null, "meta": "params:2", "status": "UPDATE"}, {"id": "69", "name": "Google Tag Manager Web Container", "type": "gtm_client", "group": "built_in", "templateName": null, "meta": "params:5", "status": "KEEP"}, {"id": "8001", "name": "GA4 Client", "type": "gaaw_client", "group": "built_in", "templateName": null, "meta": "params:2", "status": "ADD"}]}, "builtInVariables": {"built_in": [{"id": null, "name": "Debug Mode", "type": "DEBUG_MODE", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Event Name", "type": "EVENT_NAME", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Request Path", "type": "REQUEST_PATH", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Client Name", "type": "CLIENT_NAME", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Query String", "type": "QUERY_STRING", "group": "built_in", "meta": "", "status": "KEEP"}, {"id": null, "name": "Visitor Region", "type": "VISITOR_REGION", "group": "built_in", "meta": "", "status": "KEEP"}]}, "customTemplates": {"tag": [{"id": "13", "name": "GA4 Advanced", "type": "cvt_K8FK5", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "23", "name": "Microsoft Ads Offline Conversion", "type": "cvt_MK4N7", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "27", "name": "Facebook Conversion API", "type": "cvt_5TP8W", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "47", "name": "Conversions API Tag", "type": "cvt_NCN6S", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "51", "name": "Cookie ReStore", "type": "cvt_temp_public_id", "group": "tag", "meta": "TAG", "status": "KEEP"}, {"id": "66", "name": "Mailchimp Event Track", "type": "cvt_NGJ89", "group": "tag", "meta": "TAG", "status": "KEEP"}], "client": [{"id": "17", "name": "Data Client", "type": "cvt_temp_public_id", "group": "client", "meta": "CLIENT", "status": "KEEP"}], "variable": [{"id": "35", "name": "Contents with Currency", "type": "cvt_temp_public_id", "group": "variable", "meta": "MACRO", "status": "KEEP"}, {"id": "61", "name": "Generate FBC from fbclid", "type": "cvt_temp_public_id", "group": "variable", "meta": "MACRO", "status": "KEEP"}]}, "folders": {"folders": [{"id": "4", "name": "e-Commerce", "type": "folder", "group": "folders", "meta": "", "status": "KEEP"}]}}}};
+
+    const state = {
+      view: 'current',
+      container: 'wgtm',
+      search: ''
+    };
+
+    const categoryConfig = [
+      { key: 'tags', title: 'Tags', groups: [
+        { key: 'template', label: 'Template Tags', chip: 'template' },
+        { key: 'custom_html', label: 'Custom HTML', chip: 'custom' },
+        { key: 'built_in', label: 'Built-in Tags', chip: 'built' }
+      ]},
+      { key: 'triggers', title: 'Triggers', groups: [
+        { key: 'custom_event', label: 'Custom Event Triggers', chip: 'custom' },
+        { key: 'built_in', label: 'Built-in Triggers', chip: 'built' }
+      ]},
+      { key: 'variables', title: 'Variables', groups: [
+        { key: 'template', label: 'Template Variables', chip: 'template' },
+        { key: 'standard', label: 'Custom / Standard Variables', chip: 'custom' }
+      ]},
+      { key: 'builtInVariables', title: 'Built-in Variables', groups: [
+        { key: 'built_in', label: 'Built-in', chip: 'built' }
+      ]},
+      { key: 'customTemplates', title: 'Custom Templates', groups: [
+        { key: 'tag', label: 'Tag Templates', chip: 'template' },
+        { key: 'variable', label: 'Variable Templates', chip: 'custom' },
+        { key: 'client', label: 'Client Templates', chip: 'custom' },
+        { key: 'other', label: 'Other Templates', chip: 'built' }
+      ]},
+      { key: 'folders', title: 'Folders', groups: [
+        { key: 'folders', label: 'Folders', chip: 'built' }
+      ]},
+      { key: 'clients', title: 'Clients', groups: [
+        { key: 'template', label: 'Template Clients', chip: 'template' },
+        { key: 'built_in', label: 'Built-in Clients', chip: 'built' }
+      ]}
+    ];
+
+    const statRow = document.getElementById('statRow');
+    const content = document.getElementById('content');
+    const searchInput = document.getElementById('searchInput');
+
+    function filterItems(items) {
+      if (!state.search) return items;
+      const term = state.search.toLowerCase();
+      return items.filter(item => {
+        const text = [item.name, item.id, item.type, item.templateName, item.meta]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+        return text.includes(term);
+      });
+    }
+
+    function statusBadge(item) {
+      if (state.view === 'current') {
+        return '<span class="badge current">Current</span>';
+      }
+      const status = (item.status || 'KEEP').toLowerCase();
+      return `<span class="badge ${status}">${status.toUpperCase()}</span>`;
+    }
+
+    function renderItem(item) {
+      const metaParts = [];
+      if (item.id) metaParts.push(`ID ${item.id}`);
+      if (item.type) metaParts.push(item.type);
+      if (item.meta) metaParts.push(item.meta);
+      const metaText = metaParts.join(' • ');
+      const templateChip = item.templateName ? `<span class="chip template">${item.templateName}</span>` : '';
+      return `
+        <div class="item-row">
+          <div class="item-main">
+            <div class="item-name">${item.name || 'Unnamed'}</div>
+            <div class="item-meta">${metaText}</div>
+          </div>
+          <div class="item-badges">
+            ${statusBadge(item)}
+            ${templateChip}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGroup(label, items) {
+      const filtered = filterItems(items);
+      if (!filtered.length) {
+        return `
+          <div class="group-card">
+            <div class="group-header">
+              <span>${label}</span>
+              <span class="count">0</span>
+            </div>
+            <div class="group-body"><div class="empty">No matching items.</div></div>
+          </div>
+        `;
+      }
+      return `
+        <div class="group-card">
+          <div class="group-header">
+            <span>${label}</span>
+            <span class="count">${filtered.length}</span>
+          </div>
+          <div class="group-body">
+            ${filtered.map(renderItem).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSection(category, data) {
+      const groups = category.groups
+        .map(group => {
+          const items = data[category.key] && data[category.key][group.key] ? data[category.key][group.key] : [];
+          return renderGroup(group.label, items);
+        })
+        .join('');
+
+      const total = category.groups.reduce((sum, group) => {
+        const items = data[category.key] && data[category.key][group.key] ? data[category.key][group.key] : [];
+        return sum + items.length;
+      }, 0);
+
+      if (!total) return '';
+
+      return `
+        <section class="section" data-section>
+          <div class="section-header" data-section-toggle>
+            <h2>${category.title}</h2>
+            <span class="count">${total} items</span>
+          </div>
+          <div class="section-body">
+            <div class="group-grid">${groups}</div>
+          </div>
+        </section>
+      `;
+    }
+
+    function countCategory(category) {
+      if (!category) return 0;
+      return Object.values(category).reduce((sum, list) => sum + list.length, 0);
+    }
+
+    function renderStats(data, meta) {
+      const stats = [
+        { label: 'Tags', value: countCategory(data.tags) },
+        { label: 'Triggers', value: countCategory(data.triggers) },
+        { label: 'Variables', value: countCategory(data.variables) },
+        { label: 'Built-in Vars', value: countCategory(data.builtInVariables) },
+        { label: 'Templates', value: countCategory(data.customTemplates) },
+        { label: 'Folders', value: countCategory(data.folders) }
+      ];
+      if (meta.publicId === 'GTM-K3CQBMZ9') {
+        stats.push({ label: 'Clients', value: countCategory(data.clients) });
+      }
+
+      statRow.innerHTML = stats.map(stat => `
+        <div class="stat">
+          <div class="stat-label">${stat.label}</div>
+          <div class="stat-value">${stat.value}</div>
+        </div>
+      `).join('');
+    }
+
+    function render() {
+      const dataset = DATA[state.container];
+      const meta = dataset.meta;
+      const data = dataset[state.view];
+
+      renderStats(data, meta);
+
+      const sections = categoryConfig
+        .filter(category => category.key !== 'clients' || (meta.publicId === 'GTM-K3CQBMZ9'))
+        .map(category => renderSection(category, data))
+        .filter(Boolean)
+        .join('');
+
+      content.innerHTML = sections;
+
+      content.querySelectorAll('[data-section-toggle]').forEach(header => {
+        header.addEventListener('click', () => {
+          header.parentElement.classList.toggle('collapsed');
+        });
+      });
+    }
+
+    document.querySelectorAll('[data-view]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-view]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.view = btn.dataset.view;
+        render();
+      });
+    });
+
+    document.querySelectorAll('[data-container]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-container]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.container = btn.dataset.container;
+        render();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      state.search = e.target.value.trim();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

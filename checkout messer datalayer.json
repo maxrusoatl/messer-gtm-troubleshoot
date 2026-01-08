@@ -1,0 +1,506 @@
+[
+  {
+    "0": "set",
+    "1": "developer_id.dYzg1YT",
+    "2": true
+  },
+  {
+    "gtm.start": 1767808393091,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 14
+  },
+  {
+    "gtm.start": 1767808393463,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 91
+  },
+  {
+    "event": "user_init",
+    "user_id": "guest_b8d5a83f-94ca-4797-9da7-1043f26d550e",
+    "gtm.uniqueEventId": 102
+  },
+  {
+    "event": "checkout",
+    "user": {
+      "id": 0,
+      "email": "",
+      "isLoggedIn": false,
+      "userType": "guest"
+    },
+    "ecommerce": {
+      "currencyCode": "USD",
+      "value": "11385.00",
+      "items": [
+        {
+          "id": 9549,
+          "name": "96\" High Capacity Grapple",
+          "price": "6840",
+          "quantity": 1
+        },
+        {
+          "id": 1303,
+          "name": "Salt and Sand Spreader",
+          "price": "4545",
+          "quantity": 1
+        }
+      ]
+    },
+    "gtm.uniqueEventId": 114
+  },
+  {
+    "ecommerce": null
+  },
+  {
+    "event": "begin_checkout",
+    "ecomm_pagetype": "basket",
+    "ecommerce": {
+      "currency": "USD",
+      "value": "11385.00",
+      "items": [
+        {
+          "item_name": "96&quot; High Capacity Grapple",
+          "item_brand": "",
+          "item_id": "9549",
+          "item_sku": "HCG96",
+          "price": "6840.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2023/06/hcg96_08.jpg",
+          "item_category": "Attachments",
+          "item_category2": "Material Handling",
+          "item_category3": "High Capacity Grapple Bucket",
+          "quantity": 1,
+          "index": 1
+        },
+        {
+          "item_name": "Salt and Sand Spreader",
+          "item_brand": "",
+          "item_id": "1303",
+          "item_sku": "SS10",
+          "price": "4545.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/sand-and-salt-spreader-attachments-for-skid-loader-compatible-with-john-deere-bobcat-case-new-holland-for-landscaping-companies.png",
+          "item_category": "Attachments",
+          "quantity": 1,
+          "index": 2
+        }
+      ]
+    },
+    "user_data": [],
+    "gtm.uniqueEventId": 136
+  },
+  {
+    "gtm.start": 1767808393878,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 149
+  },
+  {
+    "event": "gtm.dom",
+    "gtm.uniqueEventId": 160
+  },
+  {
+    "event": "gtm.load",
+    "gtm.uniqueEventId": 172
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 25,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 184
+  },
+  {
+    "event": "cmplz_event_statistics",
+    "gtm.uniqueEventId": 201
+  },
+  {
+    "event": "cmplz_event_marketing",
+    "gtm.uniqueEventId": 213
+  },
+  {
+    "event": "cmplz_event_preferences",
+    "gtm.uniqueEventId": 225
+  },
+  {
+    "event": "cmplz_event_functional",
+    "gtm.uniqueEventId": 237
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "data": null,
+              "guid": 55,
+              "namespace": ""
+            }
+          ]
+        }
+      },
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "",
+    "gtm.elementId": "okay-popup",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 249
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 318,
+              "namespace": false
+            },
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 301,
+              "namespace": ""
+            }
+          ]
+        },
+        "click": false
+      },
+      "jQuery3710104437608419268752": {
+        "order_button_text": ""
+      }
+    },
+    "gtm.elementClasses": "input-radio",
+    "gtm.elementId": "payment_method_woocommerce_payments",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 261
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "keydown": [
+            {
+              "type": "keydown",
+              "origType": "keydown",
+              "guid": 173,
+              "namespace": ""
+            }
+          ],
+          "focus": [
+            {
+              "type": "focus",
+              "origType": "focus",
+              "guid": 175,
+              "namespace": false
+            },
+            {
+              "type": "focus",
+              "origType": "focus",
+              "guid": 174,
+              "namespace": ""
+            }
+          ],
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 174,
+              "namespace": ""
+            }
+          ]
+        },
+        "focus": false
+      },
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "input-text ",
+    "gtm.elementId": "billing_first_name",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 273
+  },
+  {
+    "user_data": {
+      "user_id": null,
+      "email": "",
+      "phone": "14048404994"
+    }
+  },
+  {
+    "user_data": {
+      "user_id": null,
+      "email": "",
+      "phone": "14048404994"
+    }
+  },
+  {
+    "user_data": {
+      "user_id": null,
+      "email": "maxrusoatl@gmail.com",
+      "phone": "14048404994"
+    }
+  },
+  {
+    "user_data": {
+      "user_id": null,
+      "email": "maxrusoatl@gmail.com",
+      "phone": "14048404994"
+    }
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "input": [
+            {
+              "type": "input",
+              "origType": "input",
+              "guid": 50,
+              "namespace": ""
+            }
+          ],
+          "keydown": [
+            {
+              "type": "keydown",
+              "origType": "keydown",
+              "guid": 173,
+              "namespace": ""
+            }
+          ],
+          "focus": [
+            {
+              "type": "focus",
+              "origType": "focus",
+              "guid": 177,
+              "namespace": false
+            },
+            {
+              "type": "focus",
+              "origType": "focus",
+              "guid": 174,
+              "namespace": ""
+            }
+          ],
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 174,
+              "namespace": ""
+            }
+          ]
+        },
+        "focus": false
+      },
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "input-text ",
+    "gtm.elementId": "billing_company",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 369
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 318,
+              "namespace": false
+            },
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 301,
+              "namespace": ""
+            }
+          ]
+        },
+        "click": false
+      },
+      "jQuery3710104437608419268752": {
+        "order_button_text": ""
+      }
+    },
+    "gtm.elementClasses": "input-radio",
+    "gtm.elementId": "payment_method_woocommerce_payments",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 381
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {},
+    "gtm.elementClasses": "select2-selection__rendered",
+    "gtm.elementId": "select2-billing_country-container",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 393
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 318,
+              "namespace": false
+            },
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 301,
+              "namespace": ""
+            }
+          ]
+        },
+        "click": false
+      },
+      "jQuery3710104437608419268752": {
+        "order_button_text": ""
+      }
+    },
+    "gtm.elementClasses": "input-radio",
+    "gtm.elementId": "payment_method_woocommerce_payments",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 405
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {},
+    "gtm.elementClasses": "select2-selection__rendered",
+    "gtm.elementId": "select2-billing_country-container",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 417
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "woocommerce-form__input woocommerce-form__input-checkbox input-checkbox",
+    "gtm.elementId": "mailchimp_woocommerce_newsletter",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 429
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "woocommerce-form__input woocommerce-form__input-checkbox input-checkbox",
+    "gtm.elementId": "ship-to-different-address-checkbox",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 441
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710104437608419268751": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 318,
+              "namespace": false
+            },
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 301,
+              "namespace": ""
+            }
+          ]
+        },
+        "click": false
+      },
+      "jQuery3710104437608419268752": {
+        "order_button_text": ""
+      }
+    },
+    "gtm.elementClasses": "input-radio",
+    "gtm.elementId": "payment_method_woocommerce_payments",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 453
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "_meaningfulType": null,
+      "jQuery3710104437608419268751": {
+        "display": ""
+      }
+    },
+    "gtm.elementClasses": "ship-form-close",
+    "gtm.elementId": "",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 465
+  },
+  {
+    "event": "gtm.linkClick",
+    "gtm.element": {
+      "_meaningfulType": null,
+      "jQuery3710104437608419268751": {
+        "display": ""
+      }
+    },
+    "gtm.elementClasses": "ship-form-close",
+    "gtm.elementId": "",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "196",
+    "gtm.elementUrl": "",
+    "gtm.elementText": "Done",
+    "gtm.willOpenInNewWindow": false,
+    "eventTimeout": 2000,
+    "gtm.uniqueEventId": 477
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 50,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 489
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 75,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 501
+  }
+]

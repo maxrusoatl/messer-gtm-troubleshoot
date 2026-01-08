@@ -1,0 +1,91 @@
+[
+  {
+    "0": "set",
+    "1": "developer_id.dYzg1YT",
+    "2": true
+  },
+  {
+    "gtm.start": 1767873057257,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 14
+  },
+  {
+    "gtm.start": 1767873057642,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 91
+  },
+  {
+    "gtm.start": 1767873057645,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 102
+  },
+  {
+    "event": "gtm.dom",
+    "gtm.uniqueEventId": 113
+  },
+  {
+    "event": "gtm.load",
+    "gtm.uniqueEventId": 125
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 25,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 137
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 50,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 149
+  },
+  {
+    "event": "user_init",
+    "user_id": "guest_e4432839-0a05-4c7a-aac1-e42900033a44",
+    "gtm.uniqueEventId": 161
+  },
+  {
+    "ecommerce": null
+  },
+  {
+    "event": "view_item",
+    "ecomm_pagetype": "product",
+    "ecommerce": {
+      "currency": "USD",
+      "value": "230.00",
+      "items": [
+        {
+          "item_name": "Push Bar for Tree &amp; Post Puller",
+          "item_brand": "Messer Attachments",
+          "item_id": "8325",
+          "item_sku": "TP-PB",
+          "price": "230.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/IMG_0781-copy-1-e1652387423556-jpg.webp",
+          "item_category": "Attachments"
+        }
+      ]
+    },
+    "user_data": [],
+    "gtm.uniqueEventId": 183
+  },
+  {
+    "event": "cmplz_event_statistics",
+    "gtm.uniqueEventId": 201
+  },
+  {
+    "event": "cmplz_event_marketing",
+    "gtm.uniqueEventId": 213
+  },
+  {
+    "event": "cmplz_event_preferences",
+    "gtm.uniqueEventId": 225
+  },
+  {
+    "event": "cmplz_event_functional",
+    "gtm.uniqueEventId": 237
+  }
+]

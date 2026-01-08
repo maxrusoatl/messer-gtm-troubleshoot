@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SOP Gap Report - Messer Attachments</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f2;
+      --card: #ffffff;
+      --ink: #1f2430;
+      --muted: #606a78;
+      --accent: #1a6f8f;
+      --warn: #b85c1a;
+      --ok: #2b7a3d;
+      --border: #e2e4e8;
+      --table: #f9fafb;
+    }
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 32px auto 64px;
+      padding: 0 20px;
+    }
+    header {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    header h1 {
+      margin: 0 0 4px 0;
+      font-size: 28px;
+      letter-spacing: 0.2px;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 14px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+    h3 {
+      margin: 14px 0 6px 0;
+      font-size: 16px;
+      color: var(--accent);
+    }
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+    }
+    .status.warn { color: var(--warn); border-color: #f0c8a8; background: #fff6ef; }
+    .status.ok { color: var(--ok); border-color: #bfe2c7; background: #f2fbf4; }
+    .status.nd { color: var(--muted); border-color: #d7dbe0; background: #f4f6f8; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+      background: var(--table);
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eef1f5;
+      font-weight: 600;
+    }
+    code {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 0.95em;
+    }
+    .evidence {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .callout {
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fbfbfd;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>SOP Gap Report - Messer Attachments</h1>
+      <p>Evidence-driven analysis for WooCommerce tracking with Complianz, Cloudflare SOP (/metrics), wGTM, and sGTM.</p>
+    </header>
+
+    <section>
+      <h2>Inputs Used</h2>
+      <ul>
+        <li><code>original-data/GTM-MNRP4PF_workspace249.json</code> (wGTM export)</li>
+        <li><code>original-data/GTM-K3CQBMZ9_workspace36.json</code> (sGTM export)</li>
+        <li><code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code> (wGTM Tag Assistant)</li>
+        <li><code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code> (sGTM Tag Assistant)</li>
+        <li><code>original-data/view product.json</code>, <code>original-data/view cart.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/messer datalayers new.txt</code></li>
+        <li><code>original-data/stape io log.csv</code>, <code>original-data/cookies messer.md</code>, <code>original-data/STAPE_SGTM_PLUGIN_SETTINGS.md</code></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Executive Summary</h2>
+      <ul>
+        <li><span class="status nd">Not determinable</span> SOP contract verification (ingestion claim, caching/WAF, request integrity) due to missing /metrics network and sGTM preview logs.</li>
+        <li>wGTM Tag/Stape Data Tag is configured to send to <code>https://messerattach.com/metrics</code> with <code>/data</code> and fires on ecommerce events.</li>
+        <li>Client-side GTAG container <code>GT-NS9Z5FWG</code> emits ecommerce events with <code>send_to</code> values including <code>G-YCL5FGZNCV</code> and <code>AW-767740215</code>, creating a parallel path.</li>
+        <li><code>event_id</code> is not present in observed ecommerce events, blocking reliable dedupe across hybrid delivery.</li>
+      </ul>
+      <p class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace249.json</code>, <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code>, <code>original-data/stape io log.csv</code></p>
+    </section>
+
+    <section>
+      <h2>Step 0 SOP Contract Verification</h2>
+      <div class="grid">
+        <div class="callout">
+          <h3>Ingestion Claim</h3>
+          <p><span class="status nd">Not determinable</span> No sGTM preview logs to confirm sGTM Client/Stape Data Client claim or inbound path.</p>
+        </div>
+        <div class="callout">
+          <h3>Caching/WAF/Bot</h3>
+          <p><span class="status nd">Not determinable</span> No Cloudflare rule or /metrics response headers provided.</p>
+        </div>
+        <div class="callout">
+          <h3>Request Integrity</h3>
+          <p><span class="status nd">Not determinable</span> No /metrics network evidence for method, content-type, or payload preservation.</p>
+        </div>
+      </div>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code>, <code>original-data/stape io log.csv</code></p>
+    </section>
+
+    <section>
+      <h2>Current Situation (Evidence-Based)</h2>
+      <ul>
+        <li>Consent: Complianz is present in wGTM and Consent Mode v2 states are granted at ecommerce events.</li>
+        <li>DataLayer: <code>view_item</code>, <code>view_cart</code>, <code>begin_checkout</code> include <code>ecommerce.items</code> arrays and <code>currency/value</code>. A separate <code>checkout</code> event appears in checkout flow.</li>
+        <li>wGTM execution: wGTM Tag/Stape Data Tag fires on <code>view_item</code>, <code>add_to_cart</code>, <code>begin_checkout</code>, <code>view_cart</code>. Microsoft UET ecommerce tags also fire client-side.</li>
+        <li>/metrics network: Not observable in provided inputs.</li>
+        <li>sGTM ingestion/outbound: Not observable in provided inputs.</li>
+        <li>Parallel sends: GTAG container emits ecommerce events with <code>send_to</code> destinations.</li>
+      </ul>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/view product.json</code>, <code>original-data/view cart.json</code></p>
+    </section>
+
+    <section>
+      <h2>Inventory (IDs, Templates, Where Used)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID / Label</th>
+            <th>Template / Tag</th>
+            <th>Where Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>G-YCL5FGZNCV</td>
+            <td>wGTM Variable/GA4 - ID; sGTM Tag/GA4 Advanced</td>
+            <td>wGTM export; sGTM export; GTAG send_to</td>
+          </tr>
+          <tr>
+            <td>GT-NS9Z5FWG</td>
+            <td>wGTM Tag/Google Tag (gtag.js)</td>
+            <td>wGTM export; Tag Assistant GTAG container</td>
+          </tr>
+          <tr>
+            <td>AW-767740215</td>
+            <td>Google Ads Conversion ID</td>
+            <td>wGTM call tags; sGTM Ads tags; GTAG send_to</td>
+          </tr>
+          <tr>
+            <td>gM6CCLv40eoYELeSi-4C</td>
+            <td>Ads Purchase label</td>
+            <td>sGTM Ads Conversion Tracking - Purchase</td>
+          </tr>
+          <tr>
+            <td>y0V4CNzM0uoYELeSi-4C</td>
+            <td>Ads Add to Cart label</td>
+            <td>sGTM Ads Conversion Tracking - Add to Cart</td>
+          </tr>
+          <tr>
+            <td>srU-CMOM3OoYELeSi-4C</td>
+            <td>Ads Checkout label</td>
+            <td>sGTM Ads Conversion Tracking - Checkout</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace249.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace36.json</code>, <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code></p>
+    </section>
+
+    <section>
+      <h2>Event Chain Results (Observed)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>DataLayer Payload</th>
+            <th>wGTM Stape Data Tag Fired Once</th>
+            <th>/metrics Request</th>
+            <th>sGTM Client Ingestion</th>
+            <th>sGTM GA4 Tag Fired</th>
+            <th>sGTM Ads Tags Fired</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>view_item</td>
+            <td>PASS</td>
+            <td>PASS</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+          </tr>
+          <tr>
+            <td>add_to_cart</td>
+            <td>PASS</td>
+            <td>PASS</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+          </tr>
+          <tr>
+            <td>begin_checkout</td>
+            <td>PASS</td>
+            <td>PASS</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+            <td>Not determinable</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/view product.json</code></p>
+    </section>
+
+    <section>
+      <h2>Gaps vs Intended SOP Architecture</h2>
+      <ul>
+        <li><strong>Unverified SOP chain</strong>: No proof of /metrics requests or sGTM ingestion claim, so the SOP path cannot be validated.</li>
+        <li><strong>Missing event_id</strong>: No stable event_id observed in ecommerce events; dedupe cannot be guaranteed for hybrid paths.</li>
+        <li><strong>Event naming mismatch</strong>: DataLayer includes <code>event: "checkout"</code> but wGTM trigger regex includes <code>begin_checkout</code> only.</li>
+        <li><strong>Hybrid routing risk</strong>: GTAG container emits ecommerce events in parallel with Stape Data Tag forwarding.</li>
+      </ul>
+      <p class="evidence">Evidence: <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/GTM-MNRP4PF_workspace249.json</code>, <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code></p>
+    </section>
+
+    <section>
+      <h2>Fix Plan (Exact Changes + Validation)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Change</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Critical</td>
+            <td>Capture a test run with /metrics network HAR and sGTM preview logs for view_item, add_to_cart, begin_checkout.</td>
+            <td>sGTM preview shows sGTM Client/Stape Data Client claiming /data; /metrics requests are 2xx and not cached.</td>
+          </tr>
+          <tr>
+            <td>Critical</td>
+            <td>Provide Cloudflare Worker code plus cache/WAF and WP Rocket exclusions for /metrics/*.</td>
+            <td>Rules show cache bypass and no WAF/Bot challenges; Worker forwards to sGTM origin /data without rewrite.</td>
+          </tr>
+          <tr>
+            <td>High</td>
+            <td>Add stable event_id to Stape Data Tag payload (use wGTM Variable Event Id or Unique Event ID; map to event_id in Data Tag custom_data).</td>
+            <td>/metrics payload and sGTM eventData include event_id; dedupe works in GA4/Ads.</td>
+          </tr>
+          <tr>
+            <td>High</td>
+            <td>Choose authoritative routing per destination; if server-side, disable or scope GTAG ecommerce sends.</td>
+            <td>Only one path fires for ecommerce; no duplicate events in GA4 DebugView.</td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+            <td>Align event naming: standardize on begin_checkout or add checkout to wGTM regex trigger.</td>
+            <td>Intended checkout event appears in wGTM firing and /metrics payload.</td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+            <td>Map user_id from DataLayer to Stape Data Tag payload and sGTM GA4 user_id parameter.</td>
+            <td>sGTM preview shows user_id in eventData and GA4 server tag payload.</td>
+          </tr>
+          <tr>
+            <td>Low</td>
+            <td>Add lightweight Worker logging for /metrics errors and latency monitoring.</td>
+            <td>Logs show success rates and alert on non-2xx responses.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Routing and Duplication Controls</h2>
+      <ul>
+        <li>gtag classification: <span class="status nd">Not determinable</span> (no network evidence to confirm gateway vs direct).</li>
+        <li>Proven paths: wGTM Tag/Stape Data Tag configured to /metrics; GTAG container emits ecommerce events with send_to destinations.</li>
+        <li>Policy: once SOP is verified, define one authoritative path for GA4 ecommerce and Google Ads conversions; enforce event_id for dedupe.</li>
+      </ul>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/GTM-MNRP4PF_workspace249.json</code></p>
+    </section>
+
+    <section>
+      <h2>Consent and PII Findings</h2>
+      <ul>
+        <li>Consent Mode v2 states appear granted during ecommerce events.</li>
+        <li>Checkout DataLayer includes user_data with email/phone; ensure consent-gated handling and hashing where required.</li>
+        <li>Server-side consent enforcement is not observable without sGTM preview logs.</li>
+      </ul>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/BEGIN CHECKOUT.json</code></p>
+    </section>
+
+    <section>
+      <h2>Evidence Index</h2>
+      <ul>
+        <li><code>original-data/GTM-MNRP4PF_workspace249.json</code> (wGTM export)</li>
+        <li><code>original-data/GTM-K3CQBMZ9_workspace36.json</code> (sGTM export)</li>
+        <li><code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code> (wGTM Tag Assistant)</li>
+        <li><code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code> (sGTM Tag Assistant)</li>
+        <li><code>original-data/view product.json</code>, <code>original-data/view cart.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/messer datalayers new.txt</code></li>
+        <li><code>original-data/stape io log.csv</code>, <code>original-data/cookies messer.md</code></li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

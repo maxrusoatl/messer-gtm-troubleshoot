@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DataLayer Structure - Messer GTM Audit</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap");
+
+      :root {
+        --ink: #1d2b2f;
+        --muted: #5a6b6f;
+        --paper: #f7f3eb;
+        --panel: #fffaf1;
+        --accent: #e07a3f;
+        --accent-2: #1f8a70;
+        --danger: #b23a48;
+        --warn: #d9a441;
+        --line: #d8cbb8;
+        --shadow: rgba(10, 20, 20, 0.12);
+        --code-bg: #2d3748;
+        --code-text: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Newsreader", "Palatino Linotype", "Book Antiqua", serif;
+        background-color: var(--paper);
+        background-image:
+          radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.18), transparent 40%),
+          radial-gradient(circle at 88% 6%, rgba(31, 138, 112, 0.16), transparent 38%),
+          linear-gradient(to right, rgba(29, 43, 47, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(29, 43, 47, 0.04) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      }
+
+      header,
+      section,
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px;
+      }
+
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px;
+        background: rgba(247, 243, 235, 0.92);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 6px 18px rgba(29, 43, 47, 0.08);
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav .brand {
+        font-size: 14px;
+        color: var(--ink);
+        letter-spacing: 0.18em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a.active {
+        color: var(--accent);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        margin: 0 0 12px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 3vw, 3.4rem);
+      }
+
+      h2 {
+        font-size: 1.6rem;
+        margin-top: 32px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--line);
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        color: var(--accent);
+        margin-top: 24px;
+      }
+
+      h4 {
+        font-size: 1rem;
+        color: var(--accent-2);
+        margin-top: 16px;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(29, 43, 47, 0.08);
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .pill.new {
+        background: rgba(31, 138, 112, 0.15);
+        color: var(--accent-2);
+      }
+
+      .pill.old {
+        background: rgba(178, 58, 72, 0.12);
+        color: var(--danger);
+      }
+
+      .pill.current {
+        background: rgba(224, 122, 63, 0.15);
+        color: var(--accent);
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 12px 30px var(--shadow);
+        margin-bottom: 20px;
+      }
+
+      .mistakes-banner {
+        background: #fff1f2;
+        border: 1px solid rgba(178, 58, 72, 0.35);
+        border-left: 6px solid var(--danger);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 12px 30px var(--shadow);
+      }
+
+      .mistakes-banner h3 {
+        color: var(--danger);
+        margin-top: 6px;
+      }
+
+      .hero-links {
+        margin-top: 12px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-links a {
+        text-decoration: none;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .full-bleed {
+        max-width: none;
+        padding: 0;
+      }
+
+      .full-bleed h2 {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px 0;
+      }
+
+      .split-compare {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        padding: 28px 24px;
+      }
+
+      .split-panel {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 12px 30px var(--shadow);
+      }
+
+      .split-panel h3 {
+        margin-top: 0;
+        font-size: 1.1rem;
+        color: var(--ink);
+      }
+
+      .mindmap {
+        list-style: none;
+        padding-left: 0;
+        margin: 14px 0 8px;
+      }
+
+      .mindmap li {
+        position: relative;
+        padding-left: 18px;
+        margin: 8px 0;
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      .mindmap li::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 7px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .mindmap ul {
+        list-style: none;
+        margin: 8px 0 0 0;
+        padding-left: 16px;
+        border-left: 1px dashed var(--line);
+      }
+
+      .mindmap ul li::before {
+        background: var(--accent-2);
+      }
+
+      .note-list {
+        margin: 10px 0 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+        padding: 0 24px 28px;
+      }
+
+      .dashboard-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 10px 24px var(--shadow);
+      }
+
+      .dashboard-card h3 {
+        margin-top: 0;
+        font-size: 1.1rem;
+      }
+
+      .panel.issue {
+        border-color: rgba(178, 58, 72, 0.4);
+        background: rgba(178, 58, 72, 0.06);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 14px;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .comparison-table th {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        background: rgba(29, 43, 47, 0.05);
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+      }
+
+      .comparison-table tr:hover {
+        background: rgba(224, 122, 63, 0.05);
+      }
+
+      pre {
+        background: var(--code-bg);
+        color: var(--code-text);
+        padding: 16px;
+        border-radius: 12px;
+        overflow-x: auto;
+        font-family: "Fira Code", monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 12px 0;
+      }
+
+      code {
+        font-family: "Fira Code", monospace;
+        background: rgba(29, 43, 47, 0.08);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+
+      pre code {
+        background: none;
+        padding: 0;
+      }
+
+      .event-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .event-tag {
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        border: 1px solid var(--line);
+        background: #fffdf6;
+      }
+
+      .event-tag.ecommerce {
+        border-color: var(--accent);
+        background: rgba(224, 122, 63, 0.1);
+      }
+
+      .event-tag.gtm {
+        border-color: var(--accent-2);
+        background: rgba(31, 138, 112, 0.1);
+      }
+
+      .event-tag.consent {
+        border-color: var(--warn);
+        background: rgba(217, 164, 65, 0.1);
+      }
+
+      .highlight-box {
+        border-left: 4px solid var(--accent);
+        padding: 12px 16px;
+        margin: 16px 0;
+        background: rgba(224, 122, 63, 0.08);
+        border-radius: 0 12px 12px 0;
+      }
+
+      .highlight-box.info {
+        border-left-color: var(--accent-2);
+        background: rgba(31, 138, 112, 0.08);
+      }
+
+      .highlight-box.warning {
+        border-left-color: var(--warn);
+        background: rgba(217, 164, 65, 0.08);
+      }
+
+      ul {
+        margin: 10px 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 900px) {
+        .top-nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a class="brand" href="index.html">Messer GTM Audit</a>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="datalayers.html" class="active">DataLayers</a>
+        <a href="gtm-audit-view.html">Audit Map</a>
+        <a href="flow.html">Data Flow</a>
+        <a href="canvas.html">Canvas</a>
+        <a href="audit-board.html">Audit Board</a>
+        <a href="action-plan.html">Action Plan</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <span class="pill current">Current Implementation</span>
+      <h1>DataLayer Structure Documentation</h1>
+      <p>
+        This page documents the current dataLayer implementation for Messer Attachments,
+        including all ecommerce events, user identification, and the item schema being pushed to GTM.
+      </p>
+      <div class="hero-links">
+        <a href="#mistakes">View mistakes</a>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="mistakes">Mistakes (Current)</h2>
+      <div class="mistakes-banner">
+        <span class="pill old">Mistakes</span>
+        <h3>Issues Found In Current DataLayer</h3>
+        <ul>
+          <li>Dual checkout schemas: checkout vs begin_checkout</li>
+          <li>Raw PII pushed on every keystroke in user_data</li>
+          <li>Price values are strings, not numbers</li>
+          <li>item_name includes HTML entities (needs decoding)</li>
+          <li>user_data is empty array on most events</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="full-bleed">
+      <h2>Checkout Differences (New vs Old)</h2>
+      <div class="split-compare">
+        <div class="split-panel">
+          <h3>New Checkout (begin_checkout)</h3>
+          <ul class="mindmap">
+            <li>event: begin_checkout
+              <ul>
+                <li>ecommerce.currency</li>
+                <li>ecommerce.value</li>
+                <li>ecomm_pagetype: basket</li>
+                <li>items[]
+                  <ul>
+                    <li>item_id, item_name, item_sku</li>
+                    <li>item_brand, item_category</li>
+                    <li>item_category2, item_category3</li>
+                    <li>price, quantity, index</li>
+                  </ul>
+                </li>
+                <li>user_data: []</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="note-list">
+            <li>GA4 item schema is present.</li>
+            <li>item_name contains HTML entities (&quot;).</li>
+            <li>Missing: user_data values (empty array).</li>
+            <li>Fix: decode HTML entities in item_name.</li>
+            <li>Fix: populate user_data when consented.</li>
+          </ul>
+        </div>
+        <div class="split-panel">
+          <h3>Old Checkout (checkout)</h3>
+          <ul class="mindmap">
+            <li>event: checkout
+              <ul>
+                <li>ecommerce.currencyCode</li>
+                <li>ecommerce.value</li>
+                <li>items[]
+                  <ul>
+                    <li>id, name</li>
+                    <li>price, quantity</li>
+                  </ul>
+                </li>
+                <li>user
+                  <ul>
+                    <li>id, email, isLoggedIn</li>
+                    <li>userType</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="note-list">
+            <li>Legacy schema conflicts with GA4.</li>
+            <li>Missing: item_id, item_name, item_sku, item_brand, item_category.</li>
+            <li>Fix: replace currencyCode with currency.</li>
+            <li>Fix: migrate to GA4 item schema or stop firing checkout.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Recommended DataLayer Additions (From Old Samples)</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Add These Global Blocks</h3>
+          <ul class="mindmap">
+            <li>event_id (sha256 of user_id + event + timestamp + gtm.uniqueEventId)</li>
+            <li>timestamp (ms)</li>
+            <li>user_data (minimal on all events)
+              <ul>
+                <li>user_id, is_logged_in, customer_id</li>
+              </ul>
+            </li>
+            <li>consent_state (marketing/statistics + ad_storage/analytics_storage)</li>
+            <li>marketing_ids (fbp, fbc, gclid, wbraid, msclkid)</li>
+            <li>page_context (url, path, referrer, title)</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Move PII To One Event</h3>
+          <ul class="mindmap">
+            <li>checkout_userinfo (PII allowed only here)
+              <ul>
+                <li>billing/shipping fields</li>
+                <li>hash in sGTM (no raw PII to GA4)</li>
+              </ul>
+            </li>
+            <li>purchase should keep user_id only (no billing fields)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Event Coverage To Add (New Schema)</h2>
+      <div class="panel">
+        <ul class="mindmap">
+          <li>view_item_list
+            <ul>
+              <li>item_list_id, item_list_name</li>
+            </ul>
+          </li>
+          <li>view_cart
+            <ul>
+              <li>ecomm_pagetype: cart</li>
+              <li>cart_quantity, cart_total</li>
+            </ul>
+          </li>
+          <li>begin_checkout
+            <ul>
+              <li>cart_quantity, cart_total</li>
+            </ul>
+          </li>
+          <li>add_shipping_info, add_payment_info
+            <ul>
+              <li>shipping_tier, shipping_method_id</li>
+              <li>payment_type (no card_last4)</li>
+            </ul>
+          </li>
+          <li>select_item (optional but recommended)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data Layer Dashboard (Old Samples)</h2>
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <h3>view_item (Product)</h3>
+          <ul class="mindmap">
+            <li>event: view_item
+              <ul>
+                <li>ecomm_pagetype: product</li>
+                <li>ecommerce.currency, ecommerce.value</li>
+                <li>items[]
+                  <ul>
+                    <li>item_id, item_name, item_sku</li>
+                    <li>item_brand, item_category</li>
+                    <li>price</li>
+                  </ul>
+                </li>
+                <li>user_data: []</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="note-list">
+            <li>Add: user_data values when consented.</li>
+            <li>Fix: decode HTML entities in item_name.</li>
+            <li>Fix: numeric types for price/value if possible.</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>view_item_list (Category)</h3>
+          <ul class="mindmap">
+            <li>event: view_item_list
+              <ul>
+                <li>ecomm_pagetype: category</li>
+                <li>ecommerce.currency</li>
+                <li>items[]
+                  <ul>
+                    <li>item_id, item_name, item_sku</li>
+                    <li>item_category, item_category2, item_category3</li>
+                    <li>item_list_id, item_list_name</li>
+                    <li>price, quantity, index</li>
+                  </ul>
+                </li>
+                <li>user_data: []</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="note-list">
+            <li>Add: user_data values when consented.</li>
+            <li>Fix: decode HTML entities in item_name.</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>view_cart</h3>
+          <ul class="mindmap">
+            <li>event: view_cart
+              <ul>
+                <li>ecomm_pagetype: basket</li>
+                <li>cart_quantity, cart_total</li>
+                <li>ecommerce.currency</li>
+                <li>items[]
+                  <ul>
+                    <li>item_id, item_name, item_sku</li>
+                    <li>item_brand, item_category</li>
+                    <li>price, quantity, index</li>
+                  </ul>
+                </li>
+                <li>user_data: []</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="note-list">
+            <li>Add: user_data values when consented.</li>
+            <li>Fix: numeric types for cart_total and price.</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>purchase</h3>
+          <ul class="mindmap">
+            <li>event: purchase
+              <ul>
+                <li>ecomm_pagetype: purchase</li>
+                <li>transaction_id, value, tax, shipping</li>
+                <li>currency, coupon, discount_amount</li>
+                <li>items[]
+                  <ul>
+                    <li>item_id, item_name, item_sku</li>
+                    <li>item_brand, item_category</li>
+                    <li>price, discount, quantity, index</li>
+                  </ul>
+                </li>
+                <li>user_data: billing + shipping fields</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="note-list">
+            <li>Fix: hash or gate raw PII in user_data.</li>
+            <li>Fix: numeric types for value, price, tax, shipping.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Current Structure (Snapshot)</h2>
+      <div class="panel">
+        <ul>
+          <li><strong>Events</strong>: ecommerce (view_item, view_item_list, view_cart, add_to_cart, begin_checkout, checkout, purchase), GTM lifecycle (gtm.js, gtm.dom, gtm.load), interaction (gtm.click, gtm.scrollDepth), consent (cmplz_event_*)</li>
+          <li><strong>User identity</strong>: user_id (guest UUID), user_id_hashed, checkout user object</li>
+          <li><strong>Ecommerce schema</strong>: GA4 items with custom fields (imageUrl, item_category2, item_category3)</li>
+          <li><strong>Infrastructure</strong>: multiple GTM containers (web + server)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Events Overview</h2>
+      <p>The dataLayer currently fires the following event types:</p>
+
+      <div class="event-list">
+        <span class="event-tag ecommerce">view_item</span>
+        <span class="event-tag ecommerce">view_item_list</span>
+        <span class="event-tag ecommerce">view_cart</span>
+        <span class="event-tag ecommerce">add_to_cart</span>
+        <span class="event-tag ecommerce">begin_checkout</span>
+        <span class="event-tag ecommerce">checkout</span>
+        <span class="event-tag ecommerce">purchase</span>
+        <span class="event-tag gtm">user_init</span>
+        <span class="event-tag gtm">gtm.js</span>
+        <span class="event-tag gtm">gtm.dom</span>
+        <span class="event-tag gtm">gtm.load</span>
+        <span class="event-tag gtm">gtm.click</span>
+        <span class="event-tag gtm">gtm.scrollDepth</span>
+        <span class="event-tag consent">cmplz_event_statistics</span>
+        <span class="event-tag consent">cmplz_event_marketing</span>
+        <span class="event-tag consent">cmplz_event_preferences</span>
+        <span class="event-tag consent">cmplz_event_functional</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>User Identification</h2>
+
+      <div class="grid">
+        <div class="panel">
+          <h3>Current Implementation</h3>
+          <p>The site uses two forms of user identification:</p>
+          <ul>
+            <li><strong>user_id</strong> - Plain UUID for guests: <code>guest_bf8223ea-9cb3-4650-...</code></li>
+            <li><strong>user_id_hashed</strong> - SHA256 hash for privacy</li>
+          </ul>
+          <pre><code>{
+  "event": "user_init",
+  "user_id": "guest_7240e4c9-5919-49c4-b9bb-47b8f94bb5fc",
+  "gtm.uniqueEventId": 102
+}</code></pre>
+        </div>
+
+        <div class="panel">
+          <h3>Checkout User Object</h3>
+          <p>During checkout, a separate user object is pushed:</p>
+          <pre><code>{
+  "event": "checkout",
+  "user": {
+    "id": 0,
+    "email": "",
+    "isLoggedIn": false,
+    "userType": "guest"
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="highlight-box warning">
+        <strong>Note:</strong> The <code>user_init</code> event fires early in the page lifecycle, before ecommerce events.
+        Multiple GTM containers are loading (3 separate <code>gtm.js</code> events observed).
+      </div>
+    </section>
+
+    <section>
+      <h2>Ecommerce Item Schema</h2>
+      <p>The current item schema follows GA4 conventions with additional custom fields:</p>
+
+      <div class="panel">
+        <h3>Current Item Structure</h3>
+        <pre><code>{
+  "item_name": "75\" Manure Fork Grapple",
+  "item_brand": "",
+  "item_id": "1119",
+  "item_sku": "MFG75",
+  "price": "4245.00",
+  "imageUrl": "https://messerattach.com/wp-content/.../image.webp",
+  "item_category": "Attachments",
+  "item_category2": "Material Handling",
+  "item_category3": "High Capacity Grapple Bucket",
+  "quantity": 1,
+  "index": 1
+}</code></pre>
+      </div>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>item_name</code></td>
+            <td>String</td>
+            <td>Product name (may contain HTML entities like <code>&quot;</code>)</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>item_id</code></td>
+            <td>String</td>
+            <td>WooCommerce product ID</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>item_sku</code></td>
+            <td>String</td>
+            <td>Product SKU</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>price</code></td>
+            <td>String</td>
+            <td>Unit price (as string with decimals)</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>item_brand</code></td>
+            <td>String</td>
+            <td>Brand name (often empty)</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>item_category</code></td>
+            <td>String</td>
+            <td>Primary category</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>item_category2</code></td>
+            <td>String</td>
+            <td>Secondary category</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>item_category3</code></td>
+            <td>String</td>
+            <td>Tertiary category</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>imageUrl</code></td>
+            <td>String</td>
+            <td>Product image URL (custom field)</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>quantity</code></td>
+            <td>Number</td>
+            <td>Quantity in cart/order</td>
+            <td>Context-dependent</td>
+          </tr>
+          <tr>
+            <td><code>index</code></td>
+            <td>Number</td>
+            <td>Position in list (1-indexed)</td>
+            <td>Context-dependent</td>
+          </tr>
+          <tr>
+            <td><code>item_list_id</code></td>
+            <td>Number</td>
+            <td>Category/list ID (view_item_list only)</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>item_list_name</code></td>
+            <td>String</td>
+            <td>Category/list name (view_item_list only)</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Event Examples</h2>
+
+      <div class="panel">
+        <h3>view_item</h3>
+        <p>Fired when a user views a product detail page.</p>
+        <pre><code>{
+  "event": "view_item",
+  "ecomm_pagetype": "product",
+  "ecommerce": {
+    "currency": "USD",
+    "value": "4245.00",
+    "items": [{
+      "item_name": "75\" Manure Fork Grapple",
+      "item_brand": "",
+      "item_id": "1119",
+      "item_sku": "MFG75",
+      "price": "4245.00",
+      "imageUrl": "https://messerattach.com/...",
+      "item_category": "Attachments"
+    }]
+  },
+  "user_data": [],
+  "gtm.uniqueEventId": 135
+}</code></pre>
+      </div>
+
+      <div class="panel">
+        <h3>view_cart</h3>
+        <p>Fired when the cart page loads.</p>
+        <pre><code>{
+  "event": "view_cart",
+  "ecomm_pagetype": "basket",
+  "cart_quantity": 2,
+  "cart_total": "10740.00",
+  "ecommerce": {
+    "currency": "USD",
+    "items": [
+      {
+        "item_name": "75\" Manure Fork Grapple",
+        "item_id": "1119",
+        "item_sku": "MFG75",
+        "price": "4245.00",
+        "item_category": "Attachments",
+        "quantity": 1,
+        "index": 1
+      },
+      {
+        "item_name": "84\" High Capacity Grapple",
+        "item_id": "9359",
+        "item_sku": "HCG84",
+        "price": "6495.00",
+        "item_category": "Attachments",
+        "item_category2": "Material Handling",
+        "item_category3": "High Capacity Grapple Bucket",
+        "quantity": 1,
+        "index": 2
+      }
+    ]
+  },
+  "user_data": []
+}</code></pre>
+      </div>
+
+      <div class="panel">
+        <h3>begin_checkout</h3>
+        <p>Fired when the checkout page loads. Note: A separate <code>checkout</code> event also fires with a different schema.</p>
+        <pre><code>{
+  "event": "begin_checkout",
+  "ecomm_pagetype": "basket",
+  "ecommerce": {
+    "currency": "USD",
+    "value": "10740.00",
+    "items": [{
+      "item_name": "75\" Manure Fork Grapple",
+      "item_id": "1119",
+      "item_sku": "MFG75",
+      "price": "4245.00",
+      "imageUrl": "https://messerattach.com/...",
+      "item_category": "Attachments",
+      "quantity": 1,
+      "index": 1
+    }]
+  },
+  "user_data": []
+}</code></pre>
+      </div>
+
+      <div class="panel">
+        <h3>checkout (Legacy Event)</h3>
+        <p>A separate checkout event fires alongside <code>begin_checkout</code> with a different schema:</p>
+        <pre><code>{
+  "event": "checkout",
+  "user": {
+    "id": 0,
+    "email": "",
+    "isLoggedIn": false,
+    "userType": "guest"
+  },
+  "ecommerce": {
+    "currencyCode": "USD",  // Note: uses currencyCode, not currency
+    "value": "10740.00",
+    "items": [{
+      "id": 1119,           // Note: uses id, not item_id
+      "name": "75\" Manure Fork Grapple",  // Note: uses name, not item_name
+      "price": "4245",
+      "quantity": 1
+    }]
+  }
+}</code></pre>
+        <div class="highlight-box warning">
+          <strong>Dual Schema Issue:</strong> The <code>checkout</code> event uses a different item schema
+          (<code>id</code>, <code>name</code>) compared to GA4 standard (<code>item_id</code>, <code>item_name</code>).
+          This may cause mapping issues in server-side GTM.
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>view_item_list</h3>
+        <p>Fired when viewing category/product listing pages.</p>
+        <pre><code>{
+  "event": "view_item_list",
+  "ecomm_pagetype": "category",
+  "ecommerce": {
+    "currency": "USD",
+    "items": [
+      {
+        "item_name": "CON-1 Replacement Sleeve",
+        "item_id": "1013",
+        "item_sku": "CON-1 SLEEVE",
+        "price": "30.00",
+        "item_category": "Attachments",
+        "item_list_id": 373,
+        "item_list_name": "CONUS-1 Bale Spears, Tines, and Sleeves",
+        "quantity": 1,
+        "index": 1
+      }
+    ]
+  },
+  "user_data": []
+}</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Real-Time User Data Updates</h2>
+      <p>During checkout, user data is pushed incrementally as the user types in form fields:</p>
+
+      <div class="panel">
+        <pre><code>// Keystroke-by-keystroke updates:
+{"user_data": {"user_id": null, "email": "", "phone": "14048404994"}}
+{"user_data": {"user_id": null, "email": "m", "phone": "14048404994"}}
+{"user_data": {"user_id": null, "email": "ma", "phone": "14048404994"}}
+{"user_data": {"user_id": null, "email": "max", "phone": "14048404994"}}
+{"user_data": {"user_id": null, "email": "max@", "phone": "14048404994"}}
+// ... continues with each keystroke</code></pre>
+        <div class="highlight-box info">
+          <strong>Privacy Consideration:</strong> Real-time PII updates mean raw email addresses are pushed
+          to the dataLayer before completion. Ensure proper consent gating and avoid sending incomplete data to endpoints.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>GTM Configuration</h2>
+
+      <div class="grid">
+        <div class="panel">
+          <h3>Multiple GTM Containers</h3>
+          <p>The site loads multiple GTM containers:</p>
+          <ul>
+            <li><strong>GTM-MNRP4PF</strong> - Primary web container</li>
+            <li><strong>GTM-K3CQBMZ9</strong> - Server-side GTM</li>
+          </ul>
+          <p>Evidence: Multiple <code>gtm.js</code> events with different timestamps observed in dataLayer.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Developer ID</h3>
+          <p>A developer ID is being set:</p>
+          <pre><code>{
+  "0": "set",
+  "1": "developer_id.dYzg1YT",
+  "2": true
+}</code></pre>
+          <p>This indicates a third-party plugin or service is configured.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Consent Management</h2>
+      <p>Complianz (cmplz) consent events fire for different purposes:</p>
+
+      <div class="panel">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Purpose</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>cmplz_event_statistics</code></td>
+              <td>Analytics</td>
+              <td>Allows analytics tracking (GA4, etc.)</td>
+            </tr>
+            <tr>
+              <td><code>cmplz_event_marketing</code></td>
+              <td>Advertising</td>
+              <td>Allows ad tracking (Meta, Google Ads, etc.)</td>
+            </tr>
+            <tr>
+              <td><code>cmplz_event_preferences</code></td>
+              <td>Preferences</td>
+              <td>Allows preference cookies</td>
+            </tr>
+            <tr>
+              <td><code>cmplz_event_functional</code></td>
+              <td>Functional</td>
+              <td>Allows functional cookies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Known Issues & Recommendations</h2>
+
+      <div class="grid">
+        <div class="panel">
+          <h3>Issues Identified</h3>
+          <ul>
+            <li>Dual checkout event schemas may cause mapping confusion</li>
+            <li>HTML entities in <code>item_name</code> (e.g., <code>&amp;quot;</code>) need decoding</li>
+            <li>Price values are strings, not numbers</li>
+            <li>Real-time <code>user_data</code> pushes raw PII on every keystroke</li>
+            <li><code>user_data</code> is empty array <code>[]</code> on most events</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Recommendations</h3>
+          <ul>
+            <li>Standardize on GA4 item schema (<code>item_id</code>, <code>item_name</code>)</li>
+            <li>Decode HTML entities before pushing to dataLayer</li>
+            <li>Consider debouncing real-time user_data updates</li>
+            <li>Convert price to number type for consistency</li>
+            <li>Populate <code>user_data</code> object consistently across events</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Last updated: December 2025 | Based on live dataLayer captures from messerattach.com</p>
+    </footer>
+  </body>
+</html>
