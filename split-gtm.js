@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const INPUT = './GTM-MNRP4PF_workspace247.json';
+const INPUT = './original-data/GTM-MNRP4PF_workspace252.json';
 const OUTPUT_DIR = './gtm-parts';
 
 // Create output directory

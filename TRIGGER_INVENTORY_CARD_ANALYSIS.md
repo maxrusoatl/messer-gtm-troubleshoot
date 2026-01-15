@@ -10,7 +10,7 @@ The current card uses a strong title, three step sections, tinted backgrounds, a
 4) Label/value contrast is too low. Labels and values use similar size and weight, making scanning hard (e.g., "Set Data Tag trigger" vs the trigger name).
 5) Excess tinting reduces legibility. Three separate colored blocks create visual noise and reduce text contrast in a dark UI.
 6) Secondary inventory is not clearly optional. "Other Available Triggers" looks equally important because it is a full block with a header, border, and badge.
-7) The "Keep purchase-only" instruction is ambiguous. It does not explicitly attach to the current trigger name, so it reads like a generic rule.
+7) The "Keep ce_purchase as a dedicated purchase trigger" instruction is ambiguous. It does not explicitly attach to the current trigger name, so it reads like a generic rule.
 8) Low-signal metadata is repeated. "Used by 0 tags" is shown in multiple places; repeated zero-value data increases noise without added clarity.
 
 ## Usability Gaps
@@ -21,7 +21,7 @@ The current card uses a strong title, three step sections, tinted backgrounds, a
  - The eye has no clear "next step" indicator after the title, so scanning stalls.
 
 ## Recommendations (design intent, not implementation)
-- Create a single action line as the dominant element: "Set Data Tag trigger -> Trigger - Ecom Core Events" and a secondary line "Keep ce_purchase purchase-only."
+- Create a single action line as the dominant element: "Confirm Data Tag trigger -> ce_ecom (ID 307)" and a secondary line "Keep ce_purchase as a dedicated purchase trigger (if needed)."
 - Downshift inventory into a collapsed or smaller "Reference" area with lighter styling and a compact count (e.g., "Other triggers (1)").
 - Use stronger typographic contrast: value in bold/larger size, label in muted small text.
 - Remove repeated trigger names where possible; the action line should be the only place that states the new trigger.
@@ -30,8 +30,8 @@ The current card uses a strong title, three step sections, tinted backgrounds, a
 
 ## Minimalistic Hierarchy Plan
 Primary (main object):
-- One action block only. One sentence, one decision. Example: "Set Data Tag trigger to: Trigger - Ecom Core Events."
-- Secondary line: "Keep ce_purchase purchase-only." Keep it short, no extra metadata.
+- One action block only. One sentence, one decision. Example: "Confirm Data Tag trigger: ce_ecom (ID 307)."
+- Secondary line: "Keep ce_purchase as a dedicated purchase trigger (if needed)." Keep it short, no extra metadata.
 
 Secondary (supporting evidence):
 - One recommended trigger card with only the trigger name and a single usage note if non-zero.

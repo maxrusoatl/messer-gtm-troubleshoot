@@ -1,0 +1,227 @@
+[
+  {
+    "0": "set",
+    "1": "developer_id.dYzg1YT",
+    "2": true
+  },
+  {
+    "gtm.start": 1768493302227,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 14
+  },
+  {
+    "gtm.start": 1768493302444,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 91
+  },
+  {
+    "event": "user_init",
+    "user_id": "guest_e6621755-2a2f-44d4-9903-5f7f4bd6d9da",
+    "gtm.uniqueEventId": 102
+  },
+  {
+    "ecommerce": null
+  },
+  {
+    "event": "begin_checkout",
+    "ecomm_pagetype": "basket",
+    "ecommerce": {
+      "currency": "USD",
+      "value": "1.00",
+      "items": [
+        {
+          "item_name": "test productBale",
+          "item_brand": "Messer Attachments",
+          "item_id": "9874",
+          "item_sku": "Test-Product-1",
+          "price": "1.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2023/08/0f78fe152156093.6318d407c014b.png",
+          "item_category": "Attachments",
+          "quantity": 1,
+          "index": 1
+        }
+      ]
+    },
+    "user_data": [],
+    "gtm.uniqueEventId": 124
+  },
+  {
+    "gtm.start": 1768493302625,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 137
+  },
+  {
+    "event": "cmplz_event_statistics",
+    "gtm.uniqueEventId": 148
+  },
+  {
+    "event": "cmplz_event_marketing",
+    "gtm.uniqueEventId": 160
+  },
+  {
+    "event": "cmplz_event_preferences",
+    "gtm.uniqueEventId": 172
+  },
+  {
+    "event": "cmplz_event_functional",
+    "gtm.uniqueEventId": 184
+  },
+  {
+    "event": "gtm.dom",
+    "gtm.uniqueEventId": 196
+  },
+  {
+    "event": "gtm.load",
+    "gtm.uniqueEventId": 208
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 25,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 220
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710282860761765429741": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 478,
+              "namespace": false
+            },
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 461,
+              "namespace": ""
+            }
+          ]
+        },
+        "click": false
+      },
+      "jQuery3710282860761765429742": {
+        "order_button_text": ""
+      }
+    },
+    "gtm.elementClasses": "input-radio",
+    "gtm.elementId": "payment_method_woocommerce_payments",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 237
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710282860761765429741": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "data": null,
+              "guid": 55,
+              "namespace": ""
+            }
+          ]
+        }
+      },
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "",
+    "gtm.elementId": "okay-popup",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 249
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery371028286076176542974": {
+        "parentNode": [
+          8236,
+          559,
+          false
+        ]
+      },
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "form-row form-row-wide mailchimp-newsletter",
+    "gtm.elementId": "",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 261
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "woocommerce-form__input woocommerce-form__input-checkbox input-checkbox",
+    "gtm.elementId": "mailchimp_woocommerce_newsletter",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 273
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "_meaningfulType": null
+    },
+    "gtm.elementClasses": "woocommerce-form__input woocommerce-form__input-checkbox input-checkbox",
+    "gtm.elementId": "ship-to-different-address-checkbox",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 329
+  },
+  {
+    "event": "gtm.click",
+    "gtm.element": {
+      "jQuery3710282860761765429741": {
+        "events": {
+          "click": [
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 478,
+              "namespace": false
+            },
+            {
+              "type": "click",
+              "origType": "click",
+              "guid": 461,
+              "namespace": ""
+            }
+          ]
+        },
+        "click": false
+      },
+      "jQuery3710282860761765429742": {
+        "order_button_text": ""
+      }
+    },
+    "gtm.elementClasses": "input-radio",
+    "gtm.elementId": "payment_method_woocommerce_payments",
+    "gtm.elementTarget": "",
+    "gtm.triggers": "68,69,70,71,72,73,74,75,76,77,78,79,80",
+    "gtm.elementUrl": "",
+    "gtm.uniqueEventId": 341
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 50,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 353
+  }
+]

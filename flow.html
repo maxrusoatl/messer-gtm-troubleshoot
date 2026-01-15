@@ -299,27 +299,27 @@
     </section>
 
     <section class="panel">
-      <h2>Breakpoints to resolve first</h2>
+      <h2>Validation priorities</h2>
       <div class="break-grid">
         <div class="break-card">
-          <strong>Data Tag scope gap</strong>
-          <p>Only purchase events are routed, leaving other ecommerce events idle.</p>
+          <strong>Data Tag validation</strong>
+          <p>Data Tag uses ce_ecom; verify /metrics/data payloads in sGTM preview.</p>
         </div>
         <div class="break-card">
-          <strong>GA4 client missing</strong>
-          <p>gtag hits proxy to /metrics/g/collect but no GA4 client is configured in sGTM.</p>
+          <strong>Routing verification</strong>
+          <p>Confirm /metrics hits are processed by the GTM Web Container client.</p>
         </div>
         <div class="break-card">
-          <strong>User-ID mapping</strong>
-          <p>user_id is hashed and mapped to the wrong key before GA4.</p>
+          <strong>User data + event_id</strong>
+          <p>Verify user_id mapping and event_id dedup across client/server.</p>
         </div>
         <div class="break-card">
           <strong>Consent signals</strong>
-          <p>Consent settings vary between wGTM and sGTM tags.</p>
+          <p>Review consent requirements across wGTM and sGTM tags.</p>
         </div>
         <div class="break-card">
-          <strong>sGTM hit logs missing</strong>
-          <p>No server-side hit evidence in logs or Tag Assistant, blocking verification.</p>
+          <strong>Traffic evidence</strong>
+          <p>Verify /data and /metrics hits in logs or server preview.</p>
         </div>
       </div>
     </section>
@@ -343,7 +343,7 @@
           title: "wGTM",
           summary: "Client-side routing and Data Tag configuration.",
           checks: [
-            "Data Tag should fire on all ecommerce events.",
+            "Confirm Data Tag fires on core + ecommerce events (ce_ecom).",
             "Consent gating should be explicit for ads and analytics.",
             "Event naming should map page_view consistently."
           ]
@@ -370,7 +370,8 @@
           title: "sGTM",
           summary: "Server-side routing to GA4 and ad platforms.",
           checks: [
-            "Ensure GA4 tags exist for all ecommerce events.",
+            "Confirm GA4 server tag uses t_ecomCore.",
+            "Review Ads/CAPI coverage scope.",
             "Map event_id and user_id consistently.",
             "Gate tags by consent status."
           ]
@@ -416,27 +417,27 @@
       const issues = {
         scope: {
           title: "Data Tag scope",
-          summary: "Only purchase events reach sGTM, blocking key ecommerce events.",
+          summary: "Data Tag configured for core + ecommerce events; validate coverage.",
           nodes: ["wgtm", "data-tag"],
           checks: [
-            "Fire on view_item, add_to_cart, begin_checkout.",
+            "Confirm ce_ecom (ID 307) is attached.",
             "Keep event_name mapping consistent.",
-            "Validate payload structure." 
+            "Validate /metrics/data payloads."
           ]
         },
         gtag: {
-          title: "GA4 client missing",
-          summary: "gtag hits proxy to /metrics/g/collect but no GA4 client processes them.",
+          title: "Routing verification",
+          summary: "Google Tag routes via /metrics; confirm GTM Web Container client processes hits.",
           nodes: ["wgtm", "endpoint", "sgtm", "ga4"],
           checks: [
-            "Add GA4 client or route GA4 via Data Client.",
             "Confirm gtag config hits in sGTM preview.",
-            "Avoid dead /g/collect requests."
+            "Validate /metrics proxy routing.",
+            "Ensure events reach GA4 server tag."
           ]
         },
         userid: {
           title: "User-ID mapping",
-          summary: "user_id is hashed and mapped to user_data.user_id, not GA4 user_id.",
+          summary: "Verify user_id mapping and hashing for GA4 vs ads.",
           nodes: ["datalayer", "wgtm", "sgtm", "ga4"],
           checks: [
             "Map root user_id from dataLayer.",
@@ -446,7 +447,7 @@
         },
         consent: {
           title: "Consent gating",
-          summary: "Consent requirements vary across tags and clients.",
+          summary: "Review consent requirements across tags and clients.",
           nodes: ["consent", "wgtm", "sgtm"],
           checks: [
             "Standardize consent checks per tag.",
@@ -455,8 +456,8 @@
           ]
         },
         logs: {
-          title: "sGTM hit logs missing",
-          summary: "No /data or /g/collect traffic visible in logs or server preview.",
+          title: "Traffic evidence",
+          summary: "Verify /data and /metrics traffic in logs or server preview.",
           nodes: ["endpoint", "sgtm"],
           checks: [
             "Enable Stape hit logs or server logs.",

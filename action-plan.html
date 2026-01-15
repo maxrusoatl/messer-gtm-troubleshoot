@@ -299,48 +299,59 @@
     <section class="actions" id="action-list"></section>
 
     <footer>
-      <p>Start with Critical items, then handle High impact optimizations.</p>
+      <p>Start with validation items, then expand coverage as needed.</p>
     </footer>
 
     <script>
       const actions = [
         {
-          id: "endpoint",
-          title: "Align server endpoint",
-          severity: "Critical",
+          id: "routing",
+          title: "Validate /metrics and /data routing",
+          severity: "Medium",
           effort: "Low",
           steps: [
-            "Confirm intended sGTM domain for /data requests.",
-            "Update gtm_server_domain and keep /data path.",
-            "Verify /data hits in logs and Tag Assistant."
+            "Confirm CF worker forwards /metrics/* to sgtm.messerattach.com.",
+            "Validate /metrics and /data hits in sGTM preview or logs.",
+            "Document any filtering or cache rules."
           ]
         },
         {
-          id: "data-tag-scope",
-          title: "Fire Data Tag on all ecommerce events",
-          severity: "Critical",
+          id: "data-tag-verify",
+          title: "Verify Data Tag payloads",
+          severity: "Low",
           effort: "Low",
           steps: [
-            "Create trigger for view_item, add_to_cart, view_cart, begin_checkout.",
-            "Attach trigger to Data Tag.",
-            "Validate events in sGTM preview."
+            "Confirm Data Tag uses ce_ecom (ID 307).",
+            "Check items, value, currency, and event_id are present.",
+            "Review add_data_layer contents for sensitive fields."
           ]
         },
         {
-          id: "ga4-coverage",
-          title: "Expand GA4 tags in sGTM",
-          severity: "High",
+          id: "ga4-verify",
+          title: "Confirm GA4 server coverage",
+          severity: "Low",
+          effort: "Low",
+          steps: [
+            "Validate t_ecomCore events in GA4 DebugView.",
+            "Check items/value/currency parameters.",
+            "Confirm user_id behavior aligns with reporting needs."
+          ]
+        },
+        {
+          id: "ads-coverage",
+          title: "Decide Ads/CAPI coverage scope",
+          severity: "Medium",
           effort: "Medium",
           steps: [
-            "Add GA4 tags for view_item, view_cart, begin_checkout.",
-            "Map items, value, currency, transaction_id.",
-            "Confirm events in GA4 DebugView."
+            "Review which non-conversion events are needed server-side.",
+            "Add triggers for view_cart, view_item_list, or page_view if desired.",
+            "Keep event_id consistent for dedup."
           ]
         },
         {
           id: "user-id",
-          title: "Fix User-ID mapping",
-          severity: "High",
+          title: "Validate user_id mapping",
+          severity: "Medium",
           effort: "Medium",
           steps: [
             "Map root user_id from dataLayer.",
@@ -350,8 +361,8 @@
         },
         {
           id: "pii",
-          title: "Remove raw PII leakage",
-          severity: "High",
+          title: "Audit add_data_layer for PII",
+          severity: "Medium",
           effort: "Medium",
           steps: [
             "Disable add_data_layer or restrict to whitelist.",
@@ -372,7 +383,7 @@
         },
         {
           id: "consent",
-          title: "Normalize Consent Mode v2",
+          title: "Review Consent Mode v2",
           severity: "Medium",
           effort: "Medium",
           steps: [

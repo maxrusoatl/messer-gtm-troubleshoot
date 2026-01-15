@@ -467,9 +467,9 @@
   <div class="container">
     <header>
       <h1>Messer GTM Server-Side Tracking Audit</h1>
-      <p class="subtitle">messerattach.com | December 2024</p>
+      <p class="subtitle">messerattach.com | January 2026</p>
       <div style="margin-top: var(--space-xl);">
-        <span class="badge critical">1 Critical Fix</span>
+        <span class="badge warning">Validation Focus</span>
         <span class="badge verified" style="margin-left: 8px;">Infrastructure Verified</span>
       </div>
       <nav class="nav-links">
@@ -498,14 +498,14 @@
         <div class="pipeline-step">
           <div class="pipeline-box fail">
             <div>Data Tag</div>
-            <div class="pipeline-status fail">Wrong Trigger</div>
+            <div class="pipeline-status pass">Configured</div>
           </div>
         </div>
-        <div class="pipeline-arrow broken">&#8594;</div>
+        <div class="pipeline-arrow active">&#8594;</div>
         <div class="pipeline-step">
           <div class="pipeline-box pending">
             <div>/metrics/data</div>
-            <div class="pipeline-status pending">No Request</div>
+            <div class="pipeline-status pending">Verify Traffic</div>
           </div>
         </div>
         <div class="pipeline-arrow">&#8594;</div>
@@ -525,14 +525,14 @@
       </div>
 
       <div class="fix-box">
-        <h3>Single Fix Required</h3>
-        <p>Update the Data Tag trigger in GTM-MNRP4PF to fire on ALL ecommerce events.</p>
+        <h3>Validation Steps</h3>
+        <p>Confirm Data Tag payloads and server routing with current exports.</p>
         <ol class="fix-steps">
           <li>Open GTM-MNRP4PF in Google Tag Manager</li>
           <li>Navigate to Tags &rarr; Data Tag</li>
-          <li>Remove trigger <code>ce_purchase</code> (ID 96)</li>
-          <li>Add trigger <code>Trigger - Ecom Core Events</code> (ID 313)</li>
-          <li>Save and Publish</li>
+          <li>Confirm trigger <code>ce_ecom</code> (ID 307) is attached</li>
+          <li>Open sGTM Preview and validate /metrics/data hits</li>
+          <li>Save and Publish only after verification</li>
         </ol>
       </div>
     </section>
@@ -541,7 +541,7 @@
       <!-- Event Chain Results -->
       <section class="diagram-card">
         <h2>Event Chain Results</h2>
-        <p>All events pass Step 1 (DataLayer) but fail at Step 2 (Data Tag trigger).</p>
+        <p>DataLayer events are present; validate Data Tag and sGTM delivery in preview.</p>
 
         <table class="event-table">
           <thead>
@@ -558,29 +558,29 @@
               <td>view_item</td>
               <td>5</td>
               <td class="icon-pass">&#10003;</td>
-              <td class="icon-fail">&#10007;</td>
-              <td class="icon-fail">&#10007;</td>
+              <td class="icon-pending">&#8212;</td>
+              <td class="icon-pending">&#8212;</td>
             </tr>
             <tr>
               <td>add_to_cart</td>
               <td>2</td>
               <td class="icon-pass">&#10003;</td>
-              <td class="icon-fail">&#10007;</td>
-              <td class="icon-fail">&#10007;</td>
+              <td class="icon-pending">&#8212;</td>
+              <td class="icon-pending">&#8212;</td>
             </tr>
             <tr>
               <td>begin_checkout</td>
               <td>2</td>
               <td class="icon-pass">&#10003;</td>
-              <td class="icon-fail">&#10007;</td>
-              <td class="icon-fail">&#10007;</td>
+              <td class="icon-pending">&#8212;</td>
+              <td class="icon-pending">&#8212;</td>
             </tr>
             <tr>
               <td>view_cart</td>
               <td>1</td>
               <td class="icon-pass">&#10003;</td>
-              <td class="icon-fail">&#10007;</td>
-              <td class="icon-fail">&#10007;</td>
+              <td class="icon-pending">&#8212;</td>
+              <td class="icon-pending">&#8212;</td>
             </tr>
             <tr>
               <td>purchase</td>
@@ -639,7 +639,7 @@
     <!-- Architecture Diagram -->
     <section class="diagram-card full-width">
       <h2>Server-Side Architecture</h2>
-      <p>Data flows from WooCommerce through wGTM to sGTM destinations. The break occurs at the Data Tag trigger.</p>
+      <p>Data flows from WooCommerce through wGTM to sGTM destinations. Validate Data Tag payloads and server routing.</p>
 
       <div class="arch-flow">
         <div class="arch-lane">
@@ -668,7 +668,7 @@
           </div>
           <div class="arch-node highlight">
             <div class="arch-node-label">Triggers</div>
-            <div class="arch-node-sub">ce_purchase ONLY</div>
+            <div class="arch-node-sub">ce_ecom (ID 307)</div>
           </div>
           <div class="arch-node verified">
             <div class="arch-node-label">MS UET</div>
@@ -676,7 +676,7 @@
           </div>
         </div>
 
-        <div class="arch-connector broken">&#10007;</div>
+        <div class="arch-connector active">&#8594;</div>
 
         <div class="arch-lane">
           <div class="arch-lane-title">Edge</div>
@@ -751,8 +751,8 @@
           </tr>
           <tr>
             <td>wGTM Data Tag trigger</td>
-            <td><code>ce_purchase (ID 96) ONLY</code></td>
-            <td class="icon-fail">&#10007; Broken</td>
+            <td><code>ce_ecom (ID 307)</code></td>
+            <td class="icon-pass">&#10003; OK</td>
           </tr>
         </tbody>
       </table>
@@ -772,9 +772,9 @@
         </thead>
         <tbody>
           <tr>
-            <td><span class="badge critical">Critical</span></td>
-            <td>Data Tag fires only on purchase event</td>
-            <td>Fix Required</td>
+            <td><span class="badge warning">Medium</span></td>
+            <td>Validate Data Tag payloads in preview</td>
+            <td>Verify</td>
           </tr>
           <tr>
             <td><span class="badge verified">Verified</span></td>

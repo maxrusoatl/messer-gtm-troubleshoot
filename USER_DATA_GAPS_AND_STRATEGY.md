@@ -2,31 +2,27 @@
 
 ## Scope and sources
 - Scope: dataLayer user_data handling and lifecycle fields only (ignore HTML/canvas helpers).
-- Source: `original-data/messer datalayers new.txt`.
+- Sources: `original-data/new view_iteam data layer.json`, `original-data/new cart view.json`, `original-data/new begin checkout data layer.json`, `original-data/begin checkout chrome console.md`.
 
 ## Observed behavior (source data)
 - `user_data` is pushed as an empty array on ecommerce events.
-  Evidence: `original-data/messer datalayers new.txt:49`, `original-data/messer datalayers new.txt:144`.
-- `user_data` objects are pushed without an `event` key and with `user_id: null`.
-  Evidence: `original-data/messer datalayers new.txt:395`.
-- `user_init` sets a guest user_id, but that value is not carried into `user_data`.
-  Evidence: `original-data/messer datalayers new.txt:207` (guest id), `original-data/messer datalayers new.txt:395` (user_id null).
-- Two checkout events exist in the same flow: legacy `checkout` and GA4 `begin_checkout`.
-  Evidence: `original-data/messer datalayers new.txt:211`, `original-data/messer datalayers new.txt:242`.
-- `user_data` updates appear immediately after field interaction events, indicating PII capture on click/typing instead of validated steps.
-  Evidence: `original-data/messer datalayers new.txt:360` (gtm.click), `original-data/messer datalayers new.txt:395` (user_data).
+  Evidence: `original-data/new view_iteam data layer.json`, `original-data/new cart view.json`, `original-data/new begin checkout data layer.json`.
+- `user_init` sets a guest user_id, but user_data is empty on ecommerce events.
+  Evidence: `original-data/new view_iteam data layer.json`, `original-data/new cart view.json`, `original-data/new begin checkout data layer.json`.
+- Only `begin_checkout` is observed in current samples; no separate legacy `checkout` event appears.
+  Evidence: `original-data/new begin checkout data layer.json`.
 
 ## Gap analysis
 1) **user_data clearing and format**
    - Gap: `user_data: []` clears the object, breaking GTM variables that read `user_data.*`.
-2) **No event-based user_data updates**
-   - Gap: user_data updates are pushed without an `event`, so tags cannot reliably read the latest values.
+2) **No event-based user_data updates observed**
+   - Gap: no `user_data_update` event was observed, so tags cannot reliably read the latest values.
 3) **Identity continuity**
    - Gap: guest `user_id` exists in `user_init`, but `user_data.user_id` is null during checkout updates.
-4) **Duplicate checkout event schemas**
-   - Gap: two checkout events with different schemas increase double-trigger risk and inconsistent data mapping.
+4) **Checkout event consistency**
+   - Gap: only `begin_checkout` is seen in samples; confirm whether any legacy `checkout` event exists elsewhere.
 5) **PII timing**
-   - Gap: user_data is captured on click/typing rather than validated blur or step completion.
+   - Gap: no user_data updates observed, so PII capture timing cannot be verified.
 6) **Lifecycle fields missing**
    - Gap: no lifecycle attributes (signup_date, customer_type, last_purchase_date, lifetime_value, etc.) appear in user_data.
 

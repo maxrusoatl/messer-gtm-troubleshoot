@@ -1,6 +1,8 @@
 # Enterprise GTM Upgrade Strategy
 ## Messer Attach - Server-Side Tracking Implementation
 
+> Status: Legacy (2024). Superseded by audit-report.md and GTM_AUDIT_REPORT.md. Current exports show Data Tag uses ce_ecom (Trigger 307) and /metrics routing. Do not apply the implementation steps below unless explicitly requested.
+
 ---
 
 ## Table of Contents
@@ -19,13 +21,8 @@
 
 ## Executive Summary
 
-### Critical Issue
-The current setup has **ONE Data Tag firing only on purchase events** (Trigger ID 96). This means:
-- ❌ Page views not sent to sGTM
-- ❌ add_to_cart events lost
-- ❌ view_item events lost
-- ❌ begin_checkout events lost
-- ❌ Only ~5% of events reach server-side
+### Critical Issue (Legacy Context)
+Legacy analysis assumed a single Data Tag firing only on purchase (Trigger 96). Current exports show Data Tag firing on ce_ecom (Trigger 307), so event coverage gaps must be validated with /metrics + sGTM preview rather than inferred from triggers alone.
 
 ### Recommended Solution
 Implement **multiple Data Tags** grouped by event category, each with specific triggers and data schemas.
@@ -43,10 +40,10 @@ Implement **multiple Data Tags** grouped by event category, each with specific t
 | sGTM Container | ✅ Working | Tags configured but not receiving data |
 | gtag.js Path | ✅ Working | /metrics endpoint functional |
 
-### What's Broken
+### What's Broken (Legacy assumptions)
 | Component | Status | Issue |
 |-----------|--------|-------|
-| Data Tag | ❌ Critical | Only fires on purchase (Trigger 96) |
+| Data Tag | ❌ Critical | Legacy claim; current exports show ce_ecom (Trigger 307) |
 | Event Coverage | ❌ Critical | ~95% of events never reach sGTM |
 | Deduplication | ⚠️ Missing | No client_id/session_id strategy |
 | Error Handling | ⚠️ Missing | No fallback for failed requests |
@@ -961,7 +958,7 @@ Add collapsible sections to existing nodes showing:
 {
   title: 'Data Tags',
   items: [
-    { text: 'Current: 1 tag (purchase only)', type: 'error' },
+    { text: 'Current: 1 tag (ce_ecom trigger)', type: 'error' },
     { text: 'Recommended: 4 tags by category', type: 'success' }
   ]
 }
@@ -990,7 +987,7 @@ Add a semi-transparent overlay showing recommended additions:
 │  │ DATA TAGS                                                │   │
 │  │ ┌─────────────────────────────────────────────────────┐ │   │
 │  │ │ ⚠️ Current (Broken)                                 │ │   │
-│  │ │   • Data Tag → Trigger 96 (purchase only)          │ │   │
+│  │ │   • Data Tag → Trigger 307 (ce_ecom)          │ │   │
 │  │ └─────────────────────────────────────────────────────┘ │   │
 │  │ ┌─────────────────────────────────────────────────────┐ │   │
 │  │ │ ✅ Recommended                                      │ │   │
@@ -1010,7 +1007,7 @@ Add a semi-transparent overlay showing recommended additions:
 ### Phase 1: Foundation (Critical)
 
 - [ ] **Fix Data Tag Trigger**
-  - Change from Trigger 96 (purchase) to All Events
+  - Confirm Data Tag uses Trigger 307 (ce_ecom)
   - Or create multiple Data Tags per category
 
 - [ ] **Add Missing Variables**

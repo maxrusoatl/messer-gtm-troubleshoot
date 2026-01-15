@@ -143,7 +143,7 @@
     return r.json();
   }
   async function loadContainers() {
-    const files = ['GTM-MNRP4PF_workspace247.json','GTM-K3CQBMZ9_workspace36.json'];
+    const files = ['original-data/GTM-MNRP4PF_workspace252.json','original-data/GTM-K3CQBMZ9_workspace39.json'];
     const out = [];
     for (const f of files) {
       try { out.push({ name:f, data: await loadJSON(f) }); } catch {}
@@ -151,19 +151,20 @@
     return out;
   }
   async function loadEventChunks() {
-    const base = 'chunked_output/tag_assistant_messerattach_com_2025_12_24_messages_chunk_';
+    const files = [
+      'original-data/tag_assistant_messerattach_com_2026_01_08.json',
+      'original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json'
+    ];
     const events = [];
-    let misses=0;
-    for (let i=1;i<=400;i++){
-      const f = base + i + '.json';
+    for (const f of files) {
       try {
-        const arr = await loadJSON(f);
-        if (Array.isArray(arr)) events.push(...arr);
-        misses = 0;
-      } catch(e) {
-        misses++;
-        if (misses>=3) break;
-      }
+        const data = await loadJSON(f);
+        const containers = (data && data.data && data.data.containers) ? data.data.containers : [];
+        containers.forEach((container) => {
+          const messages = Array.isArray(container.messages) ? container.messages : [];
+          events.push(...messages);
+        });
+      } catch (e) {}
     }
     return events;
   }
@@ -436,7 +437,7 @@
       refreshViews();
       renderEventsTable(eventRows);
       document.querySelector('#events-count').textContent = eventRows.length;
-      headerStatus.textContent = `Tags: ${tagRows.length} · Events: ${eventRows.length}`;
+      headerStatus.textContent = `Tags: ${tagRows.length} | Events: ${eventRows.length}`;
     } catch (e) {
       headerStatus.textContent = 'Failed to load data';
       console.error(e);

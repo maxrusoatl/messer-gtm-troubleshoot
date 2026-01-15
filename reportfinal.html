@@ -70,7 +70,7 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 <div class="page">
 <section class="card hero">
 <h1>Full Audit Report</h1>
-<div class="subtitle">evidence set: 2026-01-07 exports</div>
+<div class="subtitle">evidence set: 2026-01-08 capture + current exports</div>
 <div class="meta">
 <span class="pill">Concise view</span>
 <span class="pill">Low repetition</span>
@@ -84,10 +84,10 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 <h2>Key Findings</h2>
 <ul>
 <li>SOP chain past /metrics is not observable because sGTM Tag Assistant contains no inbound events or tag logs and no /metrics network evidence was provided. <span class="evidence">Evidence: <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></span></li>
-<li>user_id pipeline is broken: DataLayer uses top-level user_id, wGTM Variable/dlv - user_id reads user_data.user_id and resolves undefined, and sGTM Variable/EDV - user_id also expects user_data.user_id. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
-<li>Ecommerce payloads exist but with data-quality gaps: value/price/cart_total are strings and item_name contains unescaped quotes in cart/checkout samples; item_brand coverage beyond samples is not determinable. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/new view_iteam data layer.json</code></span></li>
-<li>Consent enforcement is not configured at the tag level in either layer (wGTM Tag/Data Tag consentStatus NOT_NEEDED; sGTM tags consentStatus NOT_SET). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
-<li>Recent implementation claims are not verified in the current evidence set (values still strings, item_name still unescaped, user_data empty, ecomm_pagetype remains basket). <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>user_id pipeline is partially broken: DataLayer uses top-level user_id and wGTM reads user_id, but sGTM Variable/EDV - user_id expects user_data.user_id and samples show empty user_data; server-side user_id is not observed. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
+<li>Ecommerce payloads exist but with data-quality gaps: value/price/cart_total are strings; item_brand coverage beyond samples is not determinable. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/new view_iteam data layer.json</code></span></li>
+<li>Consent enforcement is not configured at the tag level in either layer (wGTM Tag/Data Tag consentStatus NOT_NEEDED; sGTM tags consentStatus NOT_SET). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
+<li>Current samples show value/price/cart_total still strings, user_data empty, and ecomm_pagetype remains basket on cart/checkout. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 </div>
 </section>
@@ -96,7 +96,7 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 <h2>Event Chain Results Table</h2>
 <p>Join key:</p>
 <ul>
-<li>Primary: event_id (wGTM Variable/Unique Event ID resolves in Tag Assistant; not present in DataLayer event model). <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/new view_iteam data layer.json</code></span></li>
+<li>Primary: event_id (Data Tag custom_data uses Unique Event ID; not present in DataLayer samples and not verifiable end-to-end without /metrics + sGTM preview). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/new view_iteam data layer.json</code></span></li>
 </ul>
 <ul>
 <li>Fallback: +/-3s + event_name + items_count/value/currency/page_url. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
@@ -116,16 +116,16 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 <div class="section-body">
 <h2>Root Causes (by layer) + Exact Fixes</h2>
 <ul>
-<li>DataLayer schema: value/price/cart_total are strings and item_name contains unescaped quotes; fix by emitting numeric values and escaping quotes before pushing to dataLayer. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code></span></li>
+<li>DataLayer schema: value/price/cart_total are strings; fix by emitting numeric values before pushing to dataLayer. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code></span></li>
 </ul>
 <ul>
-<li>DataLayer identity: user_id is top-level while wGTM Variable/dlv - user_id reads user_data.user_id; fix by aligning the key path (change DataLayer to user_data.user_id or change the variable to read user_id). <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>DataLayer identity: user_id is top-level while sGTM Variable/EDV - user_id reads user_data.user_id; fix by aligning the key path (push user_data.user_id or update EDV - user_id). <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
 </ul>
 <ul>
 <li>DataLayer user_data: user_data is empty in ecommerce events; fix by pushing user_data only on validated blur/step completion and include an event key with the user_data update. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
-<li>wGTM consent gating: wGTM Tag/Data Tag consentStatus is NOT_NEEDED; fix by applying consent requirements at tag level before forwarding. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code></span></li>
+<li>wGTM consent gating: wGTM Tag/Data Tag consentStatus is NOT_NEEDED; fix by applying consent requirements at tag level before forwarding. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code></span></li>
 </ul>
 <ul>
 <li>sGTM consent gating: sGTM tags consentStatus are NOT_SET; fix by requiring consent at tag level server-side. <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
@@ -148,13 +148,13 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 <li>Critical | Effort: M | Change: Capture synchronized wGTM + sGTM preview and /metrics network requests for view_item, add_to_cart, begin_checkout. | Validation: sGTM preview shows sGTM Client/Data Client claim and GA4 tag firing; /metrics requests are 2xx and not cached. <span class="evidence">Evidence: <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
-<li>Critical | Effort: S | Change: Align user_id mapping (change DataLayer to user_data.user_id or change wGTM Variable/dlv - user_id to read user_id; update sGTM Variable/EDV - user_id to match). | Validation: Tag Assistant shows user_id resolved; sGTM eventData includes user_id. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>Critical | Effort: S | Change: Align user_id mapping (update sGTM EDV - user_id keyPath to user_id or push user_data.user_id in DataLayer). | Validation: sGTM eventData includes user_id. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
 </ul>
 <ul>
-<li>High | Effort: M | Change: Normalize value/price/cart_total to numbers and escape quotes in item_name; enforce item_brand fallback where missing. | Validation: DataLayer samples and Tag Assistant payloads show numeric values and clean item_name. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>High | Effort: M | Change: Normalize value/price/cart_total to numbers; verify item_brand coverage beyond samples. | Validation: DataLayer samples show numeric values and item_brand coverage meets requirements. <span class="evidence">Evidence: <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code></span></li>
 </ul>
 <ul>
-<li>High | Effort: S | Change: Apply consent requirements to wGTM Tag/Data Tag and sGTM tags. | Validation: tags do not fire when consent denied. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
+<li>High | Effort: S | Change: Apply consent requirements to wGTM Tag/Data Tag and sGTM tags. | Validation: tags do not fire when consent denied. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
 </ul>
 <ul>
 <li>Medium | Effort: S | Change: Remove or scope sGTM Tag/GA4 ADV add_to_cart to avoid duplication with sGTM Tag/GA4 Advanced. | Validation: only one GA4 server tag fires for add_to_cart. <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
@@ -178,7 +178,7 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 <li>DataLayer -&gt; wGTM: view_item, add_to_cart, view_cart, begin_checkout include ecommerce.items and currency/value; user_id is top-level; user_data is empty; value/price are strings; ecomm_pagetype is basket for cart/checkout. <span class="evidence">Evidence: <code>original-data/new view_iteam data layer.json</code>, <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
-<li>wGTM: wGTM Tag/Data Tag is configured to send to https://messerattach.com/metrics with request_path /data, add_consent_state true, and event_name_custom from Event page_view Override; Tag Assistant shows Data Tag firing on ecommerce events. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>wGTM: wGTM Tag/Data Tag is configured to send to https://messerattach.com/metrics with request_path /data, add_consent_state true, and event_name_custom from Event page_view Override; Tag Assistant shows Data Tag firing on ecommerce events. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
 <li>Network/SOP: /metrics request method/status/caching are not observable. <span class="evidence">Evidence: <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></span></li>
@@ -194,31 +194,31 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 </ul>
 <h2 id="inventory-table-ids-templates-where-used">Inventory Table (IDs, templates, where used)</h2>
 <ul>
-<li>wGTM container GTM-MNRP4PF exportTime 2026-01-07 17:54:43, containerVersionId 0. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code></span></li>
+<li>wGTM container GTM-MNRP4PF exportTime not provided in export; containerVersionId 0. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code></span></li>
 </ul>
 <ul>
-<li>sGTM container GTM-K3CQBMZ9 exportTime 2026-01-07 17:54:26, containerVersionId 0. <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
+<li>sGTM container GTM-K3CQBMZ9 exportTime not provided in export; containerVersionId 0. <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
 </ul>
 <table>
 <thead><tr><th>ID / Key</th><th>Template</th><th>Where used</th></tr></thead><tbody>
-<tr><td>GT-NS9Z5FWG</td><td>wGTM Tag/Google Tag</td><td>server_container_url=https://messerattach.com/metrics; Tag Assistant shows gtm.init only (no ecommerce send_to evidence). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></td></tr>
-<tr><td>G-YCL5FGZNCV</td><td>GA4 Measurement ID</td><td>wGTM Variable/GA4 - ID; sGTM Tag/GA4 Advanced and sGTM Tag/GA4 ADV add_to_cart measurementId. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></td></tr>
-<tr><td>767740215</td><td>Google Ads Conversion ID</td><td>wGTM Tag/google_ads_calls + google_ads_800calls; sGTM Tag/Google Ads Conversion Tracking + Remarketing. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></td></tr>
+<tr><td>GT-NS9Z5FWG</td><td>wGTM Tag/Google Tag</td><td>server_container_url=https://messerattach.com/metrics; Tag Assistant shows send_to on form_start/form_submit/scroll, no ecommerce send_to observed. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></td></tr>
+<tr><td>G-YCL5FGZNCV</td><td>GA4 Measurement ID</td><td>wGTM Variable/GA4 - ID; sGTM Tag/GA4 Advanced and sGTM Tag/GA4 ADV add_to_cart measurementId. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></td></tr>
+<tr><td>767740215</td><td>Google Ads Conversion ID</td><td>wGTM Tag/google_ads_calls + google_ads_800calls; sGTM Tag/Google Ads Conversion Tracking + Remarketing. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></td></tr>
 <tr><td>srU-CMOM3OoYELeSi-4C, y0V4CNzM0uoYELeSi-4C, gM6CCLv40eoYELeSi-4C, oFJkCJX62uoYELeSi-4C</td><td>Google Ads labels</td><td>sGTM Tag/Google Ads Conversion Tracking labels (Checkout/Add_to_Cart/Purchase/Contact). <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></td></tr>
-<tr><td>ZLAFCNKDkusYELeSi-4C, WrSjCJnAiesYELeSi-4C</td><td>Google Ads call labels</td><td>wGTM Tag/google_ads_calls + google_ads_800calls labels. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code></span></td></tr>
-<tr><td>wGTM Tag/Data Tag endpoint</td><td>Stape Data Tag template</td><td>gtm_server_domain https://messerattach.com/metrics, request_path /data, event_name_custom {{Event page_view Override}}, add_consent_state true. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code></span></td></tr>
+<tr><td>ZLAFCNKDkusYELeSi-4C, WrSjCJnAiesYELeSi-4C</td><td>Google Ads call labels</td><td>wGTM Tag/google_ads_calls + google_ads_800calls labels. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code></span></td></tr>
+<tr><td>wGTM Tag/Data Tag endpoint</td><td>Stape Data Tag template</td><td>gtm_server_domain https://messerattach.com/metrics, request_path /data, event_name_custom {{Event page_view Override}}, add_consent_state true. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code></span></td></tr>
 <tr><td>sGTM Client/Data Client</td><td>Stape Data Client</td><td>acceptMultipleEvents true, generateClientId true; ingestion path not determinable from export alone. <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></td></tr>
-<tr><td>Event-name normalization</td><td>wGTM Variable/Event page_view Override</td><td>gtm.dom and gtm.historyChange -&gt; page_view; gtm.scrollDepth -&gt; scroll. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code></span></td></tr>
+<tr><td>Event-name normalization</td><td>wGTM Variable/Event page_view Override</td><td>gtm.dom and gtm.historyChange -&gt; page_view; gtm.scrollDepth -&gt; scroll. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code></span></td></tr>
 </tbody></table>
 <h2 id="routing-classification-duplication-controls">Routing Classification + Duplication Controls</h2>
 <ul>
-<li>gtag classification: <span class="badge warn">Not determinable</span> from provided inputs (Google Tag exists; no network evidence of routing). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>gtag classification: <span class="badge warn">Not determinable</span> from provided inputs (no network evidence; Tag Assistant shows send_to on form_start/form_submit/scroll only). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
 <li>Configured send paths:</li>
-<li>wGTM Tag/Data Tag -&gt; https://messerattach.com/metrics/data (fires on ecommerce events). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>wGTM Tag/Data Tag -&gt; https://messerattach.com/metrics/data (fires on ecommerce events). <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 <li>sGTM Tag/GA4 Advanced and sGTM Tag/Google Ads Conversion Tracking configured, but not observed firing. <span class="evidence">Evidence: <code>original-data/GTM-K3CQBMZ9_workspace39.json</code>, <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></span></li>
-<li>wGTM Tag/Google Tag GT-NS9Z5FWG configured with server_container_url /metrics; Tag Assistant shows gtm.init only. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>wGTM Tag/Google Tag GT-NS9Z5FWG configured with server_container_url /metrics; Tag Assistant shows send_to on form_start/form_submit/scroll only. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 <li>Client-side call conversions (google_ads_calls, google_ads_800calls) fire in wGTM. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
@@ -229,22 +229,22 @@ details.card[open] summary { border-bottom: 1px solid var(--line); }
 </ul>
 <ul>
 <li>Keep / Disable / Move server-side (policy):</li>
-<li>Keep: wGTM Tag/Data Tag as the SOP sender once sGTM ingestion is confirmed. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code></span></li>
+<li>Keep: wGTM Tag/Data Tag as the SOP sender once sGTM ingestion is confirmed. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code></span></li>
 <li>Keep client-side: wGTM Tag/google_ads_calls + google_ads_800calls for call tracking. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
-<li>Move/justify: wGTM Tag/ms_uet_view_item, ms_uet_add_to_cart, ms_uet_checkout, ms_uet_purchase should be moved server-side or explicitly documented as exceptions. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>Keep client-side: wGTM Tag/ms_uet_view_item, ms_uet_add_to_cart, ms_uet_checkout, ms_uet_purchase must remain client-side; document as exceptions. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
-<li>Deduplication rule: event_id must be consistent across any hybrid path; current event_id presence is not verifiable end-to-end. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></span></li>
+<li>Deduplication rule: event_id must be consistent across any hybrid path; current event_id presence is not verifiable end-to-end. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <h2 id="consent-pii-findings">Consent + PII Findings</h2>
 <ul>
 <li>Consent states are granted at ecommerce events in wGTM Tag Assistant. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
 </ul>
 <ul>
-<li>wGTM Tag/Data Tag consentStatus is NOT_NEEDED and sGTM tags consentStatus are NOT_SET. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace250.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
+<li>wGTM Tag/Data Tag consentStatus is NOT_NEEDED and sGTM tags consentStatus are NOT_SET. <span class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code></span></li>
 </ul>
 <ul>
-<li>DataLayer user_data is empty and customer variables resolve undefined at begin_checkout. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></span></li>
+<li>DataLayer user_data is empty at begin_checkout. <span class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code></span></li>
 </ul>
 <ul>
 <li>No PII is present in the observed ecommerce payloads; if user_data is required, it must be pushed explicitly and consent gated. <span class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/new begin checkout data layer.json</code></span></li>

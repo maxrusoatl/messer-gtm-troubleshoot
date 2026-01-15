@@ -281,25 +281,25 @@
       <div class="panel">
         <h3>Signal Health</h3>
         <ul>
-          <li>Endpoint mismatch prevents /data events from reaching sGTM.</li>
-          <li>Data Tag fires only on purchase, missing key ecommerce events.</li>
-          <li>User-ID mapping is hashed and stored in the wrong path.</li>
+          <li>Data Tag uses ce_ecom and /metrics/data; verify payloads in sGTM preview.</li>
+          <li>Google Tag routes via server_container_url to /metrics; confirm hits.</li>
+          <li>sGTM Data Client present; GA4 server tag uses t_ecomCore.</li>
         </ul>
       </div>
       <div class="panel">
         <h3>Compliance Risk</h3>
         <ul>
-          <li>Raw PII can be sent via add_data_layer without hashing.</li>
-          <li>Consent signals are uneven across wGTM and sGTM tags.</li>
-          <li>Event IDs differ between client and server flows.</li>
+          <li>add_data_layer sends full dataLayer; audit for raw PII exposure.</li>
+          <li>Review consent requirements across wGTM and sGTM tags.</li>
+          <li>Confirm user_id hashing strategy vs GA4 user_id needs.</li>
         </ul>
       </div>
       <div class="panel">
         <h3>Fast Wins</h3>
         <ul>
-          <li>Align gtm_server_domain to the actual sGTM endpoint.</li>
-          <li>Trigger Data Tag on all ecommerce events.</li>
-          <li>Add GA4 tags for view_item, view_cart, begin_checkout.</li>
+          <li>Validate /metrics and /data traffic in sGTM preview/logs.</li>
+          <li>Expand Ads/CAPI server coverage if full-funnel events are needed.</li>
+          <li>Verify event_id and user_data values for dedup/match rates.</li>
         </ul>
       </div>
     </section>
@@ -333,7 +333,7 @@
     </section>
 
     <footer>
-      <p>Start with the Critical issues, then revisit High impact fixes.</p>
+      <p>Start with validation checks, then expand coverage as needed.</p>
     </footer>
 
     <script>
@@ -341,33 +341,33 @@
         accuracy: {
           title: "Data Accuracy",
           bullets: [
-            "Data Tag fires only on purchase, missing view_item and begin_checkout.",
-            "GA4 tags are missing for key ecommerce events.",
-            "Event_id mapping is inconsistent across client and server."
+            "Data Tag configured for core + ecommerce events; validate in preview.",
+            "GA4 server tag uses t_ecomCore; confirm DebugView coverage.",
+            "Ads/CAPI tags are conversion-focused; expand if needed."
           ]
         },
         privacy: {
           title: "Privacy and Consent",
           bullets: [
-            "add_data_layer can leak raw PII from checkout fields.",
-            "Consent gating is not consistently enforced in wGTM and sGTM.",
-            "Hashing is applied to user_id but not aligned to platform needs."
+            "add_data_layer sends full dataLayer; audit for raw PII.",
+            "Confirm consent gating for ad_user_data/ad_personalization.",
+            "Ensure hashing strategy matches platform requirements."
           ]
         },
         attribution: {
           title: "Attribution and Ads",
           bullets: [
-            "Endpoint mismatch hides events from server-side tags.",
-            "User-ID does not reach GA4 user_id parameter.",
-            "MS UET ecommerce tags fire as page_load, not custom events."
+            "Google Ads server tags cover conversions; remarketing via Data Client.",
+            "Meta CAPI covers view_item/add_to_cart/begin_checkout/purchase.",
+            "Standardize event_id for dedup across client/server."
           ]
         },
         reliability: {
           title: "Reliability",
           bullets: [
-            "Server endpoint mismatch prevents /data hits from landing.",
-            "Missing data reduces validation in Tag Assistant.",
-            "Coverage gaps reduce confidence in GA4 ecommerce reports."
+            "Validate /metrics and /data traffic reaches sGTM.",
+            "Check Tag Assistant and server preview for gaps.",
+            "Confirm Data Client and GTM web container clients process events."
           ]
         }
       };

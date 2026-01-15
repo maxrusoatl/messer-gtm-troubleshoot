@@ -568,9 +568,8 @@
         </div>
       </div>
       <div class="limitations">
-        Limitations: wGTM Tag Assistant recording and purchase dataLayer sample
-        were not provided, so purchase validation and client-side debug checks
-        are inferred from exports and logs.
+        Limitations: Tag Assistant capture (2026-01-08) shows web container
+        messages; server-side validation still requires live preview/logs.
       </div>
     </header>
 
@@ -666,7 +665,7 @@
     </section>
 
     <footer>
-      <p>Use this page as a checklist. Start with Critical items to restore GA4 ecommerce and User-ID visibility.</p>
+      <p>Use this page as a checklist. Start with routing and validation items, then expand coverage as needed.</p>
     </footer>
 
     <script>
@@ -674,97 +673,106 @@
       const sources = [
         "wGTM JSON",
         "sGTM JSON",
-        "Tag Assistant",
-        "Stape Logs",
         "DataLayer"
       ];
 
       const findings = [
         {
-          id: "endpoint-mismatch",
-          title: "Endpoint mismatch blocks sGTM visibility",
-          severity: "Critical",
-          summary: "Data Tag sends to https://messerattach.com/metrics/data while preview and logs are on sgtm.messerattach.com.",
-          impact: "sGTM Tag Assistant shows no events and GA4 ecommerce appears empty.",
-          evidence: "wGTM Data Tag gtm_server_domain + Stape logs with no /data hits.",
-          suggestion: "Align gtm_server_domain with sGTM domain or verify the proxy route and confirm /data requests.",
-          sources: ["wGTM JSON", "Stape Logs", "Tag Assistant"],
+          id: "proxy-routing",
+          title: "Verify /metrics proxy routing",
+          severity: "Medium",
+          summary: "wGTM sends to https://messerattach.com/metrics and /metrics/data; confirm the proxy forwards to sgtm.messerattach.com.",
+          impact: "Without validation, server-side coverage can look incomplete.",
+          evidence: "wGTM Data Tag gtm_server_domain points to /metrics.",
+          suggestion: "Check /metrics and /data hits in sGTM preview or logs.",
+          sources: ["wGTM JSON"],
           nodes: ["data-tag", "endpoint", "sgtm"]
         },
         {
           id: "data-tag-scope",
-          title: "Data Tag fires only on purchase",
-          severity: "Critical",
-          summary: "The Data Tag trigger is set to ce_purchase only, so view_item, add_to_cart, and begin_checkout never reach sGTM.",
-          impact: "GA4 ecommerce events are missing or partial.",
-          evidence: "wGTM tag trigger wiring shows Data Tag on ce_purchase only.",
-          suggestion: "Fire Data Tag on all ecommerce events with a regex trigger.",
+          title: "Data Tag configured for core + ecommerce events",
+          severity: "Low",
+          summary: "Data Tag fires on ce_ecom (ID 307) which includes core + ecommerce events.",
+          impact: "Coverage should include view_item, add_to_cart, begin_checkout, purchase, and more.",
+          evidence: "wGTM Data Tag firingTriggerId 307 (ce_ecom).",
+          suggestion: "Validate payloads in sGTM preview.",
           sources: ["wGTM JSON"],
           nodes: ["wgtm", "data-tag"]
         },
         {
-          id: "ga4-gap",
-          title: "sGTM GA4 tags exist only for purchase and add_to_cart",
-          severity: "High",
-          summary: "No GA4 tag for view_item, view_cart, or begin_checkout in sGTM.",
-          impact: "Even if events arrive, GA4 does not receive most ecommerce interactions.",
-          evidence: "sGTM export shows only GA4 Advanced and GA4 ADV add_to_cart.",
-          suggestion: "Add GA4 tags for the missing events or use a single regex-driven GA4 tag.",
+          id: "ga4-coverage",
+          title: "GA4 server tag uses t_ecomCore",
+          severity: "Low",
+          summary: "GA4 Advanced server tag fires on t_ecomCore (core ecommerce events).",
+          impact: "GA4 should receive view_item, add_to_cart, begin_checkout, purchase, and more.",
+          evidence: "sGTM GA4 Advanced trigger t_ecomCore.",
+          suggestion: "Confirm in GA4 DebugView.",
           sources: ["sGTM JSON"],
           nodes: ["sgtm", "ga4"]
         },
         {
+          id: "ads-coverage",
+          title: "Ads/CAPI server coverage is conversion-focused",
+          severity: "Medium",
+          summary: "Google Ads server tags fire on add_to_cart, begin_checkout, generate_lead, purchase; Meta CAPI fires on view_item, add_to_cart, begin_checkout, purchase; LinkedIn CAPI not configured.",
+          impact: "Full-funnel server attribution may be incomplete.",
+          evidence: "sGTM tag triggers for Google Ads and Meta.",
+          suggestion: "Add optional server-side events if needed (view_cart, view_item_list, page_view).",
+          sources: ["sGTM JSON"],
+          nodes: ["sgtm", "google-ads", "meta"]
+        },
+        {
           id: "user-id",
-          title: "User-ID mapped to user_data.user_id and hashed",
-          severity: "High",
-          summary: "dataLayer uses root user_id while wGTM reads user_data.user_id and hashes it, then GA4 uses it as a user property.",
-          impact: "GA4 user_id is not set and User-ID reporting is empty.",
-          evidence: "dataLayer sample shows user_id root + wGTM mapping to user_data.user_id.",
-          suggestion: "Map root user_id, keep it unhashed for GA4 user_id, and send hashed IDs separately for ads.",
-          sources: ["wGTM JSON", "sGTM JSON", "DataLayer"],
+          title: "User data + user_id mapping requires validation",
+          severity: "Medium",
+          summary: "Data Tag hashes user_data fields; confirm how GA4 user_id should be populated.",
+          impact: "Match rates and User-ID reporting depend on correct mapping.",
+          evidence: "wGTM Data Tag user_data mappings.",
+          suggestion: "Decide on root user_id mapping and keep hashed IDs for ads.",
+          sources: ["wGTM JSON", "sGTM JSON"],
           nodes: ["datalayer", "wgtm", "sgtm", "ga4"]
         },
         {
           id: "pii-leak",
-          title: "Raw PII can leak via add_data_layer",
-          severity: "Critical",
-          summary: "add_data_layer is true and dataLayer samples show partial email and phone values.",
-          impact: "Risk of sending unhashed PII and compliance issues.",
-          evidence: "DataLayer samples show incremental email and phone values.",
-          suggestion: "Disable add_data_layer or whitelist fields; keep PII only in hashed user_data mappings.",
+          title: "add_data_layer sends full dataLayer",
+          severity: "Medium",
+          summary: "Data Tag add_data_layer is enabled; confirm dataLayer does not contain raw PII.",
+          impact: "Potential compliance risk if raw PII is present.",
+          evidence: "wGTM Data Tag add_data_layer = true.",
+          suggestion: "Whitelist fields or avoid pushing raw PII into dataLayer.",
           sources: ["wGTM JSON", "DataLayer"],
           nodes: ["datalayer", "data-tag"]
         },
         {
           id: "consent-gaps",
-          title: "Consent gating is inconsistent across tags",
-          severity: "High",
-          summary: "Many tags are marked NOT_SET or NOT_NEEDED, including Data Tag and sGTM tags.",
-          impact: "Signals may fire before consent is granted.",
+          title: "Consent requirements need review",
+          severity: "Medium",
+          summary: "Several tags are NOT_NEEDED or unset for consent; ensure alignment with CMP.",
+          impact: "Signals may fire without proper consent in some cases.",
           evidence: "Consent settings in wGTM and sGTM exports.",
-          suggestion: "Standardize consent requirements and pass ad_user_data and ad_personalization.",
+          suggestion: "Standardize consent requirements and pass ad_user_data/ad_personalization.",
           sources: ["wGTM JSON", "sGTM JSON"],
           nodes: ["consent", "wgtm", "sgtm"]
         },
         {
           id: "event-id",
-          title: "Event ID mismatch across client and server",
+          title: "Event ID dedup alignment",
           severity: "Medium",
-          summary: "Meta CAPI uses gtm.uniqueEventId in sGTM while wGTM sets event_id via a different variable.",
-          impact: "Deduplication can fail for Meta CAPI and other platforms.",
-          evidence: "event_id mapping in wGTM Data Tag and sGTM Meta CAPI tags.",
-          suggestion: "Use a single event_id field in eventData and map it consistently.",
+          summary: "event_id is sent via Data Tag custom_data; confirm sGTM tags read the same field.",
+          impact: "Deduplication can fail if IDs differ between client and server.",
+          evidence: "event_id mapping in wGTM Data Tag and sGTM tags.",
+          suggestion: "Use a single event_id field across client and server.",
           sources: ["wGTM JSON", "sGTM JSON"],
           nodes: ["data-tag", "sgtm", "meta"]
         },
         {
           id: "ms-ads",
-          title: "MS UET ecommerce tags are PAGE_LOAD events",
+          title: "MS UET ecommerce tags use PAGE_LOAD",
           severity: "Medium",
-          summary: "Add to cart, checkout, and purchase tags are configured as page_load instead of custom events.",
-          impact: "Microsoft Ads may receive incorrect event types or duplicates.",
-          evidence: "wGTM MS UET tag parameters show PAGE_LOAD.",
-          suggestion: "Switch to userDefined events and align with msclkid capture strategy.",
+          summary: "ms_uet_add_to_cart, ms_uet_checkout, and ms_uet_purchase are PAGE_LOAD; ms_uet_view_item is userDefined.",
+          impact: "Microsoft Ads event types may be inaccurate.",
+          evidence: "wGTM MS UET tag parameters.",
+          suggestion: "Switch add_to_cart/checkout/purchase to userDefined events.",
           sources: ["wGTM JSON"],
           nodes: ["wgtm", "google-ads"]
         },
@@ -783,73 +791,51 @@
 
       const recommendations = [
         {
-          title: "Align server endpoint and validate /data traffic",
-          impact: "Critical",
-          effort: "Low",
-          steps: [
-            "Confirm the intended sGTM domain for data collection.",
-            "Set gtm_server_domain to the sGTM domain and keep /data.",
-            "Validate /data hits in Stape logs and sGTM Tag Assistant."
-          ],
-          related: ["endpoint-mismatch"]
-        },
-        {
-          title: "Fire Data Tag on all ecommerce events",
-          impact: "Critical",
-          effort: "Low",
-          steps: [
-            "Create a regex trigger for view_item, add_to_cart, view_cart, begin_checkout, add_payment_info, purchase.",
-            "Attach the trigger to the Data Tag.",
-            "Verify events appear in sGTM debug and GA4 DebugView."
-          ],
-          related: ["data-tag-scope"]
-        },
-        {
-          title: "Expand GA4 coverage in sGTM",
-          impact: "High",
-          effort: "Medium",
-          steps: [
-            "Add GA4 Advanced tags for view_item, view_cart, begin_checkout, add_payment_info.",
-            "Or use a single GA4 tag with a regex trigger on {{_event}}.",
-            "Keep items, value, currency, transaction_id mappings consistent."
-          ],
-          related: ["ga4-gap"]
-        },
-        {
-          title: "Fix User-ID mapping end to end",
-          impact: "High",
-          effort: "Medium",
-          steps: [
-            "Create a DLV for root user_id and pass it un-hashed to sGTM.",
-            "Map eventData.user_id into GA4 user_id parameter.",
-            "Use hashed user_id separately for ad platforms if needed."
-          ],
-          related: ["user-id"]
-        },
-        {
-          title: "Remove raw PII leakage via add_data_layer",
-          impact: "High",
-          effort: "Medium",
-          steps: [
-            "Disable add_data_layer or replace with a whitelist of fields.",
-            "Keep PII only in the user_data table with hashing.",
-            "Avoid pushing incremental email or phone values on keypress."
-          ],
-          related: ["pii-leak"]
-        },
-        {
-          title: "Standardize event_id for deduplication",
+          title: "Validate /metrics and /data routing",
           impact: "Medium",
           effort: "Low",
           steps: [
-            "Send event_id in Data Tag custom_data.",
-            "Read event_id in sGTM with an EDV and map into Meta CAPI.",
-            "Use the same event_id in any client pixel if kept."
+            "Confirm the CF worker forwards /metrics/* to sgtm.messerattach.com.",
+            "Validate /metrics and /data hits in sGTM preview or logs.",
+            "Document any filtering or cache rules."
           ],
-          related: ["event-id"]
+          related: ["proxy-routing"]
         },
         {
-          title: "Normalize Consent Mode v2 signals",
+          title: "Verify Data Tag payloads",
+          impact: "Low",
+          effort: "Low",
+          steps: [
+            "Confirm ce_ecom (ID 307) is the active trigger.",
+            "Check that items, value, currency, and event_id are present.",
+            "Review add_data_layer contents for sensitive fields."
+          ],
+          related: ["data-tag-scope", "pii-leak"]
+        },
+        {
+          title: "Confirm GA4 server coverage",
+          impact: "Low",
+          effort: "Low",
+          steps: [
+            "Validate t_ecomCore events in GA4 DebugView.",
+            "Check event parameters for items and value.",
+            "Confirm user_id behavior aligns with reporting needs."
+          ],
+          related: ["ga4-coverage", "user-id"]
+        },
+        {
+          title: "Decide Ads/CAPI coverage scope",
+          impact: "Medium",
+          effort: "Medium",
+          steps: [
+            "Review which non-conversion events are needed server-side.",
+            "Add triggers for view_cart, view_item_list, or page_view if desired.",
+            "Keep event_id consistent for dedup."
+          ],
+          related: ["ads-coverage", "event-id"]
+        },
+        {
+          title: "Review consent requirements",
           impact: "Medium",
           effort: "Medium",
           steps: [
@@ -864,19 +850,19 @@
           impact: "Medium",
           effort: "Medium",
           steps: [
-            "Use userDefined events for add_to_cart, checkout, purchase.",
+            "Switch add_to_cart/checkout/purchase to userDefined events.",
             "Capture msclkid and pass it via Data Tag custom_data.",
-            "Pause redundant client-side purchase tags if server-side exists."
+            "Confirm UET matches conversion goals."
           ],
           related: ["ms-ads"]
         }
       ];
 
       const eventCoverage = [
-        { event: "view_item", dataTag: "missing", ga4: "missing", meta: "present", ms: "present" },
-        { event: "view_cart", dataTag: "missing", ga4: "missing", meta: "missing", ms: "missing" },
-        { event: "add_to_cart", dataTag: "missing", ga4: "present", meta: "present", ms: "partial" },
-        { event: "begin_checkout", dataTag: "missing", ga4: "missing", meta: "present", ms: "partial" },
+        { event: "view_item", dataTag: "present", ga4: "present", meta: "present", ms: "present" },
+        { event: "view_cart", dataTag: "present", ga4: "present", meta: "missing", ms: "missing" },
+        { event: "add_to_cart", dataTag: "present", ga4: "present", meta: "present", ms: "partial" },
+        { event: "begin_checkout", dataTag: "present", ga4: "present", meta: "present", ms: "partial" },
         { event: "purchase", dataTag: "present", ga4: "present", meta: "present", ms: "partial" }
       ];
 

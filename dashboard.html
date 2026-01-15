@@ -712,29 +712,29 @@
           <div class="wgtm-column">
             <div class="wgtm-column-title">Triggers</div>
             <div class="wgtm-item success">
-              <div class="wgtm-item-title">ce_view_item <span class="mini-badge success">313</span></div>
+              <div class="wgtm-item-title">ce_ecom <span class="mini-badge success">307</span></div>
+              <div class="wgtm-item-detail">Events: core + ecommerce</div>
+            </div>
+            <div class="wgtm-item success">
+              <div class="wgtm-item-title">ce_view_item <span class="mini-badge success">92</span></div>
               <div class="wgtm-item-detail">Event: view_item</div>
             </div>
             <div class="wgtm-item success">
-              <div class="wgtm-item-title">ce_add_to_cart <span class="mini-badge success">313</span></div>
+              <div class="wgtm-item-title">ce_add_to_cart <span class="mini-badge success">93</span></div>
               <div class="wgtm-item-detail">Event: add_to_cart</div>
             </div>
             <div class="wgtm-item warning">
               <div class="wgtm-item-title">ce_checkout <span class="mini-badge warning">95</span></div>
               <div class="wgtm-item-detail">Listens: begin_checkout</div>
             </div>
-            <div class="wgtm-item success">
-              <div class="wgtm-item-title">ce_purchase <span class="mini-badge success">96</span></div>
-              <div class="wgtm-item-detail">Event: purchase</div>
-            </div>
           </div>
           <div class="wgtm-connector">&#8594;</div>
           <div class="wgtm-column">
             <div class="wgtm-column-title">Tags</div>
-            <div class="wgtm-item error">
-              <div class="wgtm-item-title">Data Tag <span class="mini-badge error">BROKEN</span></div>
-              <div class="wgtm-item-detail">Trigger: ce_purchase ONLY (96)</div>
-              <div class="wgtm-item-detail" style="color:#f44336;">Missing: 313</div>
+            <div class="wgtm-item success">
+              <div class="wgtm-item-title">Data Tag <span class="mini-badge success">OK</span></div>
+              <div class="wgtm-item-detail">Trigger: ce_ecom (307)</div>
+              <div class="wgtm-item-detail">Endpoint: /metrics/data</div>
             </div>
             <div class="wgtm-item success">
               <div class="wgtm-item-title">Google Tag <span class="mini-badge success">OK</span></div>
@@ -748,9 +748,9 @@
           <div class="wgtm-connector">&#8594;</div>
           <div class="wgtm-column">
             <div class="wgtm-column-title">Endpoints</div>
-            <div class="wgtm-item error">
+            <div class="wgtm-item success">
               <div class="wgtm-item-title">/metrics/data</div>
-              <div class="wgtm-item-detail" style="color:#f44336;">Only fires on purchase</div>
+              <div class="wgtm-item-detail">Core + ecommerce events</div>
             </div>
             <div class="wgtm-item success">
               <div class="wgtm-item-title">/metrics (Google)</div>
@@ -973,22 +973,22 @@
 
     <!-- PROBLEM CARDS -->
     <div class="problems-section">
-      <div class="problem-card critical expanded" id="card-critical">
+      <div class="problem-card medium expanded" id="card-critical">
         <div class="problem-header" onclick="toggleCard('card-critical')">
-          <span class="problem-severity critical">Critical</span>
-          <span class="problem-title">Data Tag fires ONLY on purchase</span>
+          <span class="problem-severity medium">Medium</span>
+          <span class="problem-title">Validate Data Tag payloads</span>
           <span class="problem-toggle">&#9660;</span>
         </div>
         <div class="problem-body">
           <div class="problem-content">
-            <p class="problem-summary">The wGTM Data Tag (tagId 310) has trigger ID "96" (ce_purchase only). Events view_item, add_to_cart, begin_checkout, view_cart are NEVER sent to sGTM.</p>
-            <div class="problem-code">firingTriggerId: ["96"]  // ce_purchase only
+            <p class="problem-summary">The wGTM Data Tag (tagId 310) uses trigger ID "307" (ce_ecom). Validate that core + ecommerce events are reaching /metrics/data in sGTM preview.</p>
+            <div class="problem-code">firingTriggerId: ["307"]  // ce_ecom
 
-// SHOULD BE:
-firingTriggerId: ["313"]  // Trigger - Ecom Core Events</div>
+// Validate in sGTM preview:
+POST https://messerattach.com/metrics/data</div>
             <div class="problem-fix">
-              <div class="problem-fix-title">Fix</div>
-              <div class="problem-fix-text">In GTM-MNRP4PF: Data Tag -> Remove trigger 96 -> Add trigger 313</div>
+              <div class="problem-fix-title">Validation</div>
+              <div class="problem-fix-text">Open sGTM preview and confirm events (view_item, add_to_cart, begin_checkout, purchase) arrive via Data Client.</div>
             </div>
           </div>
         </div>

@@ -213,13 +213,23 @@
       }
 
       async function loadEventChunks(){
-        const base = 'chunked_output/tag_assistant_messerattach_com_2025_12_24_messages_chunk_';
-        const chunks = []; let i=1, misses=0; const MAX_MISSES=5, MAX_FILES=2000;
-        while(i<=MAX_FILES && misses<MAX_MISSES){
-          try{ const res = await fetch(base+i+'.json'); if(res.ok){ chunks.push(await res.json()); misses=0; } else { misses++; } }catch(e){ misses++; }
-          i++;
+        const files = [
+          'original-data/tag_assistant_messerattach_com_2026_01_08.json',
+          'original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json'
+        ];
+        const events = [];
+        for (const f of files) {
+          try {
+            const res = await fetch(f);
+            if (!res.ok) continue;
+            const data = await res.json();
+            const containers = data && data.data && data.data.containers ? data.data.containers : [];
+            containers.forEach((container) => {
+              const messages = Array.isArray(container.messages) ? container.messages : [];
+              messages.forEach((m) => events.push({ message: m }));
+            });
+          } catch (e) {}
         }
-        const events=[]; chunks.forEach(ch=>{ (ch.messages||[]).forEach(m=> events.push(m)); });
         events.sort((a,b)=> (a.message?.index||0)-(b.message?.index||0));
         return events;
       }

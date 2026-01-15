@@ -131,12 +131,12 @@
     <section>
       <h2>Inputs Used</h2>
       <ul>
-        <li><code>original-data/GTM-MNRP4PF_workspace249.json</code> (wGTM export)</li>
-        <li><code>original-data/GTM-K3CQBMZ9_workspace36.json</code> (sGTM export)</li>
-        <li><code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code> (wGTM Tag Assistant)</li>
-        <li><code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code> (sGTM Tag Assistant)</li>
-        <li><code>original-data/view product.json</code>, <code>original-data/view cart.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/messer datalayers new.txt</code></li>
-        <li><code>original-data/stape io log.csv</code>, <code>original-data/cookies messer.md</code>, <code>original-data/STAPE_SGTM_PLUGIN_SETTINGS.md</code></li>
+        <li><code>original-data/GTM-MNRP4PF_workspace252.json</code> (wGTM export)</li>
+        <li><code>original-data/GTM-K3CQBMZ9_workspace39.json</code> (sGTM export)</li>
+        <li><code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code> (wGTM Tag Assistant)</li>
+        <li><code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code> (sGTM Tag Assistant)</li>
+        <li><code>original-data/new view_iteam data layer.json</code>, <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/begin checkout chrome console.md</code></li>
+        <li><code>original-data/STAPE_SGTM_PLUGIN_SETTINGS.md</code>, <code>original-data/cloudflare worker sop metrix -sgtm.js</code></li>
       </ul>
     </section>
 
@@ -145,10 +145,10 @@
       <ul>
         <li><span class="status nd">Not determinable</span> SOP contract verification (ingestion claim, caching/WAF, request integrity) due to missing /metrics network and sGTM preview logs.</li>
         <li>wGTM Tag/Stape Data Tag is configured to send to <code>https://messerattach.com/metrics</code> with <code>/data</code> and fires on ecommerce events.</li>
-        <li>Client-side GTAG container <code>GT-NS9Z5FWG</code> emits ecommerce events with <code>send_to</code> values including <code>G-YCL5FGZNCV</code> and <code>AW-767740215</code>, creating a parallel path.</li>
-        <li><code>event_id</code> is not present in observed ecommerce events, blocking reliable dedupe across hybrid delivery.</li>
+        <li>Client-side GTAG container <code>GT-NS9Z5FWG</code> emits <code>form_start</code>/<code>form_submit</code>/<code>scroll</code> with <code>send_to</code> values including <code>G-YCL5FGZNCV</code> and <code>AW-767740215</code>; ecommerce <code>send_to</code> is not observed in the current capture.</li>
+        <li>DataLayer samples do not include <code>event_id</code>; the Data Tag custom_data includes <code>event_id</code> via Unique Event ID, but end-to-end dedupe is not verifiable without /metrics + sGTM preview.</li>
       </ul>
-      <p class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace249.json</code>, <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code>, <code>original-data/stape io log.csv</code></p>
+      <p class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code></p>
     </section>
 
     <section>
@@ -167,20 +167,20 @@
           <p><span class="status nd">Not determinable</span> No /metrics network evidence for method, content-type, or payload preservation.</p>
         </div>
       </div>
-      <p class="evidence">Evidence: <code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code>, <code>original-data/stape io log.csv</code></p>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code>, <code>original-data/STAPE_SGTM_PLUGIN_SETTINGS.md</code>, <code>original-data/cloudflare worker sop metrix -sgtm.js</code></p>
     </section>
 
     <section>
       <h2>Current Situation (Evidence-Based)</h2>
       <ul>
         <li>Consent: Complianz is present in wGTM and Consent Mode v2 states are granted at ecommerce events.</li>
-        <li>DataLayer: <code>view_item</code>, <code>view_cart</code>, <code>begin_checkout</code> include <code>ecommerce.items</code> arrays and <code>currency/value</code>. A separate <code>checkout</code> event appears in checkout flow.</li>
+        <li>DataLayer: <code>view_item</code>, <code>view_cart</code>, <code>begin_checkout</code> include <code>ecommerce.items</code> arrays and <code>currency/value</code>; <code>value</code>/<code>price</code> are strings and <code>user_data</code> is empty in samples.</li>
         <li>wGTM execution: wGTM Tag/Stape Data Tag fires on <code>view_item</code>, <code>add_to_cart</code>, <code>begin_checkout</code>, <code>view_cart</code>. Microsoft UET ecommerce tags also fire client-side.</li>
         <li>/metrics network: Not observable in provided inputs.</li>
         <li>sGTM ingestion/outbound: Not observable in provided inputs.</li>
-        <li>Parallel sends: GTAG container emits ecommerce events with <code>send_to</code> destinations.</li>
+        <li>Parallel sends: GTAG <code>send_to</code> observed for <code>form_start</code>/<code>form_submit</code>/<code>scroll</code>; ecommerce <code>send_to</code> not observed in the capture.</li>
       </ul>
-      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/view product.json</code>, <code>original-data/view cart.json</code></p>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/new view_iteam data layer.json</code>, <code>original-data/new cart view.json</code></p>
     </section>
 
     <section>
@@ -226,7 +226,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace249.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace36.json</code>, <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code></p>
+      <p class="evidence">Evidence: <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/GTM-K3CQBMZ9_workspace39.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></p>
     </section>
 
     <section>
@@ -273,18 +273,18 @@
           </tr>
         </tbody>
       </table>
-      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/view product.json</code></p>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/new view_iteam data layer.json</code>, <code>original-data/new cart view.json</code></p>
     </section>
 
     <section>
       <h2>Gaps vs Intended SOP Architecture</h2>
       <ul>
         <li><strong>Unverified SOP chain</strong>: No proof of /metrics requests or sGTM ingestion claim, so the SOP path cannot be validated.</li>
-        <li><strong>Missing event_id</strong>: No stable event_id observed in ecommerce events; dedupe cannot be guaranteed for hybrid paths.</li>
-        <li><strong>Event naming mismatch</strong>: DataLayer includes <code>event: "checkout"</code> but wGTM trigger regex includes <code>begin_checkout</code> only.</li>
-        <li><strong>Hybrid routing risk</strong>: GTAG container emits ecommerce events in parallel with Stape Data Tag forwarding.</li>
+        <li><strong>event_id verification gap</strong>: Data Tag custom_data includes <code>event_id</code>, but no /metrics or sGTM preview evidence confirms it end-to-end.</li>
+        <li><strong>user_id mapping mismatch</strong>: DataLayer uses top-level <code>user_id</code>, while sGTM expects <code>user_data.user_id</code> and samples show empty <code>user_data</code>.</li>
+        <li><strong>Parallel routing visibility</strong>: GTAG <code>send_to</code> observed for <code>form_start</code>/<code>form_submit</code>/<code>scroll</code>; ecommerce <code>send_to</code> not observed but should be validated if intended.</li>
       </ul>
-      <p class="evidence">Evidence: <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/GTM-MNRP4PF_workspace249.json</code>, <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code></p>
+      <p class="evidence">Evidence: <code>original-data/new begin checkout data layer.json</code>, <code>original-data/GTM-MNRP4PF_workspace252.json</code>, <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code></p>
     </section>
 
     <section>
@@ -310,7 +310,7 @@
           </tr>
           <tr>
             <td>High</td>
-            <td>Add stable event_id to Stape Data Tag payload (use wGTM Variable Event Id or Unique Event ID; map to event_id in Data Tag custom_data).</td>
+            <td>Verify event_id propagation: Data Tag custom_data uses Unique Event ID; confirm /metrics payload and sGTM eventData include event_id.</td>
             <td>/metrics payload and sGTM eventData include event_id; dedupe works in GA4/Ads.</td>
           </tr>
           <tr>
@@ -320,12 +320,12 @@
           </tr>
           <tr>
             <td>Medium</td>
-            <td>Align event naming: standardize on begin_checkout or add checkout to wGTM regex trigger.</td>
-            <td>Intended checkout event appears in wGTM firing and /metrics payload.</td>
+            <td>Resolve sGTM GA4 overlap: GA4 Advanced (t_ecomCore) and GA4 ADV add_to_cart both fire on add_to_cart.</td>
+            <td>Only one GA4 server tag fires for add_to_cart.</td>
           </tr>
           <tr>
             <td>Medium</td>
-            <td>Map user_id from DataLayer to Stape Data Tag payload and sGTM GA4 user_id parameter.</td>
+            <td>Align user_id mapping: change sGTM EDV - user_id keyPath to <code>user_id</code> or start pushing <code>user_data.user_id</code> in DataLayer.</td>
             <td>sGTM preview shows user_id in eventData and GA4 server tag payload.</td>
           </tr>
           <tr>
@@ -341,31 +341,31 @@
       <h2>Routing and Duplication Controls</h2>
       <ul>
         <li>gtag classification: <span class="status nd">Not determinable</span> (no network evidence to confirm gateway vs direct).</li>
-        <li>Proven paths: wGTM Tag/Stape Data Tag configured to /metrics; GTAG container emits ecommerce events with send_to destinations.</li>
+        <li>Proven paths: wGTM Tag/Stape Data Tag configured to /metrics; GTAG <code>send_to</code> observed for <code>form_start</code>/<code>form_submit</code>/<code>scroll</code> only.</li>
         <li>Policy: once SOP is verified, define one authoritative path for GA4 ecommerce and Google Ads conversions; enforce event_id for dedupe.</li>
       </ul>
-      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/GTM-MNRP4PF_workspace249.json</code></p>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/GTM-MNRP4PF_workspace252.json</code></p>
     </section>
 
     <section>
       <h2>Consent and PII Findings</h2>
       <ul>
         <li>Consent Mode v2 states appear granted during ecommerce events.</li>
-        <li>Checkout DataLayer includes user_data with email/phone; ensure consent-gated handling and hashing where required.</li>
+        <li>DataLayer user_data is empty in samples; confirm when PII is populated and ensure consent-gated handling and hashing.</li>
         <li>Server-side consent enforcement is not observable without sGTM preview logs.</li>
       </ul>
-      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code>, <code>original-data/BEGIN CHECKOUT.json</code></p>
+      <p class="evidence">Evidence: <code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code>, <code>original-data/new begin checkout data layer.json</code></p>
     </section>
 
     <section>
       <h2>Evidence Index</h2>
       <ul>
-        <li><code>original-data/GTM-MNRP4PF_workspace249.json</code> (wGTM export)</li>
-        <li><code>original-data/GTM-K3CQBMZ9_workspace36.json</code> (sGTM export)</li>
-        <li><code>original-data/tag_assistant_messerattach_com_2025_12_30.json</code> (wGTM Tag Assistant)</li>
-        <li><code>original-data/tag_assistant_sgtm_messerattach_com_2025_12_24.json</code> (sGTM Tag Assistant)</li>
-        <li><code>original-data/view product.json</code>, <code>original-data/view cart.json</code>, <code>original-data/BEGIN CHECKOUT.json</code>, <code>original-data/messer datalayers new.txt</code></li>
-        <li><code>original-data/stape io log.csv</code>, <code>original-data/cookies messer.md</code></li>
+        <li><code>original-data/GTM-MNRP4PF_workspace252.json</code> (wGTM export)</li>
+        <li><code>original-data/GTM-K3CQBMZ9_workspace39.json</code> (sGTM export)</li>
+        <li><code>original-data/tag_assistant_messerattach_com_2026_01_08.json</code> (wGTM Tag Assistant)</li>
+        <li><code>original-data/tag_assistant_sgtm_messerattach_com_2026_01_08.json</code> (sGTM Tag Assistant)</li>
+        <li><code>original-data/new view_iteam data layer.json</code>, <code>original-data/new cart view.json</code>, <code>original-data/new begin checkout data layer.json</code>, <code>original-data/begin checkout chrome console.md</code></li>
+        <li><code>original-data/STAPE_SGTM_PLUGIN_SETTINGS.md</code>, <code>original-data/cloudflare worker sop metrix -sgtm.js</code></li>
       </ul>
     </section>
   </div>

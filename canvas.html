@@ -186,6 +186,11 @@
       color: #fff;
     }
 
+    .view-mode-indicator.data-flow {
+      background: rgba(234, 179, 8, 0.9);
+      color: #111;
+    }
+
     /* Recommendation boxes in nodes */
     .recommendation-box {
       margin-top: 10px;
@@ -2618,11 +2623,11 @@
 
     const INVENTORY_SOURCES = {
       wgtm: {
-        current: 'original-data/GTM-MNRP4PF_workspace247.json',
+        current: 'original-data/GTM-MNRP4PF_workspace252.json',
         target: 'wgtm-enterprise-import.json'
       },
       sgtm: {
-        current: 'original-data/GTM-K3CQBMZ9_workspace36.json',
+        current: 'original-data/GTM-K3CQBMZ9_workspace39.json',
         target: 'sgtm-enterprise-import.json'
       }
     };
@@ -4854,6 +4859,526 @@
       return { nodes, edges };
     }
 
+    const CORE_ECOM_EVENTS = [
+      'page_view',
+      'view_item',
+      'view_item_list',
+      'add_to_cart',
+      'begin_checkout',
+      'view_cart',
+      'purchase',
+      'refund'
+    ];
+
+    function normalizeStatus(status) {
+      if (status === 'success' || status === 'partial' || status === 'warning' || status === 'error') {
+        return status;
+      }
+      return 'warning';
+    }
+
+    function statusLabel(status) {
+      switch (normalizeStatus(status)) {
+        case 'success':
+          return 'OK';
+        case 'partial':
+          return 'PARTIAL';
+        case 'warning':
+          return 'WARN';
+        case 'error':
+          return 'ISSUE';
+        default:
+          return 'WARN';
+      }
+    }
+
+    function statusIcon(status) {
+      const normalized = normalizeStatus(status);
+      if (normalized === 'success') return 'success';
+      if (normalized === 'partial' || normalized === 'warning') return 'warning';
+      return 'error';
+    }
+
+    function statusColor(status) {
+      const normalized = normalizeStatus(status);
+      if (normalized === 'success') return '#4caf50';
+      if (normalized === 'partial' || normalized === 'warning') return '#ff9800';
+      if (normalized === 'error') return '#f44336';
+      return '#607d8b';
+    }
+
+    function summarizeEvents(events, limit = 4) {
+      const list = safeList(events).filter(Boolean);
+      if (!list.length) return '';
+      return summarizeList(list, limit);
+    }
+
+    function formatEventSummary(events, limit = 4) {
+      const list = safeList(events).filter(Boolean);
+      if (!list.length) return 'No events detected';
+      return `${list.length} events: ${summarizeEvents(list, limit)}`;
+    }
+
+    function stripProtocol(value) {
+      if (!value) return '';
+      return String(value).replace(/^https?:\/\//, '');
+    }
+
+    function isGoogleTag(tag) {
+      const name = (tag && tag.name ? tag.name : '').toLowerCase();
+      const type = (tag && tag.type ? tag.type : '').toLowerCase();
+      return type === 'googtag' || name.includes('google tag') || name.includes('gtag');
+    }
+
+    function extractGoogleTagServerUrl(tag) {
+      if (!tag) return '';
+      const params = safeList(tag.parameters);
+      const settings = parseParamMapList(getTagParamValue(params, 'configSettingsTable'));
+      const match = safeList(settings).find((row) => {
+        const key = (row.parameter || '').toLowerCase();
+        return key === 'server_container_url' || key === 'servercontainerurl';
+      });
+      return match ? match.parameterValue || '' : '';
+    }
+
+    function triggerUsesClientName(trigger, clientName) {
+      if (!trigger || !clientName) return false;
+      const target = String(clientName).toLowerCase();
+      const filters = [...safeList(trigger.customEventFilter), ...safeList(trigger.filter)];
+      return filters.some((filter) => {
+        const params = safeList(filter.parameter);
+        const arg0 = params.find((param) => param.key === 'arg0');
+        const arg1 = params.find((param) => param.key === 'arg1');
+        if (!arg0 || !arg1) return false;
+        const left = String(arg0.value || '').toLowerCase();
+        const right = String(arg1.value || '').toLowerCase();
+        return left.includes('client name') && right.includes(target);
+      });
+    }
+
+    function collectTriggerEvents(triggerIds, triggerMap) {
+      const events = new Set();
+      let dataClientOnly = false;
+      safeList(triggerIds).forEach((id) => {
+        const trigger = triggerMap.get(String(id));
+        if (!trigger) return;
+        extractTriggerEventNames(trigger).forEach((name) => events.add(name));
+        if (triggerUsesClientName(trigger, 'data client')) {
+          dataClientOnly = true;
+        }
+      });
+      return { events: Array.from(events).sort((a, b) => a.localeCompare(b)), dataClientOnly };
+    }
+
+    function computeCoverage(tags, triggerMap, baselineEvents) {
+      const union = new Set();
+      let dataClientOnly = false;
+      safeList(tags).forEach((tag) => {
+        const result = collectTriggerEvents(tag.triggerIds, triggerMap);
+        result.events.forEach((name) => union.add(name));
+        if (result.dataClientOnly && result.events.length === 0) {
+          dataClientOnly = true;
+        }
+      });
+      const baseline = safeList(baselineEvents);
+      let status = 'warning';
+      let missing = [];
+
+      if (!safeList(tags).length) {
+        status = 'error';
+      } else if (baseline.length) {
+        if (dataClientOnly && union.size === 0) {
+          status = 'success';
+        } else if (union.size === 0) {
+          status = 'error';
+        } else {
+          missing = baseline.filter((eventName) => !union.has(eventName));
+          status = missing.length === 0 ? 'success' : 'partial';
+        }
+      } else {
+        status = union.size ? 'partial' : 'warning';
+      }
+
+      return {
+        status,
+        events: Array.from(union).sort((a, b) => a.localeCompare(b)),
+        missing,
+        tagCount: safeList(tags).length,
+        coversAll: dataClientOnly && union.size === 0 && baseline.length > 0
+      };
+    }
+
+    function buildCoverageRows(coverage) {
+      const rows = [];
+      if (coverage.coversAll) {
+        rows.push({ text: 'Fires on all Data Client events', iconType: 'success', type: 'success' });
+      } else if (coverage.events.length) {
+        rows.push({ text: `Fires on: ${summarizeEvents(coverage.events)}`, iconType: statusIcon(coverage.status), type: coverage.status });
+      } else {
+        rows.push({ text: 'No event triggers detected', iconType: 'error', type: 'error' });
+      }
+      if (coverage.missing.length) {
+        rows.push({ text: `Missing: ${summarizeEvents(coverage.missing)}`, iconType: 'warning', type: 'warning' });
+      }
+      return rows;
+    }
+
+    function buildDataFlowLayout(inventoryData) {
+      const nodes = dataFlowNodes.map((node) => ({ ...node, data: { ...node.data } }));
+      const edges = dataFlowEdges.map((edge) => ({ ...edge, data: { ...edge.data }, style: edge.style ? { ...edge.style } : edge.style }));
+      if (!inventoryData || !inventoryData.wgtm || !inventoryData.sgtm) return { nodes, edges };
+
+      const wgtmCurrent = inventoryData.wgtm.current || {};
+      const sgtmCurrent = inventoryData.sgtm.current || {};
+      const wgtmDetails = buildTagDetails(wgtmCurrent.tags || [], wgtmCurrent);
+      const sgtmDetails = buildTagDetails(sgtmCurrent.tags || [], sgtmCurrent);
+
+      const dataTagMatcher = TAG_GROUP_CONFIG.wgtm[0].matcher;
+      const dataTags = wgtmDetails.tags.filter((tag) => dataTagMatcher(tag));
+      const dataTag = dataTags[0] || null;
+      const dataTagConfig = dataTag ? buildDataTagConfig(dataTag) : null;
+
+      const triggerIds = new Set();
+      dataTags.forEach((tag) => {
+        safeList(tag.triggerIds).forEach((id) => triggerIds.add(String(id)));
+      });
+
+      const triggerNames = [];
+      const eventSet = new Set();
+      triggerIds.forEach((id) => {
+        const trigger = wgtmDetails.triggerMap.get(String(id));
+        if (!trigger) return;
+        triggerNames.push(trigger.name || 'Trigger');
+        extractTriggerEventNames(trigger).forEach((name) => eventSet.add(name));
+      });
+
+      const dataTagEvents = Array.from(eventSet).sort((a, b) => a.localeCompare(b));
+      const missingCoreEvents = CORE_ECOM_EVENTS.filter((name) => dataTagEvents.indexOf(name) === -1);
+      const hasDataTag = dataTags.length > 0;
+
+      let dataTagStatus = 'error';
+      if (!hasDataTag) {
+        dataTagStatus = 'error';
+      } else if (dataTagEvents.length === 0) {
+        dataTagStatus = 'error';
+      } else if (missingCoreEvents.length) {
+        dataTagStatus = 'partial';
+      } else {
+        dataTagStatus = 'success';
+      }
+
+      const wgtmStatus = dataTagStatus === 'success'
+        ? 'success'
+        : dataTagStatus === 'partial'
+          ? 'partial'
+          : 'error';
+
+      const googleTag = wgtmDetails.tags.find((tag) => isGoogleTag(tag)) || null;
+      const googleTagServerUrl = extractGoogleTagServerUrl(googleTag);
+      const googleTagStatus = googleTag
+        ? (googleTagServerUrl ? 'success' : 'warning')
+        : 'error';
+
+      const endpointUrl = dataTagConfig
+        ? `${dataTagConfig.serverDomain || ''}${dataTagConfig.requestPath || ''}`
+        : googleTagServerUrl;
+      const endpointSubtitle = endpointUrl ? stripProtocol(endpointUrl) : '/metrics';
+
+      const dataClientExists = safeList(sgtmCurrent.clients).some((client) => {
+        const name = client && client.name ? client.name.toLowerCase() : '';
+        return name.includes('data client');
+      });
+
+      const sgtmMatchers = TAG_GROUP_CONFIG.sgtm.reduce((acc, group) => {
+        acc[group.key] = group.matcher;
+        return acc;
+      }, {});
+
+      const ga4Coverage = computeCoverage(
+        sgtmDetails.tags.filter((tag) => sgtmMatchers.ga4(tag)),
+        sgtmDetails.triggerMap,
+        dataTagEvents
+      );
+      const gadsCoverage = computeCoverage(
+        sgtmDetails.tags.filter((tag) => sgtmMatchers.gads(tag)),
+        sgtmDetails.triggerMap,
+        dataTagEvents
+      );
+      const metaCoverage = computeCoverage(
+        sgtmDetails.tags.filter((tag) => sgtmMatchers.meta(tag)),
+        sgtmDetails.triggerMap,
+        dataTagEvents
+      );
+
+      let sgtmStatus = 'success';
+      if (!dataClientExists) {
+        sgtmStatus = 'error';
+      } else if ([ga4Coverage, gadsCoverage, metaCoverage].some((coverage) => coverage.status === 'error')) {
+        sgtmStatus = 'partial';
+      } else if ([ga4Coverage, gadsCoverage, metaCoverage].some((coverage) => coverage.status === 'partial' || coverage.status === 'warning')) {
+        sgtmStatus = 'partial';
+      }
+
+      const dataTagTriggerSummary = triggerNames.length ? summarizeList(triggerNames, 2) : 'No triggers found';
+      const dataTagEventSummary = formatEventSummary(dataTagEvents);
+      const dataTagMissingSummary = missingCoreEvents.length ? summarizeEvents(missingCoreEvents) : '';
+
+      const dataTagItems = [];
+      if (!hasDataTag) {
+        dataTagItems.push({ title: 'Missing', rows: [{ text: 'No Data Tag found in wGTM', iconType: 'error', type: 'error' }] });
+      } else {
+        dataTagItems.push({
+          title: 'Triggers',
+          rows: [
+            { text: dataTagTriggerSummary, iconType: statusIcon(dataTagStatus), type: dataTagStatus }
+          ]
+        });
+        dataTagItems.push({
+          title: 'Events',
+          rows: [
+            { text: dataTagEventSummary, iconType: statusIcon(dataTagStatus), type: dataTagStatus }
+          ]
+        });
+        if (dataTagMissingSummary) {
+          dataTagItems.push({
+            title: 'Missing Core',
+            rows: [
+              { text: dataTagMissingSummary, iconType: 'warning', type: 'warning' }
+            ]
+          });
+        }
+        if (endpointUrl) {
+          dataTagItems.push({
+            title: 'Endpoint',
+            rows: [
+              { text: stripProtocol(endpointUrl), iconType: 'success', type: 'success' }
+            ]
+          });
+        }
+      }
+
+      const wgtmInfoItems = [
+        {
+          title: 'Data Tag',
+          rows: [
+            { text: dataTagEventSummary, iconType: statusIcon(dataTagStatus), type: dataTagStatus }
+          ]
+        },
+        {
+          title: 'Google Tag',
+          rows: [
+            {
+              text: googleTag
+                ? (googleTagServerUrl ? `server_container_url set: ${stripProtocol(googleTagServerUrl)}` : 'server_container_url missing')
+                : 'Google Tag not found',
+              iconType: statusIcon(googleTagStatus),
+              type: googleTagStatus
+            }
+          ]
+        }
+      ];
+
+      const sgtmItemsRows = [
+        { text: dataClientExists ? 'Data Client present' : 'Data Client missing', iconType: statusIcon(dataClientExists ? 'success' : 'error'), type: dataClientExists ? 'success' : 'error' },
+        { text: `GA4: ${statusLabel(ga4Coverage.status)}`, iconType: statusIcon(ga4Coverage.status), type: ga4Coverage.status },
+        { text: `Google Ads: ${statusLabel(gadsCoverage.status)}`, iconType: statusIcon(gadsCoverage.status), type: gadsCoverage.status },
+        { text: `Meta: ${statusLabel(metaCoverage.status)}`, iconType: statusIcon(metaCoverage.status), type: metaCoverage.status }
+      ];
+
+      const nodeMap = new Map(nodes.map((node) => [node.id, node]));
+      const updateNode = (id, updater) => {
+        const node = nodeMap.get(id);
+        if (!node) return;
+        node.data = updater(node.data);
+      };
+
+      updateNode('flow-datalayer', (data) => ({
+        ...data,
+        status: 'success',
+        statusText: 'HUB',
+        items: [
+          {
+            title: 'Observed Events',
+            rows: [
+              { text: dataTagEventSummary, iconType: statusIcon(dataTagStatus), type: dataTagStatus }
+            ]
+          }
+        ]
+      }));
+
+      updateNode('flow-wgtm', (data) => ({
+        ...data,
+        subtitle: wgtmCurrent.meta && wgtmCurrent.meta.publicId ? wgtmCurrent.meta.publicId : data.subtitle,
+        status: wgtmStatus,
+        statusText: statusLabel(wgtmStatus),
+        items: wgtmInfoItems
+      }));
+
+      updateNode('flow-data-tag', (data) => ({
+        ...data,
+        subtitle: dataTagConfig && dataTagConfig.requestPath ? dataTagConfig.requestPath : data.subtitle,
+        status: dataTagStatus,
+        statusText: statusLabel(dataTagStatus),
+        items: dataTagItems
+      }));
+
+      updateNode('flow-proxy', (data) => ({
+        ...data,
+        subtitle: endpointSubtitle || data.subtitle
+      }));
+
+      updateNode('flow-sgtm', (data) => ({
+        ...data,
+        subtitle: sgtmCurrent.meta && sgtmCurrent.meta.publicId ? sgtmCurrent.meta.publicId : data.subtitle,
+        status: sgtmStatus,
+        statusText: statusLabel(sgtmStatus),
+        items: [{ title: 'Status', rows: sgtmItemsRows }]
+      }));
+
+      updateNode('flow-ga4', (data) => ({
+        ...data,
+        status: ga4Coverage.status,
+        statusText: statusLabel(ga4Coverage.status),
+        items: [{ title: 'Coverage', rows: buildCoverageRows(ga4Coverage) }]
+      }));
+
+      updateNode('flow-gads', (data) => ({
+        ...data,
+        status: gadsCoverage.status,
+        statusText: statusLabel(gadsCoverage.status),
+        items: [{ title: 'Coverage', rows: buildCoverageRows(gadsCoverage) }]
+      }));
+
+      updateNode('flow-meta', (data) => ({
+        ...data,
+        status: metaCoverage.status,
+        statusText: statusLabel(metaCoverage.status),
+        items: [{ title: 'Coverage', rows: buildCoverageRows(metaCoverage) }]
+      }));
+
+      const edgeMap = new Map(edges.map((edge) => [edge.id, edge]));
+      const updateEdge = (id, updater) => {
+        const edge = edgeMap.get(id);
+        if (!edge) return;
+        const next = updater(edge);
+        edge.data = next.data || edge.data;
+        edge.style = next.style || edge.style;
+        edge.animated = next.animated !== undefined ? next.animated : edge.animated;
+      };
+
+      const dataTagEdgeStyle = {
+        stroke: statusColor(dataTagStatus),
+        strokeWidth: 2
+      };
+      if (dataTagStatus !== 'success') {
+        dataTagEdgeStyle.strokeDasharray = '8 4';
+      }
+
+      const googleTagEdgeStyle = {
+        stroke: statusColor(googleTagStatus),
+        strokeWidth: 2
+      };
+      if (googleTagStatus !== 'success') {
+        googleTagEdgeStyle.strokeDasharray = '8 4';
+      }
+
+      updateEdge('flow-e3', (edge) => ({
+        data: {
+          ...edge.data,
+          tooltip: dataTagEventSummary
+        }
+      }));
+
+      updateEdge('flow-e4', (edge) => ({
+        animated: googleTagStatus === 'success',
+        data: {
+          ...edge.data,
+          label: googleTagServerUrl ? 'gtag -> server' : 'gtag',
+          labelColor: statusColor(googleTagStatus),
+          tooltip: googleTagServerUrl
+            ? `server_container_url: ${stripProtocol(googleTagServerUrl)}`
+            : 'server_container_url missing on Google Tag'
+        },
+        style: googleTagEdgeStyle
+      }));
+
+      updateEdge('flow-e5', (edge) => ({
+        animated: dataTagStatus === 'success',
+        data: {
+          ...edge.data,
+          label: dataTagEvents.length ? `Data Tag (${dataTagEvents.length})` : 'Data Tag',
+          labelColor: statusColor(dataTagStatus),
+          tooltip: `${dataTagTriggerSummary}. ${dataTagEventSummary}`,
+          tooltipFix: null
+        },
+        style: dataTagEdgeStyle
+      }));
+
+      updateEdge('flow-e6', (edge) => ({
+        animated: dataTagStatus === 'success',
+        data: {
+          ...edge.data,
+          label: dataTagConfig && dataTagConfig.requestPath ? dataTagConfig.requestPath : '/data',
+          labelColor: statusColor(dataTagStatus),
+          tooltip: endpointUrl ? `Endpoint: ${stripProtocol(endpointUrl)}` : 'No endpoint configured',
+          tooltipFix: null
+        },
+        style: dataTagEdgeStyle
+      }));
+
+      updateEdge('flow-e7', (edge) => ({
+        animated: dataClientExists,
+        data: {
+          ...edge.data,
+          label: dataClientExists ? 'proxy' : 'proxy?',
+          labelColor: dataClientExists ? '#ff9800' : '#f44336',
+          tooltip: dataClientExists ? 'Data Client present in sGTM' : 'Data Client missing in sGTM'
+        },
+        style: { stroke: dataClientExists ? '#ff9800' : '#f44336', strokeWidth: 2 }
+      }));
+
+      updateEdge('flow-e8', (edge) => ({
+        animated: ga4Coverage.status === 'success',
+        data: {
+          ...edge.data,
+          label: ga4Coverage.status === 'success' ? 'server' : 'server (partial)',
+          labelColor: statusColor(ga4Coverage.status),
+          tooltip: ga4Coverage.events.length
+            ? `Events: ${summarizeEvents(ga4Coverage.events)}`
+            : (ga4Coverage.coversAll ? 'All Data Client events' : 'No event triggers detected')
+        },
+        style: { stroke: statusColor(ga4Coverage.status), strokeWidth: 2, strokeDasharray: ga4Coverage.status === 'success' ? undefined : '8 4' }
+      }));
+
+      updateEdge('flow-e9', (edge) => ({
+        animated: gadsCoverage.status === 'success',
+        data: {
+          ...edge.data,
+          label: gadsCoverage.status === 'success' ? 'server' : 'server (partial)',
+          labelColor: statusColor(gadsCoverage.status),
+          tooltip: gadsCoverage.events.length
+            ? `Events: ${summarizeEvents(gadsCoverage.events)}`
+            : (gadsCoverage.coversAll ? 'All Data Client events' : 'No event triggers detected')
+        },
+        style: { stroke: statusColor(gadsCoverage.status), strokeWidth: 2, strokeDasharray: gadsCoverage.status === 'success' ? undefined : '8 4' }
+      }));
+
+      updateEdge('flow-e10', (edge) => ({
+        animated: metaCoverage.status === 'success',
+        data: {
+          ...edge.data,
+          label: metaCoverage.status === 'success' ? 'server' : 'server (partial)',
+          labelColor: statusColor(metaCoverage.status),
+          tooltip: metaCoverage.events.length
+            ? `Events: ${summarizeEvents(metaCoverage.events)}`
+            : (metaCoverage.coversAll ? 'All Data Client events' : 'No event triggers detected')
+        },
+        style: { stroke: statusColor(metaCoverage.status), strokeWidth: 2, strokeDasharray: metaCoverage.status === 'success' ? undefined : '8 4' }
+      }));
+
+      return { nodes, edges };
+    }
+
     // Nodes - Layout designed for clarity with ALL cards expanded
     // Column 1 (x:50): Sources | Column 2 (x:350): DataLayer | Column 3 (x:600): wGTM Hub | Column 4 (x:1050+): Server Path | Row 3 (y:1100): Destinations
     const initialNodes = [
@@ -5040,34 +5565,34 @@
             {
               title: '🔴 SERVER-SIDE TAGS (via /metrics)',
               rows: [
-                { text: 'Google Tag (GT-NS9Z5FWG)', iconType: 'success', type: 'success', badge: '524 msgs', badgeColor: '#4caf50' },
-                { text: '→ /metrics → sGTM (working)', iconType: 'success', type: 'success' },
-                { text: 'Data Tag #310 (Stape)', iconType: 'error', type: 'error', badge: 'BROKEN', badgeColor: '#f44336' },
-                { text: '→ /metrics/data → sGTM (purchase only!)', iconType: 'error', type: 'error' }
+                { text: 'Google Tag (GT-NS9Z5FWG)', iconType: 'success', type: 'success' },
+                { text: '-> /metrics -> sGTM', iconType: 'success', type: 'success' },
+                { text: 'Data Tag #310 (Stape) - ce_ecom', iconType: 'success', type: 'success' },
+                { text: '-> /metrics/data -> sGTM (core + ecommerce events)', iconType: 'success', type: 'success' }
               ]
             },
             {
               title: '🟢 CLIENT-SIDE TAGS (direct to platforms)',
               rows: [
-                { text: 'FB - Page View (Pixel)', iconType: 'success', type: 'success', badge: '13x', badgeColor: '#607d8b' },
-                { text: 'MS UET base + events', iconType: 'success', type: 'success', badge: '22x', badgeColor: '#607d8b' },
-                { text: 'LinkedIn Insight', iconType: 'success', type: 'success', badge: '12x', badgeColor: '#607d8b' },
-                { text: 'Google Ads (calls)', iconType: 'success', type: 'success', badge: '26x', badgeColor: '#607d8b' },
-                { text: 'Conversion Linker', iconType: 'success', type: 'success', badge: '13x', badgeColor: '#607d8b' }
+                { text: 'FB - Page View (Pixel)', iconType: 'success', type: 'success' },
+                { text: 'MS UET base + events', iconType: 'success', type: 'success' },
+                { text: 'LinkedIn Insight', iconType: 'success', type: 'success' },
+                { text: 'Google Ads (calls)', iconType: 'success', type: 'success' },
+                { text: 'Conversion Linker', iconType: 'success', type: 'success' }
               ]
             }
           ],
           triggersOpen: true,
           triggers: [
             {
-              name: 'ce_purchase (Trigger #96) - CURRENT',
-              status: 'error',
-              regex: 'Data Tag uses this → purchase ONLY'
-            },
-            {
-              name: 'Ecom Core Events (Trigger #313) - USE THIS',
+              name: 'ce_ecom (Trigger #307) - CURRENT',
               status: 'success',
               regex: 'page_view|view_item|add_to_cart|begin_checkout|purchase|...'
+            },
+            {
+              name: 'Trigger - Ecom Core Events (Trigger #313)',
+              status: 'success',
+              regex: 'Same event set as ce_ecom'
             }
           ],
           variables: [
@@ -5080,25 +5605,25 @@
             { name: 'dlv - user_id', warning: true }
           ],
           action: {
-            critical: true,
-            text: 'Change trigger 96 → 313 on Data Tag'
+            critical: false,
+            text: 'Validate Data Tag payloads in preview'
           },
           // Recommendation comparison section
           recommendation: {
             current: {
-              title: 'Current Setup (Broken)',
+              title: 'Current Setup (Configured)',
               items: [
-                '1 Data Tag → purchase only',
-                'Trigger #96 = ce_purchase',
-                '~95% events lost'
+                'Data Tag uses ce_ecom (Trigger #307)',
+                'Server endpoint /metrics/data configured',
+                'Google Tag server_container_url configured'
               ]
             },
             recommended: {
-              title: 'Recommended (Enterprise)',
+              title: 'Quality Checks',
               items: [
-                '4 Data Tags by category',
-                'Core + Ecommerce + Conversion + Engagement',
-                '100% events to sGTM'
+                'Verify user_data values (email/phone)',
+                'Confirm consent gating for ad_storage/ad_user_data',
+                'Expand sGTM coverage if full-funnel events needed'
               ]
             }
           }
@@ -5158,7 +5683,7 @@
                   title: 'Data Tag Config',
                   defaultOpen: false,
                   cards: [
-                    { title: 'wGTM Data Tag #310', badge: 'ISSUE', badgeColor: '#f44336', rows: [{ key: 'Trigger', value: '96 (purchase only)', status: 'error' }, { key: 'Should be', value: '313 (all events)', status: 'success' }] },
+                    { title: 'wGTM Data Tag #310', badge: 'OK', badgeColor: '#4caf50', rows: [{ key: 'Trigger', value: '307 (ce_ecom)', status: 'success' }, { key: 'Endpoint', value: '/metrics/data', status: 'success' }] },
                     { title: 'sGTM Data Client', rows: [{ key: 'Status', value: 'Ready', status: 'success' }, { key: 'Receives', value: 'Events from Data Tag' }] }
                   ]
                 },
@@ -5196,16 +5721,16 @@
             {
               title: 'CLIENTS (Ingestion Points)',
               rows: [
-                { text: 'Data Client #18 → /data', iconType: 'success', type: 'success', badge: 'P:102', badgeColor: '#2196f3' },
-                { text: 'GTM Web Container #69', iconType: 'success', type: 'success', badge: 'default', badgeColor: '#607d8b' }
+                { text: 'Data Client #18 → /data', iconType: 'success', type: 'success' },
+                { text: 'GTM Web Container #69', iconType: 'success', type: 'success' }
               ]
             },
             {
-              title: 'Data Flow Issue',
+              title: 'Data Flow Status',
               rows: [
-                { text: 'Data Client: purchase only (trigger 96)', iconType: 'error', type: 'error' },
-                { text: 'GTM Web: gtag events (524 msgs)', iconType: 'success', type: 'success' },
-                { text: 'sGTM Tag Assistant: 0 messages!', iconType: 'error', type: 'error' }
+                { text: 'Data Client: /data from wGTM Data Tag', iconType: 'success', type: 'success' },
+                { text: 'GTM Web: /metrics from Google Tag', iconType: 'success', type: 'success' },
+                { text: 'Validate server hits in sGTM preview', iconType: 'warning', type: 'warning' }
               ]
             }
           ],
@@ -5237,10 +5762,10 @@
                   ]
                 },
                 {
-                  title: 'LinkedIn CAPI Tag',
+                  title: 'LinkedIn CAPI (Not Configured)',
                   defaultOpen: false,
                   cards: [
-                    { title: 'Configuration', rows: [{ key: 'Partner ID', value: '4898740' }] }
+                    { title: 'Configuration', rows: [{ key: 'Status', value: 'Not configured', status: 'warning' }] }
                   ]
                 }
               ]
@@ -5261,23 +5786,23 @@
           ],
           action: {
             critical: false,
-            text: 'No changes needed (fix wGTM first)'
+            text: 'Review Ads/CAPI server coverage'
           },
           recommendation: {
             current: {
-              title: 'Current Issue',
+              title: 'Current Coverage',
               items: [
-                'Data Client receives purchase only',
-                '0 events in sGTM Tag Assistant',
-                'Platform tags starving for data'
+                'Data Client receives ecom/core events',
+                'GA4 server tag fires on t_ecomCore',
+                'Ads/CAPI tags fire on conversions subset'
               ]
             },
             recommended: {
-              title: 'After wGTM Fix',
+              title: 'Optional Enhancements',
               items: [
-                'All events flow to Data Client',
-                'All sGTM tags fire correctly',
-                'Full funnel attribution'
+                'Add more server triggers if full-funnel needed',
+                'Validate user_data match rates',
+                'Monitor event_id deduplication'
               ]
             }
           }
@@ -5294,18 +5819,17 @@
           icon: '📊',
           nodeType: 'ga4',
           useLogo: true,
-          status: 'warning',
-          statusText: 'PARTIAL',
+          status: 'success',
+          statusText: 'OK',
           items: [
-            { title: 'Client-Side (Working)', rows: [
-              { text: 'All ecom events via gTag', iconType: 'success', type: 'success' }
+            { title: 'Client-Side (Configured)', rows: [
+              { text: 'Google Tag (gtag) configured', iconType: 'success', type: 'success' }
             ]},
-            { title: 'Server-Side (Partial)', rows: [
-              { text: 'purchase only', iconType: 'warning', type: 'warning' }
+            { title: 'Server-Side (Configured)', rows: [
+              { text: 'GA4 server tag fires on ecom core events', iconType: 'success', type: 'success' }
             ]},
-            { title: 'Missing Server Events', rows: [
-              { text: 'view_item, add_to_cart', iconType: 'error', type: 'error' },
-              { text: 'begin_checkout, view_cart', iconType: 'error', type: 'error' }
+            { title: 'Verification', rows: [
+              { text: 'Check DebugView / sGTM preview', iconType: 'warning', type: 'warning' }
             ]}
           ],
           triggers: [
@@ -5317,7 +5841,7 @@
           ],
           action: {
             critical: false,
-            text: 'Will auto-fix when wGTM trigger updated'
+            text: 'Validate GA4 server hits in preview'
           }
         }
       },
@@ -5334,15 +5858,16 @@
           status: 'warning',
           statusText: 'PARTIAL',
           items: [
-            { title: 'Client-Side (Working)', rows: [
+            { title: 'Client-Side (Configured)', rows: [
               { text: 'Conversions via gTag', iconType: 'success', type: 'success' },
               { text: 'Call tracking enabled', iconType: 'success', type: 'success' }
             ]},
             { title: 'Server-Side (Partial)', rows: [
-              { text: 'Purchase conversion only', iconType: 'warning', type: 'warning' }
+              { text: 'Conversions: add_to_cart, begin_checkout, generate_lead, purchase', iconType: 'warning', type: 'warning' },
+              { text: 'Remarketing via Data Client', iconType: 'success', type: 'success' }
             ]},
-            { title: 'Missing Micro-Conversions', rows: [
-              { text: 'Add to cart, view item', iconType: 'error', type: 'error' }
+            { title: 'Missing Server Events', rows: [
+              { text: 'page_view, view_item, view_item_list, view_cart', iconType: 'warning', type: 'warning' }
             ]}
           ],
           triggers: [
@@ -5354,7 +5879,7 @@
           ],
           action: {
             critical: false,
-            text: 'Auto-fixes when wGTM updated'
+            text: 'Add more server events if needed'
           }
         }
       },
@@ -5372,14 +5897,13 @@
           statusText: 'PARTIAL',
           items: [
             { title: 'FB Pixel (Client)', rows: [
-              { text: 'All events via Pixel template', iconType: 'success', type: 'success' }
+              { text: 'Client pixel configured', iconType: 'success', type: 'success' }
             ]},
             { title: 'CAPI (Server)', rows: [
-              { text: 'Purchase only', iconType: 'warning', type: 'warning' }
+              { text: 'ViewContent, AddToCart, BeginCheckout, Purchase', iconType: 'warning', type: 'warning' }
             ]},
             { title: 'Missing CAPI Events', rows: [
-              { text: 'ViewContent, AddToCart', iconType: 'error', type: 'error' },
-              { text: 'InitiateCheckout', iconType: 'error', type: 'error' }
+              { text: 'page_view, view_cart, search, sign_up', iconType: 'warning', type: 'warning' }
             ]}
           ],
           variables: [
@@ -5390,7 +5914,7 @@
           ],
           action: {
             critical: false,
-            text: 'CAPI auto-fixes when wGTM updated'
+            text: 'Expand CAPI events if needed'
           }
         }
       },
@@ -5411,10 +5935,10 @@
               { text: 'Page views tracked', iconType: 'success', type: 'success' }
             ]},
             { title: 'CAPI (Server)', rows: [
-              { text: 'Purchase conversion only', iconType: 'warning', type: 'warning' }
+              { text: 'Not configured in sGTM', iconType: 'warning', type: 'warning' }
             ]},
-            { title: 'Missing CAPI Events', rows: [
-              { text: 'Page views, Add to cart', iconType: 'error', type: 'error' }
+            { title: 'Optional', rows: [
+              { text: 'Add LinkedIn CAPI if needed', iconType: 'gray' }
             ]}
           ],
           triggers: [
@@ -5426,7 +5950,7 @@
           ],
           action: {
             critical: false,
-            text: 'CAPI auto-fixes when wGTM updated'
+            text: 'Add LinkedIn CAPI tag if needed'
           }
         }
       },
@@ -5539,7 +6063,7 @@
           label: 'gTag (CS)',
           labelColor: '#4caf50',
           tooltipTitle: 'Google Tag → GA4 (Client-Side)',
-          tooltip: 'Google Tag (GT-NS9Z5FWG) sends events directly to GA4. Configured with server_container_url for hybrid routing. All ecommerce events flow through this tag. 524 messages observed.',
+          tooltip: 'Google Tag (GT-NS9Z5FWG) sends events to GA4 and is configured with server_container_url for hybrid routing.',
           tooltipFix: null
         },
         style: { stroke: '#4caf50', strokeWidth: 2 }
@@ -5556,7 +6080,7 @@
           label: 'CS',
           labelColor: '#4caf50',
           tooltipTitle: 'Google Ads Tags (Client-Side)',
-          tooltip: 'Two call tracking tags: google_ads_calls and google_ads_800calls. Both fire on All Pages (13x each). Conversion ID: AW-767740215. Labels: ZLAFCNKDkusY, WrSjCJnAiesY.',
+          tooltip: 'Two call tracking tags: google_ads_calls and google_ads_800calls. Conversion ID: AW-767740215. Labels: ZLAFCNKDkusYELeSi-4C, WrSjCJnAiesYELeSi-4C.',
           tooltipFix: null
         },
         style: { stroke: '#4caf50', strokeWidth: 2 }
@@ -5573,7 +6097,7 @@
           label: 'Pixel (CS)',
           labelColor: '#4caf50',
           tooltipTitle: 'FB Pixel (Client-Side)',
-          tooltip: 'FB - Page View tag fires on All Pages (13x). Pixel ID: 3695834564032094. Sends PageView and ecommerce events directly to Facebook. Works alongside server-side CAPI for deduplication.',
+          tooltip: 'FB - Page View tag configured. Pixel ID: 3695834564032094.',
           tooltipFix: null
         },
         style: { stroke: '#4caf50', strokeWidth: 2 }
@@ -5590,7 +6114,7 @@
           label: 'Insight (CS)',
           labelColor: '#4caf50',
           tooltipTitle: 'LinkedIn Insight Tag (Client-Side)',
-          tooltip: 'LinkedIn Insight tag fires on All Pages (12x). Partner ID: 4898740. Tracks page views for LinkedIn audience building and conversion attribution.',
+          tooltip: 'LinkedIn Insight tag configured. Partner ID: 4898740.',
           tooltipFix: null
         },
         style: { stroke: '#4caf50', strokeWidth: 2 }
@@ -5607,13 +6131,13 @@
           label: 'UET (CS)',
           labelColor: '#4caf50',
           tooltipTitle: 'Microsoft UET Tags (Client-Side)',
-          tooltip: 'Multiple UET tags: ms_uet_base (13x), ms_uet_view_item (5x), ms_uet_add_to_cart (2x), ms_uet_checkout (2x). UET Tag ID: 343101821. Enhanced conversions enabled with email/phone hashing.',
+          tooltip: 'Multiple UET tags: ms_uet_base, ms_uet_view_item, ms_uet_add_to_cart, ms_uet_checkout. UET Tag ID: 343101821. Enhanced conversions enabled with email/phone hashing.',
           tooltipFix: null
         },
         style: { stroke: '#4caf50', strokeWidth: 2 }
       },
 
-      // SERVER-SIDE PATH 1: Google Tag (gtag) → /metrics → sGTM - WORKING
+      // SERVER-SIDE PATH 1: Google Tag (gtag) -> /metrics -> sGTM - CONFIGURED
       {
         id: 'e8a',
         source: 'wgtm',
@@ -5625,13 +6149,13 @@
         data: {
           label: 'gtag /metrics ✓',
           labelColor: '#4caf50',
-          tooltipTitle: 'Google Tag Server Routing (Working)',
-          tooltip: 'Google Tag (GT-NS9Z5FWG) routes via server_container_url: https://messerattach.com/metrics. 524 messages sent successfully. This path IS working correctly.',
+          tooltipTitle: 'Google Tag Server Routing',
+          tooltip: 'Google Tag (GT-NS9Z5FWG) routes via server_container_url: https://messerattach.com/metrics. Verify requests in sGTM preview.',
           tooltipFix: null
         },
         style: { stroke: '#4caf50', strokeWidth: 2 }
       },
-      // SERVER-SIDE PATH 2: Data Tag → /metrics/data → sGTM - BROKEN
+      // SERVER-SIDE PATH 2: Data Tag -> /metrics/data -> sGTM - CONFIGURED
       {
         id: 'e8b',
         source: 'wgtm',
@@ -5639,14 +6163,15 @@
         sourceHandle: 'right',
         targetHandle: 'left',
         type: 'tooltip',
+        animated: true,
         data: {
-          label: 'Data Tag ⚠️',
-          labelColor: '#f44336',
-          tooltipTitle: 'Data Tag #310 Trigger Issue',
-          tooltip: 'The Stape Data Tag uses trigger 96 (ce_purchase) which only fires on purchase events. Events like view_item, add_to_cart, begin_checkout, and view_cart are NOT being sent to sGTM via /metrics/data.',
-          tooltipFix: 'Change Data Tag trigger from 96 (ce_purchase) to 313 (Trigger - Ecom Core Events) to send ALL ecommerce events.'
+          label: 'Data Tag OK',
+          labelColor: '#4caf50',
+          tooltipTitle: 'Data Tag #310 (Configured)',
+          tooltip: 'Data Tag uses trigger ce_ecom (ID 307) and sends core + ecommerce events to /metrics/data.',
+          tooltipFix: 'Verify payloads in preview.'
         },
-        style: { stroke: '#f44336', strokeWidth: 2, strokeDasharray: '8 4' }
+        style: { stroke: '#4caf50', strokeWidth: 2 }
       },
       // CF Worker → Stape.io (proxy passes requests to Stape endpoint)
       {
@@ -5661,7 +6186,7 @@
           label: '/data + /metrics',
           labelColor: '#ff9800',
           tooltipTitle: 'CF Worker → Stape.io',
-          tooltip: 'Cloudflare Worker rewrites /metrics/* → /* and forwards to sgtm.messerattach.com. Two paths: /data (Data Tag - purchase only) and / (gtag - all events). Worker verified working correctly.',
+          tooltip: 'Cloudflare Worker rewrites /metrics/* -> /* and forwards to sgtm.messerattach.com. Two paths: /data (Data Tag - core + ecommerce events) and / (gtag - consented events). Worker verified working correctly.',
           tooltipFix: null
         },
         style: { stroke: '#ff9800', strokeWidth: 2 }
@@ -5695,12 +6220,12 @@
         type: 'tooltip',
         data: {
           label: 'SS',
-          labelColor: '#ff9800',
-          tooltipTitle: 'GA4 Server-Side (Partial)',
-          tooltip: 'GA4 receives server-side purchase events only. Missing: view_item, add_to_cart, begin_checkout, view_cart.',
-          tooltipFix: 'Fix wGTM Data Tag trigger to enable full server-side tracking.'
+          labelColor: '#4caf50',
+          tooltipTitle: 'GA4 Server-Side (Configured)',
+          tooltip: 'GA4 server tag fires on core ecommerce events (t_ecomCore).',
+          tooltipFix: 'Verify in DebugView / sGTM preview.'
         },
-        style: { stroke: '#ff9800', strokeWidth: 2, strokeDasharray: '8 4' }
+        style: { stroke: '#4caf50', strokeWidth: 2 }
       },
       {
         id: 'e11',
@@ -5713,8 +6238,8 @@
           label: 'SS',
           labelColor: '#ff9800',
           tooltipTitle: 'Google Ads Server-Side (Partial)',
-          tooltip: 'Google Ads receives server-side purchase conversions only. Missing micro-conversions.',
-          tooltipFix: 'Enable all events to improve conversion tracking.'
+          tooltip: 'Google Ads server tags fire on add_to_cart, begin_checkout, generate_lead, purchase. Remarketing uses Data Client.',
+          tooltipFix: 'Add more server-side events if needed.'
         },
         style: { stroke: '#ff9800', strokeWidth: 2, strokeDasharray: '8 4' }
       },
@@ -5729,8 +6254,8 @@
           label: 'CAPI',
           labelColor: '#ff9800',
           tooltipTitle: 'Meta CAPI (Partial)',
-          tooltip: 'Meta CAPI only receives purchase. Missing ViewContent, AddToCart, InitiateCheckout.',
-          tooltipFix: 'Full event flow improves Meta ad delivery and ROAS.'
+          tooltip: 'Meta CAPI fires on view_item, add_to_cart, begin_checkout, purchase.',
+          tooltipFix: 'Add more events if needed.'
         },
         style: { stroke: '#ff9800', strokeWidth: 2, strokeDasharray: '8 4' }
       },
@@ -5742,15 +6267,357 @@
         targetHandle: 'top',
         type: 'tooltip',
         data: {
-          label: 'CAPI',
+          label: 'CAPI (n/a)',
+          labelColor: '#9e9e9e',
+          tooltipTitle: 'LinkedIn CAPI (Not Configured)',
+          tooltip: 'No LinkedIn CAPI tag in sGTM export; client-side Insight only.',
+          tooltipFix: 'Add LinkedIn CAPI if needed.'
+        },
+        style: { stroke: '#9e9e9e', strokeWidth: 2, strokeDasharray: '8 4' }
+      }
+      // Note: No server-side path to MS Ads (no CAPI available)
+    ];
+
+    // DATA FLOW - end-to-end view with error highlights
+    const dataFlowNodes = [
+      {
+        id: 'flow-woo',
+        type: 'custom',
+        position: { x: 40, y: 40 },
+        data: {
+          label: 'WooCommerce',
+          subtitle: 'Ecommerce Events',
+          icon: 'W',
+          nodeType: 'woo',
+          useLogo: true,
+          status: 'success',
+          statusText: 'OK',
+          expanded: false
+        }
+      },
+      {
+        id: 'flow-complianz',
+        type: 'custom',
+        position: { x: 40, y: 210 },
+        data: {
+          label: 'Complianz',
+          subtitle: 'Consent Mode v2',
+          icon: 'C',
+          nodeType: 'complianz',
+          useLogo: true,
+          status: 'success',
+          statusText: 'OK',
+          expanded: false
+        }
+      },
+      {
+        id: 'flow-datalayer',
+        type: 'custom',
+        position: { x: 260, y: 120 },
+        data: {
+          label: 'DataLayer',
+          subtitle: 'window.dataLayer[]',
+          icon: '[]',
+          nodeType: 'datalayer',
+          status: 'success',
+          statusText: 'HUB',
+          expanded: false
+        }
+      },
+      {
+        id: 'flow-wgtm',
+        type: 'custom',
+        position: { x: 480, y: 120 },
+        data: {
+          label: 'wGTM',
+          subtitle: 'GTM-MNRP4PF',
+          icon: 'G',
+          nodeType: 'wgtm',
+          useLogo: true,
+          status: 'success',
+          statusText: 'OK',
+          expanded: false,
+          items: [
+            {
+              title: 'Status',
+              rows: [
+                { text: 'Data Tag covers core + ecommerce events', iconType: 'success', type: 'success' },
+                { text: 'Google Tag server_container_url configured', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'flow-data-tag',
+        type: 'custom',
+        position: { x: 480, y: 300 },
+        data: {
+          label: 'Data Tag',
+          subtitle: '/metrics/data',
+          icon: 'DT',
+          nodeType: 'custom',
+          status: 'success',
+          statusText: 'OK',
+          expanded: false,
+          items: [
+            {
+              title: 'Configuration',
+              rows: [
+                { text: 'Trigger: ce_ecom (ID 307)', iconType: 'success', type: 'success' },
+                { text: 'Endpoint: /metrics/data', iconType: 'success', type: 'success' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'flow-proxy',
+        type: 'custom',
+        position: { x: 720, y: 120 },
+        data: {
+          label: 'Endpoint',
+          subtitle: '/metrics/*',
+          icon: 'CF',
+          nodeType: 'proxy',
+          useLogo: true,
+          status: 'success',
+          statusText: 'OK',
+          expanded: false
+        }
+      },
+      {
+        id: 'flow-sgtm',
+        type: 'custom',
+        position: { x: 940, y: 120 },
+        data: {
+          label: 'sGTM',
+          subtitle: 'GTM-K3CQBMZ9',
+          icon: 'S',
+          nodeType: 'sgtm',
+          useLogo: true,
+          status: 'partial',
+          statusText: 'PARTIAL',
+          expanded: false,
+          items: [
+            {
+              title: 'Server Flow',
+              rows: [
+                { text: 'Receives core + ecommerce events', iconType: 'success', type: 'success' },
+                { text: 'Ads/CAPI tags partial coverage', iconType: 'warning', type: 'warning' }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'flow-ga4',
+        type: 'custom',
+        position: { x: 620, y: 480 },
+        data: {
+          label: 'GA4',
+          subtitle: 'Server tag',
+          icon: 'GA',
+          nodeType: 'ga4',
+          useLogo: true,
+          status: 'partial',
+          statusText: 'PARTIAL',
+          expanded: false
+        }
+      },
+      {
+        id: 'flow-gads',
+        type: 'custom',
+        position: { x: 860, y: 480 },
+        data: {
+          label: 'Google Ads',
+          subtitle: 'Server tag',
+          icon: 'AD',
+          nodeType: 'gads',
+          useLogo: true,
+          status: 'partial',
+          statusText: 'PARTIAL',
+          expanded: false
+        }
+      },
+      {
+        id: 'flow-meta',
+        type: 'custom',
+        position: { x: 1100, y: 480 },
+        data: {
+          label: 'Meta CAPI',
+          subtitle: 'Server tag',
+          icon: 'M',
+          nodeType: 'meta',
+          useLogo: true,
+          status: 'partial',
+          statusText: 'PARTIAL',
+          expanded: false
+        }
+      }
+    ];
+
+    const dataFlowEdges = [
+      {
+        id: 'flow-e1',
+        source: 'flow-woo',
+        target: 'flow-datalayer',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        animated: true,
+        data: {
+          label: 'ecommerce.*',
+          labelColor: '#4caf50',
+          tooltipTitle: 'WooCommerce -> DataLayer',
+          tooltip: 'Ecommerce events are pushed into the dataLayer.'
+        },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e2',
+        source: 'flow-complianz',
+        target: 'flow-datalayer',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        animated: true,
+        data: {
+          label: 'consent_update',
+          labelColor: '#00a0d2',
+          tooltipTitle: 'Complianz -> DataLayer',
+          tooltip: 'Consent Mode v2 signals are pushed to the dataLayer.'
+        },
+        style: { stroke: '#00a0d2', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e3',
+        source: 'flow-datalayer',
+        target: 'flow-wgtm',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        animated: true,
+        data: {
+          label: 'GTM reads',
           labelColor: '#ff9800',
-          tooltipTitle: 'LinkedIn CAPI (Partial)',
-          tooltip: 'LinkedIn CAPI only receives purchase conversions. Missing page views.',
-          tooltipFix: 'Enable all events for better attribution.'
+          tooltipTitle: 'DataLayer -> wGTM',
+          tooltip: 'Triggers listen for ecommerce events and consent updates.'
+        },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e4',
+        source: 'flow-wgtm',
+        target: 'flow-proxy',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        animated: true,
+        data: {
+          label: 'gtag /metrics',
+          labelColor: '#4caf50',
+          tooltipTitle: 'Google Tag (working)',
+          tooltip: 'gtag routes through /metrics and reaches sGTM.'
+        },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e5',
+        source: 'flow-wgtm',
+        target: 'flow-data-tag',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: {
+          label: 'Data Tag',
+          labelColor: '#4caf50',
+          tooltipTitle: 'Data Tag (Configured)',
+          tooltip: 'Data Tag uses ce_ecom (ID 307) for core + ecommerce events.',
+          tooltipFix: 'Verify payloads in preview.'
+        },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e6',
+        source: 'flow-data-tag',
+        target: 'flow-proxy',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        data: {
+          label: '/metrics/data',
+          labelColor: '#4caf50',
+          tooltipTitle: 'Data Tag -> Endpoint',
+          tooltip: 'Core + ecommerce events reach /metrics/data.',
+          tooltipFix: 'Verify in preview.'
+        },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e7',
+        source: 'flow-proxy',
+        target: 'flow-sgtm',
+        sourceHandle: 'right',
+        targetHandle: 'left',
+        type: 'tooltip',
+        animated: true,
+        data: {
+          label: 'proxy',
+          labelColor: '#ff9800',
+          tooltipTitle: 'Endpoint -> sGTM',
+          tooltip: 'Proxy forwards /metrics hits to sGTM.'
+        },
+        style: { stroke: '#ff9800', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e8',
+        source: 'flow-sgtm',
+        target: 'flow-ga4',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: {
+          label: 'server',
+          labelColor: '#4caf50',
+          tooltipTitle: 'GA4 Server Tag',
+          tooltip: 'GA4 server tag fires on core ecommerce events.',
+          tooltipFix: 'Verify in DebugView / sGTM preview.'
+        },
+        style: { stroke: '#4caf50', strokeWidth: 2 }
+      },
+      {
+        id: 'flow-e9',
+        source: 'flow-sgtm',
+        target: 'flow-gads',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: {
+          label: 'server (partial)',
+          labelColor: '#ff9800',
+          tooltipTitle: 'Google Ads Server Tag',
+          tooltip: 'Conversions: add_to_cart, begin_checkout, generate_lead, purchase.',
+          tooltipFix: 'Add more server-side events if needed.'
+        },
+        style: { stroke: '#ff9800', strokeWidth: 2, strokeDasharray: '8 4' }
+      },
+      {
+        id: 'flow-e10',
+        source: 'flow-sgtm',
+        target: 'flow-meta',
+        sourceHandle: 'bottom',
+        targetHandle: 'top',
+        type: 'tooltip',
+        data: {
+          label: 'server (partial)',
+          labelColor: '#ff9800',
+          tooltipTitle: 'Meta CAPI',
+          tooltip: 'CAPI fires on view_item, add_to_cart, begin_checkout, purchase.',
+          tooltipFix: 'Add more events if needed.'
         },
         style: { stroke: '#ff9800', strokeWidth: 2, strokeDasharray: '8 4' }
       }
-      // Note: No server-side path to MS Ads (no CAPI available)
     ];
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -6111,8 +6978,8 @@
           subtitle: 'Built-in + vendor',
           icon: 'T',
           nodeType: 'template',
-          status: 'warning',
-          statusText: 'MIXED',
+          status: 'success',
+          statusText: 'OK',
           expanded: true,
           items: [
             {
@@ -6120,7 +6987,7 @@
               rows: [
                 { text: 'Google Tag (gtag)', iconType: 'success', type: 'success' },
                 { text: 'Conversion Linker', iconType: 'success', type: 'success' },
-                { text: 'Data Tag (Stape) - purchase only', iconType: 'warning', type: 'warning' }
+                { text: 'Data Tag (Stape) - ce_ecom trigger', iconType: 'success', type: 'success' }
               ]
             },
             {
@@ -6198,15 +7065,15 @@
           subtitle: 'Custom event rules',
           icon: 'C',
           nodeType: 'custom',
-          status: 'warning',
-          statusText: 'MISWIRED',
+          status: 'success',
+          statusText: 'OK',
           expanded: true,
           items: [
             {
               title: 'Ecommerce Events',
               rows: [
                 { text: 'Trigger - Ecom Core Events (ID 313)', iconType: 'success', type: 'success' },
-                { text: 'ce_purchase (ID 96) - in use', iconType: 'error', type: 'error' },
+                { text: 'ce_ecom (ID 307) - in use', iconType: 'success', type: 'success' },
                 { text: 'ce_view_item (ID 92)', iconType: 'success', type: 'success' },
                 { text: 'ce_add_to_cart (ID 93)', iconType: 'success', type: 'success' }
               ]
@@ -6319,12 +7186,12 @@
         targetHandle: 'left',
         type: 'tooltip',
         data: {
-          label: 'Data Tag -> ce_purchase',
-          labelColor: '#f44336',
-          tooltipTitle: 'Miswired Trigger',
-          tooltip: 'Data Tag fires on ce_purchase only, dropping other ecommerce events.'
+          label: 'Data Tag -> ce_ecom',
+          labelColor: '#4caf50',
+          tooltipTitle: 'Data Tag Trigger',
+          tooltip: 'Data Tag fires on ce_ecom (core + ecommerce events).'
         },
-        style: { stroke: '#f44336', strokeWidth: 2, strokeDasharray: '6 4' }
+        style: { stroke: '#4caf50', strokeWidth: 2 }
       },
       {
         id: 'ttv-c-e5',
@@ -6624,6 +7491,7 @@
           if (e.key === '4') setDiagramMode('ttv');
           if (e.key === '5') setDiagramMode('inventory');
           if (e.key === '6') setDiagramMode('data-tag');
+          if (e.key === '7') setDiagramMode('data-flow');
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
@@ -6667,7 +7535,7 @@
             <span className="toolbar-hint">Fit View</span>
           </button>
           <div className="toolbar-divider"></div>
-          {diagramMode !== 'inventory' && diagramMode !== 'data-tag' && (
+          {diagramMode !== 'inventory' && diagramMode !== 'data-tag' && diagramMode !== 'data-flow' && (
             <>
               <button
                 className={`toolbar-btn ${viewMode === 'current' ? 'active' : ''}`}
@@ -6698,6 +7566,15 @@
           >
             <span style={{ color: diagramMode === 'system' ? '#fff' : '#64b5f6' }}>F</span>
             <span className="toolbar-hint">System Flow <kbd>3</kbd></span>
+          </button>
+          <button
+            className={`toolbar-btn ${diagramMode === 'data-flow' ? 'active' : ''}`}
+            onClick={() => setDiagramMode('data-flow')}
+            title="Data Flow + Errors"
+            style={{ fontSize: '10px', fontWeight: '700', background: diagramMode === 'data-flow' ? '#f59e0b' : 'transparent' }}
+          >
+            <span style={{ color: diagramMode === 'data-flow' ? '#111' : '#f59e0b' }}>E</span>
+            <span className="toolbar-hint">Data Flow + Errors <kbd>7</kbd></span>
           </button>
           <button
             className={`toolbar-btn ${diagramMode === 'ttv' ? 'active' : ''}`}
@@ -6732,7 +7609,7 @@
 
     function Flow() {
       const [viewMode, setViewMode] = useState('current'); // 'current' or 'target'
-      const [diagramMode, setDiagramMode] = useState('system'); // 'system', 'ttv', 'inventory', or 'data-tag'
+      const [diagramMode, setDiagramMode] = useState('data-flow'); // 'data-flow', 'system', 'ttv', 'inventory', or 'data-tag'
       const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
       const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
       const [showMinimap, setShowMinimap] = useState(false);
@@ -6788,7 +7665,28 @@
         let nextNodes = initialNodes;
         let nextEdges = initialEdges;
 
-        if (diagramMode === 'inventory') {
+        if (diagramMode === 'data-flow') {
+          if (!inventoryData) {
+            nextNodes = [
+              {
+                id: 'dataflow-loading',
+                type: 'inventory',
+                position: { x: 200, y: 200 },
+                data: {
+                  variant: 'section',
+                  title: inventoryError ? 'Data Flow Load Failed' : 'Loading Data Flow',
+                  subtitle: inventoryError || 'Fetching wGTM + sGTM exports...'
+                },
+                style: { width: 360, height: 60 }
+              }
+            ];
+            nextEdges = [];
+          } else {
+            const layout = buildDataFlowLayout(inventoryData);
+            nextNodes = layout.nodes;
+            nextEdges = layout.edges;
+          }
+        } else if (diagramMode === 'inventory') {
           if (!inventoryData) {
             nextNodes = [
               {
@@ -6872,13 +7770,18 @@
         if (diagramMode === 'data-tag') {
           return 'Data Tag Detail - Current vs Target';
         }
+        if (diagramMode === 'data-flow') {
+          return 'Data Flow + Errors';
+        }
         return viewMode === 'current' ? '⚠️ Current State (Issues)' : '✅ Target State (Fixed)';
       }, [diagramMode, viewMode]);
       const viewIndicatorClass = diagramMode === 'inventory'
         ? 'inventory'
         : diagramMode === 'data-tag'
           ? 'data-tag'
-          : viewMode;
+          : diagramMode === 'data-flow'
+            ? 'data-flow'
+            : viewMode;
 
       useEffect(() => {
         const handleKeyDown = (e) => {
@@ -7011,7 +7914,11 @@
             <Controls />
             {showMinimap && (
               <MiniMap
-                nodeColor={(n) => n.data?.status === 'error' ? '#f44336' : '#4caf50'}
+                nodeColor={(n) => {
+                  if (n.data?.status === 'error') return '#f44336';
+                  if (n.data?.status === 'partial' || n.data?.status === 'warning') return '#ff9800';
+                  return '#4caf50';
+                }}
                 maskColor="rgba(0,0,0,0.8)"
               />
             )}

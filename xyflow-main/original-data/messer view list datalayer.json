@@ -1,0 +1,133 @@
+[
+  {
+    "0": "set",
+    "1": "developer_id.dYzg1YT",
+    "2": true
+  },
+  {
+    "gtm.start": 1768493182965,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 14
+  },
+  {
+    "gtm.start": 1768493183216,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 91
+  },
+  {
+    "gtm.start": 1768493183218,
+    "event": "gtm.js",
+    "gtm.uniqueEventId": 102
+  },
+  {
+    "event": "user_init",
+    "user_id": "guest_e3383f7a-456b-44ed-ac86-ef57c3ea8cc2",
+    "gtm.uniqueEventId": 113
+  },
+  {
+    "ecommerce": null
+  },
+  {
+    "event": "view_item_list",
+    "ecomm_pagetype": "category",
+    "ecommerce": {
+      "currency": "USD",
+      "items": [
+        {
+          "item_name": "Test2addon",
+          "item_brand": "Messer Attachments",
+          "item_id": "16030",
+          "item_sku": "originalTest-max",
+          "price": "0.30",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2025/04/1b49c1152156093.6318d407bfc3d.png",
+          "item_category": "Attachments",
+          "item_list_id": 26,
+          "item_list_name": "Freestall Groomers",
+          "quantity": 1,
+          "index": 1
+        },
+        {
+          "item_name": "Replacement Pair of Flat Face Couplers",
+          "item_brand": "Messer Attachments",
+          "item_id": "1903",
+          "item_sku": "FF COUPLER",
+          "price": "100.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/flat-face-coupler-white.-scaled-655x457_test.jpg",
+          "item_category": "Attachments",
+          "item_list_id": 26,
+          "item_list_name": "Freestall Groomers",
+          "quantity": 1,
+          "index": 2
+        },
+        {
+          "item_name": "Freestall Groomer",
+          "item_brand": "Messer Attachments",
+          "item_id": "1065",
+          "item_sku": "FSG",
+          "price": "3095.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/FREESTALL-GROOMER-attachments.jpg",
+          "item_category": "Attachments",
+          "item_list_id": 26,
+          "item_list_name": "Freestall Groomers",
+          "quantity": 1,
+          "index": 3
+        },
+        {
+          "item_name": "Freestall Groomer 3 Point",
+          "item_brand": "Messer Attachments",
+          "item_id": "1082",
+          "item_sku": "FSG3PT",
+          "price": "3135.00",
+          "imageUrl": "https://messerattach.com/wp-content/uploads/2019/11/messer-attachments-freestallgroomer-3point.jpg",
+          "item_category": "Attachments",
+          "item_list_id": 26,
+          "item_list_name": "Freestall Groomers",
+          "quantity": 1,
+          "index": 4
+        }
+      ]
+    },
+    "user_data": [],
+    "gtm.uniqueEventId": 135
+  },
+  {
+    "event": "gtm.dom",
+    "gtm.uniqueEventId": 148
+  },
+  {
+    "event": "gtm.load",
+    "gtm.uniqueEventId": 160
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 25,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 172
+  },
+  {
+    "event": "gtm.scrollDepth",
+    "gtm.scrollThreshold": 50,
+    "gtm.scrollUnits": "percent",
+    "gtm.scrollDirection": "vertical",
+    "gtm.triggers": "134846891_205",
+    "gtm.uniqueEventId": 184
+  },
+  {
+    "event": "cmplz_event_statistics",
+    "gtm.uniqueEventId": 201
+  },
+  {
+    "event": "cmplz_event_marketing",
+    "gtm.uniqueEventId": 213
+  },
+  {
+    "event": "cmplz_event_preferences",
+    "gtm.uniqueEventId": 225
+  },
+  {
+    "event": "cmplz_event_functional",
+    "gtm.uniqueEventId": 237
+  }
+]
