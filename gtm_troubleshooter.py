@@ -12,7 +12,9 @@ import csv
 import os
 import sys
 import re
+import traceback
 from pathlib import Path
+from fnmatch import fnmatch
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime
 from collections import defaultdict
@@ -692,7 +694,6 @@ class GTMTroubleshooter:
         if not self.data_dir.exists():
             return None
         
-        from fnmatch import fnmatch
         for file_path in self.data_dir.iterdir():
             if fnmatch(file_path.name.lower(), pattern.lower()):
                 if exclude_pattern and exclude_pattern.lower() in file_path.name.lower():
@@ -1018,26 +1019,40 @@ class GTMTroubleshooter:
         return None
     
     def _verify_network_request(self, golden_test: Dict) -> Optional[Dict]:
-        """Verify network request exists for Golden Test"""
-        # This is a simplified check - in real implementation would parse HAR or Tag Assistant network data
-        # For now, we assume if event exists in Tag Assistant, network request was made
+        """Verify network request exists for Golden Test
+        
+        NOTE: This is a simplified implementation that infers network activity
+        from Tag Assistant presence. For production use, implement HAR file parsing
+        or direct network log analysis for true network proof.
+        """
+        # In a real implementation, would parse HAR file or network logs here
+        # Current implementation: infer from Tag Assistant presence as placeholder
         if golden_test.get("source", "").startswith("tag_assistant"):
             return {
-                "url": "INFERRED from Tag Assistant presence",
+                "url": "INFERRED from Tag Assistant presence (HAR parsing not implemented)",
                 "method": "POST",
-                "status": "200 (inferred)"
+                "status": "200 (inferred)",
+                "note": "This is an inference, not direct evidence. Implement HAR parsing for true network proof."
             }
         return None
     
     def _extract_browser_path(self) -> Optional[Dict]:
-        """Extract browser-facing path from runtime evidence"""
+        """Extract browser-facing path from runtime evidence
+        
+        NOTE: This is a simplified implementation that infers the path.
+        For production use, implement actual network request parsing.
+        """
+        # In a real implementation, would parse actual network requests from HAR or Tag Assistant
         # Look for Stape Data Tag or /metrics in Tag Assistant
         if self.tag_assistant_web:
-            # Simplified - would need to parse actual network requests
-            return {
-                "path": "/metrics",
-                "evidence": "Tag Assistant web (inferred from Stape Data Tag presence)"
-            }
+            # Check if Stape Data Tag endpoint is configured
+            stape_endpoint = self.findings.get("inventory", {}).get("stape_data_tag", {}).get("endpoint", "")
+            if "/metrics" in stape_endpoint:
+                return {
+                    "path": "/metrics",
+                    "evidence": f"Inferred from Stape Data Tag endpoint config: {stape_endpoint} (actual network request parsing not implemented)",
+                    "note": "This is CONFIG evidence, not RUNTIME. Implement network request parsing for true runtime proof."
+                }
         return None
     
     def _extract_worker_logic(self) -> Optional[Dict]:
@@ -1260,9 +1275,18 @@ def main():
     
     args = parser.parse_args()
     
-    # Redirect output if specified
+    # Handle output redirection
+    original_stdout = None
+    output_file = None
+    
     if args.output:
-        sys.stdout = open(args.output, 'w')
+        original_stdout = sys.stdout
+        try:
+            output_file = open(args.output, 'w')
+            sys.stdout = output_file
+        except IOError as e:
+            print(f"Error opening output file: {e}", file=sys.stderr)
+            sys.exit(1)
     
     try:
         troubleshooter = GTMTroubleshooter(data_dir=args.data_dir)
@@ -1273,8 +1297,11 @@ def main():
         traceback.print_exc()
         sys.exit(1)
     finally:
-        if args.output:
-            sys.stdout.close()
+        # Restore stdout and close file if redirected
+        if original_stdout is not None:
+            sys.stdout = original_stdout
+            if output_file is not None:
+                output_file.close()
 
 
 if __name__ == "__main__":
