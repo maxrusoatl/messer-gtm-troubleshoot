@@ -465,41 +465,83 @@ class GTMTroubleshooter:
             self.findings["gates"]["gate3"] = gate_result
             return
         
-        # Look for inbound hit in sGTM Tag Assistant
+        # Check if sGTM Tag Assistant has ANY messages at all
+        sgtm_message_count = 0
         if self.tag_assistant_server:
-            inbound_hit = self._find_sgtm_inbound(golden_test)
-            if inbound_hit:
-                gate_result["inbound_hit"] = inbound_hit
-                gate_result["claiming_client"] = inbound_hit.get("client")
-                gate_result["key_fields"] = inbound_hit.get("fields", {})
-                gate_result["status"] = "VERIFIED"
-                
-                print(f"✓ VERIFIED: sGTM received event")
-                print(f"  Claiming client: {inbound_hit.get('client', 'UNKNOWN')}")
-                print(f"  Event name: {inbound_hit.get('fields', {}).get('event_name', 'N/A')}")
-                print(f"  Event ID: {inbound_hit.get('fields', {}).get('event_id', 'N/A')}")
-                print(f"  Transaction ID: {inbound_hit.get('fields', {}).get('transaction_id', 'N/A')}")
-                print(f"  User ID: {inbound_hit.get('fields', {}).get('user_id', 'N/A')}")
-                print(f"  Consent signals: {inbound_hit.get('fields', {}).get('consent', 'N/A')}")
-            else:
-                gate_result["status"] = "FAILED"
-                print("❌ FAILED: sGTM Tag Assistant has no matching inbound event")
-                self._add_missing_evidence(
-                    "sGTM inbound event for Golden Test",
-                    "Tag Assistant sGTM export is empty or does not contain matching event",
-                    "Tag Assistant sGTM export with events, or Stape logs showing inbound hit",
-                    "Run Tag Assistant in sGTM preview mode during test session",
-                    "sGTM Tag Assistant JSON with messages array containing inbound event data"
-                )
-        else:
-            gate_result["status"] = "UNKNOWN"
-            print("⚠️  UNKNOWN: No sGTM Tag Assistant data available")
+            if isinstance(self.tag_assistant_server, dict):
+                if "data" in self.tag_assistant_server and isinstance(self.tag_assistant_server["data"], dict):
+                    containers = self.tag_assistant_server["data"].get("containers", [])
+                    for container in containers:
+                        if "messages" in container:
+                            sgtm_message_count += len(container["messages"])
+        
+        if sgtm_message_count == 0:
+            gate_result["status"] = "FAILED"
+            print("❌ FAILED: sGTM Tag Assistant is empty (0 messages)")
+            print("   This indicates either:")
+            print("   1. sGTM server is not receiving requests from browser/worker")
+            print("   2. Tag Assistant was not connected to sGTM during test")
+            print("   3. sGTM preview mode was not active")
+            
+            # Add root cause
+            self._add_root_cause(
+                symptom="sGTM Tag Assistant has zero messages - no events reaching sGTM",
+                gate="Gate 3 (sGTM Inbound)",
+                mechanism="Despite wGTM sending to /metrics and worker configuration appearing correct, "
+                          "sGTM is not recording any inbound requests in Tag Assistant",
+                impact="Cannot verify if events reach sGTM; cannot validate data contract; "
+                       "complete tracking pipeline breakdown",
+                evidence=[{
+                    "sgtm_message_count": sgtm_message_count,
+                    "wgtm_message_count": len(self.findings.get("source_index", [])),
+                    "stape_data_tag_endpoint": self.findings["inventory"].get("stape_data_tag", {}).get("endpoint"),
+                    "worker_configured": self.worker_code is not None
+                }]
+            )
+            
             self._add_missing_evidence(
-                "sGTM Tag Assistant export",
-                "File not found in original-data/",
-                "Tag Assistant sGTM export JSON",
-                "Use Tag Assistant with sGTM container in preview mode",
-                "JSON export from Tag Assistant showing sGTM server-side events"
+                "sGTM inbound events",
+                "Tag Assistant sGTM export is completely empty - no messages recorded",
+                "Tag Assistant sGTM export with events showing inbound requests, OR Stape server logs showing hits",
+                "1. Enable sGTM Preview Mode in GTM\n"
+                "   2. Connect Tag Assistant to sGTM container\n"
+                "   3. Perform test transaction\n"
+                "   4. Export Tag Assistant recording\n"
+                "   OR\n"
+                "   1. Check Stape logs dashboard for incoming requests\n"
+                "   2. Verify Cloudflare Worker logs show forwarding to sGTM origin",
+                "sGTM Tag Assistant JSON with messages array containing inbound event data, "
+                "OR Stape logs showing POST requests to /data endpoint"
+            )
+            
+            self.findings["gates"]["gate3"] = gate_result
+            return
+        
+        # Look for inbound hit in sGTM Tag Assistant
+        inbound_hit = self._find_sgtm_inbound(golden_test)
+        if inbound_hit:
+            gate_result["inbound_hit"] = inbound_hit
+            gate_result["claiming_client"] = inbound_hit.get("client")
+            gate_result["key_fields"] = inbound_hit.get("fields", {})
+            gate_result["status"] = "VERIFIED"
+            
+            print(f"✓ VERIFIED: sGTM received event")
+            print(f"  Claiming client: {inbound_hit.get('client', 'UNKNOWN')}")
+            print(f"  Event name: {inbound_hit.get('fields', {}).get('event_name', 'N/A')}")
+            print(f"  Event ID: {inbound_hit.get('fields', {}).get('event_id', 'N/A')}")
+            print(f"  Transaction ID: {inbound_hit.get('fields', {}).get('transaction_id', 'N/A')}")
+            print(f"  User ID: {inbound_hit.get('fields', {}).get('user_id', 'N/A')}")
+            print(f"  Consent signals: {inbound_hit.get('fields', {}).get('consent', 'N/A')}")
+        else:
+            gate_result["status"] = "FAILED"
+            print(f"❌ FAILED: sGTM Tag Assistant has messages ({sgtm_message_count}) but no matching Golden Test event")
+            print(f"   Golden Test event: {golden_test['event_name']}")
+            self._add_missing_evidence(
+                "sGTM inbound event matching Golden Test",
+                f"sGTM Tag Assistant has {sgtm_message_count} messages but none match the Golden Test event {golden_test['event_name']}",
+                "sGTM Tag Assistant export with the specific test event, or explanation of which events are present",
+                "Re-run test ensuring sGTM preview mode is active during the specific test event",
+                f"sGTM Tag Assistant JSON with messages containing event_name={golden_test['event_name']}"
             )
         
         self.findings["gates"]["gate3"] = gate_result
@@ -1148,17 +1190,55 @@ class GTMTroubleshooter:
     
     def _generate_action_card(self, root_cause: Dict) -> Dict:
         """Generate actionable fix card from root cause"""
-        # Simplified action card generation
-        return {
-            "problem": root_cause["symptom"],
-            "evidence": root_cause.get("mechanism", ""),
-            "location": root_cause.get("gate", ""),
-            "ui_path": "UNKNOWN - Manual inspection required",
-            "fields": "UNKNOWN",
-            "new_values": "UNKNOWN",
-            "validation": "Re-run troubleshooter and verify gate passes",
-            "rollback": "Revert to previous container version"
-        }
+        problem = root_cause["symptom"]
+        gate = root_cause.get("gate", "")
+        
+        # Generate specific action card based on the gate that failed
+        if "Gate 3" in gate and "zero messages" in problem.lower():
+            return {
+                "problem": problem,
+                "evidence": root_cause.get("mechanism", ""),
+                "location": "Network/Infrastructure layer",
+                "ui_path": "Cloudflare Dashboard → Workers → messerattach.com route",
+                "fields": "Worker route pattern, Worker script, DNS settings",
+                "new_values": "VERIFICATION NEEDED:\n"
+                             "1. Confirm Worker route is active: /metrics*\n"
+                             "2. Verify Worker script forwards requests\n"
+                             "3. Check sGTM origin DNS: sgtm.messerattach.com → Stape\n"
+                             "4. Verify Stape container is running",
+                "validation": "1. Check Cloudflare Worker logs for /metrics requests\n"
+                            "2. Check Stape logs for incoming requests\n"
+                            "3. Re-run troubleshooter with sGTM Tag Assistant in preview mode\n"
+                            "4. Verify Gate 3 shows messages > 0",
+                "rollback": "N/A - This is a diagnostic/verification action"
+            }
+        elif "Gate 2" in gate and "mismatch" in problem.lower():
+            return {
+                "problem": problem,
+                "evidence": root_cause.get("mechanism", ""),
+                "location": "wGTM Tag/Data Tag OR sGTM Client/Data Client",
+                "ui_path": "GTM Web Container → Tags → Data Tag → Settings OR\n"
+                          "GTM Server Container → Clients → Data Client → Settings",
+                "fields": "Data Tag: request_path parameter\n"
+                         "Data Client: claim path configuration",
+                "new_values": "Ensure both use the same path (recommended: /data)",
+                "validation": "1. Re-export both GTM containers\n"
+                            "2. Re-run troubleshooter\n"
+                            "3. Verify Gate 2 shows MATCH verdict",
+                "rollback": "Revert to previous container versions"
+            }
+        else:
+            # Generic action card
+            return {
+                "problem": problem,
+                "evidence": root_cause.get("mechanism", ""),
+                "location": gate,
+                "ui_path": "UNKNOWN - Manual inspection required",
+                "fields": "UNKNOWN",
+                "new_values": "UNKNOWN - Requires subject matter expert review",
+                "validation": "Re-run troubleshooter and verify gate passes",
+                "rollback": "Revert to previous container version"
+            }
 
 
 def main():
